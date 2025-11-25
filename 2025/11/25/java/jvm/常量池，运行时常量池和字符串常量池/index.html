@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一、常量池（Constant Pool）——静态的“字典”📍位置：每个 .class 文件里📍作用：保存编译时就确定的各种“常量信息” 比如你写了： 12345public class Hello &#123;    public static void main(String[] args) &#123;        System.out.println(&quot;hello world">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刘翰霖">
+<meta property="og:url" content="http://example.com/2025/11/25/java/jvm/%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="一、常量池（Constant Pool）——静态的“字典”📍位置：每个 .class 文件里📍作用：保存编译时就确定的各种“常量信息” 比如你写了： 12345public class Hello &#123;    public static void main(String[] args) &#123;        System.out.println(&quot;hello world">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T12:31:42.981Z">
+<meta property="article:modified_time" content="2025-11-25T12:27:21.419Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/java/jvm/%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/java/jvm/%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0/","path":"2025/11/25/java/jvm/常量池，运行时常量池和字符串常量池/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88Constant-Pool%EF%BC%89%E2%80%94%E2%80%94%E9%9D%99%E6%80%81%E7%9A%84%E2%80%9C%E5%AD%97%E5%85%B8%E2%80%9D"><span class="nav-number">1.</span> <span class="nav-text">一、常量池（Constant Pool）——静态的“字典”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88Runtime-Constant-Pool%EF%BC%89%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E9%87%8C%E7%9A%84%E5%89%AF%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">二、运行时常量池（Runtime Constant Pool）——内存里的副本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8%E5%92%8C%E5%92%8C%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">符号引用和和直接引用的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A7%89%E7%90%86%E8%A7%A3%EF%BC%9A%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8-%E2%89%A0-%E7%9C%9F%E5%AE%9E%E5%9C%B0%E5%9D%80"><span class="nav-number">3.1.</span> <span class="nav-text">直觉理解：符号引用 ≠ 真实地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8%E5%88%B0%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8%E7%9A%84%E8%BD%AC%E5%8F%98%EF%BC%88%E8%A7%A3%E6%9E%90%E9%98%B6%E6%AE%B5%E5%8F%91%E7%94%9F%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">符号引用到直接引用的转变（解析阶段发生）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%A6%E5%8F%B7%E5%BC%95%E7%94%A8%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="nav-number">3.3.</span> <span class="nav-text">符号引用都有哪些？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-number">3.4.</span> <span class="nav-text">用一句话总结：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%88String-Constant-Pool%EF%BC%89%E2%80%94%E2%80%94%E4%B8%93%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BC%98%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">三、字符串常量池（String Constant Pool）——专为字符串优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%89%E8%80%85%E5%85%B3%E7%B3%BB%E5%9B%BE%EF%BC%88%E9%87%8D%E7%82%B9%E8%AE%B0%E5%BF%86%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">四、三者关系图（重点记忆）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93%E8%A1%A8"><span class="nav-number">6.</span> <span class="nav-text">五、总结表</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/java/jvm/%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-25 20:31:42 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:42+08:00">2025-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="一、常量池（Constant-Pool）——静态的“字典”"><a href="#一、常量池（Constant-Pool）——静态的“字典”" class="headerlink" title="一、常量池（Constant Pool）——静态的“字典”"></a>一、常量池（Constant Pool）——静态的“字典”</h2><p>📍位置：每个 <code>.class</code> 文件里<br>📍作用：保存<strong>编译时</strong>就确定的各种“常量信息”</p>
+<p>比如你写了：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Hello &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.println(&quot;hello world&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在编译成 <code>.class</code> 文件时，编译器会把这几个东西放进常量池：</p>
+<ul>
+<li><code>&quot;hello world&quot;</code> 这个字符串字面量</li>
+<li><code>System.out</code> 这个字段的引用</li>
+<li><code>println()</code> 这个方法的符号引用</li>
+<li>类名 <code>Hello</code>、<code>java/lang/Object</code>、<code>java/lang/System</code> 等</li>
+</ul>
+<p>这些统统放进 <code>.class</code> 文件的 <strong>常量池表</strong>。</p>
+<p>🧠 你可以把它想成一本“查字典”，记录了：</p>
+<p>类中所有可能用到的常量、类名、方法名、字段名、描述符等。</p>
+<p>它还不是内存里的对象，只是静态的数据表。</p>
+<hr>
+<h2 id="二、运行时常量池（Runtime-Constant-Pool）——内存里的副本"><a href="#二、运行时常量池（Runtime-Constant-Pool）——内存里的副本" class="headerlink" title="二、运行时常量池（Runtime Constant Pool）——内存里的副本"></a>二、运行时常量池（Runtime Constant Pool）——内存里的副本</h2><p>📍位置：在 <strong>方法区（method area）</strong> 中<br>📍作用：把 <code>.class</code> 文件里的常量池加载进内存，并把“符号引用”变成“真实引用”。</p>
+<p>当 JVM 运行你的程序时，会把 <code>.class</code> 文件中的常量池<strong>加载进内存</strong>，<br>并创建一个“运行时常量池”，比如：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>常量池中是什么</th>
+<th>运行时常量池变成什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&quot;hello world&quot;</code></td>
+<td>字面量符号</td>
+<td>堆中字符串对象的引用</td>
+</tr>
+<tr>
+<td><code>System.out</code></td>
+<td>字段符号引用</td>
+<td>指向真实的静态字段</td>
+</tr>
+<tr>
+<td><code>println()</code></td>
+<td>方法符号引用</td>
+<td>指向真实方法地址</td>
+</tr>
+</tbody></table>
+<p>✅ 也就是说：</p>
+<p>“常量池”只是 <code>.class</code> 文件的原始数据，<br>“运行时常量池”才是 JVM 真正在运行时使用的东西。</p>
+<h2 id="符号引用和和直接引用的区别"><a href="#符号引用和和直接引用的区别" class="headerlink" title="符号引用和和直接引用的区别"></a>符号引用和和直接引用的区别</h2><h3 id="直觉理解：符号引用-≠-真实地址"><a href="#直觉理解：符号引用-≠-真实地址" class="headerlink" title="直觉理解：符号引用 ≠ 真实地址"></a>直觉理解：符号引用 ≠ 真实地址</h3><p>我们先打个比方👇</p>
+<p>假设你在 <code>.class</code> 文件里写了这行代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;hello&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>这行代码在 <code>.class</code> 文件的常量池里，会记录为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Methodref #4.#5  // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br></pre></td></tr></table></figure>
+
+<p>这里的：</p>
+<ul>
+<li><code>&quot;java/io/PrintStream&quot;</code> 是一个字符串</li>
+<li><code>&quot;println&quot;</code> 也是字符串</li>
+<li><code>&quot;(Ljava/lang/String;)V&quot;</code> 是方法描述符（代表“参数是 String，返回值是 void”）</li>
+</ul>
+<p>这些东西——<strong>都不是内存地址</strong>，只是名字、路径、描述。<br>它们告诉 JVM：“我要调用一个叫 <code>java/io/PrintStream.println</code> 的方法”。</p>
+<p>这就叫：</p>
+<p><strong>符号引用（Symbolic Reference）</strong><br>是一种用<strong>字符串、名字或符号</strong>表示类、字段、方法的“引用”，<br>而不是内存中的真实地址。</p>
+<h3 id="符号引用到直接引用的转变（解析阶段发生）"><a href="#符号引用到直接引用的转变（解析阶段发生）" class="headerlink" title="符号引用到直接引用的转变（解析阶段发生）"></a>符号引用到直接引用的转变（解析阶段发生）</h3><p>当类被加载到内存后，JVM 会在“解析阶段”把这些符号引用变成真正的“内存地址”，也就是：</p>
+<p><strong>直接引用（Direct Reference）</strong></p>
+<p>举个例子👇</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>引用类型</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.class</code><br/> 文件</td>
+<td>符号引用</td>
+<td><code>&quot;java/io/PrintStream.println:(Ljava/lang/String;)V&quot;</code></td>
+</tr>
+<tr>
+<td>运行时内存</td>
+<td>直接引用</td>
+<td>指向真正的 <code>println()</code><br/> 方法在内存中的地址</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="符号引用都有哪些？"><a href="#符号引用都有哪些？" class="headerlink" title="符号引用都有哪些？"></a>符号引用都有哪些？</h3><p>JVM 规范规定，符号引用主要有三类：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>举例</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类或接口的符号引用</td>
+<td><code>&quot;java/lang/String&quot;</code></td>
+<td>告诉 JVM 我依赖哪个类</td>
+</tr>
+<tr>
+<td>字段的符号引用</td>
+<td><code>&quot;System.out:Ljava/io/PrintStream;&quot;</code></td>
+<td>告诉 JVM 需要访问哪个字段</td>
+</tr>
+<tr>
+<td>方法的符号引用</td>
+<td><code>&quot;println:(Ljava/lang/String;)V&quot;</code></td>
+<td>告诉 JVM 需要调用哪个方法</td>
+</tr>
+</tbody></table>
+<p>这些在 <code>.class</code> 文件的常量池里都有编号，比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#4 = Methodref #10.#20 // java/io/PrintStream.println:(Ljava/lang/String;)V</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="用一句话总结："><a href="#用一句话总结：" class="headerlink" title="用一句话总结："></a>用一句话总结：</h3><p><strong>符号引用</strong>：类文件中的“名字引用”，编译期生成，用来描述依赖关系。<br><strong>直接引用</strong>：运行期真正的内存地址或偏移量，用来让 JVM 真正访问对象、字段或方法。</p>
+<h2 id="三、字符串常量池（String-Constant-Pool）——专为字符串优化"><a href="#三、字符串常量池（String-Constant-Pool）——专为字符串优化" class="headerlink" title="三、字符串常量池（String Constant Pool）——专为字符串优化"></a>三、字符串常量池（String Constant Pool）——专为字符串优化</h2><p>位置：堆<br>作用：存放程序中出现的所有字符串字面量（”abc”、”user” 等），<strong>避免重复创建字符串对象</strong></p>
+<p>举个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = &quot;hello&quot;;</span><br><span class="line">String s2 = &quot;hello&quot;;</span><br><span class="line">System.out.println(s1 == s2); // true</span><br></pre></td></tr></table></figure>
+
+<p>为什么 <code>true</code>？<br>因为 <code>&quot;hello&quot;</code> 这个字符串在字符串常量池中只会有一个对象。</p>
+<ul>
+<li>第一次遇到 <code>&quot;hello&quot;</code> → 放入字符串常量池（堆中）</li>
+<li>第二次再遇到 <code>&quot;hello&quot;</code> → JVM 检查池里已经有了，直接复用引用</li>
+</ul>
+<p>🧠 注意：</p>
+<p>运行时常量池里存的是字符串对象的“引用”，<br>真正的字符串对象存在 <strong>字符串常量池（堆中）</strong>。</p>
+<hr>
+<h2 id="四、三者关系图（重点记忆）"><a href="#四、三者关系图（重点记忆）" class="headerlink" title="四、三者关系图（重点记忆）"></a>四、三者关系图（重点记忆）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────────────────────┐</span><br><span class="line">│ .class 文件                  │</span><br><span class="line">│  └─ 常量池（符号引用）       │</span><br><span class="line">└──────────────────────────────┘</span><br><span class="line">              ↓  加载</span><br><span class="line">┌──────────────────────────────┐</span><br><span class="line">│ 方法区 (JDK7以前是永久代)     │</span><br><span class="line">│  └─ 运行时常量池（引用表）    │</span><br><span class="line">└──────────────────────────────┘</span><br><span class="line">              ↓  引用指向</span><br><span class="line">┌──────────────────────────────┐</span><br><span class="line">│ 堆内存                        │</span><br><span class="line">│  └─ 字符串常量池（StringTable）│</span><br><span class="line">│       存真正的 String 对象     │</span><br><span class="line">└──────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、总结表"><a href="#五、总结表" class="headerlink" title="五、总结表"></a>五、总结表</h2><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>阶段</th>
+<th>位置</th>
+<th>内容</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>常量池</td>
+<td>编译时</td>
+<td><code>.class</code><br/> 文件</td>
+<td>符号引用</td>
+<td><code>&quot;hello&quot;</code><br/>, 方法名等</td>
+</tr>
+<tr>
+<td>运行时常量池</td>
+<td>运行时</td>
+<td>方法区</td>
+<td>已解析的引用</td>
+<td>指向堆对象的指针</td>
+</tr>
+<tr>
+<td>字符串常量池</td>
+<td>运行时</td>
+<td>堆中</td>
+<td>字符串对象</td>
+<td><code>&quot;hello&quot;</code><br/> 对象本身</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/java/jvm/%E5%A0%86/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/java/jvm/%E6%97%A0%E6%A0%87%E9%A2%98%E6%96%87%E6%A1%A3/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

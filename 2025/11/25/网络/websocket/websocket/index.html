@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="WebSocket 是一种基于 TCP 的全双工通信协议，允许客户端和服务器之间建立持续连接，双方都可以随时主动发送数据。    通信模式 特点 类比    单工通信 只能单向传输，A → B，B 不能回传 广播、电视   半双工通信 双方都能传输，但不能同时进行 对讲机（你说完我再说）   全双工通信 双方可以同时发送与接收数据 电话、WebSocket、TCP   为什么要有websocket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刘翰霖">
+<meta property="og:url" content="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/websocket/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="WebSocket 是一种基于 TCP 的全双工通信协议，允许客户端和服务器之间建立持续连接，双方都可以随时主动发送数据。    通信模式 特点 类比    单工通信 只能单向传输，A → B，B 不能回传 广播、电视   半双工通信 双方都能传输，但不能同时进行 对讲机（你说完我再说）   全双工通信 双方可以同时发送与接收数据 电话、WebSocket、TCP   为什么要有websocket">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761183691824-17b6d7d1-cbe1-433f-9435-3e09b07f3176.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761183733215-5035dbe3-8f6f-4177-9d33-011c9ea38f54.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761205571637-e52f3b3a-b0b0-4d6c-935d-ec9cef5e9557.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761205578634-d54fee65-954e-4651-bf54-b74972a8d224.png">
+<meta property="article:published_time" content="2025-11-25T12:31:43.416Z">
+<meta property="article:modified_time" content="2025-11-25T12:27:21.549Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761183691824-17b6d7d1-cbe1-433f-9435-3e09b07f3176.png">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/websocket/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/websocket/","path":"2025/11/25/网络/websocket/websocket/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89websocket"><span class="nav-number">1.</span> <span class="nav-text">为什么要有websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#http%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">http的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">1.2.</span> <span class="nav-text">websocket的优势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Websocket%E6%98%AF%E5%9F%BA%E4%BA%8EHttp-%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">Websocket是基于Http 协议的么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%A1%E6%89%8B%E9%98%B6%E6%AE%B5%EF%BC%88%E5%9F%BA%E4%BA%8EHTTP%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">握手阶段（基于HTTP协议）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%F0%9F%91%87"><span class="nav-number">2.2.</span> <span class="nav-text">举个例子👇</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E9%98%B6%E6%AE%B5%EF%BC%88%E8%84%B1%E7%A6%BBHTTP%EF%BC%8C%E4%BD%BF%E7%94%A8WebSocket-%E5%8D%8F%E8%AE%AE%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">通信阶段（脱离HTTP，使用WebSocket 协议）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WebSocket-%E6%95%B0%E6%8D%AE%E5%B8%A7%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.1.</span> <span class="nav-text">WebSocket 数据帧的基本结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E7%BD%91%E7%BB%9C%E5%B1%82%E8%A7%92%E5%BA%A6%E7%9C%8B"><span class="nav-number">2.4.</span> <span class="nav-text">从网络层角度看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%80%BB%E7%BB%93"><span class="nav-number">2.5.</span> <span class="nav-text">一句话总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6"><span class="nav-number">3.</span> <span class="nav-text">通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%B8%A7"><span class="nav-number">3.1.</span> <span class="nav-text">数据帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF"><span class="nav-number">3.2.</span> <span class="nav-text">消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%83%E8%B7%B3%E6%9C%BA%E5%88%B6"><span class="nav-number">3.3.</span> <span class="nav-text">心跳机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.4.</span> <span class="nav-text">关闭连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%96%AD%E5%BC%80"><span class="nav-number">3.5.</span> <span class="nav-text">异常断开</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/websocket/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><strong>WebSocket</strong> 是一种基于 <strong>TCP</strong> 的<strong>全双工通信协议</strong>，允许客户端和服务器之间建立<strong>持续连接</strong>，双方都可以随时主动发送数据。</p>
+<table>
+<thead>
+<tr>
+<th>通信模式</th>
+<th>特点</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>单工通信</strong></td>
+<td>只能单向传输，A → B，B 不能回传</td>
+<td>广播、电视</td>
+</tr>
+<tr>
+<td><strong>半双工通信</strong></td>
+<td>双方都能传输，但不能同时进行</td>
+<td>对讲机（你说完我再说）</td>
+</tr>
+<tr>
+<td><strong>全双工通信</strong></td>
+<td>双方可以同时发送与接收数据</td>
+<td>电话、WebSocket、TCP</td>
+</tr>
+</tbody></table>
+<h2 id="为什么要有websocket"><a href="#为什么要有websocket" class="headerlink" title="为什么要有websocket"></a>为什么要有websocket</h2><h3 id="http的局限性"><a href="#http的局限性" class="headerlink" title="http的局限性"></a>http的局限性</h3><ol>
+<li>传统的 HTTP 协议是单向的——浏览器必须先发起请求，服务器才能返回响应。</li>
+<li>若想实现双向通信，只能通过轮询的方式不断请求服务器，这不仅延迟高，还会造成大量资源浪费。</li>
+</ol>
+<p>websocket的优点</p>
+<h3 id="websocket的优势"><a href="#websocket的优势" class="headerlink" title="websocket的优势"></a>websocket的优势</h3><ul>
+<li>WebSocket 允许<strong>客户端与服务器之间建立持久、全双工</strong>的连接。</li>
+<li>一旦连接建立，双方可以随时互发数据，不再需要反复建立连接。</li>
+</ul>
+<h2 id="Websocket是基于Http-协议的么"><a href="#Websocket是基于Http-协议的么" class="headerlink" title="Websocket是基于Http 协议的么"></a>Websocket是基于Http 协议的么</h2><p> ✅ <strong>WebSocket 只在“建立连接”时依赖 HTTP&#x2F;1.1 协议</strong>，<br>🚫 <strong>一旦连接建立成功后，就不再使用 HTTP&#x2F;1.1 协议，而是切换为独立的 WebSocket 协议</strong>。  </p>
+<h3 id="握手阶段（基于HTTP协议）"><a href="#握手阶段（基于HTTP协议）" class="headerlink" title="握手阶段（基于HTTP协议）"></a>握手阶段（基于HTTP协议）</h3><p> 在最初阶段，客户端想与服务器建立 WebSocket 连接时，<br>它必须先发一个 <strong>HTTP&#x2F;1.1 请求</strong> 来请求“协议升级”，称为 <strong>HTTP Upgrade 握手</strong>。  </p>
+<h3 id="举个例子👇"><a href="#举个例子👇" class="headerlink" title="举个例子👇"></a>举个例子👇</h3><p>客户端发送：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761183691824-17b6d7d1-cbe1-433f-9435-3e09b07f3176.png"></p>
+<p>🧠 关键点：</p>
+<ul>
+<li><code>Upgrade: websocket</code> 表示请求升级到 WebSocket 协议。</li>
+<li><code>Connection: Upgrade</code> 表示这个连接要切换协议。</li>
+<li><code>Sec-WebSocket-Key</code> 是一个随机字符串，服务器会根据它计算返回值用于验证。</li>
+</ul>
+<p> 服务器返回：  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761183733215-5035dbe3-8f6f-4177-9d33-011c9ea38f54.png"></p>
+<p>这条 <code>101 Switching Protocols</code> 响应代表：</p>
+<p>🔁 <strong>HTTP 连接已成功升级为 WebSocket 连接</strong></p>
+<h3 id="通信阶段（脱离HTTP，使用WebSocket-协议）"><a href="#通信阶段（脱离HTTP，使用WebSocket-协议）" class="headerlink" title="通信阶段（脱离HTTP，使用WebSocket 协议）"></a>通信阶段（脱离HTTP，使用WebSocket 协议）</h3><p> 握手成功后，这个 TCP 连接<strong>不再使用 HTTP 报文格式</strong>，<br>而是完全切换到 <strong>WebSocket 专属的帧格式</strong>（Frame-based Protocol）。  </p>
+<p>也就是说：</p>
+<ul>
+<li>不再有 HTTP 头；</li>
+<li>不再有请求-响应模式；</li>
+<li>客户端和服务端都能主动发送消息；</li>
+<li>使用二进制帧封装数据（包含 opcode、mask、payload 等字段）。</li>
+</ul>
+<h4 id="WebSocket-数据帧的基本结构"><a href="#WebSocket-数据帧的基本结构" class="headerlink" title="WebSocket 数据帧的基本结构"></a>WebSocket 数据帧的基本结构</h4><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FIN</td>
+<td>是否是最后一帧</td>
+</tr>
+<tr>
+<td>Opcode</td>
+<td>数据类型（文本、二进制、ping、pong）</td>
+</tr>
+<tr>
+<td>Mask</td>
+<td>客户端到服务端数据需掩码</td>
+</tr>
+<tr>
+<td>Payload length</td>
+<td>数据长度</td>
+</tr>
+<tr>
+<td>Payload data</td>
+<td>真实数据</td>
+</tr>
+</tbody></table>
+<h3 id="从网络层角度看"><a href="#从网络层角度看" class="headerlink" title="从网络层角度看"></a>从网络层角度看</h3><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>WebSocket 所处位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>应用层</td>
+<td>WebSocket 协议（建立在 HTTP 之上）</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>TCP（保持长连接）</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>IP</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>以太网、Wi-Fi 等</td>
+</tr>
+</tbody></table>
+<h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>使用的协议</th>
+<th>是否基于 HTTP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>握手阶段</td>
+<td>HTTP (Upgrade)</td>
+<td>✅ 是</td>
+</tr>
+<tr>
+<td>握手成功后</td>
+<td>WebSocket</td>
+<td>❌ 否</td>
+</tr>
+</tbody></table>
+<h2 id="通信机制"><a href="#通信机制" class="headerlink" title="通信机制"></a>通信机制</h2><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>作用</th>
+<th>关键概念</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1️⃣ 数据帧（Frame）</td>
+<td>最小传输单元</td>
+<td>Text Frame &#x2F; Binary Frame &#x2F; Control Frame</td>
+</tr>
+<tr>
+<td>2️⃣ 消息（Message）</td>
+<td>一个完整的逻辑信息（可能由多个帧组成）</td>
+<td>分片（Fragmentation）</td>
+</tr>
+<tr>
+<td>3️⃣ 心跳机制（Ping &#x2F; Pong）</td>
+<td>保持连接活性</td>
+<td>防止空闲连接被中断</td>
+</tr>
+<tr>
+<td>4️⃣ 关闭连接（Close Frame）</td>
+<td>优雅地断开连接</td>
+<td>状态码与关闭原因</td>
+</tr>
+<tr>
+<td>5️⃣ 错误与重连</td>
+<td>保证稳定性</td>
+<td>reconnect 策略</td>
+</tr>
+</tbody></table>
+<h3 id="数据帧"><a href="#数据帧" class="headerlink" title="数据帧"></a>数据帧</h3><p> WebSocket 不像 HTTP 那样传输纯文本，而是<strong>基于“帧”来通信</strong>。一条 WebSocket 消息由一个或多个帧组成，每个帧中包含：  </p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FIN</td>
+<td>是否是最后一帧（1 表示是）</td>
+</tr>
+<tr>
+<td>OPCODE</td>
+<td>表示帧类型（0x1 文本，0x2 二进制，0x8 关闭，0x9 ping，0xA pong）</td>
+</tr>
+<tr>
+<td>MASK</td>
+<td>是否启用掩码（客户端发的都必须加掩码）</td>
+</tr>
+<tr>
+<td>Payload length</td>
+<td>数据长度</td>
+</tr>
+<tr>
+<td>Payload data</td>
+<td>实际数据</td>
+</tr>
+</tbody></table>
+<h3 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h3><p>一条消息（Message）可以拆成多个帧（Frame）发送。<br>这叫 <strong>分片（Fragmentation）</strong>。</p>
+<p>例如：</p>
+<ul>
+<li>发送 10MB 的大文件 → 分为多个帧发送（前几帧 FIN&#x3D;0，最后一帧 FIN&#x3D;1）</li>
+<li>这样做能边传边解析，提高实时性</li>
+</ul>
+<h3 id="心跳机制"><a href="#心跳机制" class="headerlink" title="心跳机制"></a>心跳机制</h3><p> WebSocket 是<strong>长连接</strong>，但中间网络设备可能在长时间无数据时断开连接。为此，协议定义了两个控制帧：  </p>
+<ul>
+<li><code>Ping</code>：由一方发送，用来确认连接是否还活着；</li>
+<li><code>Pong</code>：对方收到后立刻回应。</li>
+</ul>
+<p>👉 常见做法：</p>
+<ul>
+<li>服务端每隔 30 秒发送一次 Ping；</li>
+<li>若 3 次未收到 Pong，就认为连接断开。</li>
+</ul>
+<h3 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h3><p>WebSocket 关闭连接也要遵守协议流程：</p>
+<ol>
+<li>一方发送 <strong>Close 帧（opcode&#x3D;0x8）</strong>；</li>
+<li>另一方收到后也回一个 <strong>Close 帧</strong>；</li>
+<li>双方都关闭 TCP 通道。</li>
+</ol>
+<h3 id="异常断开"><a href="#异常断开" class="headerlink" title="异常断开"></a>异常断开</h3><p> 如果出现异常断开（比如网络掉线），前端通常会：  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761205571637-e52f3b3a-b0b0-4d6c-935d-ec9cef5e9557.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761205578634-d54fee65-954e-4651-bf54-b74972a8d224.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/springboot_websocket/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/ws_Springboot%E5%AE%9E%E6%88%98%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

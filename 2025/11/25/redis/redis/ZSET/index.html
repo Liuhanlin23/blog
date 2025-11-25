@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一.什么是zset Redis 中的 **ZSet（Sorted Set，有序集合） ,它在集合（Set）的基础上，为每个元素关联了一个 score（分数），并且所有元素会根据这个分数自动 从小到大排序。  ** ** 非常适合用来做排行榜、延时队列、优先级任务、推荐系统等场景。  ** 二.zset的常用命令   命令 功能 示例    ZADD key score member [score">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刘翰霖">
+<meta property="og:url" content="http://example.com/2025/11/25/redis/redis/ZSET/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="一.什么是zset Redis 中的 **ZSet（Sorted Set，有序集合） ,它在集合（Set）的基础上，为每个元素关联了一个 score（分数），并且所有元素会根据这个分数自动 从小到大排序。  ** ** 非常适合用来做排行榜、延时队列、优先级任务、推荐系统等场景。  ** 二.zset的常用命令   命令 功能 示例    ZADD key score member [score">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T12:31:43.111Z">
+<meta property="article:modified_time" content="2025-11-25T12:27:21.469Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/redis/redis/ZSET/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/redis/redis/ZSET/","path":"2025/11/25/redis/redis/ZSET/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E4%BB%80%E4%B9%88%E6%98%AFzset"><span class="nav-number">1.</span> <span class="nav-text">一.什么是zset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-zset%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">2.</span> <span class="nav-text">二.zset的常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis-%E4%B8%ADzset%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%B7%B3%E8%A1%A8%E8%80%8C%E4%B8%8D%E6%98%AF%E5%B9%B3%E8%A1%A1%E6%A0%91"><span class="nav-number">2.1.</span> <span class="nav-text">redis 中zset为什么使用跳表而不是平衡树</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/ZSET/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一-什么是zset"><a href="#一-什么是zset" class="headerlink" title="一.什么是zset"></a>一.什么是zset</h1><p> Redis 中的 **ZSet（Sorted Set，有序集合） ,它在集合（Set）的基础上，为每个元素关联了一个 score（分数），并且所有元素会根据这个分数自动 从小到大排序。  **</p>
+<p>** 非常适合用来做排行榜、延时队列、优先级任务、推荐系统等场景。  **</p>
+<h1 id="二-zset的常用命令"><a href="#二-zset的常用命令" class="headerlink" title="二.zset的常用命令"></a>二.zset的常用命令</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ZADD key score member [score member ...]</code></td>
+<td>添加元素及其分数</td>
+<td><code>ZADD rank 100 user1 90 user2</code></td>
+</tr>
+<tr>
+<td><code>ZRANGE key start stop [WITHSCORES]</code></td>
+<td>按排名升序取值</td>
+<td><code>ZRANGE rank 0 2 WITHSCORES</code></td>
+</tr>
+<tr>
+<td><code>ZREVRANGE key start stop [WITHSCORES]</code></td>
+<td>按排名降序取值</td>
+<td><code>ZREVRANGE rank 0 2 WITHSCORES</code></td>
+</tr>
+<tr>
+<td><code>ZSCORE key member</code></td>
+<td>查询指定成员的分数</td>
+<td><code>ZSCORE rank user1</code></td>
+</tr>
+<tr>
+<td><code>ZINCRBY key increment member</code></td>
+<td>增加某个成员的分数</td>
+<td><code>ZINCRBY rank 10 user1</code></td>
+</tr>
+<tr>
+<td><code>ZREM key member [member ...]</code></td>
+<td>删除元素</td>
+<td><code>ZREM rank user2</code></td>
+</tr>
+<tr>
+<td><code>ZCARD key</code></td>
+<td>获取集合中元素个数</td>
+<td><code>ZCARD rank</code></td>
+</tr>
+<tr>
+<td><code>ZRANK key member</code></td>
+<td>获取成员的升序排名</td>
+<td><code>ZRANK rank user1</code></td>
+</tr>
+<tr>
+<td><code>ZREVRANK key member</code></td>
+<td>获取成员的降序排名</td>
+<td><code>ZREVRANK rank user1</code></td>
+</tr>
+<tr>
+<td><code>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]</code></td>
+<td>按分数范围取值</td>
+<td><code>ZRANGEBYSCORE rank 50 100 WITHSCORES</code></td>
+</tr>
+<tr>
+<td><code>ZREMrangeByScore key min max</code></td>
+<td>删除某个分数区间的成员</td>
+<td><code>ZREMRANGEBYSCORE rank 0 50</code></td>
+</tr>
+</tbody></table>
+<p>三.zset的底层数据结构</p>
+<p><strong>ZSet 底层使用跳表（SkipList）实现，而不是平衡树。</strong><br>跳表通过多层索引结构实现平均 O(log n) 的查找效率，与平衡树相同，但结构更简单、插入删除更高效。  </p>
+<h2 id="redis-中zset为什么使用跳表而不是平衡树"><a href="#redis-中zset为什么使用跳表而不是平衡树" class="headerlink" title="redis 中zset为什么使用跳表而不是平衡树"></a>redis 中zset为什么使用跳表而不是平衡树</h2><ol>
+<li>从内存角度看，跳表比平衡树更省空间：跳表节点平均仅需约两个指针（前后），而平衡树节点通常要维护三个指针（左、右、父）  </li>
+<li>跳表底层是<strong>有序链表</strong>，范围查询可从起点一路向后遍历，<br>复杂度 O(log n + k)，实现简单；平衡树则需进行<strong>中序遍历</strong>。</li>
+<li><strong>实现更简单、维护成本低</strong>：跳表更新删除只需要变动指针即可；平衡树必须通过<strong>旋转操作</strong>维持结构平衡，逻辑繁琐、实现复杂。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/redis/redis/ZipList/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/redis/redis/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

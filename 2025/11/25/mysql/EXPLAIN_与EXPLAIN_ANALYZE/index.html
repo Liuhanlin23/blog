@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一.Explain是什么EXPLAIN用来分析MySQL查询语句的执行计划，它不会真正的执行SQL，只会展示执行步骤，包括  表的访问顺序（谁先谁后） 使用的索引 是否全表扫描 每一步大约扫描多少行  二.EXPLAIN输出字段解释   字段 含义 示例 说明    id 查询中每个 SELECT 的执行顺序标识 1, 2 id 越大优先级越高（先执行）   select_type 查询类型 SI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刘翰霖">
+<meta property="og:url" content="http://example.com/2025/11/25/mysql/EXPLAIN_%E4%B8%8EEXPLAIN_ANALYZE/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="一.Explain是什么EXPLAIN用来分析MySQL查询语句的执行计划，它不会真正的执行SQL，只会展示执行步骤，包括  表的访问顺序（谁先谁后） 使用的索引 是否全表扫描 每一步大约扫描多少行  二.EXPLAIN输出字段解释   字段 含义 示例 说明    id 查询中每个 SELECT 的执行顺序标识 1, 2 id 越大优先级越高（先执行）   select_type 查询类型 SI">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T12:31:43.049Z">
+<meta property="article:modified_time" content="2025-11-25T12:27:21.369Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/mysql/EXPLAIN_%E4%B8%8EEXPLAIN_ANALYZE/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/mysql/EXPLAIN_%E4%B8%8EEXPLAIN_ANALYZE/","path":"2025/11/25/mysql/EXPLAIN_与EXPLAIN_ANALYZE/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-Explain%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">一.Explain是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-EXPLAIN%E8%BE%93%E5%87%BA%E5%AD%97%E6%AE%B5%E8%A7%A3%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">二.EXPLAIN输出字段解释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-EXPLAIN%E5%85%B3%E9%94%AE%E5%AD%97%E6%AE%B5"><span class="nav-number">3.</span> <span class="nav-text">三.EXPLAIN关键字段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#id-%E2%80%94%E2%80%94-%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.1.</span> <span class="nav-text">id —— 执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#type-%E2%80%94%E2%80%94-%E8%AE%BF%E9%97%AE%E7%B1%BB%E5%9E%8B%EF%BC%88%E6%9C%80%E9%87%8D%E8%A6%81"><span class="nav-number">3.2.</span> <span class="nav-text">type —— 访问类型（最重要)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#key-%E2%80%94%E2%80%94-%E5%AE%9E%E9%99%85%E4%BD%BF%E7%94%A8%E7%9A%84%E7%B4%A2%E5%BC%95"><span class="nav-number">3.3.</span> <span class="nav-text">key —— 实际使用的索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rows-%E2%80%94%E2%80%94-%E9%A2%84%E8%AE%A1%E6%89%AB%E6%8F%8F%E7%9A%84%E8%A1%8C%E6%95%B0"><span class="nav-number">3.4.</span> <span class="nav-text">rows —— 预计扫描的行数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extra-%E2%80%94%E2%80%94-%E9%99%84%E5%8A%A0%E4%BF%A1%E6%81%AF%EF%BC%88%E9%9A%90%E8%97%8F%E6%80%A7%E8%83%BD%E9%99%B7%E9%98%B1%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">Extra —— 附加信息（隐藏性能陷阱）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Extra%E5%80%BC%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.5.1.</span> <span class="nav-text">常见的Extra值详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extra%E4%B8%AD%E7%9A%84using-where-%E5%90%AB%E4%B9%89"><span class="nav-number">3.5.2.</span> <span class="nav-text">Extra中的using where 含义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-EXPLAIN-ANALYZE%E4%B8%8EEXPLAIN%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">四.EXPLAIN ANALYZE与EXPLAIN区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94-%E6%A0%B9%E6%8D%AEEXPLAIN-ANALYZE%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">五.根据EXPLAIN ANALYZE分析过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E5%A4%B4"><span class="nav-number">5.1.</span> <span class="nav-text">箭头-&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.2.</span> <span class="nav-text">操作类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cost-xxx-rows-xxx"><span class="nav-number">5.3.</span> <span class="nav-text">cost&#x3D;xxx rows&#x3D;xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#actual-time-%E8%B5%B7%E5%A7%8B-%E7%BB%93%E6%9D%9F"><span class="nav-number">5.4.</span> <span class="nav-text">actual time&#x3D;起始..结束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rows-xxx"><span class="nav-number">5.5.</span> <span class="nav-text">rows&#x3D;xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loops-xxx"><span class="nav-number">5.6.</span> <span class="nav-text">loops&#x3D;xxx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E8%AE%AE%E5%85%88%E4%BD%BF%E7%94%A8EXPLAIN%E5%86%8D%E4%BD%BF%E7%94%A8EXPLAIN-ANALYZE"><span class="nav-number">6.</span> <span class="nav-text">六.为什么建议先使用EXPLAIN再使用EXPLAIN ANALYZE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E8%80%85%E5%AE%9A%E4%BD%8D%E4%B8%8D%E5%90%8C"><span class="nav-number">6.1.</span> <span class="nav-text">两者定位不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E2%80%9C%E5%85%88-EXPLAIN-%E5%86%8D-ANALYZE%E2%80%9D"><span class="nav-number">6.2.</span> <span class="nav-text">为什么要“先 EXPLAIN 再 ANALYZE”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPLAIN-%E6%98%AF%E5%AE%89%E5%85%A8%E9%A2%84%E8%A7%88"><span class="nav-number">6.2.1.</span> <span class="nav-text">EXPLAIN 是安全预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPLAIN-ANALYZE-%E5%BC%80%E9%94%80%E6%9B%B4%E5%A4%A7"><span class="nav-number">6.2.2.</span> <span class="nav-text">EXPLAIN ANALYZE 开销更大</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/mysql/EXPLAIN_%E4%B8%8EEXPLAIN_ANALYZE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一-Explain是什么"><a href="#一-Explain是什么" class="headerlink" title="一.Explain是什么"></a>一.Explain是什么</h1><p>EXPLAIN用来分析MySQL查询语句的执行计划，它不会真正的执行SQL，只会展示执行步骤，包括</p>
+<ul>
+<li>表的访问顺序（谁先谁后）</li>
+<li>使用的索引</li>
+<li>是否全表扫描</li>
+<li>每一步大约扫描多少行</li>
+</ul>
+<h1 id="二-EXPLAIN输出字段解释"><a href="#二-EXPLAIN输出字段解释" class="headerlink" title="二.EXPLAIN输出字段解释"></a>二.EXPLAIN输出字段解释</h1><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>id</strong></td>
+<td>查询中每个 <code>SELECT</code><br/> 的执行顺序标识</td>
+<td>1, 2</td>
+<td>id 越大优先级越高（先执行）</td>
+</tr>
+<tr>
+<td><strong>select_type</strong></td>
+<td>查询类型</td>
+<td>SIMPLE, PRIMARY, SUBQUERY</td>
+<td>表示是否是子查询、联合查询等</td>
+</tr>
+<tr>
+<td><strong>table</strong></td>
+<td>当前访问的表名</td>
+<td>user, orders</td>
+<td>MySQL 处理的具体表或临时表</td>
+</tr>
+<tr>
+<td><strong>partitions</strong></td>
+<td>表分区信息</td>
+<td>NULL</td>
+<td>通常不用关注</td>
+</tr>
+<tr>
+<td><strong>type</strong></td>
+<td>连接类型（访问方式）</td>
+<td>index, range, ref, const, ALL</td>
+<td><strong>最关键指标之一</strong>，越靠前性能越好</td>
+</tr>
+<tr>
+<td><strong>possible_keys</strong></td>
+<td>可能用到的索引</td>
+<td>idx_age, idx_name</td>
+<td>优化器考虑过的索引</td>
+</tr>
+<tr>
+<td><strong>key</strong></td>
+<td>实际使用的索引</td>
+<td>idx_age</td>
+<td>如果为 NULL 表示未使用索引</td>
+</tr>
+<tr>
+<td><strong>key_len</strong></td>
+<td>使用索引的字节长度</td>
+<td>5</td>
+<td>越短越精准越好</td>
+</tr>
+<tr>
+<td><strong>ref</strong></td>
+<td>索引匹配的列或常量</td>
+<td>const</td>
+<td>用哪个列与索引匹配</td>
+</tr>
+<tr>
+<td><strong>rows</strong></td>
+<td>预计要扫描的行数</td>
+<td>100</td>
+<td>估算值（越小越好）</td>
+</tr>
+<tr>
+<td><strong>filtered</strong></td>
+<td>条件过滤比例</td>
+<td>10</td>
+<td>百分比，表示过滤后的行比例</td>
+</tr>
+<tr>
+<td><strong>Extra</strong></td>
+<td>额外信息</td>
+<td>Using index, Using where, Using temporary</td>
+<td>最能暴露性能问题的字段</td>
+</tr>
+</tbody></table>
+<h1 id="三-EXPLAIN关键字段"><a href="#三-EXPLAIN关键字段" class="headerlink" title="三.EXPLAIN关键字段"></a>三.EXPLAIN关键字段</h1><h2 id="id-——-执行顺序"><a href="#id-——-执行顺序" class="headerlink" title="id —— 执行顺序"></a><code>id</code> —— 执行顺序</h2><ul>
+<li>表示查询中每个 <code>SELECT</code> 的执行标识。</li>
+<li>数字越大，执行优先级越高。</li>
+</ul>
+<p>例如:EXPLAIN SELECT * FROM user WHERE id IN (SELECT user_id FROM order);</p>
+<br/>
+
+<p>输出中会有两行：</p>
+<ul>
+<li>子查询的 <code>id</code> 更大，说明子查询先执行。</li>
+</ul>
+<h2 id="type-——-访问类型（最重要"><a href="#type-——-访问类型（最重要" class="headerlink" title="type —— 访问类型（最重要)"></a><code>type</code> —— 访问类型（最重要)</h2><p>表示MySQL如何查找表中的行， 这是 SQL 执行性能最直观的指标之一。  性能由好到查排序如下</p>
+<table>
+<thead>
+<tr>
+<th>type 值</th>
+<th>含义</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>system</strong></td>
+<td>只有一行数据的系统表</td>
+<td>特殊情况，极快</td>
+<td><code>SELECT * FROM dual;</code></td>
+</tr>
+<tr>
+<td><strong>const</strong></td>
+<td>通过主键或唯一索引精确匹配</td>
+<td>只返回一行，常量级别</td>
+<td><code>WHERE id = 1</code></td>
+</tr>
+<tr>
+<td><strong>eq_ref</strong></td>
+<td>联表时主键等值匹配</td>
+<td>多表连接中，每次都只匹配一行</td>
+<td><code>user.id = order.user_id</code><br/> 且 user_id 为主键</td>
+</tr>
+<tr>
+<td><strong>ref</strong></td>
+<td>非唯一索引或前缀索引等值匹配</td>
+<td>可能返回多行</td>
+<td><code>WHERE name = &#39;Bob&#39;</code><br/> 且 name 有普通索引</td>
+</tr>
+<tr>
+<td><strong>range</strong></td>
+<td>索引范围扫描</td>
+<td>范围条件查询</td>
+<td><code>WHERE age &gt; 18</code><br/> 或 <code>BETWEEN</code></td>
+</tr>
+<tr>
+<td><strong>index</strong></td>
+<td>全索引扫描</td>
+<td>扫描整个索引树，而非表</td>
+<td>没WHERE但用到索引顺序，如 <code>ORDER BY name</code></td>
+</tr>
+<tr>
+<td><strong>ALL</strong></td>
+<td>全表扫描</td>
+<td>没索引最慢</td>
+<td><code>SELECT * FROM users</code></td>
+</tr>
+</tbody></table>
+<h2 id="key-——-实际使用的索引"><a href="#key-——-实际使用的索引" class="headerlink" title="key —— 实际使用的索引"></a><code>key</code> —— 实际使用的索引</h2><ul>
+<li>显示优化器真正选择的索引。</li>
+<li>若为 <code>NULL</code> → 没有使用索引。</li>
+<li>若不为空 → 表示命中索引。</li>
+</ul>
+<p>对比：</p>
+<p>possible_keys: idx_name, idx_age<br>key: idx_age</p>
+<br/>
+
+<p>  说明优化器考虑了两个索引，但最终选择了 <code>idx_age</code>。  </p>
+<h2 id="rows-——-预计扫描的行数"><a href="#rows-——-预计扫描的行数" class="headerlink" title="rows —— 预计扫描的行数"></a><code>rows</code> —— 预计扫描的行数</h2><ul>
+<li>表示 MySQL 估计要扫描的记录数量。</li>
+<li><strong>越小越好</strong>。</li>
+<li>MySQL 会根据表的统计信息估算。</li>
+</ul>
+<h2 id="Extra-——-附加信息（隐藏性能陷阱）"><a href="#Extra-——-附加信息（隐藏性能陷阱）" class="headerlink" title="Extra —— 附加信息（隐藏性能陷阱）"></a><code>Extra</code> —— 附加信息（隐藏性能陷阱）</h2><p> 它描述了 <strong>MySQL 执行查询时的额外操作</strong>，也就是说：除了索引访问以外，MySQL 在执行过程中还“多做了什么”。 </p>
+<h3 id="常见的Extra值详解"><a href="#常见的Extra值详解" class="headerlink" title="常见的Extra值详解"></a>常见的Extra值详解</h3><table>
+<thead>
+<tr>
+<th>Extra</th>
+<th>含义</th>
+<th>性能影响</th>
+<th>说明&#x2F;场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Using index</strong></td>
+<td>覆盖索引查询</td>
+<td>✅ 优化很好</td>
+<td>数据只从索引中获取，不访问表数据（不回表）</td>
+</tr>
+<tr>
+<td><strong>Using where</strong></td>
+<td>使用 WHERE 条件过滤</td>
+<td>⚠️ 正常</td>
+<td>表示 MySQL 还要额外判断 WHERE 条件</td>
+</tr>
+<tr>
+<td><strong>Using temporary</strong></td>
+<td>用了临时表</td>
+<td>❌ 性能差</td>
+<td>出现在 <code>GROUP BY</code><br/>、<code>DISTINCT</code><br/>、<code>UNION</code></td>
+</tr>
+<tr>
+<td><strong>Using filesort</strong></td>
+<td>用了文件排序</td>
+<td>❌ 性能差</td>
+<td>出现在 <code>ORDER BY</code><br/>，说明没用上索引排序</td>
+</tr>
+<tr>
+<td><strong>Using index condition</strong></td>
+<td>索引条件下推（ICP）</td>
+<td>✅ 优化</td>
+<td>MySQL 5.6+，减少回表次数</td>
+</tr>
+<tr>
+<td><strong>Using join buffer</strong></td>
+<td>联表时用了连接缓冲区</td>
+<td>⚠️ 需优化</td>
+<td>表示没用上索引连接</td>
+</tr>
+<tr>
+<td><strong>Using MRR</strong></td>
+<td>多范围读优化</td>
+<td>✅ 改善随机 I&#x2F;O</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Using where; Using index</strong></td>
+<td>同时过滤+覆盖索引</td>
+<td>✅ 很好</td>
+<td>用索引过滤并避免回表</td>
+</tr>
+<tr>
+<td><strong>NULL</strong></td>
+<td>没有额外操作</td>
+<td>✅ 最理想</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Extra中的using-where-含义"><a href="#Extra中的using-where-含义" class="headerlink" title="Extra中的using where 含义"></a>Extra中的using where 含义</h3><p>extra中using where 并不是说SQL中出现了WHERE语句而是表示MySQL再执行时需要额外过滤</p>
+<p>比如:</p>
+<p>EXPLAIN select * from users where id&#x3D;2</p>
+<br/>
+
+<p>这个sql就不需要执行额外过滤，它检索到id&#x3D;2的数据就好了，所以Extra 就为null</p>
+<p>EXPLAIN select * from users where id&gt;2</p>
+<br/>
+
+<p>这个sql当它检索到第一个id&gt;2的数据后还需要进行额外的过滤继续查找，所以Extra就是using where</p>
+<p>_注意 : 即使 SQL 语句中没有写 <em><code>_WHERE_</code></em>，但如果 MySQL 必须检查行是否满足某个条件（比如 join 条件、HAVING、子查询匹配等），它仍然会显示 <em><code>_Using where_</code></em>。  _</p>
+<h1 id="四-EXPLAIN-ANALYZE与EXPLAIN区别"><a href="#四-EXPLAIN-ANALYZE与EXPLAIN区别" class="headerlink" title="四.EXPLAIN ANALYZE与EXPLAIN区别"></a>四.EXPLAIN ANALYZE与EXPLAIN区别</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>EXPLAIN</th>
+<th>EXPLAIN ANALYZE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>是否执行 SQL</strong></td>
+<td>❌ 不执行，只显示计划</td>
+<td>✅ 真正执行并统计数据</td>
+</tr>
+<tr>
+<td><strong>作用</strong></td>
+<td>预测执行计划（优化器预估）</td>
+<td>实际执行报告（真实耗时与行数）</td>
+</tr>
+<tr>
+<td><strong>输出内容</strong></td>
+<td>访问方式、索引、预估行数等</td>
+<td>每步的实际耗时、扫描行数、回表次数等</td>
+</tr>
+<tr>
+<td><strong>用途</strong></td>
+<td>快速分析索引使用情况</td>
+<td>精准定位性能瓶颈（排序&#x2F;回表&#x2F;连接）</td>
+</tr>
+</tbody></table>
+<p><strong>一句话记忆：</strong></p>
+<p><code>EXPLAIN</code> 看计划，<code>EXPLAIN ANALYZE</code> 看实战。</p>
+<h1 id="五-根据EXPLAIN-ANALYZE分析过程"><a href="#五-根据EXPLAIN-ANALYZE分析过程" class="headerlink" title="五.根据EXPLAIN ANALYZE分析过程"></a>五.根据EXPLAIN ANALYZE分析过程</h1><p>假设执行SQL语句 </p>
+<p>EXPLAIN ANALYZE SELECT * FROM users WHERE age &gt; 18 ORDER BY create_time DESC;</p>
+<p>输出示例</p>
+<p>-&gt; Sort: users.create_time desc  (cost&#x3D;100 rows&#x3D;100) (actual time&#x3D;0.1..2.3 rows&#x3D;95 loops&#x3D;1)</p>
+<pre><code>-&gt; Filter: (users.age &gt; 18)  (cost=80 rows=100) (actual time=0.05..1.9 rows=95 loops=1)
+
+    -&gt; Table scan on users  (cost=40 rows=1000) (actual time=0.03..1.7 rows=950 loops=1)
+</code></pre>
+<br/>
+
+<h2 id="箭头"><a href="#箭头" class="headerlink" title="箭头-&gt;"></a>箭头-&gt;</h2><p>表示<strong>执行顺序</strong>，最下层先执行。</p>
+<ul>
+<li>越靠右的行，执行得越“底层”；</li>
+<li>越靠左的行，执行得越“外层”。</li>
+</ul>
+<h2 id="操作类型"><a href="#操作类型" class="headerlink" title="操作类型"></a>操作类型</h2><p>如：</p>
+<ul>
+<li><code>Table scan</code>：全表扫描</li>
+<li><code>Index range scan</code>：范围索引扫描</li>
+<li><code>Nested loop join</code>：嵌套循环连接</li>
+<li><code>Sort</code> &#x2F; <code>Filter</code>：排序、过滤阶段</li>
+</ul>
+<h2 id="cost-xxx-rows-xxx"><a href="#cost-xxx-rows-xxx" class="headerlink" title="cost&#x3D;xxx rows&#x3D;xxx"></a>cost&#x3D;xxx rows&#x3D;xxx</h2><p>这是<strong>优化器预估值</strong>（plan 阶段产生的预测,预估值可能不准）。</p>
+<ul>
+<li><code>cost</code>：优化器计算的相对代价（非真实时间）</li>
+<li><code>rows</code>：预估扫描的行数</li>
+</ul>
+<p>👉 用于比较预测 vs 实际是否偏差大。、</p>
+<h2 id="actual-time-起始-结束"><a href="#actual-time-起始-结束" class="headerlink" title="actual time&#x3D;起始..结束"></a>actual time&#x3D;起始..结束</h2><p>这是<strong>实测耗时</strong>：</p>
+<ul>
+<li>单位：毫秒</li>
+<li>第一个数是“开始时间”，第二个是“结束时间”<br>→ <code>0.1..2.3</code> 表示从开始到结束共执行 2.2ms</li>
+</ul>
+<h2 id="rows-xxx"><a href="#rows-xxx" class="headerlink" title="rows&#x3D;xxx"></a>rows&#x3D;xxx</h2><p> 这是<strong>真实返回行数</strong>（可能和预估不同）。<br>如果差距太大，说明优化器估算不准，可能索引统计信息老化。  </p>
+<h2 id="loops-xxx"><a href="#loops-xxx" class="headerlink" title="loops&#x3D;xxx"></a>loops&#x3D;xxx</h2><p> 表示该操作执行了多少次。<br>典型在 <code>JOIN</code> 场景下很重要，比如：  </p>
+<p>-&gt; Nested loop inner join  (actual time&#x3D;0.02..5.00 rows&#x3D;100 loops&#x3D;100)</p>
+<p> 说明内层循环被执行了 100 次（可能是性能瓶颈）。  </p>
+<h1 id="六-为什么建议先使用EXPLAIN再使用EXPLAIN-ANALYZE"><a href="#六-为什么建议先使用EXPLAIN再使用EXPLAIN-ANALYZE" class="headerlink" title="六.为什么建议先使用EXPLAIN再使用EXPLAIN ANALYZE"></a>六.为什么建议先使用EXPLAIN再使用EXPLAIN ANALYZE</h1><h2 id="两者定位不同"><a href="#两者定位不同" class="headerlink" title="两者定位不同"></a>两者定位不同</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>性质</th>
+<th>是否执行SQL</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>EXPLAIN</strong></td>
+<td>预估计划</td>
+<td>❌ 不执行</td>
+<td>安全查看执行路径、索引使用</td>
+</tr>
+<tr>
+<td><strong>EXPLAIN ANALYZE</strong></td>
+<td>实测报告</td>
+<td>✅ 真执行SQL</td>
+<td>精确测慢点、验证优化结果</td>
+</tr>
+</tbody></table>
+<h2 id="为什么要“先-EXPLAIN-再-ANALYZE”"><a href="#为什么要“先-EXPLAIN-再-ANALYZE”" class="headerlink" title="为什么要“先 EXPLAIN 再 ANALYZE”"></a>为什么要“先 EXPLAIN 再 ANALYZE”</h2><h3 id="EXPLAIN-是安全预览"><a href="#EXPLAIN-是安全预览" class="headerlink" title="EXPLAIN 是安全预览"></a><code>EXPLAIN</code> 是安全预览</h3><ul>
+<li>它**<font style="color:#DF2A3F;">不会真的执行 SQL</font>**，不会修改数据、不会扫描整表。</li>
+<li>如果 SQL 写错或特别慢（比如误写 <code>SELECT * FROM big_table</code>），<br>用 <code>EXPLAIN ANALYZE</code> 会直接把数据库卡住。</li>
+</ul>
+<h3 id="EXPLAIN-ANALYZE-开销更大"><a href="#EXPLAIN-ANALYZE-开销更大" class="headerlink" title="EXPLAIN ANALYZE 开销更大"></a><code>EXPLAIN ANALYZE</code> 开销更大</h3><ul>
+<li>它**<font style="color:#DF2A3F;">真的执行 SQL</font>**，要扫描数据、做排序、JOIN 等操作。</li>
+<li>对大表来说，几秒、几十秒都可能。</li>
+<li>如果 SQL 写错或是更新语句，可能直接改动生产数据 ⚠️</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/mysql/b%E6%A0%91%E5%92%8Cb+%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/mysql/mysql/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Spring Boot 提供了两种方式来实现 WebSocket 通信：  基于 WebSocketHandler 的底层开发方式 使用 @EnableWebSocket + WebSocketConfigurer 注册自定义 WebSocketHandler。 直接处理连接、消息、关闭等事件（文本或二进制）。 协议为原生 WebSocket（RFC 6455），性能高、控制细。 适用于语音转写、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="刘翰霖">
+<meta property="og:url" content="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/springboot_websocket/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="Spring Boot 提供了两种方式来实现 WebSocket 通信：  基于 WebSocketHandler 的底层开发方式 使用 @EnableWebSocket + WebSocketConfigurer 注册自定义 WebSocketHandler。 直接处理连接、消息、关闭等事件（文本或二进制）。 协议为原生 WebSocket（RFC 6455），性能高、控制细。 适用于语音转写、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761214978258-ca828be8-75b0-46e7-a0bb-8bdc4dc36ec0.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761215353945-d8d13f4a-5bf6-417c-8c5a-914d067120bf.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761215536889-84f6dc43-bd5f-457d-b272-e7376b9ed5e9.png">
+<meta property="article:published_time" content="2025-11-25T12:31:43.412Z">
+<meta property="article:modified_time" content="2025-11-25T12:27:21.553Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761214978258-ca828be8-75b0-46e7-a0bb-8bdc4dc36ec0.png">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/springboot_websocket/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/springboot_websocket/","path":"2025/11/25/网络/websocket/springboot_websocket/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-MVC-%E5%92%8CSpring-WebSocket-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.</span> <span class="nav-text">Spring MVC 和Spring WebSocket 的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocketHandler"><span class="nav-number">2.</span> <span class="nav-text">WebSocketHandler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WebSocketHandler-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.1.</span> <span class="nav-text">WebSocketHandler 是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.2.</span> <span class="nav-text">基本使用步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8-WebSocket-%E6%94%AF%E6%8C%81"><span class="nav-number">2.2.1.</span> <span class="nav-text">启用 WebSocket 支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99-WebSocketHandler-%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="nav-number">2.2.2.</span> <span class="nav-text">编写 WebSocketHandler 实现类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B%EF%BC%88%E6%96%87%E6%9C%AC%E6%B6%88%E6%81%AF%EF%BC%89"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">示例（文本消息）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%EF%BC%88%E8%AF%AD%E9%9F%B3%E8%BD%AC%E5%86%99%EF%BC%89"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">二进制消息（语音转写）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/springboot_websocket/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Spring Boot 提供了两种方式来实现 WebSocket 通信：</p>
+<ol>
+<li><strong>基于 WebSocketHandler 的底层开发方式</strong><ul>
+<li>使用 <code>@EnableWebSocket</code> + <code>WebSocketConfigurer</code> 注册自定义 <code>WebSocketHandler</code>。</li>
+<li>直接处理连接、消息、关闭等事件（文本或二进制）。</li>
+<li>协议为原生 WebSocket（RFC 6455），性能高、控制细。</li>
+<li>适用于语音转写、实时数据流、设备上报等<strong>点对点通信</strong>场景。</li>
+</ul>
+</li>
+<li><strong>基于 STOMP 协议的上层消息代理方式</strong><ul>
+<li>使用 <code>@EnableWebSocketMessageBroker</code> + <code>@MessageMapping</code> 实现。</li>
+<li>在原生 WebSocket 之上增加 STOMP 消息协议，支持订阅、广播、点对点消息。</li>
+<li>适用于聊天系统、消息推送、通知广播等<strong>多用户通信</strong>场景。</li>
+</ul>
+</li>
+</ol>
+<h1 id="Spring-MVC-和Spring-WebSocket-的关系"><a href="#Spring-MVC-和Spring-WebSocket-的关系" class="headerlink" title="Spring MVC 和Spring WebSocket 的关系"></a>Spring MVC 和Spring WebSocket 的关系</h1><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>通信协议</th>
+<th>特点</th>
+<th>典型用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Spring MVC</strong></td>
+<td>HTTP（短连接）</td>
+<td>请求-响应模式，同步阻塞</td>
+<td>普通接口、表单提交、REST API</td>
+</tr>
+<tr>
+<td><strong>Spring WebSocket</strong></td>
+<td>WebSocket（长连接）</td>
+<td>双向实时通信，异步事件驱动</td>
+<td>聊天室、通知推送、语音流</td>
+</tr>
+</tbody></table>
+<ol>
+<li>Spring MVC 是同步阻塞模型（Thread-per-Request）</li>
+</ol>
+<ul>
+<li>Spring MVC 基于 <strong>Servlet 同步模型</strong>：<br>每个 HTTP 请求都会占用一个线程，直到请求处理结束才释放。</li>
+<li>特点：<ul>
+<li>一次请求对应一次响应。</li>
+<li>线程会在等待期间被“挂起”。</li>
+<li>高并发下线程资源容易耗尽。</li>
+</ul>
+</li>
+</ul>
+<p> 关键点：<strong>同步、阻塞、短连接。</strong></p>
+<ol start="2">
+<li>WebSocket 是异步事件驱动模型</li>
+</ol>
+<ul>
+<li>WebSocket 只在最开始的“握手”阶段使用 HTTP（同步）。</li>
+<li>握手完成后，连接升级为 <strong>全双工长连接</strong>，交给容器（Tomcat&#x2F;Jetty）底层的 <strong>NIO 通道</strong> 管理。</li>
+<li>后续的消息通信是通过事件异步触发的：<ul>
+<li><code>afterConnectionEstablished</code> → 连接建立</li>
+<li><code>handleMessage</code> → 收到消息</li>
+<li><code>afterConnectionClosed</code> → 连接关闭</li>
+</ul>
+</li>
+<li>每条连接不会一直占用线程，消息到来时容器会调度线程去处理。</li>
+</ul>
+<p>📌 关键点：<strong>异步、非阻塞、长连接、事件驱动。</strong></p>
+<h1 id="WebSocketHandler"><a href="#WebSocketHandler" class="headerlink" title="WebSocketHandler"></a>WebSocketHandler</h1><h2 id="WebSocketHandler-是什么"><a href="#WebSocketHandler-是什么" class="headerlink" title="WebSocketHandler 是什么"></a>WebSocketHandler 是什么</h2><p>在 Spring 框架中，<code>WebSocketHandler</code> 是一个接口，用来定义 <strong>WebSocket 连接的生命周期</strong> 以及 <strong>消息处理逻辑</strong>。</p>
+<h2 id="基本使用步骤"><a href="#基本使用步骤" class="headerlink" title="基本使用步骤"></a>基本使用步骤</h2><h3 id="启用-WebSocket-支持"><a href="#启用-WebSocket-支持" class="headerlink" title="启用 WebSocket 支持"></a>启用 WebSocket 支持</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761214978258-ca828be8-75b0-46e7-a0bb-8bdc4dc36ec0.png"></p>
+<h3 id="编写-WebSocketHandler-实现类"><a href="#编写-WebSocketHandler-实现类" class="headerlink" title="编写 WebSocketHandler 实现类"></a>编写 WebSocketHandler 实现类</h3><p><code>WebSocketHandler</code> 是 Spring 框架定义的一个接口。它代表一个 <strong>WebSocket 连接处理器（Handler）</strong>， 它就是你写 WebSocket 服务的“控制器（Controller）”。  </p>
+<p> Spring 提供了两个常用的抽象类：  </p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TextWebSocketHandler</code></td>
+<td>专门处理文本消息（<code>TextMessage</code><br/>）</td>
+</tr>
+<tr>
+<td><code>BinaryWebSocketHandler</code></td>
+<td>专门处理二进制消息（<code>BinaryMessage</code><br/>）</td>
+</tr>
+</tbody></table>
+<h4 id="示例（文本消息）"><a href="#示例（文本消息）" class="headerlink" title="示例（文本消息）"></a>示例（文本消息）</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761215353945-d8d13f4a-5bf6-417c-8c5a-914d067120bf.png"></p>
+<p>核心概念</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+<th>类似</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>WebSocketSession</strong></td>
+<td>表示一个客户端连接，会话对象。可以存用户信息、发消息。</td>
+<td>JSR-356 的 <code>Session</code></td>
+</tr>
+<tr>
+<td><strong>TextMessage &#x2F; BinaryMessage</strong></td>
+<td>表示客户端发送的消息体。</td>
+<td>WebSocket 数据帧</td>
+</tr>
+<tr>
+<td><strong>afterConnectionEstablished()</strong></td>
+<td>当客户端连接成功后调用。</td>
+<td><code>@OnOpen</code></td>
+</tr>
+<tr>
+<td><strong>handleTextMessage() &#x2F; handleBinaryMessage()</strong></td>
+<td>收到消息时调用。</td>
+<td><code>@OnMessage</code></td>
+</tr>
+<tr>
+<td><strong>afterConnectionClosed()</strong></td>
+<td>连接关闭时调用。</td>
+<td><code>@OnClose</code></td>
+</tr>
+<tr>
+<td><strong>handleTransportError()</strong></td>
+<td>发生传输错误时调用。</td>
+<td><code>@OnError</code></td>
+</tr>
+<tr>
+<td><strong>WebSocketConfigurer</strong></td>
+<td>注册 Handler，配置路径、跨域、拦截器等。</td>
+<td>Servlet 注册机制</td>
+</tr>
+</tbody></table>
+<h4 id="二进制消息（语音转写）"><a href="#二进制消息（语音转写）" class="headerlink" title="二进制消息（语音转写）"></a>二进制消息（语音转写）</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761215536889-84f6dc43-bd5f-457d-b272-e7376b9ed5e9.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/TCP%E8%AF%A6%E8%A7%A3/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/websocket/websocket/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
