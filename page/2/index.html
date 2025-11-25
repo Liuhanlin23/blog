@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="刘翰霖">
@@ -75,6 +76,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -95,6 +99,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -129,9 +137,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -156,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,19 +187,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">linux 网络常用命令</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
     </span>
 
   
@@ -199,344 +212,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="HTTP各版本对比"><a href="#HTTP各版本对比" class="headerlink" title="HTTP各版本对比"></a>HTTP各版本对比</h2><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th>HTTP&#x2F;1.1</th>
-<th>HTTP&#x2F;2</th>
-<th>HTTP&#x2F;3</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>发布时间</strong></td>
-<td>1999 年（RFC 2616）</td>
-<td>2015 年（RFC 7540）</td>
-<td>2022 年（RFC 9114）</td>
-</tr>
-<tr>
-<td><strong>传输协议</strong></td>
-<td>TCP</td>
-<td>TCP</td>
-<td><strong>QUIC（UDP）</strong></td>
-</tr>
-<tr>
-<td><strong>连接复用</strong></td>
-<td>❌ 每次一个请求</td>
-<td>✅ 多路复用</td>
-<td>✅ 多路复用</td>
-</tr>
-<tr>
-<td><strong>队头阻塞</strong></td>
-<td>⚠️ 存在</td>
-<td>⚠️ TCP 层仍存在</td>
-<td>✅ 完全消除</td>
-</tr>
-<tr>
-<td><strong>压缩</strong></td>
-<td>❌ 无</td>
-<td>✅ HPACK</td>
-<td>✅ QPACK</td>
-</tr>
-<tr>
-<td><strong>加密</strong></td>
-<td>可选（HTTPS）</td>
-<td>推荐使用 HTTPS</td>
-<td>强制加密（内置 TLS）</td>
-</tr>
-<tr>
-<td><strong>服务端推送</strong></td>
-<td>❌ 无</td>
-<td>✅ 支持</td>
-<td>✅ 支持</td>
-</tr>
-<tr>
-<td><strong>目前使用情况</strong></td>
-<td>🔸 仍广泛存在（低版本网站、内网系统）</td>
-<td>🟢 主流标准（约占全球网站 70%+）</td>
-<td>🧩 新兴主流（Chrome、Cloudflare、Google 全面支持）</td>
-</tr>
-</tbody></table>
-<h2 id="HTTP2-相对于HTTP1-的五大核心优势"><a href="#HTTP2-相对于HTTP1-的五大核心优势" class="headerlink" title="HTTP2 相对于HTTP1 的五大核心优势"></a>HTTP2 相对于HTTP1 的五大核心优势</h2><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>优势点</th>
-<th>对应解决了 HTTP&#x2F;1.1 的什么问题</th>
-<th>一句话理解</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>1️⃣</strong>** 多路复用 (Multiplexing)**</td>
-<td>HTTP&#x2F;1.1 同一连接只能排队处理一个请求，容易“队头阻塞”</td>
-<td>✅ 一个连接可同时传多个请求和响应，互不干扰</td>
-<td><strong>让多个请求在同一连接中并行传输，不再排队等待。</strong></td>
-</tr>
-<tr>
-<td><strong>2️⃣</strong>** 二进制分帧 (Binary Framing)**</td>
-<td>HTTP&#x2F;1.1 使用纯文本格式，解析和传输效率低</td>
-<td>✅ 将消息拆成二进制帧，提高解析速度和可靠性</td>
-<td><strong>把文本协议改为二进制帧结构，传输更快更稳。</strong></td>
-</tr>
-<tr>
-<td><strong>3️⃣</strong>** 头部压缩 (HPACK)**</td>
-<td>每次请求都要重复传很长的 Header（Cookie、User-Agent 等）</td>
-<td>✅ 使用压缩算法和索引表，大幅减少头部开销</td>
-<td><strong>通过压缩与索引减少重复头部传输，节省带宽。</strong></td>
-</tr>
-<tr>
-<td><strong>4️⃣</strong>** 服务器推送 (Server Push)**</td>
-<td>客户端只能被动请求资源</td>
-<td>✅ 服务器可主动推送资源（如 CSS、JS），减少延迟</td>
-<td><strong>服务器可提前推送依赖资源，但已被 HTTP&#x2F;3 废弃。</strong></td>
-</tr>
-<tr>
-<td><strong>5️⃣</strong>** 单连接复用（减少 TCP 连接数）**</td>
-<td>HTTP&#x2F;1.1 需要多个 TCP 连接并行，资源浪费</td>
-<td>✅ 一个连接即可传所有请求，握手少、延迟低</td>
-<td><strong>一个连接跑完所有请求，握手更少，传输更快。</strong></td>
-</tr>
-</tbody></table>
-<h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><p><font style="color:#DF2A3F;">一定要注意这里的多路复用和linux os 中的epoll 多路复用不是一个概念</font></p>
-<p><font style="color:#DF2A3F;">它们的区别</font></p>
-<table>
-<thead>
-<tr>
-<th><font style="color:#000000;">对比点</font></th>
-<th><strong><font style="color:#000000;">HTTP&#x2F;2 多路复用</font></strong></th>
-<th><strong><font style="color:#000000;">epoll 多路复用</font></strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><font style="color:#000000;">所属层级</font></td>
-<td><font style="color:#000000;">应用层（HTTP 协议）</font></td>
-<td><font style="color:#000000;">操作系统内核层（I&#x2F;O 模型）</font></td>
-</tr>
-<tr>
-<td><font style="color:#000000;">解决的问题</font></td>
-<td><font style="color:#000000;">如何在一个 TCP 连接里同时传多个请求</font></td>
-<td><font style="color:#000000;">如何让一个线程同时监听多个 socket</font></td>
-</tr>
-<tr>
-<td><font style="color:#000000;">作用对象</font></td>
-<td><font style="color:#000000;">一个 TCP 连接内的多个“流（stream）”</font></td>
-<td><font style="color:#000000;">多个 TCP 连接（socket 文件描述符）</font></td>
-</tr>
-<tr>
-<td><font style="color:#000000;">举例理解</font></td>
-<td><font style="color:#000000;">在一条高速公路上开多条车道</font></td>
-<td><font style="color:#000000;">一个交通指挥员同时盯着多条道路的红绿灯</font></td>
-</tr>
-</tbody></table>
-<h4 id="HTTP2的多路复用解决了HTTP1-1的什么问题"><a href="#HTTP2的多路复用解决了HTTP1-1的什么问题" class="headerlink" title="HTTP2的多路复用解决了HTTP1.1的什么问题"></a>HTTP2的多路复用解决了HTTP1.1的什么问题</h4><p> 在 HTTP&#x2F;1.1 中：<br>● 一个 TCP 连接一次只能处理一个请求；<br>● 如果前一个请求没返回，下一个请求就得等；<br>● 对同一个域名，浏览器最多同时开 6 个连接来提升并发；<br>● 但开启过多连接会浪费资源、占用带宽，<strong>毕竟 TCP 连接的建立与销毁（握手、挥手）都十分昂贵。</strong></p>
-<p><strong>HTTP2多路复用（Multiplexing）</strong>：<br>在 <strong>一个 TCP 连接</strong> 里，同时并行地发送多个 HTTP 请求和响应，<br>每个请求都有独立的 <strong>Stream ID（流编号）</strong>，互不干扰。</p>
-<p>也就是说：</p>
-<p>HTTP&#x2F;2 不再为每个请求都开新连接，而是让所有请求共享一个连接。<br>数据在同一个连接中被拆分成一帧一帧（Frame）交错发送，<br>浏览器和服务器根据 Stream ID 把属于同一个请求的帧重新组装起来。</p>
-<p>解决的问题</p>
-<table>
-<thead>
-<tr>
-<th>HTTP&#x2F;1.1 的问题</th>
-<th>HTTP&#x2F;2 的改进</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>每个请求必须独占一个 TCP 连接（或排队等待）</td>
-<td>✅ 所有请求共享一个连接</td>
-</tr>
-<tr>
-<td>串行传输 → 队头阻塞严重</td>
-<td>✅ 并行传输 → 不互相阻塞</td>
-</tr>
-<tr>
-<td>建立多个连接浪费资源</td>
-<td>✅ 一个连接复用 → 握手少、资源省</td>
-</tr>
-<tr>
-<td>浏览器需要“域名分片”才能提高并发</td>
-<td>✅ 不再需要域名分片</td>
-</tr>
-</tbody></table>
-<h4 id="HTTP2的多路复用只会为每个域名建立一个连接么？"><a href="#HTTP2的多路复用只会为每个域名建立一个连接么？" class="headerlink" title="HTTP2的多路复用只会为每个域名建立一个连接么？"></a>HTTP2的多路复用只会为每个域名建立一个连接么？</h4><p> “HTTP&#x2F;2 一般会为同一个域名维持一个长连接，所有请求在该连接内通过多路复用并行传输；<br>不同域名、协议或端口的请求仍会建立各自的连接。”  </p>
-<h4 id="什么是串行传输-队头阻塞"><a href="#什么是串行传输-队头阻塞" class="headerlink" title="什么是串行传输-&gt;队头阻塞"></a>什么是串行传输-&gt;队头阻塞</h4><h5 id="什么是串行输出"><a href="#什么是串行输出" class="headerlink" title="什么是串行输出"></a>什么是串行输出</h5><p>在 HTTP&#x2F;1.1 时代，一个 TCP 连接上：</p>
-<p>一次只能处理一个请求。</p>
-<p>也就是说：</p>
+          <p>ss 是一个查看网络连接、端口占用、路由表、网络状态的命令行工具。  它比netstat 更高效</p>
 <ol>
-<li>浏览器发一个请求（例如请求 <code>index.html</code>）；</li>
-<li>必须等服务器返回完整响应后，</li>
-<li>才能在同一个连接上发送下一个请求。</li>
+<li>ss -tunlp</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761189940349-a5fcddf8-16cb-49a2-b493-6a4362630c68.png"></p>
-<h5 id="为什么会队头阻塞"><a href="#为什么会队头阻塞" class="headerlink" title="为什么会队头阻塞"></a>为什么会队头阻塞</h5><p>“队头阻塞”就是说：</p>
-<p>当队列最前面的请求（队头）没有完成时，<br>后面的请求都<strong>被迫等待</strong>，哪怕它们其实可以先返回。</p>
-<p>比如：</p>
+<p>含义</p>
 <ul>
-<li>浏览器开了一个连接；</li>
-<li>第一个请求 <code>/index.html</code> 卡住（服务器慢、网络抖动）；</li>
-<li>后面的 <code>/style.css</code>、<code>/app.js</code> 都得等；</li>
-<li>整个页面加载被拖慢。</li>
+<li><code>t</code> &#x3D; TCP</li>
+<li><code>u</code> &#x3D; UDP</li>
+<li><code>n</code> &#x3D; <strong>不要把 IP&#x2F;端口 解析成域名&#x2F;服务名</strong>，直接用数字显示  不加 <code>-n</code> 时：可能把 <code>80</code> 显示成 <code>http</code></li>
+<li><code>l</code> &#x3D;  只显示处于 <strong>监听状态</strong> 的 socket  </li>
+<li><code>a</code> &#x3D; 显示所有socekt 状态（包括监听状态和非监听状态）</li>
+<li><code>p</code> &#x3D; 显示进程名和 PID</li>
 </ul>
-<p>就像排队买奶茶：第一个人犹豫半天不点单，后面的人都动不了。</p>
-<h5 id="对于HTTP1-1的对头阻塞浏览器的临时补救策略"><a href="#对于HTTP1-1的对头阻塞浏览器的临时补救策略" class="headerlink" title="对于HTTP1.1的对头阻塞浏览器的临时补救策略"></a>对于HTTP1.1的对头阻塞浏览器的临时补救策略</h5><p>为了减轻这种队头阻塞，浏览器在 HTTP&#x2F;1.1 里做了“<strong>并发连接限制</strong>”：</p>
-<ul>
-<li>对同一域名最多开 <strong>6 个 TCP 连接</strong>；</li>
-<li>每个连接上<strong>依然是串行的</strong>；</li>
-<li>这样多个请求可以分配到不同连接中同时跑，但依然浪费资源。、</li>
-</ul>
-<h5 id="HTTP2为什么可以解决"><a href="#HTTP2为什么可以解决" class="headerlink" title="HTTP2为什么可以解决"></a>HTTP2为什么可以解决</h5><p>HTTP&#x2F;2 把这种「一根吸管排队」的模式，变成了「一根多通道吸管」：</p>
-<ul>
-<li>同一个连接里能并行发多个请求；</li>
-<li>每个请求分配一个独立的流（Stream ID）；</li>
-<li>互不影响，从根本上解决了应用层的队头阻塞。</li>
-</ul>
-<h4 id="HTTP2多路复用的实现原理"><a href="#HTTP2多路复用的实现原理" class="headerlink" title="HTTP2多路复用的实现原理"></a>HTTP2多路复用的实现原理</h4><h5 id="首先HTTP1-1的消息格式是纯文本，太过简单"><a href="#首先HTTP1-1的消息格式是纯文本，太过简单" class="headerlink" title="首先HTTP1.1的消息格式是纯文本，太过简单"></a>首先HTTP1.1的消息格式是纯文本，太过简单</h5><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761190756619-2b4e761a-750f-4ca0-a08c-0fc538c7e079.png"></p>
-<p> 这一串要完整传完、解析完，服务器才能处理。<br>所以——<strong>一个连接里不能同时传两个请求。</strong></p>
-<p>HTTP&#x2F;2 的核心改进是：</p>
-<p><strong>在 TCP 之上，引入一层 二进制分帧层（Binary Framing Layer）。</strong></p>
-<h5 id="HTTP-2-的实现核心：二进制分帧-流（Stream）"><a href="#HTTP-2-的实现核心：二进制分帧-流（Stream）" class="headerlink" title="HTTP&#x2F;2 的实现核心：二进制分帧 + 流（Stream）"></a>HTTP&#x2F;2 的实现核心：二进制分帧 + 流（Stream）</h5><p>HTTP&#x2F;2 把通信过程切分成很多“帧（Frame）”：</p>
-<ul>
-<li>每个帧是最小的传输单位；</li>
-<li>每个帧都包含一个 <strong>Stream ID（流 ID）</strong>；</li>
-<li><strong>每个流代表一个独立的 HTTP 请求&#x2F;响应，一个流对应多个帧。</strong></li>
-</ul>
-<p>例如， 浏览器要发三个请求：  </p>
-<p>Stream 1 -&gt; index.html</p>
-<p>Stream 3 -&gt; style.css</p>
-<p>Stream 5 -&gt; app.js</p>
-<p>** HTTP&#x2F;2 会把它们的数据都拆成帧：  A1, B1, C1, A2, B2, C2 …  并在同一个 TCP 连接中交错发送。  **</p>
-<h5 id="HTTP2提供的其他功能"><a href="#HTTP2提供的其他功能" class="headerlink" title="HTTP2提供的其他功能"></a>HTTP2提供的其他功能</h5><p>HTTP&#x2F;2 还提供了：</p>
-<ul>
-<li><strong>Stream 优先级（Priority）</strong>：告诉服务端哪个请求更重要；</li>
-<li><strong>流量控制（Flow Control）</strong>：防止某个流独占带宽（用 WINDOW_UPDATE 帧调节）。</li>
-</ul>
-<h3 id="二级分帧"><a href="#二级分帧" class="headerlink" title="二级分帧"></a>二级分帧</h3><h4 id="为什么要引入二进制分帧"><a href="#为什么要引入二进制分帧" class="headerlink" title="为什么要引入二进制分帧"></a>为什么要引入二进制分帧</h4><p>在 HTTP&#x2F;1.1 中：</p>
-<ul>
-<li>所有数据（包括头、体）都是<strong>纯文本格式</strong>；</li>
-<li>解析要靠换行符、空格等标识；</li>
-<li>对计算机来说效率很低，也不容易并行。</li>
-</ul>
-<p>HTTP&#x2F;2 想要实现「多路复用」，就必须让通信内容能被精确地<strong>分割、标识、交错、重组</strong>。所以，它放弃文本格式，引入了一个新的层 ——👉 <strong>二进制分帧层（Binary Framing Layer）</strong>。</p>
-<h4 id="它在协议中的位置"><a href="#它在协议中的位置" class="headerlink" title="它在协议中的位置"></a>它在协议中的位置</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761202712642-98a3794b-5aab-4f7f-b00d-df92489ae964.png"></p>
-<h4 id="帧是什么？"><a href="#帧是什么？" class="headerlink" title="帧是什么？"></a>帧是什么？</h4><p>HTTP&#x2F;2 规定，所有通信都是通过“帧”进行的。帧是 HTTP&#x2F;2 中<strong>最小的通信单位</strong>。一个帧大致结构如下：</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761202772923-31c6e43c-517e-4d62-bde0-a462f7a8c665.png"></p>
-<p>说明：</p>
-<ul>
-<li><strong>Length</strong>：帧体的字节长度；</li>
-<li><strong>Type</strong>：帧类型（HEADERS、DATA、SETTINGS 等）；</li>
-<li><strong>Flags</strong>：标志位（例如 END_HEADERS、END_STREAM）；</li>
-<li><strong>Stream ID</strong>：表示此帧属于哪个流；</li>
-<li><strong>Payload</strong>：真正的数据内容</li>
-</ul>
-<p> HTTP&#x2F;2 在传输过程中会将请求拆分为多条帧进行发送，服务端接收后再根据帧的标识（Stream ID）将这些帧重新组合，还原为<font style="background-color:#CEF5F7;">完整的 HTTP 消息</font>（包含请求头和请求体）。  </p>
-<h3 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h3><h4 id="为什么要压缩头部"><a href="#为什么要压缩头部" class="headerlink" title="为什么要压缩头部"></a>为什么要压缩头部</h4><p> 在 HTTP&#x2F;1.1 中，每个请求都会重复携带大量相同的头部字段，例如：  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203086685-34f10817-2306-476f-bcd2-bd62e98f262e.png"></p>
-<p>可以看到:</p>
-<ul>
-<li>这些头部几乎都一样；</li>
-<li>只改变了很少的字段；</li>
-<li>但每次都要全部发送，<strong>浪费带宽</strong>；</li>
-<li>而且头部是文本格式，解析开销也大。</li>
-</ul>
-<p>所以 HTTP&#x2F;2 希望——只发变化的部分，重复的内容能被缓存或压缩。</p>
-<h4 id="HPACK是怎么压缩的"><a href="#HPACK是怎么压缩的" class="headerlink" title="HPACK是怎么压缩的"></a>HPACK是怎么压缩的</h4><p> HTTP&#x2F;2 定义了一个专门的压缩算法 —— <strong>HPACK</strong>，它通过两种方式减少头部体积：</p>
-<h5 id="静态表"><a href="#静态表" class="headerlink" title="静态表"></a>静态表</h5><p> 协议内置一个常见头部字段表，例如：    </p>
-<table>
-<thead>
-<tr>
-<th>索引</th>
-<th>Header 字段</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>:method</td>
-<td>GET</td>
-</tr>
-<tr>
-<td>2</td>
-<td>:method</td>
-<td>POST</td>
-</tr>
-<tr>
-<td>3</td>
-<td>:path</td>
-<td>&#x2F;</td>
-</tr>
-<tr>
-<td>8</td>
-<td>:status</td>
-<td>200</td>
-</tr>
-<tr>
-<td>33</td>
-<td>user-agent</td>
-<td></td>
-</tr>
-<tr>
-<td>36</td>
-<td>accept-encoding</td>
-<td>gzip, deflate</td>
-</tr>
-</tbody></table>
-<p> 客户端或服务端只需要发送（索引即可）：  </p>
-<p>10000010</p>
-<p>↑</p>
-<p>│</p>
-<p>└── 表示 “我引用了静态表中的第 2 项（:method GET）”</p>
-<br/>
-
-<p> 这样就不用传“GET”“:path”“user-agent”这些文字。  </p>
-<h5 id="动态表"><a href="#动态表" class="headerlink" title="动态表"></a>动态表</h5><ul>
-<li>通信双方可以在运行时维护一张“记忆表”；</li>
-<li>每出现一个新的头部字段，就存进去；</li>
-<li>之后再发送相同字段时，只需引用它的索引；</li>
-<li>动态表是双向同步的（客户端和服务端共享状态）。</li>
-</ul>
-<p>所以静态表就是提前定义的，提供常见的固定头部字段索引，动态表就是通信过程中双方共同维护的，记录通信过程中出现的新头部字段</p>
-<h3 id="服务器推送（很鸡肋，默认关闭）"><a href="#服务器推送（很鸡肋，默认关闭）" class="headerlink" title="服务器推送（很鸡肋，默认关闭）"></a>服务器推送（很鸡肋，默认关闭）</h3><p> 需要注意的是，HTTP&#x2F;2 的服务器推送是一个比较鸡肋的功能，在<font style="color:#DF2A3F;"> HTTP&#x2F;3 中已经被废弃</font>；而且像 Nginx、Cloudflare 等多数网关默认都关闭了这一特性。  </p>
-<h4 id="什么是服务推送"><a href="#什么是服务推送" class="headerlink" title="什么是服务推送"></a>什么是服务推送</h4><p> 在 HTTP&#x2F;1.1 中，通信是严格的 <strong>请求 → 响应</strong> 模式：  浏览器必须先发送请求，服务器才能返回数据</p>
-<p>而在HTTP&#x2F;2中，服务器可以主动推送某些资源给客户端，即使客户端还没请求它们</p>
-<p><strong>举个例子</strong></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203914100-35225b1c-4226-4aad-acd5-2cb604cef39d.png"></p>
-<h4 id="怎么实现推送的"><a href="#怎么实现推送的" class="headerlink" title="怎么实现推送的"></a>怎么实现推送的</h4><p> HTTP&#x2F;2 使用三种帧实现推送机制：  </p>
-<table>
-<thead>
-<tr>
-<th>帧类型</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>PUSH_PROMISE</strong></td>
-<td>告诉客户端：“我准备推送这个资源”</td>
-</tr>
-<tr>
-<td><strong>HEADERS</strong></td>
-<td>推送资源的响应头</td>
-</tr>
-<tr>
-<td><strong>DATA</strong></td>
-<td>推送资源的实际内容</td>
-</tr>
-</tbody></table>
-<p> 推送的资源会有自己的 <strong>Stream ID</strong>（流编号），<br>例如：  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203963602-15e3c956-eef4-4eba-bbbf-32563e0c123f.png"></p>
-<p> 这些流都在同一个 TCP 连接中多路复用。  </p>
-<h4 id="客户端依然具有控制权"><a href="#客户端依然具有控制权" class="headerlink" title="客户端依然具有控制权"></a>客户端依然具有控制权</h4><p>客户端可以：</p>
-<ul>
-<li>通过 <code>SETTINGS_ENABLE_PUSH = 0</code> 禁用推送；</li>
-<li>收到 <code>PUSH_PROMISE</code> 后，若已缓存该资源，可发送 <code>RST_STREAM</code> 拒收；</li>
-<li>推送的内容仍然受缓存、同源策略、优先级控制。</li>
-</ul>
-<h4 id="很鸡肋，HTTP-3已经废弃"><a href="#很鸡肋，HTTP-3已经废弃" class="headerlink" title="很鸡肋，HTTP&#x2F;3已经废弃"></a>很鸡肋，HTTP&#x2F;3已经废弃</h4><p>因为：</p>
-<ul>
-<li>推送不好管理（容易推多或推错资源）；</li>
-<li><strong><font style="color:#DF2A3F;">推送的东西如果浏览器并不需要，会造成资源浪费</font></strong></li>
-<li>浏览器缓存、优先级机制复杂；</li>
-<li>QUIC&#x2F;HTTP&#x2F;3 更推荐使用 <strong>“103 Early Hints” + preload header”</strong>。</li>
-</ul>
-<h3 id="单连接复用"><a href="#单连接复用" class="headerlink" title="单连接复用"></a>单连接复用</h3><p> HTTP&#x2F;2 的单连接复用机制就是通过“多路复用（Multiplexing）”实现的。  </p>
 
       
     </div>
@@ -581,19 +269,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTPS/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTPS/" class="post-title-link" itemprop="url">HTTPS</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
     </span>
 
   
@@ -731,7 +419,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/b+%E6%A0%91%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/%E6%B3%A8%E8%A7%A3/ConditionOnProperty/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -749,19 +437,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/b+%E6%A0%91%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/SpringBoot/%E6%B3%A8%E8%A7%A3/ConditionOnProperty/" class="post-title-link" itemprop="url">ConditionOnProperty</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/%E6%B3%A8%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">注解</span></a>
+        </span>
     </span>
 
   
@@ -774,7 +466,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <p><code>@ConditionalOnProperty</code> 用来<strong>根据配置文件中的某个属性是否存在 &#x2F; 是否为某个值</strong>，决定某个 Bean、某个配置类是否要加载。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@Slf4j</span><br><span class="line">@ConditionalOnProperty(</span><br><span class="line">        prefix = &quot;app.log-aspect&quot;,//配置前缀</span><br><span class="line">        name = &quot;enabled&quot;,//配置名</span><br><span class="line">        havingValue = &quot;true&quot;,      // 只有为 true 时才生效</span><br><span class="line">        matchIfMissing = false     // 没配的话默认不生效（视需求可改）</span><br><span class="line">)</span><br><span class="line">class CacheHistLog &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对应application.yml 配置</p>
+<p>app.log-aspect.enabled: true</p>
+<br/>
       
     </div>
 
@@ -800,7 +497,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -818,19 +515,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/SpringBoot/%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" class="post-title-link" itemprop="url">实现自定义注解</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
     </span>
 
   
@@ -843,242 +540,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是工厂模式"><a href="#什么是工厂模式" class="headerlink" title="什么是工厂模式"></a>什么是工厂模式</h1><p>工厂模式就是将创建对象的过程封装起来，让使用者只关心对象的使用而不关心它是如何被创建的</p>
-<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><p>🌰 场景：我要做一个“发消息”的程序</p>
-<p>有两种消息类型：<strong>Email</strong> 和 <strong>SMS</strong>。</p>
-<p> 1️⃣ 定义消息接口（共同规范）  </p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface Message &#123;</span><br><span class="line"><span class="code">    void send(String content);</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+          <h1 id="一-定义自定义注解"><a href="#一-定义自定义注解" class="headerlink" title="一.定义自定义注解"></a>一.定义自定义注解</h1><p> 使用 Java 原生的 <code>@interface</code> 来定义。例如我们要定义一个注解，用于记录方法执行日志：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">// 注解作用目标：方法</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span> <span class="comment">// 运行时保留</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> LogExecutionTime &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="string">&quot;&quot;</span>; <span class="comment">// 可以添加参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p> 2️⃣ 两种消息的实现类  </p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class EmailMessage implements Message &#123;</span><br><span class="line"><span class="code">    public void send(String content) &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;发送邮件: &quot; + content);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class SmsMessage implements Message &#123;</span><br><span class="line"><span class="code">    public void send(String content) &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;发送短信: &quot; + content);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p> 3️⃣ 工厂类（封装创建逻辑）  </p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MessageFactory &#123;</span><br><span class="line"><span class="code">    public static Message createMessage(String type) &#123;</span></span><br><span class="line"><span class="code">        if (&quot;email&quot;.equalsIgnoreCase(type)) &#123;</span></span><br><span class="line"><span class="code">            return new EmailMessage();</span></span><br><span class="line"><span class="code">        &#125; else if (&quot;sms&quot;.equalsIgnoreCase(type)) &#123;</span></span><br><span class="line"><span class="code">            return new SmsMessage();</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">        throw new IllegalArgumentException(&quot;未知消息类型：&quot; + type);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p> 4️⃣ 使用工厂创建对象  </p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"><span class="code">    public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="code">        Message msg = MessageFactory.createMessage(&quot;email&quot;); // 工厂负责创建</span></span><br><span class="line"><span class="code">        msg.send(&quot;你好，欢迎使用 Echogle！&quot;); // 我只管用</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>👉</strong>** 总结一句话：**<br>你不需要 <code>new EmailMessage()</code>，工厂帮你决定创建哪一个，这样以后要扩展新类型（比如微信消息）就只需改工厂，不影响使用方。  </p>
-<h1 id="工厂模式分类"><a href="#工厂模式分类" class="headerlink" title="工厂模式分类"></a>工厂模式分类</h1><table>
-<thead>
-<tr>
-<th>模式类型</th>
-<th>核心思想</th>
-<th>结构特点</th>
-<th>优点</th>
-<th>缺点</th>
-<th>适用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>简单工厂（Simple Factory）</strong></td>
-<td>由一个工厂类集中创建所有产品</td>
-<td>一个工厂类 + 多个产品类</td>
-<td>简单易用，统一创建入口</td>
-<td>新增产品需修改工厂代码，不符合开闭原则</td>
-<td>产品种类少、变化不频繁</td>
-</tr>
-<tr>
-<td><strong>工厂方法（Factory Method）</strong></td>
-<td>每个产品由各自的工厂类创建</td>
-<td>抽象工厂接口 + 多个具体工厂 + 多个产品类</td>
-<td>新增产品无需修改原代码，扩展性好</td>
-<td>类数量多、结构更复杂</td>
-<td>产品类型多、创建逻辑复杂</td>
-</tr>
-<tr>
-<td><strong>抽象工厂（Abstract Factory）</strong></td>
-<td>生产一组相关或依赖的产品族</td>
-<td>抽象工厂接口 + 多个具体工厂 + 多个产品族</td>
-<td>可一次创建多个配套产品，保持一致性</td>
-<td>难以扩展新产品族（需改接口）</td>
-<td>需要创建多个“配套产品”的系统（如主题样式、品牌设备）</td>
-</tr>
-</tbody></table>
-<h2 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h2><p><strong>核心思想：</strong><br>用一个「工厂类」统一负责创建所有对象。  </p>
-<p>客户端 → 简单工厂 → 产品对象</p>
-<br/>
-
-
-
-<p>示例</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TicketFactory &#123;</span><br><span class="line"><span class="code">    public static Ticket create(String type) &#123;</span></span><br><span class="line"><span class="code">        if (&quot;vip&quot;.equalsIgnoreCase(type)) return new VIPTicket();</span></span><br><span class="line"><span class="code">        if (&quot;normal&quot;.equalsIgnoreCase(type)) return new NormalTicket();</span></span><br><span class="line"><span class="code">        throw new IllegalArgumentException(&quot;未知类型&quot;);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>✅ <strong>优点：</strong> 创建逻辑集中、使用简单<br>⚠️ <strong>缺点：</strong> 新增产品要改工厂类 → 不符合开闭原则</p>
-<p>适合：小项目、产品种类不多的场景</p>
-<h2 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h2><p><strong>核心思想：</strong><br>每种产品一个对应的工厂，让子类决定创建哪种对象。<br>也就是说——“创建”这件事不再由一个大工厂决定，而是<strong>交给不同的小工厂</strong>。  </p>
-<p>客户端 → 抽象工厂接口 → 各具体工厂 → 具体产品</p>
-<br/>
-
-<p>示例</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">interface TicketFactory &#123;</span><br><span class="line"><span class="code">    Ticket createTicket();</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class VIPTicketFactory implements TicketFactory &#123;</span><br><span class="line"><span class="code">    public Ticket createTicket() &#123;</span></span><br><span class="line"><span class="code">        return new VIPTicket();</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class NormalTicketFactory implements TicketFactory &#123;</span><br><span class="line"><span class="code">    public Ticket createTicket() &#123;</span></span><br><span class="line"><span class="code">        return new NormalTicket();</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">//使用</span></span><br><span class="line"><span class="code">TicketFactory factory = new VIPTicketFactory();</span></span><br><span class="line"><span class="code">Ticket ticket = factory.createTicket();</span></span><br></pre></td></tr></table></figure>
-
-<p>✅ <strong>优点：</strong> 新增产品只需新增工厂类，不改旧代码（符合开闭原则）<br>⚠️ <strong>缺点：</strong> 类变多了（一个产品对应一个工厂）</p>
-<p>适合：产品类型多、变化频繁的中大型项目</p>
-<h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><p>核心思想：<br>生产一族相关的产品（不仅仅是一种）。<br>比如同时生产 “华为手机 + 华为耳机”，或 “苹果手机 + 苹果耳机”。  </p>
-<p>客户端 → 抽象工厂接口 → 具体工厂A &#x2F; 具体工厂B → 多个产品族</p>
-<br/>
-
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 产品族1：手机</span><br><span class="line">interface Phone &#123; void call(); &#125;</span><br><span class="line"></span><br><span class="line">// 产品族2：耳机</span><br><span class="line">interface Earphone &#123; void listen(); &#125;</span><br><span class="line"></span><br><span class="line">// 抽象工厂</span><br><span class="line">interface DeviceFactory &#123;</span><br><span class="line"><span class="code">    Phone createPhone();</span></span><br><span class="line"><span class="code">    Earphone createEarphone();</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">// 华为工厂</span><br><span class="line">class HuaweiFactory implements DeviceFactory &#123;</span><br><span class="line"><span class="code">    public Phone createPhone() &#123; return new HuaweiPhone(); &#125;</span></span><br><span class="line"><span class="code">    public Earphone createEarphone() &#123; return new HuaweiEarphone(); &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">// 苹果工厂</span><br><span class="line">class AppleFactory implements DeviceFactory &#123;</span><br><span class="line"><span class="code">    public Phone createPhone() &#123; return new iPhone(); &#125;</span></span><br><span class="line"><span class="code">    public Earphone createEarphone() &#123; return new AirPods(); &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>✅ <strong>优点：</strong> 一次创建多个“配套产品”，保持风格一致<br>⚠️ <strong>缺点：</strong> 扩展新产品族（比如“手表”）需要修改所有工厂接口</p>
-<p>适合：需要生产多个关联对象的复杂系统（如 UI 主题、品牌设备）</p>
-<h3 id="工厂方法和抽象工厂的主要区别是什么？"><a href="#工厂方法和抽象工厂的主要区别是什么？" class="headerlink" title="工厂方法和抽象工厂的主要区别是什么？"></a>工厂方法和抽象工厂的主要区别是什么？</h3><p> 工厂方法是“一个工厂生产一种产品”；抽象工厂是“一个工厂生产一整套相关产品”。  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><em>单例模式的核心概念就是一个类在整个程序运行过程中只能有一个实例，并且提供一个全局访问点</em></p>
-<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p> 当系统中 <strong>某个类只需要一个实例</strong>，并且该实例<strong>需要被全局共享或频繁访问</strong>时，就应该使用单例模式。  </p>
-<p>比如：</p>
+<p>常用元注解说明</p>
 <table>
 <thead>
 <tr>
-<th>场景</th>
-<th>说明</th>
-<th>示例</th>
+<th>注解</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>配置管理类</strong></td>
-<td>系统配置信息只需加载一次，全局共享，避免重复读取和资源浪费。</td>
-<td><code>ConfigManager</code><br/>、<code>Spring Environment</code></td>
+<td><code>@Target</code></td>
+<td>指定注解可以用在什么位置（类、方法、字段等）</td>
 </tr>
 <tr>
-<td><strong>日志管理类</strong></td>
-<td>统一日志输出入口，防止多个实例竞争文件，保证日志写入顺序一致性。</td>
-<td><code>Logger</code><br/>（如 <code>Log4j</code><br/>、<code>SLF4J</code><br/>）</td>
+<td><code>@Retention</code></td>
+<td>指定注解的生命周期（SOURCE &#x2F; CLASS &#x2F; RUNTIME）</td>
 </tr>
 <tr>
-<td><strong>框架核心组件</strong></td>
-<td>框架的控制中心、调度器等组件需要全局唯一实例，以便统一管理与访问。</td>
-<td><code>Spring ApplicationContext</code><br/>、<code>ServletContext</code></td>
+<td><code>@Documented</code></td>
+<td>生成文档时是否包含注解</td>
+</tr>
+<tr>
+<td><code>@Inherited</code></td>
+<td>是否允许子类继承该注解</td>
 </tr>
 </tbody></table>
-<h2 id="手撕单例模式"><a href="#手撕单例模式" class="headerlink" title="手撕单例模式"></a>手撕单例模式</h2><p>单例模式分为两种，一种是饿汉模式：一开始就初始化好，一种是懒汉模式：第一次调用的时候创建</p>
-<h3 id="饿汉模式"><a href="#饿汉模式" class="headerlink" title="饿汉模式"></a>饿汉模式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public final class HungrySingleton &#123;</span><br><span class="line">    private static final HungrySingleton INSTANCE = new HungrySingleton();</span><br><span class="line">    private HungrySingleton() &#123;&#125;</span><br><span class="line">    public static HungrySingleton getInstance() &#123; return INSTANCE; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二-编写切面类-AOP方式实现逻辑"><a href="#二-编写切面类-AOP方式实现逻辑" class="headerlink" title="二.编写切面类(AOP方式实现逻辑)"></a>二.编写切面类(AOP方式实现逻辑)</h1><p> Spring Boot 最常见的方式是结合 <strong>AOP（面向切面编程）</strong> 来实现注解逻辑。  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogExecutionAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around(&quot;@annotation(logExecutionTime)&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">around</span><span class="params">(ProceedingJoinPoint joinPoint, LogExecutionTime logExecutionTime)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> joinPoint.proceed(); <span class="comment">// 执行目标方法</span></span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">&quot;方法 &quot;</span> + joinPoint.getSignature().getName()</span><br><span class="line">                + <span class="string">&quot; 执行耗时: &quot;</span> + (end - start) + <span class="string">&quot;ms&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="懒汉模式（双重检查）"><a href="#懒汉模式（双重检查）" class="headerlink" title="懒汉模式（双重检查）"></a>懒汉模式（双重检查）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public final class DclSingleton &#123;</span><br><span class="line">    private static volatile DclSingleton INSTANCE; // volatile 防止指令重排</span><br><span class="line">    private DclSingleton() &#123;&#125;</span><br><span class="line">    public static DclSingleton getInstance() &#123;</span><br><span class="line">        if (INSTANCE == null) &#123;</span><br><span class="line">            synchronized (DclSingleton.class) &#123;</span><br><span class="line">                if (INSTANCE == null) &#123;</span><br><span class="line">                    INSTANCE = new DclSingleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="为什么要加volatile"><a href="#为什么要加volatile" class="headerlink" title="为什么要加volatile"></a>为什么要加volatile</h4><p><code>INSTANCE = new DclSingleton();</code> 实际上分为三步指令：  </p>
-<ul>
-<li>分配内存</li>
-<li>调用构造函数初始化对象</li>
-<li>将引用赋值给变量 <code>INSTANCE</code></li>
-</ul>
-<p> 如果 <strong>发生指令重排</strong>（比如执行顺序 1 → 3 → 2），<br>其他线程可能读取到一个<strong>还没初始化完成的对象</strong>（即“半初始化对象”），导致 发生错误。  </p>
-<p><code>volatile</code> 关键字可以：</p>
-<ul>
-<li>禁止指令重排</li>
-<li>保证多线程间的可见性</li>
-<li>确保对象创建的安全性与完整性。</li>
-</ul>
-<h4 id="双重检查和直接加锁相对于直接加锁有什么优势呢？"><a href="#双重检查和直接加锁相对于直接加锁有什么优势呢？" class="headerlink" title="双重检查和直接加锁相对于直接加锁有什么优势呢？"></a>双重检查和直接加锁相对于直接加锁有什么优势呢？</h4><p>直接加锁代码实现</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static synchronized DclSingleton getInstance() &#123;</span><br><span class="line">    if (INSTANCE == null) &#123;</span><br><span class="line">        INSTANCE = new DclSingleton();</span><br><span class="line">    &#125;</span><br><span class="line">    return INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意看直接加锁的代码不论是否是第一次创建都会上锁，所以会造成并发能力的下降，而双重检查是只有当第一次创建的时候才会上锁，创建完成之后访问的话不需要加锁，并发能力大大增强</p>
-<h4 id="synchronized-DclSingleton-class-vs-synchronized-this-的根本区别"><a href="#synchronized-DclSingleton-class-vs-synchronized-this-的根本区别" class="headerlink" title="synchronized (DclSingleton.class) vs synchronized (this) 的根本区别"></a><code>synchronized (DclSingleton.class)</code> vs <code>synchronized (this)</code> 的根本区别</h4><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th><code>synchronized (DclSingleton.class)</code></th>
-<th><code>synchronized (this)</code></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>锁对象</td>
-<td><strong>类对象（Class 对象）</strong></td>
-<td><strong>当前实例对象（this）</strong></td>
-</tr>
-<tr>
-<td>锁的作用范围</td>
-<td><strong>整个类层面（所有实例共享同一把锁）</strong></td>
-<td><strong>仅当前实例有效（不同实例不同锁）</strong></td>
-</tr>
-<tr>
-<td>是否可用于静态方法</td>
-<td>✅ 是（静态方法中没有 this）</td>
-<td>❌ 否（静态方法中没有 this）</td>
-</tr>
-<tr>
-<td>线程安全级别</td>
-<td>保证<strong>类级别线程安全</strong>（全局唯一锁）</td>
-<td>仅保证<strong>单个对象的线程安全</strong></td>
-</tr>
-<tr>
-<td>使用场景</td>
-<td>单例模式、静态方法、全局资源同步</td>
-<td>对象方法、实例级别同步</td>
-</tr>
-</tbody></table>
-<p>单例模式中的getInstance（）是一个静态方法，属于类方法，因此方法中没有this，所以不能用this加锁</p>
-<p>也就是说：</p>
-<p>在单例模式中，用 <code>synchronized (DclSingleton.class)</code> 才能真正保证<strong>全局唯一实例的线程安全</strong>。<br>如果用 <code>synchronized(this)</code>，此时连实例都还没创建，<strong>根本拿不到 this</strong>，也无法锁。</p>
 
       
     </div>
@@ -1105,7 +597,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1123,19 +615,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/SpringBoot/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">定时任务</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
     </span>
 
   
@@ -1148,346 +640,339 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>代理模式和装饰器模式的模板代码是一样的，核心实现手法都是： 一个封装类 (Wrapper) 包含一个被封装类 (Wrapped Object)，并且两者都实现相同的接口 (Interface)。  </p>
-<h1 id="核心实现"><a href="#核心实现" class="headerlink" title="核心实现"></a>核心实现</h1><ol>
-<li>接口</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Service &#123;</span><br><span class="line">    void doWork();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>Spring 中实现定时任务一共两步：</p>
+<ul>
+<li>开启定时任务支持: @EnableScheduling  </li>
+<li>编写定时任务: @Scheduled</li>
+</ul>
+<h1 id="开启定时任务支持-EnableScheduling"><a href="#开启定时任务支持-EnableScheduling" class="headerlink" title="开启定时任务支持(@EnableScheduling)"></a>开启定时任务支持(@EnableScheduling)</h1><p>在你的 Spring Boot 启动类上加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@EnableScheduling  // 开启定时任务</span><br><span class="line">public class App &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(App.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>真实对象</li>
+<h1 id="编写定时任务"><a href="#编写定时任务" class="headerlink" title="编写定时任务"></a>编写定时任务</h1><p>你可以在任何 Spring Bean 中写定时任务方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class MyTask &#123;</span><br><span class="line"></span><br><span class="line">    // 每隔 5 秒执行一次</span><br><span class="line">    @Scheduled(fixedRate = 5000)</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;执行任务：&quot; + LocalDateTime.now());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用-Cron-fixedRate-fixedDelay-参数说明"><a href="#常用-Cron-fixedRate-fixedDelay-参数说明" class="headerlink" title="常用 Cron&#x2F;fixedRate&#x2F;fixedDelay 参数说明"></a>常用 Cron&#x2F;fixedRate&#x2F;fixedDelay 参数说明</h2><table>
+<thead>
+<tr>
+<th>注解属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>fixedRate</code></td>
+<td>上一次开始执行时间 → 间隔多久再次执行</td>
+</tr>
+<tr>
+<td><code>fixedDelay</code></td>
+<td>上一次执行结束时间 → 间隔多久再次执行</td>
+</tr>
+<tr>
+<td><code>cron</code></td>
+<td>使用 cron 表达式指定执行时间</td>
+</tr>
+</tbody></table>
+<p><em>默认所有定时任务公用一个线程，对于cpu密集性的定时任务可以引入线程池</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/Spring_%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/SpringBoot/Spring_%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">Spring 的代理对象</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什么是代理对象"><a href="#什么是代理对象" class="headerlink" title="什么是代理对象"></a>什么是代理对象</h1><p><strong>代理对象就是一个“替身对象”，它包裹了你的原始对象（目标对象）</strong>，拦截你对目标对象的调用，在前后插入一些额外逻辑。  </p>
+<p>在 Java 中，这种代理对象通常由两种机制实现：</p>
+<ol>
+<li><strong>JDK 动态代理（JDK Proxy）</strong></li>
+<li><strong>CGLIB 字节码代理</strong></li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class RealService implements Service &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void doWork() &#123;</span><br><span class="line">        System.out.println(&quot;执行真实业务逻辑&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring 会根据 Bean 的情况自动选择其中一种。</p>
+<h1 id="为什么-Spring-要创建代理对象？"><a href="#为什么-Spring-要创建代理对象？" class="headerlink" title="为什么 Spring 要创建代理对象？"></a>为什么 Spring 要创建代理对象？</h1><p> 为了实现<strong>AOP（面向切面编程）</strong>、<strong>事务控制</strong>、<strong>安全检查</strong>、<strong>缓存注解</strong>等等。这些特性都需要在方法执行前后“插入逻辑”，而不修改原代码。  </p>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">class UserService &#123;</span><br><span class="line">    @Transactional</span><br><span class="line">    public void saveUser() &#123;</span><br><span class="line">        // 保存用户逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Spring 中，<code>@Transactional</code> 依靠 <strong>AOP 代理机制</strong> 实现。</p>
+<p>当我们调用：userService.saveUser();时，实际上并不是调用的原始的UserService，而是Spring 创建的代理对象，这个代理对象会在方法执行的前后自动插入事务逻辑</p>
+<p><strong>伪代码理解</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    // 1️⃣ 开启事务（setAutoCommit(false)）</span><br><span class="line">    //    把数据库连接绑定到当前线程（ThreadLocal）</span><br><span class="line">    beginTransaction();</span><br><span class="line"></span><br><span class="line">    // 2️⃣ 调用目标方法</span><br><span class="line">    userService.saveUser();</span><br><span class="line"></span><br><span class="line">    // 3️⃣ 方法执行成功 → 提交事务</span><br><span class="line">    commit();</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">    // 4️⃣ 方法抛异常 → 回滚事务</span><br><span class="line">    rollback();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Spring-两种动态代理的区别"><a href="#Spring-两种动态代理的区别" class="headerlink" title="Spring 两种动态代理的区别"></a>Spring 两种动态代理的区别</h1><p><strong>JDK 动态代理基于接口</strong>，<strong>CGLIB 代理基于继承（子类字节码增强）</strong></p>
+<h2 id="JDK动态代理：基于接口"><a href="#JDK动态代理：基于接口" class="headerlink" title="JDK动态代理：基于接口"></a>JDK动态代理：基于接口</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 通过 <strong>反射机制</strong> 在运行时生成一个实现了目标对象所有接口的代理类。  </p>
+<p>示例：</p>
+<p>假设我们有个接口和实现类:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line">    void sayHello();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用jdk动态生成代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class JdkProxyDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService target = new UserServiceImpl();</span><br><span class="line">        UserService proxy = (UserService) Proxy.newProxyInstance(</span><br><span class="line">            target.getClass().getClassLoader(),</span><br><span class="line">            target.getClass().getInterfaces(),</span><br><span class="line">            new InvocationHandler() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">                    System.out.println(&quot;Before...&quot;);</span><br><span class="line">                    Object result = method.invoke(target, args); // 通过反射调用目标方法</span><br><span class="line">                    System.out.println(&quot;After...&quot;);</span><br><span class="line">                    return result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">        proxy.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CGLIB动态代理：基于继承（spring-Boot-默认代理方式）"><a href="#CGLIB动态代理：基于继承（spring-Boot-默认代理方式）" class="headerlink" title="CGLIB动态代理：基于继承（spring Boot 默认代理方式）"></a>CGLIB动态代理：基于继承（spring Boot 默认代理方式）</h2><p> CGLIB 代理靠“继承目标类 + 重写方法”  </p>
+<p>示例:<br>CGLIB会动态生成一个子类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class UserService$$EnhancerByCGLIB extends UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;方法执行前&quot;);</span><br><span class="line">        super.sayHello();</span><br><span class="line">        System.out.println(&quot;方法执行后&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li>代理类</li>
+<li>两种代理方式的性能对比</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class ServiceProxy implements Service &#123;</span><br><span class="line"></span><br><span class="line">    private final Service realService;</span><br><span class="line"></span><br><span class="line">    public ServiceProxy(Service realService) &#123;</span><br><span class="line">        this.realService = realService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void doWork() &#123;</span><br><span class="line">        System.out.println(&quot;前置校验（权限/缓存/日志...）&quot;);</span><br><span class="line">        realService.doWork(); // 核心：调用真实对象</span><br><span class="line">        System.out.println(&quot;后置逻辑（统计/审计...）&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="代理模式和装饰器模式的不同"><a href="#代理模式和装饰器模式的不同" class="headerlink" title="代理模式和装饰器模式的不同"></a>代理模式和装饰器模式的不同</h1><p>代理模式和装饰器模式的不同点主要在于理念</p>
-<p>代理模式目的是为了控制对真实对象的访问（权限）</p>
-<p>装饰器模式主要是为了在不改变对象原来的代码上增强一个对象的功能（日志打印，加密）</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E5%88%86%E5%B8%83%E5%BC%8F/%E4%B8%80%E8%87%B4%E6%80%A7hash/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E5%88%86%E5%B8%83%E5%BC%8F/%E4%B8%80%E8%87%B4%E6%80%A7hash/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是一致性hash"><a href="#什么是一致性hash" class="headerlink" title="什么是一致性hash"></a>什么是一致性hash</h1><p>假设有一个KV（key-value）缓存系统，某个key应该到哪个或者哪些节点上获得，应该是确定的。</p>
-<p>因此我们可以使用hash算法，<font style="color:rgb(44, 62, 80);">如果客户端要获取指定 key 的数据，通过下面的公式可以定位节点：</font></p>
-<p>hash(key) % 3</p>
-<br/>
-
-<p><font style="color:rgb(44, 62, 80);">但是有一个很致命的问题，</font><strong><font style="color:rgb(48, 79, 254);">如果节点数量发生了变化，也就是在对系统做扩容或者缩容时，必须迁移改变了映射关系的数据</font></strong><font style="color:rgb(44, 62, 80);">，否则会出现查询不到数据的问题。</font></p>
-<p><font style="color:rgb(44, 62, 80);">一致性哈希算法就很好地解决了分布式系统在扩容或者缩容时，发生过多的数据迁移的问题。</font></p>
-<p><font style="color:rgb(44, 62, 80);">一致哈希算法也用了取模运算，但与哈希算法不同的是，哈希算法是对节点的数量进行取模运算，而</font><strong><font style="color:rgb(48, 79, 254);">一致哈希算法是对 2^32（不一定，环的大小可以任意） 进行取模运算，是一个固定的值</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362439561-d114fa38-15b0-41a4-a564-584e3f5866de.png"></p>
-<p><font style="color:rgb(44, 62, 80);">一致性哈希要进行两步哈希：</font></p>
-<ul>
-<li><font style="color:rgb(44, 62, 80);">第一步：对存储节点进行哈希计算，也就是对存储节点做哈希映射，比如根据节点的 IP 地址进行哈希；</font></li>
-<li><font style="color:rgb(44, 62, 80);">第二步：当对数据进行存储或访问时，对数据进行哈希映射；</font></li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362479369-0c68c9d8-c4be-4cc2-bf7a-16879021b500.png"></p>
-<p><font style="color:rgb(44, 62, 80);">接着，对要查询的 key-01 进行哈希计算，确定此 key-01 映射在哈希环的位置，然后从这个位置往顺时针的方向找到第一个节点，就是存储该 key-01 数据的节点。</font></p>
-<p><font style="color:rgb(44, 62, 80);">假设节点数量从3增加到4，新的节点D经过hash计算后映射到了下图中的位置</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362536469-666f4092-1189-4425-a922-ced0049908dd.png"></p>
-<p><font style="color:rgb(44, 62, 80);">你可以看到，key-01、key-03 都不受影响，只有 key-02 需要被迁移节点 D。</font></p>
-<p><font style="color:rgb(44, 62, 80);">假设节点数量从 3 减少到了 2，比如将节点 A 移除：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362569368-ef79af40-a614-4ffe-910c-05e570e22147.png"></p>
-<p><font style="color:rgb(44, 62, 80);">你可以看到，key-02 和 key-03 不会受到影响，只有 key-01 需要被迁移节点 B。</font></p>
-<p><font style="color:rgb(44, 62, 80);">因此，</font><strong><font style="color:rgb(48, 79, 254);">在一致哈希算法中，如果增加或者移除一个节点，仅影响该节点在哈希环上顺时针相邻的后继节点，其它数据也不会受到影响</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
-<h1 id="一致性hash-有什么问题"><a href="#一致性hash-有什么问题" class="headerlink" title="一致性hash 有什么问题"></a><font style="color:rgb(44, 62, 80);">一致性hash 有什么问题</font></h1><p>存在节点分布不均匀的问题，如下图</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362617842-1c1499af-8650-4d13-9214-5c3e04bdc037.png"></p>
-<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p> 一致性 Hash 引入 <strong>虚拟节点</strong>，为每个真实节点创建多个映射点，使节点在 Hash 环上的分布变得更均匀，从而解决真实节点少时分布不均的问题，并提高系统在节点增删时的稳定性。  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763362882677-73628444-2eae-4c1c-b234-9e34e048fd2e.png"></p>
-<h3 id="为什么需要虚拟节点？"><a href="#为什么需要虚拟节点？" class="headerlink" title="为什么需要虚拟节点？"></a>为什么需要虚拟节点？</h3><p>真实节点太少时，映射到哈希环上的位置不均匀，导致：</p>
-<ul>
-<li>请求落点集中在少数节点 → 负载不平衡</li>
-<li>节点上下线时，影响区间太大 → 系统不稳定</li>
-</ul>
-<p>真实节点少时的“一次性分布不均”问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E5%88%86%E5%B8%83%E5%BC%8F/CAP%E7%90%86%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E5%88%86%E5%B8%83%E5%BC%8F/CAP%E7%90%86%E8%AE%BA/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一-CAP理论"><a href="#一-CAP理论" class="headerlink" title="一.CAP理论"></a>一.CAP理论</h1><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762746948880-3f889cb7-f8eb-42d6-a7f5-42427eb6536c.png"></p>
-<p>CAP是三个英文单词得到缩写</p>
 <table>
 <thead>
 <tr>
-<th>字母</th>
-<th>全称</th>
-<th>中文含义</th>
-<th>说明</th>
+<th>阶段</th>
+<th>JDK Proxy</th>
+<th>CGLIB</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>C</strong></td>
-<td>Consistency</td>
-<td>一致性</td>
-<td>所有节点在同一时间看到的数据是一致的</td>
+<td><strong>生成代理速度</strong></td>
+<td>🚀 快</td>
+<td>🐢 慢（需生成字节码）</td>
 </tr>
 <tr>
-<td><strong>A</strong></td>
-<td>Availability</td>
-<td>可用性</td>
-<td>每个请求都能在有限时间内得到响应（不一定是最新数据）</td>
+<td><strong>方法调用速度</strong></td>
+<td>稍慢（反射调用）</td>
+<td>稍快（FastClass 机制）</td>
 </tr>
 <tr>
-<td><strong>P</strong></td>
-<td>Partition tolerance</td>
-<td>分区容错性</td>
-<td>系统能在网络分区（节点之间通信中断）时继续提供服务</td>
+<td><strong>首次使用延迟</strong></td>
+<td>低</td>
+<td>稍高（需生成代理类）</td>
+</tr>
+<tr>
+<td><strong>总体性能</strong></td>
+<td>差异已很小（JDK8+ 优化后几乎一致）</td>
+<td></td>
 </tr>
 </tbody></table>
-<p>CAP理论的核心结论就是，在分布式系统中，最多只能同时满足C,A,P三者中的两个</p>
-<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><p>假设你有两个节点的分布式数据库：</p>
-<ul>
-<li><strong>场景</strong>：网络断开（分区出现）</li>
-<li>用户 A 向节点1写入数据 X&#x3D;100；</li>
-<li>用户 B 向节点2读取数据。</li>
-</ul>
-<p>这时必须选择:</p>
-<ol>
-<li>一致性（C）：节点2暂时不能读到数据（拒绝请求），系统不可用（A失效）</li>
-<li>可用性（A）：节点2马上返回旧数据X&#x3D;50，系统不一致（C失效）</li>
+<h1 id="动态代理和静态代理的区别"><a href="#动态代理和静态代理的区别" class="headerlink" title="动态代理和静态代理的区别"></a>动态代理和静态代理的区别</h1><ol>
+<li>静态代理是指：<strong>代理类在编译时就已经存在</strong>，由程序员手写或编译生成。也就是说，你要先写一个接口、一个真实类（被代理类），再写一个代理类，在里面调用真实类的方法。</li>
+<li>动态代理是指：<strong>代理类在运行时动态生成，而不是编译时写死的。</strong></li>
 </ol>
-<h1 id="二-三种典型的取舍模型"><a href="#二-三种典型的取舍模型" class="headerlink" title="二.三种典型的取舍模型"></a>二.三种典型的取舍模型</h1><table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/Spring_%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/SpringBoot/Spring_%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">Spring 三级缓存</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什么是Spring-三级缓存"><a href="#什么是Spring-三级缓存" class="headerlink" title="什么是Spring 三级缓存"></a>什么是Spring 三级缓存</h1><p> Spring 的三级缓存是用来<strong>提前暴露未完全创建的 Bean 对象</strong>，从而解决<strong>单例 Bean 的循环依赖问题</strong>的机制。  </p>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">class A &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private B b;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">@Service</span><br><span class="line">class B &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private A a;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> A 依赖 B，B 又依赖 A。<br>👉 如果直接反射 new，就会死循环。  </p>
+<p> 所以 Spring 必须想办法“先创建一半”，把<strong>引用提前暴露</strong>出去。这就是三级缓存登场的地方。</p>
+<h1 id="三级缓存结构-（核心类-DefaultSingletonBeanRegistry）"><a href="#三级缓存结构-（核心类-DefaultSingletonBeanRegistry）" class="headerlink" title="三级缓存结构  （核心类 DefaultSingletonBeanRegistry）"></a>三级缓存结构  （核心类 DefaultSingletonBeanRegistry）</h1><p>Spring 在这个类里维护了三个Map</p>
+<table>
 <thead>
 <tr>
-<th>类型</th>
-<th>取舍</th>
-<th>特点</th>
-<th>示例</th>
+<th>缓存层级</th>
+<th>名称</th>
+<th>作用</th>
+<th>何时存放</th>
+<th>何时清除</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>CP 系统</strong></td>
-<td>保证一致性和分区容错，放弃可用性</td>
-<td>网络异常时牺牲可用性（部分请求失败）</td>
-<td>HBase、ZooKeeper</td>
+<td><strong>一级缓存</strong></td>
+<td><code>singletonObjects</code></td>
+<td>已经完全初始化好的单例 Bean（可直接使用）</td>
+<td>Bean 创建完成后放入</td>
+<td>容器关闭时清空</td>
 </tr>
 <tr>
-<td><strong>AP 系统</strong></td>
-<td>保证可用性和分区容错，放弃强一致性</td>
-<td>网络异常时允许返回旧数据（最终一致）</td>
-<td>Cassandra、Eureka</td>
+<td><strong>二级缓存</strong></td>
+<td><code>earlySingletonObjects</code></td>
+<td>提前曝光的 Bean 实例（已 new 但未完全初始化）</td>
+<td>遇到循环依赖时提前暴露</td>
+<td>创建完成后清空</td>
 </tr>
 <tr>
-<td><strong>CA 系统</strong></td>
-<td>保证一致性和可用性，放弃分区容错</td>
-<td>理论上只存在于单机系统</td>
-<td>单节点数据库（如本地 MySQL）</td>
+<td><strong>三级缓存</strong></td>
+<td><code>singletonFactories</code></td>
+<td>可以创建“早期对象”的工厂（ObjectFactory）</td>
+<td>实例化后、属性注入前放入</td>
+<td>当对象被取出或转移到二级缓存后清空</td>
 </tr>
 </tbody></table>
-<p><em>在实际系统中更倾向于选择AP+最终一致性</em></p>
+<h2 id="创建对象过程"><a href="#创建对象过程" class="headerlink" title="创建对象过程"></a>创建对象过程</h2><h3 id="1️⃣-创建-A"><a href="#1️⃣-创建-A" class="headerlink" title="1️⃣ 创建 A"></a>1️⃣ 创建 A</h3><ul>
+<li><strong>通过反射调用构造器</strong>实例化出 A（实例化阶段完成，但还未注入属性）。</li>
+<li><strong>注册 A 的早期对象工厂</strong>：</li>
+<li>singletonFactories[“A”] &#x3D; () -&gt; getEarlyBeanReference(“A”, A实例）</li>
+<li>（这一步只是把一个“可以返回 A 早期引用的工厂函数”放入三级缓存）  </li>
+<li>进入注入A属性阶段，发现依赖B-&gt;执行getBean(“B”) 去创建B</li>
+</ul>
+<h3 id="2️⃣-创建-B（因为-A-依赖-B）"><a href="#2️⃣-创建-B（因为-A-依赖-B）" class="headerlink" title="2️⃣ 创建 B（因为 A 依赖 B）"></a>2️⃣ 创建 B（因为 A 依赖 B）</h3><ul>
+<li><strong>通过反射调用构造器</strong>实例化出 B（实例化阶段完成）。</li>
+<li><strong>注册 B 的早期对象工厂</strong>：</li>
+<li>singletonFactories[“B”] &#x3D; () -&gt; getEarlyBeanReference(“B”, B实例)</li>
+<li>进入注入B属性阶段，发现依赖A-&gt;执行getBean(“A”)</li>
+</ul>
+<h3 id="3️⃣-在创建-B-的过程中注入-A"><a href="#3️⃣-在创建-B-的过程中注入-A" class="headerlink" title="3️⃣ 在创建 B 的过程中注入 A"></a>3️⃣ 在创建 B 的过程中注入 A</h3><p>调用 <code>getBean(&quot;A&quot;)</code> 时，Spring 依次查找：</p>
+<ul>
+<li>一级缓存（singletonObjects）：❌ 没有</li>
+<li>二级缓存（earlySingletonObjects）：❌ 没有</li>
+<li>三级缓存（singletonFactories）：✅ 有 “A 的工厂”</li>
+<li>调用该工厂：   生成 <strong>A 的早期引用</strong>（可能是原始 A，也可能是 AOP 代理对象）。  将这个早期 A 放入二级缓存：</li>
+<li>使用这个早期 A 给 B 注入依赖。</li>
+</ul>
+<h3 id="4️⃣-B-创建完成"><a href="#4️⃣-B-创建完成" class="headerlink" title="4️⃣ B 创建完成"></a>4️⃣ B 创建完成</h3><ul>
+<li>B 的依赖注入与初始化都完成 → 放入一级缓存：  </li>
+<li>清理 B 的二级、三级缓存记录。</li>
+</ul>
+<h3 id="5️⃣-回到-A，完成剩余步骤"><a href="#5️⃣-回到-A，完成剩余步骤" class="headerlink" title="5️⃣ 回到 A，完成剩余步骤"></a>5️⃣ 回到 A，完成剩余步骤</h3><ul>
+<li>继续给 A 注入 B（此时 B 已在一级缓存中，可以直接注入）。</li>
+<li>A 完成依赖注入与初始化 → 放入一级缓存：</li>
+<li>清理 A 的二级、三级缓存记录。</li>
+</ul>
+<h1 id="为什么是三级缓存而不是二级缓存"><a href="#为什么是三级缓存而不是二级缓存" class="headerlink" title="为什么是三级缓存而不是二级缓存"></a>为什么是三级缓存而不是二级缓存</h1><h2 id="如果只有二级缓存，会出现什么问题"><a href="#如果只有二级缓存，会出现什么问题" class="headerlink" title="如果只有二级缓存，会出现什么问题"></a>如果只有二级缓存，会出现什么问题</h2><p>假设我们只有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一级缓存：存成品</span><br><span class="line">二级缓存：存半成品</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9B%B6%E6%8B%B7%E8%B4%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是DMA"><a href="#什么是DMA" class="headerlink" title="什么是DMA"></a>什么是DMA</h1><p> DMA（Direct Memory Access）允许 I&#x2F;O 设备在 CPU 不参与数据搬运的情况下，直接访问内存，实现“设备 ↔ 内存”的高速传输。<br>CPU <font style="color:#DF2A3F;">只负责发起和结束</font>，不负责搬运。</p>
-<h1 id="什么是零拷贝"><a href="#什么是零拷贝" class="headerlink" title="  什么是零拷贝"></a><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763359884828-68560380-c838-48fe-a37a-d7033b7f32c2.png">  什么是零拷贝</h1><p> 零拷贝技术让数据在内核态内部直接流动，由 DMA 完成搬运，避免用户态与内核态之间的数据复制，从而减少 CPU 开销并提升 I&#x2F;O 性能。  </p>
-<p>比如再进行网络io的时候，先来看没有零拷贝时的io方式</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763360411748-9a4911d1-c1ca-4a8b-b1ed-852cac7baabe.png"></p>
-<p> 传统 I&#x2F;O 中既有 4 次用户态与内核态的切换，也有 4 次数据拷贝；如果只是单纯搬运数据，这些操作会造成巨大开销，因此提升性能的关键就是减少上下文切换次数和内存拷贝次数。  </p>
-<h1 id="如何实现零拷贝"><a href="#如何实现零拷贝" class="headerlink" title="如何实现零拷贝"></a>如何实现零拷贝</h1><ol>
-<li>使用sendfile 系统调用</li>
+<p>流程是这样的：</p>
+<ol>
+<li>A 实例化 → 放入二级缓存</li>
+<li>B 创建 → 需要 A → 从二级缓存拿 A → 成功</li>
+<li>然后 A 完成初始化（此时 AOP 代理可能介入）→ A 最终变成代理对象。</li>
 </ol>
-<p><font style="color:rgb(44, 62, 80);">该系统调用，可以直接把内核缓冲区里的数据拷贝到 socket 缓冲区里，不再拷贝到用户态，这样就只有 2 次上下文切换，和 3 次数据拷贝。如下图：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763361189375-e466dd91-f500-4c0b-8d27-e0717471c474.png"></p>
+<p><strong>问题就来了：</strong></p>
+<p>此时 B 已经拿到了“原始的 A 对，而不是代理后的对象！</p>
+<p>也就是说：</p>
+<ul>
+<li>A 最终在容器中是 <code>AProxy</code></li>
+<li>B 注入的是 <code>A 原对象</code></li>
+<li>这会让 AOP 失效（B 调用 A 的方法绕过了代理）</li>
+</ul>
+<p> 💥 <strong>二级缓存无法解决 “A 被代理后，B 拿到的 A 不是最终版本” 的问题。</strong></p>
+<h2 id="Spring-用第三级缓存结局了这个问题"><a href="#Spring-用第三级缓存结局了这个问题" class="headerlink" title="Spring 用第三级缓存结局了这个问题"></a>Spring 用第三级缓存结局了这个问题</h2><p>Spring 在 <strong>三级缓存</strong> 放的不是对象本身，而是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ObjectFactory&lt;?&gt; factory = () -&gt; getEarlyBeanReference(beanName, originalBean);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>也就是一个“<strong>延迟生成早期对象的函数</strong>”。<br>当 B 在创建时需要 A：</p>
+<ul>
+<li>容器调用这个工厂；</li>
+<li>这个工厂里会先判断：A 是否需要被 AOP 代理；</li>
+<li>如果需要，就返回代理对象；</li>
+<li>否则返回原始对象。</li>
+</ul>
+<p>✅ 这样 B 拿到的 A 就与容器最终保存的一致（可能是代理）。</p>
 
       
     </div>
@@ -1514,7 +999,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/Spring_IOC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1532,19 +1017,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/SpringBoot/Spring_IOC/" class="post-title-link" itemprop="url">Spring IOC</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
     </span>
 
   
@@ -1557,90 +1042,350 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是虚拟内存"><a href="#什么是虚拟内存" class="headerlink" title="什么是虚拟内存"></a>什么是虚拟内存</h1><p> 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由操作系统自动把它映射到真实、碎片化的物理内存中，从而解决内存不够用、内存碎片和进程隔离的问题。  </p>
-<p>虚拟内存主要有两种形式一种是内存分段（早期提出，现在很少使用），一种是内存分页（目前普遍流行的）</p>
-<h1 id="内存分段"><a href="#内存分段" class="headerlink" title="内存分段"></a>内存分段</h1><p> 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由系统自动把它映射到真实、碎片化的物理内存中，从而解决内存不够用、内存碎片和进程隔离的问题。  </p>
-<p>分段划分，本质上就是通过一个段表进行虚拟地址-&gt;真实地址的映射</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763610082037-65d6b47e-ad47-4de7-a5dd-564dae0ee8ee.png"></p>
-<p>分段划分会有两个问题</p>
-<ul>
-<li>内存碎片</li>
-<li>内存交换的效率低</li>
-</ul>
-<h2 id="内存碎片"><a href="#内存碎片" class="headerlink" title="内存碎片"></a>内存碎片</h2><p><font style="color:rgb(44, 62, 80);">我们来看看这样一个例子。假设有 1G 的物理内存，用户执行了多个程序，其中：</font></p>
-<ul>
-<li><font style="color:rgb(44, 62, 80);">游戏占用了 512MB 内存</font></li>
-<li><font style="color:rgb(44, 62, 80);">浏览器占用了 128MB 内存</font></li>
-<li><font style="color:rgb(44, 62, 80);">音乐占用了 256 MB 内存。</font></li>
-</ul>
-<p><font style="color:rgb(44, 62, 80);">这个时候，如果我们关闭了浏览器，则空闲内存还有 1024 - 512 - 256 &#x3D; 256MB。</font></p>
-<p><font style="color:rgb(44, 62, 80);">如果这个 256MB 不是连续的，被分成了两段 128 MB 内存，这就会导致没有空间再打开一个 200MB 的程序。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763610545559-4fc22978-89e3-4815-81b4-1d94f8bea46f.png"></p>
-<p><strong>分段会产生“外部碎片”，不会产生“内部碎片”。</strong></p>
-<ul>
-<li><strong>不会产生内部碎片：</strong><br>分段按“真实需求大小”整体分配，只有找到能容纳整个段的连续空间才会分配，因此不会出现“分配多余空间被浪费”的情况。</li>
-<li><strong>会产生外部碎片：</strong><br>由于段大小不固定、必须连续，内存中会形成许多小的、彼此不连续的空洞，可能导致后续大的段无法放入，进而产生外部碎片。</li>
-</ul>
-<h3 id="对于内存分段的外部内存碎片问题，可以使用内存交换来解决"><a href="#对于内存分段的外部内存碎片问题，可以使用内存交换来解决" class="headerlink" title="对于内存分段的外部内存碎片问题，可以使用内存交换来解决"></a>对于内存分段的外部内存碎片问题，可以使用内存交换来解决</h3><p><font style="color:rgb(44, 62, 80);">可以把音乐程序占用的那 256MB 内存写到硬盘上，然后再从硬盘上读回来到内存里。不过再读回的时候，我们不能装载回原来的位置，而是紧紧跟着那已经被占用了的 512MB 内存后面。这样就能空缺出连续的 256MB 空间，于是新的 200MB 程序就可以装载进来。</font></p>
-<h2 id="内存交换效率低"><a href="#内存交换效率低" class="headerlink" title="内存交换效率低"></a><font style="color:rgb(44, 62, 80);">内存交换效率低</font></h2><p>由于内存分段很容易产生外部内存碎片，所以我们不得不进行大量的内存交换，而内存交换涉及到磁盘io效率很低</p>
-<h1 id="内存分页"><a href="#内存分页" class="headerlink" title="内存分页"></a>内存分页</h1><p><strong><font style="color:rgb(48, 79, 254);">分页是把整个虚拟和物理内存空间切成一段段固定尺寸的大小</font></strong><font style="color:rgb(44, 62, 80);">。这样一个连续并且尺寸固定的内存空间，我们叫</font><strong><font style="color:rgb(48, 79, 254);">页</font></strong><font style="color:rgb(44, 62, 80);">（</font><em><font style="color:rgb(200, 73, 255);">Page</font></em><font style="color:rgb(44, 62, 80);">）。在 Linux 下，每一页的大小为 </font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;4KB&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">。虚拟地址与物理地址之间通过</font><strong><font style="color:rgb(48, 79, 254);">页表</font></strong><font style="color:rgb(44, 62, 80);">来映射，如下图：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763611538345-cb28a6db-b441-42f6-a404-05bed414cd70.png"></p>
-<p><font style="color:rgb(44, 62, 80);">页表是存储在内存里的，</font><strong><font style="color:rgb(48, 79, 254);">内存管理单元</font></strong><font style="color:rgb(44, 62, 80);"> （</font><em><font style="color:rgb(200, 73, 255);">MMU（计算机硬件）</font></em><font style="color:rgb(44, 62, 80);">）就做将虚拟内存地址转换成物理地址的工作。</font></p>
-<h2 id="分页是怎么解决分段的「外部内存碎片和内存交换效率低」的问题？"><a href="#分页是怎么解决分段的「外部内存碎片和内存交换效率低」的问题？" class="headerlink" title="分页是怎么解决分段的「外部内存碎片和内存交换效率低」的问题？"></a>分页是怎么解决分段的「外部内存碎片和内存交换效率低」的问题？</h2><p><strong>1. 分页不会有外部碎片</strong><br>内存被预先划分成大小固定的页（如 4KB），页与页紧密排列，因此不会出现“不连续的小空洞”。</p>
-<p><strong>2. 分页会有内部碎片</strong><br>内存分配的最小单位是页，即使程序只用到几百字节，也必须分配整页，所以会产生内部碎片。</p>
-<p><strong>3. 分页的换入换出效率更高</strong><br>当内存不足时，操作系统只需将“近期未使用的少量页面”换出到磁盘，再按需将这些页面换入，而不是移动整个大段，因此交换开销更小。</p>
-<p><strong>4. 分页支持按需加载</strong><br>程序启动时无需一次性加载所有内容，只需建立虚拟页与物理页的映射，程序运行到需要某个虚拟页时，再触发缺页中断并把对应页加载到内存即可。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763611848903-05c7b0a8-c833-490b-9a95-3b48db4c3ab2.png"></p>
-<h2 id="分页机制下，虚拟地址和物理地址是如何映射的？"><a href="#分页机制下，虚拟地址和物理地址是如何映射的？" class="headerlink" title="分页机制下，虚拟地址和物理地址是如何映射的？"></a>分页机制下，虚拟地址和物理地址是如何映射的？</h2><p><font style="color:rgb(44, 62, 80);">在分页机制下，虚拟地址分为两部分，</font><strong><font style="color:rgb(48, 79, 254);">页号</font></strong><font style="color:rgb(44, 62, 80);">和</font><strong><font style="color:rgb(48, 79, 254);">页内偏移</font></strong><font style="color:rgb(44, 62, 80);">。页号作为页表的索引，</font><strong><font style="color:rgb(48, 79, 254);">页表</font></strong><font style="color:rgb(44, 62, 80);">包含物理页每页所在</font><strong><font style="color:rgb(48, 79, 254);">物理内存的基地址</font></strong><font style="color:rgb(44, 62, 80);">，这个基地址与页内偏移的组合就形成了物理内存地址，见下图。</font></p>
-<font style="color:rgb(44, 62, 80);">  
-</font><font style="color:rgb(44, 62, 80);"> </font>![](https://cdn.nlark.com/yuque/0/2025/png/50543647/1763612066346-bc916948-fa43-48be-8fe2-b1a0ff5cb937.png)
+          <h1 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h1><p>IOC即控制反转，,依赖注入（DI）是实现这种技术的一种方式，简单来讲就是对象的创建和依赖关系交给Spring 控制</p>
+<h1 id="Spring-IOC的底层实现机制"><a href="#Spring-IOC的底层实现机制" class="headerlink" title="Spring IOC的底层实现机制"></a>Spring IOC的底层实现机制</h1>
+      
+    </div>
 
-<p><font style="color:rgb(44, 62, 80);">总结一下，对于一个内存地址转换，其实就是这样三个步骤：</font></p>
-<ul>
-<li><font style="color:rgb(44, 62, 80);">把虚拟内存地址，切分成页号和偏移量；</font></li>
-<li><font style="color:rgb(44, 62, 80);">根据页号，从页表里面，查询对应的物理页号；</font></li>
-<li><font style="color:rgb(44, 62, 80);">直接拿物理页号，加上前面的偏移量，就得到了物理内存地址。</font></li>
-</ul>
-<h2 id="多级页表"><a href="#多级页表" class="headerlink" title="多级页表"></a><font style="color:rgb(44, 62, 80);">多级页表</font></h2><p>对于只有一个页表的简单分页</p>
-<ul>
-<li>每个进程都有独立的虚拟地址空间，因此每个进程都需要自己的页表。</li>
-<li>以 <strong>32 位系统</strong>为例：虚拟空间 4GB、页大小 4KB → 需要约 <strong>100 万个页</strong>。</li>
-<li>每个页表项 4 字节 → 一个完整页表大小约 <strong>4MB</strong>。</li>
-<li>一个进程 4MB 看似不大，但 <strong>100 个进程就要 400MB</strong> 内存仅用于存页表。</li>
-<li>在 64 位环境下虚拟地址空间更大，页表会更巨大。</li>
-</ul>
-<p>为了解决空间问题，就引入了多级页表</p>
-<p><font style="color:rgb(44, 62, 80);">对于32位操作系统我们把这个 100 多万个「页表项」的单级页表再分页，将页表（一级页表）分为 </font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;1024&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);"> 个页表（二级页表），每个表（二级页表）中包含 </font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;1024&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);"> 个「页表项」，形成</font><strong><font style="color:rgb(48, 79, 254);">二级分页</font></strong><font style="color:rgb(44, 62, 80);">。如下图所示：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763612282612-7c17d021-0f4a-4e60-83be-0c162c133333.png"></p>
-<h3 id="分了二级表，映射-4GB-地址空间就需要-4KB（一级页表）-4MB（二级页表）的内存，这样占用空间不是更大了吗？"><a href="#分了二级表，映射-4GB-地址空间就需要-4KB（一级页表）-4MB（二级页表）的内存，这样占用空间不是更大了吗？" class="headerlink" title="分了二级表，映射 4GB 地址空间就需要 4KB（一级页表）+ 4MB（二级页表）的内存，这样占用空间不是更大了吗？"></a>分了二级表，映射 4GB 地址空间就需要 4KB（一级页表）+ 4MB（二级页表）的内存，这样占用空间不是更大了吗？</h3><ul>
-<li>虽然虚拟地址空间是 4GB，但进程实际只使用其中很小的一部分，所以绝大多数页表项始终是空的。</li>
-<li>如果只使用一级页表，就必须一次性构建覆盖整个 4GB 空间的页表（约 4MB），而且每个进程都要有一份，这会造成巨大浪费。</li>
-<li>二级页表的做法是：一级页表仍覆盖整个虚拟空间，但只有当某个一级页表项被访问时，才按需创建对应的二级页表。</li>
-<li>一级页表始终存在（大小约 4KB）</li>
-<li>二级页表“用到哪一块虚拟空间就创建哪一块”，未访问的区域不占用页表内存</li>
-</ul>
-<p><em>对于64位操作系统我们一般会使用四级页表</em></p>
-<h3 id="为什么不分级的简单页表不能按需创建？"><a href="#为什么不分级的简单页表不能按需创建？" class="headerlink" title="为什么不分级的简单页表不能按需创建？"></a>为什么不分级的简单页表不能按需创建？</h3><p> 因为简单页表承担的是“直接把虚拟页号映射到页表项”的工作，它必须完整存在，否则 MMU 无法完成地址转换。  <font style="color:rgb(44, 62, 80);">所以</font><strong>页表一定要覆盖全部虚拟地址空间</strong></p>
-<h2 id="TLB"><a href="#TLB" class="headerlink" title="TLB"></a>TLB</h2><p> 根据局部性原理，程序在短时间内会频繁访问相同的地址区域。所以在cpu 芯片中加入了一个<font style="color:rgb(44, 62, 80);">专门存放程序最常访问的页表项的 Cache，这个 Cache 就是 TLB（</font><em><font style="color:rgb(200, 73, 255);">Translation Lookaside Buffer</font></em><font style="color:rgb(44, 62, 80);">） ，</font>  <font style="color:rgb(44, 62, 80);">通常称为页表缓存、转址旁路缓存、快表等。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763613007279-a81a4306-2753-4233-b7b4-02bc3f48a88c.png"></p>
-<p>CPU 内部集成了内存管理单元（MMU），负责地址转换，并与 TLB 协同工作。</p>
-<p>有了 TLB 后，CPU 查地址时会<strong>先查 TLB</strong>；如果命中，则无需访问页表；如果未命中，再去查正常的页表。</p>
-<p>由于程序具有局部性，常访问的页通常只有少数几个，所以 TLB 的命中率往往非常高。</p>
-<h1 id="linux-内存布局"><a href="#linux-内存布局" class="headerlink" title="linux 内存布局"></a>linux 内存布局</h1><p>linux 内存布局是采用思想上分段，实现上分页</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763624150432-d6b97759-caff-40e2-adb2-c3fc7a43523c.png"></p>
-<h3 id="inux-如何判断一个虚拟地址属于哪个“段”"><a href="#inux-如何判断一个虚拟地址属于哪个“段”" class="headerlink" title="inux 如何判断一个虚拟地址属于哪个“段”"></a>inux 如何判断一个虚拟地址属于哪个“段”</h3><p><strong>判断一个地址属于哪个“段”不是看页号，也不是硬件段表，而是查 VMA（虚拟内存区域）。</strong></p>
-<ul>
-<li>每个进程维护一组 VMA（vm_area_struct）</li>
-<li>每个 VMA 对应一个区间，如：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[0x00400000, 0x00500000] → 代码段</span><br><span class="line">[0x00600000, 0x00680000] → 数据段/BSS</span><br><span class="line">[0x08000000, 0x09000000] → 堆</span><br><span class="line">[0x7ffdxxxx, 0x7fffffff] → 栈</span><br></pre></td></tr></table></figure>
+    
+    
+    
 
-<ul>
-<li>查询逻辑：</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">地址 ∈ 哪个 VMA 区间 → 所属的逻辑段</span><br></pre></td></tr></table></figure>
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
-<p><em>VMA本质上是一个红黑树数据结构</em></p>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">spring Bean 声明周期</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一-简要概括"><a href="#一-简要概括" class="headerlink" title="一.简要概括"></a>一.简要概括</h1><p>好的，下面是对 Spring Bean 生命周期四个阶段的<strong>一句话概括</strong>：</p>
+<ol>
+<li><strong>实例化（Instantiation）</strong>：Spring 通过反射创建 Bean 对象的实例。</li>
+<li><strong>属性赋值（Populate Properties）</strong>：Spring 将配置文件或注解中定义的依赖注入到 Bean 的属性中。（三级缓存）</li>
+<li><strong>初始化（Initialization）</strong>：Spring 调用 Bean 的初始化方法（如 <code>@PostConstruct</code>、<code>afterPropertiesSet()</code> 或自定义 init-method）进行初始化逻辑。</li>
+<li><strong>销毁（Destruction）</strong>：当容器关闭时，Spring 调用销毁方法（如 <code>@PreDestroy</code>、<code>destroy()</code> 或自定义 destroy-method）释放资源。</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2025/jpeg/50543647/1762671637828-8ec38a3d-535d-41e8-8246-2f12b8f70380.jpeg"></h3><h1 id="二-初始化"><a href="#二-初始化" class="headerlink" title="二.初始化"></a>二.初始化</h1><p> 初始化阶段的目标：让 Bean <strong>完全准备好可以使用</strong>。  经过第一二步 反射出来的对象现在还只是“一个有属性的普通对象”；Spring 要在初始化阶段执行一系列“钩子（回调）”，让 Bean 真正“活起来”。  </p>
+<h2 id="初始化阶段执行顺序"><a href="#初始化阶段执行顺序" class="headerlink" title="初始化阶段执行顺序"></a>初始化阶段执行顺序</h2><p>1️⃣ 实例化（new 对象）</p>
+<p>2️⃣ 属性注入（依赖注入）</p>
+<p>3️⃣ 调用 Aware 接口（如 BeanNameAware）</p>
+<p>4️⃣ BeanPostProcessor 前置处理</p>
+<p>➡️ 5️⃣ @PostConstruct（执行初始化逻辑）</p>
+<p>6️⃣ afterPropertiesSet() —— 来自 InitializingBean 接口</p>
+<p>7️⃣ init-method() —— 在 XML &#x2F; @Bean 中指定</p>
+<p>8️⃣ BeanPostProcessor 后置处理（常用于 AOP 代理）</p>
+<br/>
+
+
+
+<h2 id="Bean的初始化方法"><a href="#Bean的初始化方法" class="headerlink" title="Bean的初始化方法"></a>Bean的初始化方法</h2><h3 id="PostConstruct（重点-⭐）"><a href="#PostConstruct（重点-⭐）" class="headerlink" title="@PostConstruct（重点 ⭐）"></a>@PostConstruct（重点 ⭐）</h3><ul>
+<li><strong>作用</strong>：在 Bean 完成依赖注入后、但在使用前自动执行一次初始化逻辑。</li>
+<li><strong>执行时机</strong>：依赖注入完成 → 初始化前（在 AOP 代理之前）。</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct</span><br><span class="line">public void init() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;Bean 初始化逻辑执行...&quot;);</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>@PostConstructor 方法要求</p>
+<ul>
+<li><strong>返回值类型</strong>：<code>void</code></li>
+<li><strong>无参数</strong>（不能带任何参数）</li>
+<li><strong>不能抛出受检异常（checked exception）</strong></li>
+</ul>
+<h3 id="afterPropertiesSet-与-init-method（了解）"><a href="#afterPropertiesSet-与-init-method（了解）" class="headerlink" title="afterPropertiesSet 与 init-method（了解）"></a>afterPropertiesSet 与 init-method（了解）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>定义方式</th>
+<th>调用时机</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>afterPropertiesSet()</code></td>
+<td>实现 <code>InitializingBean</code><br/> 接口</td>
+<td>@PostConstruct 之后</td>
+<td>用于框架级初始化</td>
+</tr>
+<tr>
+<td><code>init-method()</code></td>
+<td>在 XML 或 @Bean 指定</td>
+<td>afterPropertiesSet 之后</td>
+<td>用于配置文件初始化</td>
+</tr>
+</tbody></table>
+<p> 三者都能定义初始化逻辑，执行顺序为：<br><code>@PostConstruct → afterPropertiesSet → init-method</code></p>
+<h2 id="aware回调"><a href="#aware回调" class="headerlink" title="aware回调"></a>aware回调</h2><p>aware 相关接口就是在告诉bean自己是谁（BeanNameAware），自己在哪（ApplicationContextAware），谁创建了自己（BeanFactoryAware）</p>
+<h3 id="常见的Aware接口及其作用"><a href="#常见的Aware接口及其作用" class="headerlink" title="常见的Aware接口及其作用"></a>常见的Aware接口及其作用</h3><table>
+<thead>
+<tr>
+<th>接口名</th>
+<th>注入的对象</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>BeanNameAware</code></td>
+<td>当前 Bean 的名字</td>
+<td>让 Bean 知道自己在容器中的名字</td>
+</tr>
+<tr>
+<td><code>BeanFactoryAware</code></td>
+<td>BeanFactory 对象</td>
+<td>可以手动获取其他 Bean（不推荐）</td>
+</tr>
+<tr>
+<td><code>ApplicationContextAware</code></td>
+<td>ApplicationContext</td>
+<td>拿到整个上下文，能访问 Bean、资源、事件发布等</td>
+</tr>
+</tbody></table>
+<h3 id="运行时发生了什么？"><a href="#运行时发生了什么？" class="headerlink" title="运行时发生了什么？"></a>运行时发生了什么？</h3><p> 当 Spring 创建完 Bean 实例并注入属性后，会在初始化前执行👇：  </p>
+<p>invokeAwareMethods(beanName, bean);</p>
+<br/>
+
+<p> Spring 会判断当前 Bean 是否实现了这些接口：  </p>
+<p>if (bean instanceof BeanNameAware) {</p>
+<pre><code>((BeanNameAware) bean).setBeanName(beanName);
+</code></pre>
+<p>}</p>
+<p>if (bean instanceof BeanFactoryAware) {</p>
+<pre><code>((BeanFactoryAware) bean).setBeanFactory(this);
+</code></pre>
+<p>}</p>
+<p>if (bean instanceof ApplicationContextAware) {</p>
+<pre><code>((ApplicationContextAware) bean).setApplicationContext(context);
+</code></pre>
+<p>}</p>
+<br/>
+
+<p><strong>也就是说：</strong><br>Spring 主动调用这些 <code>setXXX()</code> 方法，把容器对象传进去。这样 Bean 就能拿到容器级资源了。  </p>
+<h2 id="BeanPostProcessor-前置处理与后置处理"><a href="#BeanPostProcessor-前置处理与后置处理" class="headerlink" title="BeanPostProcessor 前置处理与后置处理"></a>BeanPostProcessor 前置处理与后置处理</h2><p>接口定义</p>
+<p>public interface BeanPostProcessor {</p>
+<pre><code>// 初始化前调用
+
+Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
+
+
+
+// 初始化后调用
+
+Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
+</code></pre>
+<p>}</p>
+<br/>
+
+
+
+<h3 id="前置处理"><a href="#前置处理" class="headerlink" title="前置处理"></a>前置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法（如 <code>@PostConstruct</code> 或 <code>init-method</code>）<strong>执行之前</strong>。  </p>
+<p><strong>常见用途：</strong></p>
+<ul>
+<li>对 Bean 的属性进行额外处理或校验；</li>
+</ul>
+<h3 id="后置处理"><a href="#后置处理" class="headerlink" title="后置处理"></a>后置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法执行完成后调用。</p>
+<p><strong>常见用途：</strong></p>
+<ul>
+<li>AOP 动态代理（Spring AOP 就是通过后置处理实现的）；</li>
+</ul>
+<h3 id="PostConstruct注解"><a href="#PostConstruct注解" class="headerlink" title="@PostConstruct注解"></a>@PostConstruct注解</h3><p> @PostConstruc   作用是让方法在 <strong>Bean 完成依赖注入后</strong>、但在 Bean 被使用之前 自动执行。  </p>
+<p>在完整的生命周期中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1️⃣ 实例化（new）</span><br><span class="line">2️⃣ 属性注入（依赖注入）</span><br><span class="line">3️⃣ 调用 Aware 接口</span><br><span class="line">4️⃣ BeanPostProcessor 前置处理</span><br><span class="line">➡️ 5️⃣ @PostConstruct 执行 ← 这里</span><br><span class="line">6️⃣ afterPropertiesSet()（InitializingBean）</span><br><span class="line">7️⃣ init-method()</span><br><span class="line">8️⃣ BeanPostProcessor 后置处理（AOP代理）</span><br></pre></td></tr></table></figure>
+
+<p>💡 所以：</p>
+<p><code>@PostConstruct</code> 是 <strong>初始化阶段的第一个执行点</strong>，<br>它会在所有依赖注入完成后、但在任何自定义初始化方法之前被调用。</p>
+<h1 id="三-销毁过程"><a href="#三-销毁过程" class="headerlink" title="三.销毁过程"></a>三.销毁过程</h1><p>销毁触发场景有两种:</p>
+<ol>
+<li>Spring 容器正常关闭(context.close（)</li>
+<li>应用关闭时</li>
+</ol>
+<h2 id="PreDestory注解"><a href="#PreDestory注解" class="headerlink" title="@PreDestory注解"></a>@PreDestory注解</h2><p><code>@PreDestroy</code> 表示：</p>
+<p>在 <strong>Bean 被销毁前</strong> 自动执行标注的方法，用于清理资源。</p>
+<p>比如关闭连接、释放线程池、清空缓存等。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class MyService &#123;</span><br><span class="line"></span><br><span class="line"><span class="code">    @PreDestroy</span></span><br><span class="line"><span class="code">    public void cleanup() &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;🧹 Bean 即将被销毁，执行清理逻辑...&quot;);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>@PreDestory方法要求</p>
+<ul>
+<li>方法必须是 <code>**void**</code>** 返回值、无参数**；</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/AOP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/SpringBoot/AOP/" class="post-title-link" itemprop="url">AOP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>** AOP（面向切面编程）是一种将公共逻辑抽取并封装为切面的编程思想，它能够在需要的地方自动切入，从而实现代码复用，同时保持业务代码的简洁与清晰。** </p>
+<ol>
+<li>优点：</li>
+</ol>
+<ul>
+<li>代码解耦：公共逻辑与业务逻辑分离，业务代码更干净。</li>
+<li>复用性强：一个切面可以应用到多个方法，减少重复代码。</li>
+<li>灵活扩展：新增公共逻辑时，只需修改切面，无需改动业务代码。</li>
+</ul>
+<ol start="2">
+<li>缺点：</li>
+</ol>
+<ul>
+<li>调试复杂：切面逻辑可能影响多个方法，错误时需要追踪切面代码。</li>
+<li>性能开销：AOP通过动态代理实现，大量切面可能增加方法调用耗时（但日常业务中可忽略）。</li>
+</ul>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1758699052849-34cdcf47-ccc2-4141-804d-d9e344bf35a7.png"></p>
+<ol>
+<li>切面(Aspect)： 编写执行逻辑,里面定义拦哪些点（ @Pointcut  ）,做哪些事（@Advice）</li>
+<li>切入点：要切入的方法</li>
+<li>通知: 在切入点执行的逻辑</li>
+</ol>
+<h3 id="五种常见的Advice"><a href="#五种常见的Advice" class="headerlink" title="五种常见的Advice"></a>五种常见的Advice</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1758699737745-2d664b0e-7940-4cfe-8527-e3d59acbf324.png"></p>
+<h2 id="创建Aop切面的示例"><a href="#创建Aop切面的示例" class="headerlink" title="创建Aop切面的示例"></a>创建Aop切面的示例</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">public class TimeCostAspect &#123;</span><br><span class="line"><span class="code">    private static final Logger log = LoggerFactory.getLogger(TimeCostAspect.class);</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    // 拦截 service 包下所有方法</span></span><br><span class="line"><span class="code">    @Pointcut(&quot;execution(* com.example.demo.service..*(..))&quot;)</span></span><br><span class="line"><span class="code">    public void serviceMethods()&#123;&#125;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    @Around(&quot;serviceMethods()&quot;)</span></span><br><span class="line"><span class="code">    public Object logTime(ProceedingJoinPoint pjp) throws Throwable &#123;</span></span><br><span class="line"><span class="code">        long start = System.nanoTime();</span></span><br><span class="line"><span class="code">        try &#123;</span></span><br><span class="line"><span class="code">            return pjp.proceed();</span></span><br><span class="line"><span class="code">        &#125; finally &#123;</span></span><br><span class="line"><span class="code">            long costMs = (System.nanoTime() - start) / 1_000_000;</span></span><br><span class="line"><span class="code">            MethodSignature sig = (MethodSignature) pjp.getSignature();</span></span><br><span class="line"><span class="code">            String cls = sig.getDeclaringType().getSimpleName();</span></span><br><span class="line"><span class="code">            String method = sig.getName();</span></span><br><span class="line"><span class="code">            log.info(&quot;[AOP] &#123;&#125;.&#123;&#125; 执行耗时 &#123;&#125; ms&quot;, cls, method, costMs);</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用陷阱"><a href="#使用陷阱" class="headerlink" title="使用陷阱"></a>使用陷阱</h2><h3 id="自调用失效-同类内this-调自己"><a href="#自调用失效-同类内this-调自己" class="headerlink" title="自调用失效(同类内this 调自己)"></a>自调用失效(同类内this 调自己)</h3><p><strong>复现</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class HelloService &#123;</span><br><span class="line">  public String greet(String n)&#123; return &quot;hi &quot;+n; &#125;</span><br><span class="line">  public String outer(String n)&#123; return greet(n); &#125; // 自调用：绕过代理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t1&quot;) public String t1()&#123; return helloService.outer(&quot;Tom&quot;); &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>现象：只打印一次（</strong><code>**outer**</code><strong>），</strong><code>**greet**</code>** 没日志。  **</p>
+<p><strong>修正: 将方法抽离为Bean</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service class Greeter &#123; public String greet(String n)&#123; return &quot;hi &quot;+n; &#125; &#125;</span><br><span class="line">@Service</span><br><span class="line">class HelloService &#123;</span><br><span class="line">  private final Greeter greeter;</span><br><span class="line">  public HelloService(Greeter g)&#123; this.greeter = g; &#125;</span><br><span class="line">  public String outer(String n)&#123; return greeter.greet(n); &#125; // 经过代理 → 触发</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自己new-的对象不生效"><a href="#自己new-的对象不生效" class="headerlink" title="自己new 的对象不生效"></a>自己new 的对象不生效</h3><p><strong>复现</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 先不要给它加 @Component</span><br><span class="line">public class DiscountHelper &#123; public void apply()&#123; /<span class="emphasis">*...*</span>/ &#125; &#125;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class OrderService &#123;</span><br><span class="line">  public void place()&#123; new DiscountHelper().apply(); &#125; // 不是 Bean → 没代理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t2&quot;) public String t2()&#123; orderService.place(); return &quot;ok&quot;; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>现象：没有AOP日志记录</strong></p>
+<p><strong>修正：交给容器并注入使用，注意AOP只对Bean 对象生效！！！</strong></p>
+<p><strong>@Component</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class DiscountHelper &#123; public void apply()&#123; /<span class="emphasis">*...*</span>/ &#125; &#125;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class OrderService &#123;</span><br><span class="line">  private final DiscountHelper helper;</span><br><span class="line">  public OrderService(DiscountHelper h)&#123; this.helper = h; &#125;</span><br><span class="line">  public void place()&#123; helper.apply(); &#125; // 经过代理 → 触发</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fianl-static-private-方法拦不到"><a href="#fianl-static-private-方法拦不到" class="headerlink" title="fianl&#x2F;static&#x2F;private 方法拦不到"></a>fianl&#x2F;static&#x2F;private 方法拦不到</h3><p><strong>复现</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class PayService &#123;</span><br><span class="line">  public final void settle()&#123; /<span class="emphasis">*...*</span>/ &#125;   // final 无法被 CGLIB 覆写</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t3&quot;) public String t3()&#123; payService.settle(); return &quot;ok&quot;; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>现象:无日志</strong></p>
+<p><strong>修正:去掉 final&#x2F;static&#x2F;private</strong></p>
+<h3 id="Postconstruct-构造方法拦不到"><a href="#Postconstruct-构造方法拦不到" class="headerlink" title="@Postconstruct 构造方法拦不到"></a>@Postconstruct 构造方法拦不到</h3><p><strong>复现</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class BootService &#123;</span><br><span class="line">  @Autowired HelloService hello;</span><br><span class="line">  @PostConstruct public void init()&#123; hello.greet(&quot;X&quot;); &#125; // 代理可能尚未就绪/内部直接调用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>现象:无日志</strong></p>
+<h1 id="类内this调用自己失效解决方案"><a href="#类内this调用自己失效解决方案" class="headerlink" title="类内this调用自己失效解决方案"></a>类内this调用自己失效解决方案</h1><p> 类内调用失效的本质原因是：AOP 依赖代理生效，而 <code>this.xxx()</code> 是直接调用目标对象本身，不经过代理，自然无法触发 AOP。  </p>
+<p>可以有以下两种解决方案</p>
+<h2 id="将方法抽离为bean"><a href="#将方法抽离为bean" class="headerlink" title="将方法抽离为bean"></a>将方法抽离为bean</h2><h2 id="打开exposeProxy"><a href="#打开exposeProxy" class="headerlink" title="打开exposeProxy"></a>打开exposeProxy</h2><p> 在<strong>启动类</strong>或任何一个配置类上加：  @EnableAspectJAutoProxy(exposeProxy &#x3D; true)</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@EnableAspectJAutoProxy(exposeProxy = true)</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class DemoApplication &#123;</span><br><span class="line"><span class="code">    public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="code">        SpringApplication.run(DemoApplication.class, args);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>在类内调用this.xxx方法时先获得这个类的proxy 代理类</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void a() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;a()&quot;);</span></span><br><span class="line"><span class="code">    ((OrderService) AopContext.currentProxy()).b();</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="内部实现"><a href="#内部实现" class="headerlink" title="内部实现"></a>内部实现</h3><p>AopContext.currentProxy() 本质上就是从当前线程的 ThreadLocal 中读取“当前正在执行的代理对象”。<br>Spring 会在进入代理方法时将该代理写入 ThreadLocal，方法执行完再恢复，因此不同线程互不影响。</p>
 
       
     </div>
@@ -1660,7 +1405,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1676,8 +1421,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

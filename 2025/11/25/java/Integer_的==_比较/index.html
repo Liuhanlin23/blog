@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址首先java没有运算符重载所以所有的&#x3D;&#x3D; 都是比较的jvm的内存地址但是像Integer 和String 这种具有缓存池的类型有些需要注意的地方 对于在缓存池中的对象如果它们的值是相同的，那么它们就是同一个对象内存地址相同,所以 &#x3D;&#x3D; 比较的时候就会返回true  介绍一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Integer 的&#x3D;&#x3D; 比较">
+<meta property="og:url" content="http://example.com/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址首先java没有运算符重载所以所有的&#x3D;&#x3D; 都是比较的jvm的内存地址但是像Integer 和String 这种具有缓存池的类型有些需要注意的地方 对于在缓存池中的对象如果它们的值是相同的，那么它们就是同一个对象内存地址相同,所以 &#x3D;&#x3D; 比较的时候就会返回true  介绍一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1759313249227-488b9571-43a0-4146-abda-cebbcc26b3ec.png">
+<meta property="article:published_time" content="2025-11-25T13:35:17.892Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.538Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1759313249227-488b9571-43a0-4146-abda-cebbcc26b3ec.png">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/","path":"2025/11/25/Java/Integer_的==_比较/","title":"Integer 的== 比较"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Integer 的== 比较 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E7%9A%84Integer-%E7%B1%BB%E5%9E%8B-%E6%98%AF%E6%AF%94%E8%BE%83%E7%9A%84%E5%80%BC%E8%BF%98%E6%98%AFjvm-%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8Bjava%E7%9A%84%E7%BC%93%E5%AD%98%E6%B1%A0%E6%9C%BA%E5%88%B6"><span class="nav-number">1.1.</span> <span class="nav-text">介绍一下java的缓存池机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0-String-Constant-Pool"><span class="nav-number">1.2.</span> <span class="nav-text">1. 字符串常量池 (String Constant Pool)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8C%85%E8%A3%85%E7%B1%BB%E7%BC%93%E5%AD%98%E6%B1%A0-Wrapper-Class-Caching"><span class="nav-number">1.3.</span> <span class="nav-text">2. 包装类缓存池 (Wrapper Class Caching)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-%E6%95%B4%E5%9E%8B%E5%8C%85%E8%A3%85%E7%B1%BB-Integer-Long-Short-Byte"><span class="nav-number">1.3.1.</span> <span class="nav-text">a) 整型包装类 (Integer, Long, Short, Byte)</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Integer 的&#x3D;&#x3D; 比较 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Integer 的== 比较
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="java的Integer-类型-是比较的值还是jvm-内存地址"><a href="#java的Integer-类型-是比较的值还是jvm-内存地址" class="headerlink" title="java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址"></a>java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址</h2><p>首先java没有运算符重载所以所有的&#x3D;&#x3D; 都是比较的jvm的内存地址但是像Integer 和String 这种具有缓存池的类型有些需要注意的地方</p>
+<p>对于在缓存池中的对象如果它们的值是相同的，那么它们就是同一个对象内存地址相同,所以 &#x3D;&#x3D; 比较的时候就会返回true</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1759313249227-488b9571-43a0-4146-abda-cebbcc26b3ec.png"></p>
+<h3 id="介绍一下java的缓存池机制"><a href="#介绍一下java的缓存池机制" class="headerlink" title="介绍一下java的缓存池机制"></a>介绍一下java的缓存池机制</h3><p>这个机制的核心思想是：<strong>对于一些频繁被使用、不可变的对象，将它们缓存起来重复利用，从而避免频繁地创建和销毁对象，以提高性能和节省内存。</strong></p>
+<p>最主要的两种内置缓存池是 <strong>字符串常量池</strong> 和 <strong>包装类缓存池</strong></p>
+<ol>
+<li>字符串常量缓存池</li>
+</ol>
+<p>  这是 Java 中最著名、也最特殊的一个缓存机制。</p>
+<ul>
+<li><strong>作用</strong>：存储字符串字面量（String literals）和通过 <code>String.intern()</code> 方法添加的字符串。</li>
+<li><strong>位置</strong>：在 JDK 7 之后，字符串常量池从永久代（PermGen）移到了**堆内存（Heap）**中。</li>
+<li><strong>工作机制</strong>：<ol>
+<li>当你通过<strong>字面量</strong>的方式创建一个字符串时（例如 <code>String s1 = &quot;Java&quot;;</code>），JVM 会先去字符串常量池里检查是否存在内容为 “Java” 的字符串。</li>
+<li>如果<strong>存在</strong>，JVM 不会创建新对象，而是直接返回池中该对象的引用给 <code>s1</code>。</li>
+<li>如果<strong>不存在</strong>，JVM 会在池中创建一个新的 “Java” 对象，然后将其引用返回给 <code>s1</code>。</li>
+<li>当你使用 <code>new String(&quot;Java&quot;)</code> 时，<code>new</code> 关键字会<strong>强制</strong>在堆内存中创建一个全新的对象，这个对象<strong>不</strong>在常量池中。因此建议构建字符串常量的都是不要通过new来构建,而是通过字面量来创建字符串,因为这样可以有被缓存的概率，性能更高</li>
+</ol>
+</li>
+</ul>
+<p>2 包装类缓存池</p>
+<p>好的，我们来系统地介绍一下 Java 中为了性能和内存优化而内置的几种“缓存池”机制。</p>
+<p>这个机制的核心思想是：<strong>对于一些频繁被使用、不可变的对象，将它们缓存起来重复利用，从而避免频繁地创建和销毁对象，以提高性能和节省内存。</strong></p>
+<p>最主要的两种内置缓存池是 <strong>字符串常量池</strong> 和 <strong>包装类缓存池</strong>。</p>
+<hr>
+<h3 id="1-字符串常量池-String-Constant-Pool"><a href="#1-字符串常量池-String-Constant-Pool" class="headerlink" title="1. 字符串常量池 (String Constant Pool)"></a>1. 字符串常量池 (String Constant Pool)</h3><p>这是 Java 中最著名、也最特殊的一个缓存机制。</p>
+<ul>
+<li><strong>作用</strong>：存储字符串字面量（String literals）和通过 <code>String.intern()</code> 方法添加的字符串。</li>
+<li><strong>位置</strong>：在 JDK 7 之后，字符串常量池从永久代（PermGen）移到了**堆内存（Heap）**中。</li>
+<li><strong>工作机制</strong>：<ol>
+<li>当你通过<strong>字面量</strong>的方式创建一个字符串时（例如 <code>String s1 = &quot;Java&quot;;</code>），JVM 会先去字符串常量池里检查是否存在内容为 “Java” 的字符串。</li>
+<li>如果<strong>存在</strong>，JVM 不会创建新对象，而是直接返回池中该对象的引用给 <code>s1</code>。</li>
+<li>如果<strong>不存在</strong>，JVM 会在池中创建一个新的 “Java” 对象，然后将其引用返回给 <code>s1</code>。</li>
+<li>当你使用 <code>new String(&quot;Java&quot;)</code> 时，<code>new</code> 关键字会<strong>强制</strong>在堆内存中创建一个全新的对象，这个对象<strong>不</strong>在常量池中。</li>
+</ol>
+</li>
+</ul>
+<p><strong>例句代码来理解：</strong></p>
+<p>Java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// s1 和 s2 都指向字符串常量池中的同一个对象</span><br><span class="line">String s1 = &quot;Hello&quot;;</span><br><span class="line">String s2 = &quot;Hello&quot;;</span><br><span class="line">System.out.println(&quot;s1 == s2 ? &quot; + (s1 == s2)); // 输出: true</span><br><span class="line"></span><br><span class="line">// s3 是在堆内存中创建的一个全新对象</span><br><span class="line">String s3 = new String(&quot;Hello&quot;);</span><br><span class="line">System.out.println(&quot;s1 == s3 ? &quot; + (s1 == s3)); // 输出: false</span><br><span class="line"></span><br><span class="line">// 使用 .equals() 比较内容，结果总是符合预期的</span><br><span class="line">System.out.println(&quot;s1.equals(s3) ? &quot; + s1.equals(s3)); // 输出: true</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-包装类缓存池-Wrapper-Class-Caching"><a href="#2-包装类缓存池-Wrapper-Class-Caching" class="headerlink" title="2. 包装类缓存池 (Wrapper Class Caching)"></a>2. 包装类缓存池 (Wrapper Class Caching)</h3><p>Java 为一些基本数据类型的包装类也提供了缓存池。这个机制主要在**自动装箱（Autoboxing）**或手动调用 <code>valueOf()</code> 方法时生效。</p>
+<h4 id="a-整型包装类-Integer-Long-Short-Byte"><a href="#a-整型包装类-Integer-Long-Short-Byte" class="headerlink" title="a) 整型包装类 (Integer, Long, Short, Byte)"></a>a) 整型包装类 (<code>Integer</code>, <code>Long</code>, <code>Short</code>, <code>Byte</code>)</h4><p>这些类会缓存一个特定范围内的对象。</p>
+<ul>
+<li><strong>缓存范围</strong>：<ul>
+<li><code>Byte</code>, <code>Short</code>, <code>Long</code>：固定缓存 <strong>-128 到 127</strong> 之间的值。</li>
+<li><code>Integer</code>：默认缓存 <strong>-128 到 127</strong> 之间的值。这个范围的<strong>上界</strong>是可以通过 JVM 参数 <code>-XX:AutoBoxCacheMax=&lt;size&gt;</code> 来调整的。</li>
+</ul>
+</li>
+<li><strong>触发条件</strong>：<ul>
+<li>自动装箱：<code>Integer i = 100;</code></li>
+<li>调用 <code>valueOf()</code> 方法：<code>Integer i = Integer.valueOf(100);</code></li>
+</ul>
+</li>
+<li><strong>注意</strong>：使用 <code>new Integer(100)</code> 会<strong>绕过缓存</strong>，强制创建新对象。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/Java/%E9%94%81/" rel="prev" title="锁">
+                  <i class="fa fa-angle-left"></i> 锁
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/Java/java_8-17%E6%96%B0%E7%89%B9%E6%80%A7/" rel="next" title="java 8-17新特性">
+                  java 8-17新特性 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

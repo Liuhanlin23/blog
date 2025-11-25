@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,11 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="什么是虚拟内存 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由操作系统自动把它映射到真实、碎片化的物理内存中，从而解决内存不够用、内存碎片和进程隔离的问题。   虚拟内存主要有两种形式一种是内存分段（早期提出，现在很少使用），一种是内存分页（目前普遍流行的） 内存分段 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由系统自动把它映射到真实、碎片化的物理内存中，从而">
 <meta property="og:type" content="article">
-<meta property="og:title" content="刘翰霖">
+<meta property="og:title" content="虚拟内存">
 <meta property="og:url" content="http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/index.html">
 <meta property="og:site_name" content="刘翰霖">
 <meta property="og:description" content="什么是虚拟内存 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由操作系统自动把它映射到真实、碎片化的物理内存中，从而解决内存不够用、内存碎片和进程隔离的问题。   虚拟内存主要有两种形式一种是内存分段（早期提出，现在很少使用），一种是内存分页（目前普遍流行的） 内存分段 虚拟内存 &#x3D; 让每个进程看到一片连续的大地址空间，并由系统自动把它映射到真实、碎片化的物理内存中，从而">
@@ -33,8 +34,8 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763612282612-7c17d021-0f4a-4e60-83be-0c162c133333.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763613007279-a81a4306-2753-4233-b7b4-02bc3f48a88c.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763624150432-d6b97759-caff-40e2-adb2-c3fc7a43523c.png">
-<meta property="article:published_time" content="2025-11-25T12:31:43.245Z">
-<meta property="article:modified_time" content="2025-11-25T12:27:21.329Z">
+<meta property="article:published_time" content="2025-11-25T13:31:54.808Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:27.008Z">
 <meta property="article:author" content="刘翰霖">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763610082037-65d6b47e-ad47-4de7-a5dd-564dae0ee8ee.png">
@@ -43,10 +44,10 @@
 <link rel="canonical" href="http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/","path":"2025/11/25/操作系统/虚拟内存/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/","path":"2025/11/25/操作系统/虚拟内存/","title":"虚拟内存"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | 刘翰霖</title>
+<title>虚拟内存 | 刘翰霖</title>
   
 
 
@@ -87,6 +88,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -107,6 +111,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -142,9 +150,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -183,24 +196,24 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="name" content="虚拟内存 | 刘翰霖">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          虚拟内存
         </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
     </span>
 
   
@@ -309,13 +322,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/11/25/spring_boot/%E6%B3%A8%E8%A7%A3/ConditionOnProperty/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                <a href="/2025/11/25/%E5%88%86%E5%B8%83%E5%BC%8F/%E4%B8%80%E8%87%B4%E6%80%A7hash/" rel="prev" title="一致性hash">
+                  <i class="fa fa-angle-left"></i> 一致性hash
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                <a href="/2025/11/25/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E9%9B%B6%E6%8B%B7%E8%B4%9D/" rel="next" title="零拷贝">
+                  零拷贝 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -341,8 +354,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

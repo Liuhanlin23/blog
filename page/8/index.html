@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="刘翰霖">
@@ -75,6 +76,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -95,6 +99,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -129,9 +137,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -156,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/mybatis-plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/Stream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,19 +187,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/mybatis-plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Java/Stream/" class="post-title-link" itemprop="url">Stream</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
     </span>
 
   
@@ -199,55 +212,156 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="定义实体类"><a href="#定义实体类" class="headerlink" title="定义实体类"></a>定义实体类</h2><p>使用mybatis-plus首先需要有一个实体类映射数据库的字段</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Data@TableName(&quot;user&quot;)</span><br><span class="line">public class UserDo &#123; </span><br><span class="line">@TableId(type = IdType.AUTO)</span><br><span class="line">private Long id;</span><br><span class="line"> private String name;</span><br><span class="line"> private Integer age;</span><br><span class="line"> private String email;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="什么是Stream"><a href="#什么是Stream" class="headerlink" title="什么是Stream"></a>什么是Stream</h1><p>Stream 就像一条流水线，你把数据放进去，然后经过各种加步骤（filter&#x2F;map）,最后输出结果(forEach&#x2F;collect)</p>
+<h1 id="Stream的三个核心点"><a href="#Stream的三个核心点" class="headerlink" title="Stream的三个核心点"></a>Stream的三个核心点</h1><ol>
+<li>不会修改原集合,stream是”读取”,不是”改写”</li>
+<li>一步一步串起来执行（像流水线）</li>
+<li>最终必须有一个“终止操作”才能真正执行，没有终止操作，流水线不会运作</li>
+</ol>
+<h1 id="如何创建Stream"><a href="#如何创建Stream" class="headerlink" title="如何创建Stream"></a>如何创建Stream</h1><ol>
+<li>从集合创建（最常用）</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List<span class="language-xml"><span class="tag">&lt;<span class="name">Integer</span>&gt;</span></span> list = List.of(1, 2, 3);</span><br><span class="line">Stream<span class="language-xml"><span class="tag">&lt;<span class="name">Integer</span>&gt;</span></span> stream = list.stream();</span><br></pre></td></tr></table></figure>
 
-<p>实体中的常用注解</p>
-<table>
-<thead>
-<tr>
-<th>注解</th>
-<th>作用</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>@TableName(“user”)</strong></td>
-<td>指定实体类对应的数据库表名。通常用于当实体类名与表名不一致时显式映射。</td>
-<td><code>@TableName(&quot;user&quot;)</code></td>
-</tr>
-<tr>
-<td><strong>@TableId(value &#x3D; “id”, type &#x3D; IdType.AUTO)</strong></td>
-<td>指定主键字段名称及主键生成策略。常用策略： • <code>AUTO</code><br/> 数据库自增 • <code>ASSIGN_ID</code><br/> 雪花算法生成ID • <code>ASSIGN_UUID</code><br/> 自动生成UUID • <code>INPUT</code><br/> 手动输入主键</td>
-<td><code>@TableId(value = &quot;id&quot;, type = IdType.ASSIGN_ID)</code></td>
-</tr>
-<tr>
-<td><strong>@TableField(“user_name”)</strong></td>
-<td>指定实体字段对应的数据库表字段名。用于实体属性名与表字段名不一致时。支持 <code>exist = false</code><br/> 参数表示此字段不是数据库字段。</td>
-<td><code>@TableField(&quot;user_name&quot;) private String name;</code><br/><code>@TableField(exist = false) private String tempData;</code></td>
-</tr>
-</tbody></table>
-<h2 id="Mapper-接口的编写"><a href="#Mapper-接口的编写" class="headerlink" title="Mapper 接口的编写"></a>Mapper 接口的编写</h2><p><font style="color:rgb(33, 37, 41);">Mapper 接口是 MyBatis Plus 提供的基础 CRUD 接口，继承 </font><code>&lt;font style=&quot;color:rgb(214, 51, 132);&quot;&gt;BaseMapper&lt;/font&gt;</code><font style="color:rgb(33, 37, 41);"> 就可以拥有常用的 CRUD 功能，无需额外编写 SQL。</font></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Mapper</span><br><span class="line">public interface UserMapper extends BaseMapper<span class="language-xml"><span class="tag">&lt;<span class="name">UserDo</span>&gt;</span></span>  </span><br><span class="line">&#123;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>从数组创建</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1, 2, 3&#125;;</span><br><span class="line">IntStream stream = Arrays.stream(arr);</span><br></pre></td></tr></table></figure>
 
-<p>_ BaseMapper 的泛型类型参数表示该 Mapper 所操作的数据实体类。  _</p>
-<p>__</p>
-<h2 id="Service-层的实现"><a href="#Service-层的实现" class="headerlink" title="Service 层的实现"></a><font style="color:rgb(33, 37, 41);">Service 层的实现</font></h2><h3 id="继承-ServiceImpl（推荐）"><a href="#继承-ServiceImpl（推荐）" class="headerlink" title="继承 ServiceImpl（推荐）"></a>继承 ServiceImpl（推荐）</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl extends ServiceImpl<span class="language-xml">&lt;UserMapper, UserDo&gt;</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>直接创建（开发里不太常用）</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream<span class="language-xml"><span class="tag">&lt;<span class="name">String</span>&gt;</span></span> stream = Stream.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</span><br></pre></td></tr></table></figure>
 
-<p><code>ServiceImpl&lt;M, T&gt;</code> 是一个 <strong>带两个泛型参数的通用父类</strong>，</p>
+<h1 id="数据加工"><a href="#数据加工" class="headerlink" title="数据加工"></a>数据加工</h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/java_8-17%E6%96%B0%E7%89%B9%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Java/java_8-17%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">java 8-17新特性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="新switch"><a href="#新switch" class="headerlink" title="新switch"></a>新switch</h1><h2 id="使用箭头-简化写法"><a href="#使用箭头-简化写法" class="headerlink" title="使用箭头-&gt;简化写法"></a>使用箭头-&gt;简化写法</h2><p>旧写法</p>
+<p>switch (x) {</p>
+<pre><code>case 1:
+
+    foo();
+
+    break;
+
+case 2:
+
+    bar();
+
+    break;
+</code></pre>
+<p>}</p>
+<br/>
+
+<p>新写法</p>
+<p>switch (x) {</p>
+<pre><code>case 1 -&gt; foo();
+
+case 2 -&gt; bar();
+</code></pre>
+<p>}</p>
+<br/>
+
 <ul>
-<li>第一个是 <strong>Mapper 类型</strong></li>
-<li>第二个是 <strong>实体类类型（对应数据库表）</strong></li>
+<li>无需 break</li>
+<li>不会穿透</li>
+<li>可读性高</li>
 </ul>
-<p> 通过继承 <code>ServiceImpl</code>，Service 层无需手动注入 Mapper，即可直接使用内置的 <code>baseMapper</code> 对象调用对应的数据库操作方法。  </p>
-<h4 id="为什么可以直接调用baseMapper？"><a href="#为什么可以直接调用baseMapper？" class="headerlink" title="为什么可以直接调用baseMapper？"></a>为什么可以直接调用baseMapper？</h4><p> 因为 <code>ServiceImpl</code> 内部已经封装并自动注入了对应的 Mapper 实例，<br>子类继承后即可直接使用该属性完成数据访问，无需再次注入。  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122515256-f4ddaebb-b154-4d63-83dc-8c4cbac1ff87.png"></p>
-<h3 id="直接注入Mapper（不推荐）"><a href="#直接注入Mapper（不推荐）" class="headerlink" title="直接注入Mapper（不推荐）"></a>直接注入Mapper（不推荐）</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private UserMapper userMapper;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="switch-可以返回值"><a href="#switch-可以返回值" class="headerlink" title="switch 可以返回值"></a>switch 可以返回值</h2><p>以前的switch 只能最为语句，不能返回值</p>
+<p>现在可以</p>
+<p>String result &#x3D; switch (day) {</p>
+<pre><code>case 1 -&gt; &quot;Mon&quot;;
 
-<p> 在 MyBatis-Plus 中  直接注入Mapper, 只能调用 <code>BaseMapper</code> 提供的一些基础方法，例如：  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122825305-c1f6ca54-bab1-4843-bde5-57b6e785585a.png"></p>
-<p> 这些方法虽然简单直接，但<strong>无法充分发挥 MyBatis-Plus 的优势</strong>，<br>例如自动分页、链式查询、逻辑删除、通用 Wrapper 条件构造等高级功能。  </p>
+case 2 -&gt; &quot;Tue&quot;;
 
+default -&gt; &quot;Other&quot;;
+</code></pre>
+<p>};</p>
+<br/>
+
+<p> switch 本身是一个“表达式”了。  </p>
+<h2 id="使用yield-返回复杂代码块的值"><a href="#使用yield-返回复杂代码块的值" class="headerlink" title="使用yield 返回复杂代码块的值"></a>使用yield 返回复杂代码块的值</h2><p>如果 case 有多行逻辑，要用 <code>yield</code> 返回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String s = switch (x) &#123;</span><br><span class="line">    case 1 -&gt; &quot;A&quot;;</span><br><span class="line">    case 2 -&gt; &#123;</span><br><span class="line">        System.out.println(&quot;多行逻辑&quot;);</span><br><span class="line">        yield &quot;B&quot;;   // 从 case 块返回值</span><br><span class="line">    &#125;</span><br><span class="line">    default -&gt; &quot;C&quot;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="sealed"><a href="#sealed" class="headerlink" title="sealed"></a>sealed</h1><p>sealed 可以用来”限制谁能继承我”,避免类被随意扩展</p>
+<h2 id="核心语法"><a href="#核心语法" class="headerlink" title="核心语法"></a>核心语法</h2><p>一个 sealed class：</p>
+<ol>
+<li><strong>用 sealed 修饰</strong></li>
+<li><strong>必须指定 permits 列表</strong></li>
+<li>这些被允许继承的子类必须用：<ul>
+<li><code>final</code>（不允许再继承）</li>
+<li><code>sealed</code>（继续限制）</li>
+<li><code>non-sealed</code>（完全开放）</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public sealed class Shape permits Circle, Rectangle &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public final class Circle extends Shape &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public non-sealed class Rectangle extends Shape &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -273,7 +387,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/jwt/JWT_%E7%99%BB%E9%99%86%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -291,19 +405,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/jwt/JWT_%E7%99%BB%E9%99%86%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Java/Integer_%E7%9A%84==_%E6%AF%94%E8%BE%83/" class="post-title-link" itemprop="url">Integer 的== 比较</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
     </span>
 
   
@@ -316,118 +430,63 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是JWT登陆"><a href="#什么是JWT登陆" class="headerlink" title="什么是JWT登陆"></a>什么是JWT登陆</h1><p><strong>JWT（JSON Web Token）</strong> 是一种用于身份认证的无状态令牌机制。用户登录成功后，服务器生成一个签名的 Token 发给客户端，之后客户端每次请求都携带这个 Token，服务器据此验证身份，而无需保存会话数据。  </p>
-<h1 id="使用JWT的优点和缺点"><a href="#使用JWT的优点和缺点" class="headerlink" title="使用JWT的优点和缺点"></a>使用JWT的优点和缺点</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
-<li>无状态认证:服务器不在保存用户会话，认证信息全部包含在JWT中，易于扩展，分布式部署</li>
-<li>减轻服务器压力:不需要再服务端维护session 或缓存登录态，减少内存占用，提高并发性能</li>
+          <h2 id="java的Integer-类型-是比较的值还是jvm-内存地址"><a href="#java的Integer-类型-是比较的值还是jvm-内存地址" class="headerlink" title="java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址"></a>java的Integer 类型&#x3D;&#x3D; 是比较的值还是jvm 内存地址</h2><p>首先java没有运算符重载所以所有的&#x3D;&#x3D; 都是比较的jvm的内存地址但是像Integer 和String 这种具有缓存池的类型有些需要注意的地方</p>
+<p>对于在缓存池中的对象如果它们的值是相同的，那么它们就是同一个对象内存地址相同,所以 &#x3D;&#x3D; 比较的时候就会返回true</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1759313249227-488b9571-43a0-4146-abda-cebbcc26b3ec.png"></p>
+<h3 id="介绍一下java的缓存池机制"><a href="#介绍一下java的缓存池机制" class="headerlink" title="介绍一下java的缓存池机制"></a>介绍一下java的缓存池机制</h3><p>这个机制的核心思想是：<strong>对于一些频繁被使用、不可变的对象，将它们缓存起来重复利用，从而避免频繁地创建和销毁对象，以提高性能和节省内存。</strong></p>
+<p>最主要的两种内置缓存池是 <strong>字符串常量池</strong> 和 <strong>包装类缓存池</strong></p>
+<ol>
+<li>字符串常量缓存池</li>
 </ol>
-<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
-<li>无法主动失效（退出登陆）:JWT是无状态的，服务器不保存登陆信息，只要Token 没过期，用户就始终能访问，即使用户主动退出，管理员封禁，也无法立即让Token 失效</li>
-<li>数据不可更改：JWT里通常包含用户信息，一旦生成就固定下来，如果权限再中途变化，旧Token仍然有效</li>
+<p>  这是 Java 中最著名、也最特殊的一个缓存机制。</p>
+<ul>
+<li><strong>作用</strong>：存储字符串字面量（String literals）和通过 <code>String.intern()</code> 方法添加的字符串。</li>
+<li><strong>位置</strong>：在 JDK 7 之后，字符串常量池从永久代（PermGen）移到了**堆内存（Heap）**中。</li>
+<li><strong>工作机制</strong>：<ol>
+<li>当你通过<strong>字面量</strong>的方式创建一个字符串时（例如 <code>String s1 = &quot;Java&quot;;</code>），JVM 会先去字符串常量池里检查是否存在内容为 “Java” 的字符串。</li>
+<li>如果<strong>存在</strong>，JVM 不会创建新对象，而是直接返回池中该对象的引用给 <code>s1</code>。</li>
+<li>如果<strong>不存在</strong>，JVM 会在池中创建一个新的 “Java” 对象，然后将其引用返回给 <code>s1</code>。</li>
+<li>当你使用 <code>new String(&quot;Java&quot;)</code> 时，<code>new</code> 关键字会<strong>强制</strong>在堆内存中创建一个全新的对象，这个对象<strong>不</strong>在常量池中。因此建议构建字符串常量的都是不要通过new来构建,而是通过字面量来创建字符串,因为这样可以有被缓存的概率，性能更高</li>
 </ol>
-<h1 id="JWT结构"><a href="#JWT结构" class="headerlink" title="JWT结构"></a>JWT结构</h1><h2 id="JWT-的整体结构"><a href="#JWT-的整体结构" class="headerlink" title="JWT 的整体结构"></a>JWT 的整体结构</h2><p> JWT 由三部分组成，用英文句点 <code>.</code> 分隔：  </p>
-<p>Header.Payload.Signature</p>
-<br/>
+</li>
+</ul>
+<p>2 包装类缓存池</p>
+<p>好的，我们来系统地介绍一下 Java 中为了性能和内存优化而内置的几种“缓存池”机制。</p>
+<p>这个机制的核心思想是：<strong>对于一些频繁被使用、不可变的对象，将它们缓存起来重复利用，从而避免频繁地创建和销毁对象，以提高性能和节省内存。</strong></p>
+<p>最主要的两种内置缓存池是 <strong>字符串常量池</strong> 和 <strong>包装类缓存池</strong>。</p>
+<hr>
+<h3 id="1-字符串常量池-String-Constant-Pool"><a href="#1-字符串常量池-String-Constant-Pool" class="headerlink" title="1. 字符串常量池 (String Constant Pool)"></a>1. 字符串常量池 (String Constant Pool)</h3><p>这是 Java 中最著名、也最特殊的一个缓存机制。</p>
+<ul>
+<li><strong>作用</strong>：存储字符串字面量（String literals）和通过 <code>String.intern()</code> 方法添加的字符串。</li>
+<li><strong>位置</strong>：在 JDK 7 之后，字符串常量池从永久代（PermGen）移到了**堆内存（Heap）**中。</li>
+<li><strong>工作机制</strong>：<ol>
+<li>当你通过<strong>字面量</strong>的方式创建一个字符串时（例如 <code>String s1 = &quot;Java&quot;;</code>），JVM 会先去字符串常量池里检查是否存在内容为 “Java” 的字符串。</li>
+<li>如果<strong>存在</strong>，JVM 不会创建新对象，而是直接返回池中该对象的引用给 <code>s1</code>。</li>
+<li>如果<strong>不存在</strong>，JVM 会在池中创建一个新的 “Java” 对象，然后将其引用返回给 <code>s1</code>。</li>
+<li>当你使用 <code>new String(&quot;Java&quot;)</code> 时，<code>new</code> 关键字会<strong>强制</strong>在堆内存中创建一个全新的对象，这个对象<strong>不</strong>在常量池中。</li>
+</ol>
+</li>
+</ul>
+<p><strong>例句代码来理解：</strong></p>
+<p>Java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// s1 和 s2 都指向字符串常量池中的同一个对象</span><br><span class="line">String s1 = &quot;Hello&quot;;</span><br><span class="line">String s2 = &quot;Hello&quot;;</span><br><span class="line">System.out.println(&quot;s1 == s2 ? &quot; + (s1 == s2)); // 输出: true</span><br><span class="line"></span><br><span class="line">// s3 是在堆内存中创建的一个全新对象</span><br><span class="line">String s3 = new String(&quot;Hello&quot;);</span><br><span class="line">System.out.println(&quot;s1 == s3 ? &quot; + (s1 == s3)); // 输出: false</span><br><span class="line"></span><br><span class="line">// 使用 .equals() 比较内容，结果总是符合预期的</span><br><span class="line">System.out.println(&quot;s1.equals(s3) ? &quot; + s1.equals(s3)); // 输出: true</span><br></pre></td></tr></table></figure>
 
-<p>举个例子</p>
-<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.</p>
-<p>eyJ1c2VySWQiOjEyMywiZXhwIjoxNzAwMDAwMDB9.</p>
-<p>X6hGQ1s9TzRzpg0dCzQZdLPOo6z6INL1wNq4gJYx9F4</p>
-<br/>
-
-<p>这三段分别表示</p>
-<table>
-<thead>
-<tr>
-<th>组成部分</th>
-<th>中文名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Header</strong></td>
-<td>头部</td>
-<td>声明算法和类型</td>
-</tr>
-<tr>
-<td><strong>Payload</strong></td>
-<td>负载</td>
-<td>存放用户数据和声明（Claims）</td>
-</tr>
-<tr>
-<td><strong>Signature</strong></td>
-<td>签名</td>
-<td>防篡改验证，保证数据完整性</td>
-</tr>
-</tbody></table>
-<h2 id="各部分详细解释"><a href="#各部分详细解释" class="headerlink" title="各部分详细解释"></a>各部分详细解释</h2><h3 id="Header（头部）"><a href="#Header（头部）" class="headerlink" title="Header（头部）"></a>Header（头部）</h3><p>说明Token的类型和签名算法，通常是JSON对象</p>
-<p>{</p>
-<p>  “alg”: “HS256”,   &#x2F;&#x2F; 签名算法（如 HMAC-SHA256）</p>
-<p>  “typ”: “JWT”      &#x2F;&#x2F; Token 类型</p>
-<p>}</p>
-<br/>
-
-<h3 id="Payload（负载）"><a href="#Payload（负载）" class="headerlink" title="Payload（负载）"></a>Payload（负载）</h3><p>存放用户数据，JWT内置了一些标准字段，也可以自定义</p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>含义</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>iss</code></td>
-<td>签发者（issuer）</td>
-<td><code>&quot;auth-server&quot;</code></td>
-</tr>
-<tr>
-<td><code>sub</code></td>
-<td>用户身份（subject）</td>
-<td><code>&quot;user123&quot;</code></td>
-</tr>
-<tr>
-<td><code>exp</code></td>
-<td>过期时间（expiration）</td>
-<td><code>1700000000</code></td>
-</tr>
-<tr>
-<td><code>iat</code></td>
-<td>签发时间（issued at）</td>
-<td><code>1699900000</code></td>
-</tr>
-<tr>
-<td><code>aud</code></td>
-<td>接收方（audience）</td>
-<td><code>&quot;web-client&quot;</code></td>
-</tr>
-<tr>
-<td><code>自定义字段</code></td>
-<td>业务数据</td>
-<td><code>&quot;role&quot;: &quot;admin&quot;</code><br/>、<code>&quot;userId&quot;: 101</code></td>
-</tr>
-</tbody></table>
-<p>示例</p>
-<p>{</p>
-<p>  “userId”: 101,</p>
-<p>  “role”: “admin”,</p>
-<p>  “exp”: 1700000000</p>
-<p>}</p>
-<br/>
-
-<h3 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h3><p>签名的作用是：确保前两部分（Header + Payload）在传输过程中<strong>没有被篡改</strong>。</p>
-<p>签名算法如下：</p>
-<p>Signature &#x3D; HMACSHA256(</p>
-<p>  base64UrlEncode(Header) + “.” + base64UrlEncode(Payload),</p>
-<p>  secret</p>
-<p>)</p>
-<br/>
-
-<p>最终生成一个加密字符串，比如：</p>
-<p>X6hGQ1s9TzRzpg0dCzQZdLPOo6z6INL1wNq4gJYx9F4</p>
-<br/>
-
-<p>服务器在验证时会用相同的secret重新计算签名并比对，如果结果一致，说明Token未被篡改</p>
+<hr>
+<h3 id="2-包装类缓存池-Wrapper-Class-Caching"><a href="#2-包装类缓存池-Wrapper-Class-Caching" class="headerlink" title="2. 包装类缓存池 (Wrapper Class Caching)"></a>2. 包装类缓存池 (Wrapper Class Caching)</h3><p>Java 为一些基本数据类型的包装类也提供了缓存池。这个机制主要在**自动装箱（Autoboxing）**或手动调用 <code>valueOf()</code> 方法时生效。</p>
+<h4 id="a-整型包装类-Integer-Long-Short-Byte"><a href="#a-整型包装类-Integer-Long-Short-Byte" class="headerlink" title="a) 整型包装类 (Integer, Long, Short, Byte)"></a>a) 整型包装类 (<code>Integer</code>, <code>Long</code>, <code>Short</code>, <code>Byte</code>)</h4><p>这些类会缓存一个特定范围内的对象。</p>
+<ul>
+<li><strong>缓存范围</strong>：<ul>
+<li><code>Byte</code>, <code>Short</code>, <code>Long</code>：固定缓存 <strong>-128 到 127</strong> 之间的值。</li>
+<li><code>Integer</code>：默认缓存 <strong>-128 到 127</strong> 之间的值。这个范围的<strong>上界</strong>是可以通过 JVM 参数 <code>-XX:AutoBoxCacheMax=&lt;size&gt;</code> 来调整的。</li>
+</ul>
+</li>
+<li><strong>触发条件</strong>：<ul>
+<li>自动装箱：<code>Integer i = 100;</code></li>
+<li>调用 <code>valueOf()</code> 方法：<code>Integer i = Integer.valueOf(100);</code></li>
+</ul>
+</li>
+<li><strong>注意</strong>：使用 <code>new Integer(100)</code> 会<strong>绕过缓存</strong>，强制创建新对象。</li>
+</ul>
 
       
     </div>
@@ -454,7 +513,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/juc/%E9%94%81/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/%E9%94%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -472,19 +531,696 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/juc/%E9%94%81/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Java/%E9%94%81/" class="post-title-link" itemprop="url">锁</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
 
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="java锁的分类"><a href="#java锁的分类" class="headerlink" title="java锁的分类"></a>java锁的分类</h2><table>
+<thead>
+<tr>
+<th>分类层级</th>
+<th>常见锁类型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1️⃣ <strong>语言级别</strong></td>
+<td><code>synchronized</code></td>
+<td>最基本的互斥锁</td>
+</tr>
+<tr>
+<td>2️⃣ <strong>JUC并发包</strong></td>
+<td><code>ReentrantLock</code></td>
+<td>手动可控的可重入锁</td>
+</tr>
+<tr>
+<td>3️⃣ <strong>读写分离锁</strong></td>
+<td><code>ReentrantReadWriteLock</code></td>
+<td>读共享、写独占，提高读多写少场景效率</td>
+</tr>
+<tr>
+<td>4️⃣ <strong>自旋与乐观锁</strong></td>
+<td><code>AtomicInteger</code><br/>、CAS</td>
+<td>无锁方案，性能更高（硬件支持）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Sychnorized"><a href="#Sychnorized" class="headerlink" title="Sychnorized"></a>Sychnorized</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void add() &#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 等价于：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void add() &#123;</span><br><span class="line">    synchronized(this) &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是Sychnorized 锁的颗粒度问题</p>
+<p>public synchronized void add() {</p>
+<pre><code>count++;
+</code></pre>
+<p>}这样写不仅仅是锁住这个方法而是synchronized(this)锁住这个对象</p>
+<table>
+<thead>
+<tr>
+<th>锁方式</th>
+<th>锁对象</th>
+<th>作用范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>synchronized(this)</code></td>
+<td>当前实例</td>
+<td>锁住当前对象的同步代码块或方法</td>
+</tr>
+<tr>
+<td><code>synchronized(类名.class)</code></td>
+<td>类对象</td>
+<td>锁住整个类的所有实例（相当于静态锁）</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="可重入锁ReentrantLock"><a href="#可重入锁ReentrantLock" class="headerlink" title="可重入锁ReentrantLock"></a>可重入锁ReentrantLock</h2><p>ReentrantLock lock &#x3D; new ReentrantLock();</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void add() &#123;</span><br><span class="line">    lock.lock();        // 手动加锁</span><br><span class="line">    try &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();  // 手动释放</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="读写锁：ReentrantReadWriteLock"><a href="#读写锁：ReentrantReadWriteLock" class="headerlink" title="读写锁：ReentrantReadWriteLock"></a>读写锁：<code>ReentrantReadWriteLock</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();</span><br><span class="line"></span><br><span class="line">rwLock.readLock().lock();   // 多个线程可以同时读</span><br><span class="line">rwLock.writeLock().lock();  // 写时独占</span><br></pre></td></tr></table></figure>
+
+<h2 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h2><p>乐观锁和悲观锁是一种思想有着不同的实现</p>
+<ul>
+<li>“悲观锁”指的是一种<strong>策略</strong>：操作资源前先上锁，防止别人动；</li>
+<li>“乐观锁”则是另一种<strong>策略</strong>：操作时不锁，等要提交时再判断有没有冲突。</li>
+</ul>
+<h2 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h2><p> 自旋锁是一种<strong>不让线程进入阻塞状态</strong>、而是<strong>在用户态反复尝试获取锁</strong>的机制。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Java/%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/" class="post-title-link" itemprop="url">线程池ThreadPoolExecutor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="线程池的基本工作流程"><a href="#线程池的基本工作流程" class="headerlink" title="线程池的基本工作流程"></a>线程池的基本工作流程</h1><p>corePoolSize-&gt;workQueue-&gt;maximumPoolSize</p>
+<p>1.<strong>线程池先看当前运行的线程数是否小于 corePoolSize</strong></p>
+<ul>
+<li>如果是 → 直接创建新线程执行任务（即“核心线程”）。</li>
+<li>如果否 → 进入下一步。</li>
+</ul>
+<ol start="2">
+<li><strong>如果线程数 ≥ corePoolSize，就尝试把任务放进队列 workQueue</strong></li>
+</ol>
+<ul>
+<li>如果队列没满 → 任务进入队列等待。</li>
+<li>如果队列满了 → 进入下一步。</li>
+</ul>
+<ol start="3">
+<li><strong>如果队列已满，并且线程数 &lt; maximumPoolSize</strong></li>
+</ol>
+<ul>
+<li>再创建新线程（非核心线程）来执行任务。</li>
+</ul>
+<ol start="4">
+<li><strong>如果线程数已经达到 maximumPoolSize，且队列也满</strong></li>
+</ol>
+<ul>
+<li>就会触发 <strong>拒绝策略 handler</strong>，决定怎么处理任务（丢弃、抛异常、调用者运行等）。</li>
+</ul>
+<ol start="5">
+<li><strong>线程空闲时，如果超过 keepAliveTime</strong></li>
+</ol>
+<ul>
+<li>非核心线程会被销毁；</li>
+<li>若设置了 <code>allowCoreThreadTimeout = true</code>，核心线程也可能销毁。</li>
+</ul>
+<h1 id="线程池的核心参数"><a href="#线程池的核心参数" class="headerlink" title="线程池的核心参数"></a>线程池的核心参数</h1><ol>
+<li><p><strong><font style="color:rgb(51, 51, 51);">corePoolSize</font></strong><font style="color:rgb(51, 51, 51);">（必需）：核心线程数。默认情况下，核心线程会一直存活，但是当将 </font><strong><font style="color:rgb(51, 51, 51);">allowCoreThreadTimeout </font></strong><font style="color:rgb(51, 51, 51);">设置为 true 时，核心线程也会超时回收。</font></p>
+<p>   注意一开始并不会创建核心线程，只有当执行execute的时候的时候才会创建核心线程,如果 想让核心线程在创建线程池时就全部启动  （常用于高并发预热场景）需要调用prestartAllCoreThreads()方法</p>
+</li>
+</ol>
+<ul>
+<li><strong><font style="color:rgb(51, 51, 51);">maximumPoolSize</font></strong><font style="color:rgb(51, 51, 51);">（必需）：线程池所能容纳的最大线程数。当活跃线程数达到该数值后，后续的新任务将会阻塞。maximumPoolSize包括corePoolSize</font></li>
+<li><strong><font style="color:rgb(51, 51, 51);">keepAliveTime</font></strong><font style="color:rgb(51, 51, 51);">（必需）：线程闲置超时时长。如果超过该时长，非核心线程就会被回收。如果将 </font><strong><font style="color:rgb(51, 51, 51);">allowCoreThreadTimeout </font></strong><font style="color:rgb(51, 51, 51);">设置为 true 时，核心线程也会超时回收。</font></li>
+<li><strong><font style="color:rgb(51, 51, 51);">unit</font></strong><font style="color:rgb(51, 51, 51);">（必需）：指定 keepAliveTime 参数的时间单位。常用的有：</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.MILLISECONDS</font></strong><font style="color:rgb(51, 51, 51);">（毫秒）、</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.SECONDS</font></strong><font style="color:rgb(51, 51, 51);">（秒）、</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.MINUTES</font></strong><font style="color:rgb(51, 51, 51);">（分）。</font></li>
+<li><strong><font style="color:rgb(51, 51, 51);">workQueue</font></strong><font style="color:rgb(51, 51, 51);">（必需）：任务队列。通过线程池的 execute() 方法提交的 Runnable 对象将存储在该参数中。其采用阻塞队列实现。</font></li>
+<li><strong><font style="color:rgb(51, 51, 51);">threadFactory</font></strong><font style="color:rgb(51, 51, 51);">（可选）：线程工厂。用于指定为线程池创建新线程的方式。</font></li>
+<li><strong><font style="color:rgb(51, 51, 51);">handler</font></strong><font style="color:rgb(51, 51, 51);">（可选）：拒绝策略。当达到最大线程数时需要执行的拒绝策略。</font></li>
+</ul>
+<h2 id="什么是阻塞队列什么是非阻塞队列"><a href="#什么是阻塞队列什么是非阻塞队列" class="headerlink" title="什么是阻塞队列什么是非阻塞队列"></a>什么是阻塞队列什么是非阻塞队列</h2><ol>
+<li>阻塞队列:阻塞队列是一种支持线程等待的队列 当队列<strong>满了</strong>或者<strong>空了</strong>时，它会让线程“暂时休眠”，直到条件满足再继续执行。  </li>
+<li>非阻塞队列： 非阻塞队列不会让线程等待，它只会<strong>立即返回结果</strong>。</li>
+</ol>
+<p>比如：</p>
+<ul>
+<li>如果队列满了，<code>offer()</code> 返回 false；</li>
+<li>如果队列空了，<code>poll()</code> 返回 null。</li>
+</ul>
+<p>它不会让线程睡眠、等待条件变化。  </p>
+<h2 id="WorkQueue"><a href="#WorkQueue" class="headerlink" title="WorkQueue"></a>WorkQueue</h2><h3 id="Wot"><a href="#Wot" class="headerlink" title="Wot"></a>Wot</h3><p>“核心线程忙 → 把任务放进 workQueue → 等待线程来取任务执行”</p>
+<table>
+<thead>
+<tr>
+<th>队列类型</th>
+<th>类名</th>
+<th>特点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>有界队列</strong></td>
+<td><code>ArrayBlockingQueue</code></td>
+<td>固定容量，先进先出</td>
+<td>控制任务数量，防止OOM</td>
+</tr>
+<tr>
+<td><strong>无界队列</strong></td>
+<td><code>LinkedBlockingQueue</code></td>
+<td>理论无限大（默认 Integer.MAX_VALUE）</td>
+<td>任务量大但执行快的场景</td>
+</tr>
+<tr>
+<td><strong>同步移交队列</strong></td>
+<td><code>SynchronousQueue</code></td>
+<td>不存任务，任务必须直接交给线程</td>
+<td>高并发、短任务的即时执行场景</td>
+</tr>
+</tbody></table>
+<h2 id="ThreadFactory-线程工厂"><a href="#ThreadFactory-线程工厂" class="headerlink" title="ThreadFactory 线程工厂"></a>ThreadFactory 线程工厂</h2><h3 id="threadFactory是什么？"><a href="#threadFactory是什么？" class="headerlink" title="threadFactory是什么？"></a>threadFactory是什么？</h3><p>它是一个<strong>负责创建线程的工厂对象</strong>，类型是 <code>java.util.concurrent.ThreadFactory</code>。</p>
+<p>当线程池需要新线程时，不是自己 <code>new Thread(...)</code>，<br>而是调用线程工厂的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread newThread(Runnable r)</span><br></pre></td></tr></table></figure>
+
+<p> 👉 这样做的好处是：<br>你可以<strong>自定义线程的名字、优先级、是否为守护线程、异常处理方式等</strong>。  </p>
+<p><em>javaThreadExecutor 中的ThreadFactory 是工厂模式中的工厂方法</em></p>
+<h2 id="默认线程工厂（Executors-defaultThreadFactory）"><a href="#默认线程工厂（Executors-defaultThreadFactory）" class="headerlink" title="默认线程工厂（Executors.defaultThreadFactory）"></a>默认线程工厂（Executors.defaultThreadFactory）</h2><p>默认工厂创建的线程：</p>
+<ul>
+<li>名字：<code>pool-1-thread-1</code>、<code>pool-1-thread-2</code> 等；</li>
+<li>优先级：默认优先级；</li>
+<li>不是守护线程。</li>
+</ul>
+<h2 id="自定义线程工厂（常见写法）"><a href="#自定义线程工厂（常见写法）" class="headerlink" title="自定义线程工厂（常见写法）"></a>自定义线程工厂（常见写法）</h2><p><font style="color:rgb(77, 77, 77);">实现 </font><strong><font style="color:rgb(77, 77, 77);">ThreadFactory </font></strong><font style="color:rgb(77, 77, 77);">接口，并实现 </font><strong><font style="color:rgb(77, 77, 77);">newThread(Runnable r) </font></strong><font style="color:rgb(77, 77, 77);">方法</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ThreadFactory factory = new ThreadFactory() &#123;</span><br><span class="line">    private final AtomicInteger count = new AtomicInteger(1);</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Thread newThread(Runnable r) &#123;</span><br><span class="line">        Thread thread = new Thread(r);</span><br><span class="line">        thread.setName(&quot;order-processor-&quot; + count.getAndIncrement());</span><br><span class="line">        thread.setDaemon(false); // 设置为非守护线程</span><br><span class="line">        return thread;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h2><p>当线程池的线程数达到最大线程数时，需要执行拒绝策略。拒绝策略需要实现 RejectedExecutionHandler 接口，并实现 rejectedExecution(Runnable r, ThreadPoolExecutor executor) 方法。不过同样的 Executors 框架已经为我们实现了 4 种拒绝策略：</p>
+<table>
+<thead>
+<tr>
+<th>策略类名</th>
+<th>行为</th>
+<th>常见场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>AbortPolicy</strong>（默认）</td>
+<td>直接抛出 <code>RejectedExecutionException</code><br/> 异常</td>
+<td>适合对丢任务不能容忍的系统（例如支付、订单）</td>
+</tr>
+<tr>
+<td><strong>CallerRunsPolicy</strong></td>
+<td>谁提交任务，谁就自己执行（不进线程池）</td>
+<td>可以缓冲压力，常用于“降级”策略</td>
+</tr>
+<tr>
+<td><strong>DiscardPolicy</strong></td>
+<td>直接丢掉任务，不抛异常</td>
+<td>容忍少量任务丢失的场景（如日志上报）</td>
+</tr>
+<tr>
+<td><strong>DiscardOldestPolicy</strong></td>
+<td>丢掉队列中最旧的任务，然后重新尝试提交当前任务</td>
+<td>适用于只关心最新数据的任务（如监控采样）</td>
+</tr>
+</tbody></table>
+<h2 id="功能线程池"><a href="#功能线程池" class="headerlink" title="功能线程池"></a>功能线程池</h2><p>功能线程池也就是<font style="color:rgb(77, 77, 77);">提前封装好的ThreadPoolExecutor，但是不建议使用而是应该使用ThreadPoolExecutor这样可以更加明确线程的运行规则,避免资源耗尽的风险</font></p>
+<h1 id="提交任务"><a href="#提交任务" class="headerlink" title="提交任务"></a>提交任务</h1><p>线程池通过execute或submit 方法提交任务</p>
+<h2 id="execute（）"><a href="#execute（）" class="headerlink" title="execute（）"></a>execute（）</h2><ul>
+<li>只能提交 Runnable</li>
+<li>没有返回值</li>
+<li>如果任务抛异常 → 异常会直接在控制台打印（线程池中的线程抛出）</li>
+</ul>
+<h2 id="submit（）"><a href="#submit（）" class="headerlink" title="submit（）"></a>submit（）</h2><ul>
+<li><strong>可以提交 Runnable 或 Callable</strong></li>
+<li><strong>返回 Future，用于拿结果</strong></li>
+<li>如果任务抛异常 → 异常会被 Future 捕获，不会直接打印<br>（必须通过 <code>future.get()</code> 才能看到异常，否则会被吞掉）</li>
+</ul>
+<h3 id="Future-和FutureTask的关系"><a href="#Future-和FutureTask的关系" class="headerlink" title="Future 和FutureTask的关系"></a>Future 和FutureTask的关系</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763557612897-0002f956-ac5f-45a1-bece-8059f54ec5f5.png"></p>
+<p>Future是接口只代表一个结果，可以查询结果，取消任务，本身不能运行任务</p>
+<p>FutureTask 是类实现了Runnable和Future 接口，因此它可以Future-&gt;get()，cancel 查询结果取消任务,</p>
+<p>Runnable-&gt;可以运行任务，所以FutureTask是一个可以被执行的任务容器</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">四大引用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>JAVA中有四种引用类型，分别是强引用，软应用，弱引用，虚引用</p>
+<h1 id="一、强引用（Strong-Reference）"><a href="#一、强引用（Strong-Reference）" class="headerlink" title="一、强引用（Strong Reference）"></a>一、强引用（Strong Reference）</h1><ul>
+<li><strong>定义</strong>：最常见的引用，使用 <code>new</code> 创建。</li>
+<li><strong>特性</strong>：只要有强引用存在，对象就<strong>不会被回收</strong>；即使内存不足，也只会抛出 <code>OutOfMemoryError</code>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String strongRef = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="二、软引用（Soft-Reference）"><a href="#二、软引用（Soft-Reference）" class="headerlink" title="二、软引用（Soft Reference）"></a>二、软引用（Soft Reference）</h1><ul>
+<li><strong>定义</strong>：当内存<strong>不足</strong>时，GC 会回收软引用对象。</li>
+<li><strong>用途</strong>：常用于实现<strong>缓存</strong>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;abc&quot;);</span><br><span class="line">SoftReference&lt;String&gt; softRef = new SoftReference&lt;&gt;(str);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="三、弱引用（Weak-Reference）"><a href="#三、弱引用（Weak-Reference）" class="headerlink" title="三、弱引用（Weak Reference）"></a>三、弱引用（Weak Reference）</h1><ul>
+<li><strong>定义</strong>：只要发生 GC，就会回收对象（<strong>无论内存是否足够</strong>）。</li>
+<li><strong>用途</strong>：常用于<strong>ThreadLocal、WeakHashMap</strong> 等。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;abc&quot;);</span><br><span class="line">WeakReference&lt;String&gt; weakRef = new WeakReference&lt;&gt;(str);</span><br><span class="line">str = null; // 解除强引用</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-虚引用"><a href="#四-虚引用" class="headerlink" title="四.虚引用"></a>四.虚引用</h1><h2 id="引用队列（ReferenceQueue）"><a href="#引用队列（ReferenceQueue）" class="headerlink" title="引用队列（ReferenceQueue）"></a>引用队列（<strong>ReferenceQueue）</strong></h2><p> 在理解虚引用前，先要了解 <strong>引用队列（ReferenceQueue）</strong>。<br>当某个引用（软、弱、虚）所指向的对象被判定可回收时，JVM 会将“<strong>引用对象本身</strong>”（而非目标对象）加入该队列。<br>不同的是，<strong>软引用和弱引用在对象被标记为可回收时入队</strong>，而<strong>虚引用则在对象真正被回收后才入队</strong>。  </p>
+<h2 id="什么时虚引用"><a href="#什么时虚引用" class="headerlink" title="什么时虚引用"></a>什么时虚引用</h2><p><strong>虚引用（PhantomReference）</strong> 是 Java 提供的一种<strong>最弱的引用类型</strong>。<br>它的最大特点是：</p>
+<ul>
+<li><strong>不能通过 <strong><code>**get()**</code></strong> 访问对象（get访问返回值总为null）</strong></li>
+<li><strong>只用来感知对象被真正回收的时机</strong></li>
+</ul>
+<h2 id="为什么需要虚引用"><a href="#为什么需要虚引用" class="headerlink" title="为什么需要虚引用"></a>为什么需要虚引用</h2><p>我们知道：</p>
+<ul>
+<li>软引用：用于缓存，内存不足时清理；</li>
+<li>弱引用：用于弱依赖对象，GC 一来就清理；</li>
+<li>但这两种引用入队太早（对象还没真正销毁）。</li>
+</ul>
+<p>有些资源（比如：文件句柄、堆外内存、Socket 连接）只有在对象<strong>彻底销毁时</strong>才安全释放。<br>这时候就要用虚引用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/%E5%8F%8D%E5%B0%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Java/%E5%8F%8D%E5%B0%84/" class="post-title-link" itemprop="url">反射</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="介绍反射之前，首先了解类对象（Class-对象）"><a href="#介绍反射之前，首先了解类对象（Class-对象）" class="headerlink" title="介绍反射之前，首先了解类对象（Class 对象）"></a>介绍反射之前，首先了解类对象（Class 对象）</h1><p>在Java 里，类（Class） 本身也是一个对象（注意这个类指的是类本身而不是类实例）</p>
+<p>比如有个类</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Student &#123;</span><br><span class="line"><span class="code">    String name;</span></span><br><span class="line"><span class="code">    void sayHello() &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;Hi, I&#x27;m &quot; + name);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们平常会这样用：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Student s = new Student();</span><br><span class="line">s.name = &quot;小明&quot;;</span><br><span class="line">s.sayHello();   // 输出：Hi, I&#x27;m 小明</span><br></pre></td></tr></table></figure>
+
+<p>但实际上，JVM在运行时还会为每个类生成一个描述它的对象，类型是java.lang.Class</p>
+<p>你可以这样拿到它</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; clazz = Student.class;</span><br><span class="line">System.out.println(clazz.getName());  // 输出：Student</span><br></pre></td></tr></table></figure>
+
+<p>这个clazz就是“类对象”，它保存了Student 类的所有信息，比如</p>
+<ul>
+<li>类名</li>
+<li>字段（成员变量）</li>
+<li>方法</li>
+<li>构造方法</li>
+<li>修饰符（public、private等）</li>
+</ul>
+<h1 id="反射的概念"><a href="#反射的概念" class="headerlink" title="反射的概念"></a>反射的概念</h1><p>反射指的是程序在运行时，可以动态地获取类的信息，并且操作这个类的属性和方法。</p>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>假设你 只有类名“Student” 这个字符串，但你要创建对象并调用方法</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 1. 根据类名加载类对象</span><br><span class="line">Class&lt;?&gt; clazz = Class.forName(&quot;Student&quot;);</span><br><span class="line"></span><br><span class="line">// 2. 创建对象（相当于 new Student()）</span><br><span class="line">Object obj = clazz.newInstance();</span><br><span class="line"></span><br><span class="line">// 3. 获取属性并设置值</span><br><span class="line">Field field = clazz.getDeclaredField(&quot;name&quot;);</span><br><span class="line">field.setAccessible(true);   // 暴力访问私有字段</span><br><span class="line">field.set(obj, &quot;小明&quot;);</span><br><span class="line"></span><br><span class="line">// 4. 调用方法</span><br><span class="line">Method method = clazz.getDeclaredMethod(&quot;sayHello&quot;);</span><br><span class="line">method.invoke(obj);  // 输出：Hi, I&#x27;m 小明</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="反射和new的区别"><a href="#反射和new的区别" class="headerlink" title="反射和new的区别"></a>反射和new的区别</h1><h2 id="new-时编译器确定的"><a href="#new-时编译器确定的" class="headerlink" title="new 时编译器确定的"></a>new 时编译器确定的</h2><p>当你写 Student s&#x3D; new Student();</p>
+<p>编译器要在编译阶段就知道:</p>
+<ul>
+<li>要创建的是 <code>Student</code>；</li>
+<li>它有哪些构造方法；</li>
+<li>它有哪些字段和方法。</li>
+</ul>
+<p> 所以编译器会<strong>生成固定的字节码</strong>，直接在运行时执行。   也就是说，“类名”在编译时是<strong>写死的</strong>。  </p>
+<h2 id="反射是运行期决定的"><a href="#反射是运行期决定的" class="headerlink" title="反射是运行期决定的"></a>反射是运行期决定的</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String className = &quot;com.example.Student&quot;;</span><br><span class="line">Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line">Object obj = clazz.getDeclaredConstructor().newInstance();</span><br></pre></td></tr></table></figure>
+
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p> 假如你写一个“支付系统”，有两种支付方式：  </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class WechatPay &#123; void pay() &#123; System.out.println(&quot;微信支付&quot;); &#125; &#125;</span><br><span class="line">class Alipay   &#123; void pay() &#123; System.out.println(&quot;支付宝支付&quot;); &#125; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="用new"><a href="#用new" class="headerlink" title="用new"></a>用new</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WechatPay pay = new WechatPay();</span><br><span class="line">pay.pay();</span><br></pre></td></tr></table></figure>
+
+<p>只能写死用微信</p>
+<h3 id="🚀-用反射（根据配置）："><a href="#🚀-用反射（根据配置）：" class="headerlink" title="🚀 用反射（根据配置）："></a>🚀 用反射（根据配置）：</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String className = &quot;Alipay&quot;; // 从配置文件里读出来的</span><br><span class="line">Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line">Object obj = clazz.getDeclaredConstructor().newInstance();</span><br><span class="line">Method method = clazz.getDeclaredMethod(&quot;pay&quot;);</span><br><span class="line">method.invoke(obj); // 输出：支付宝支付</span><br></pre></td></tr></table></figure>
+
+<p> 你甚至不用改代码，只要改配置文件里的类名，系统就能自动用不同的支付方式。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/JUC/%E9%94%81/CountDownLatch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/JUC/%E9%94%81/CountDownLatch/" class="post-title-link" itemprop="url">CountDownLatch</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/%E9%94%81/" itemprop="url" rel="index"><span itemprop="name">锁</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>CountDownLatch</code> 是 Java 中用于实现线程同步的一种工具，它的作用是允许一个或多个线程等待其他线程完成某些操作后再继续执行。  </p>
+<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><p><code>CountDownLatch</code> 的名字可以直译为“倒计时锁”，它通过维护一个计数器来实现线程之间的等待。这个计数器会被其他线程逐步减少，直到变为零，表示所有等待的操作完成，调用 <code>await()</code> 方法的线程才会被释放，可以继续执行。  </p>
+<h1 id="二-工作原理"><a href="#二-工作原理" class="headerlink" title="二.工作原理"></a>二.工作原理</h1><ul>
+<li><code>CountDownLatch</code> 在创建时会设置一个初始的计数值，这个计数值通常表示需要等待的事件或操作的数量。</li>
+<li>每当一个线程完成了它的任务，它就会调用 <code>countDown()</code> 方法将计数器减1。</li>
+<li>当计数器变为零时，所有调用 <code>await()</code> 方法的线程会被唤醒，继续执行。</li>
+</ul>
+<h1 id="三-常用方法"><a href="#三-常用方法" class="headerlink" title="三.常用方法"></a>三.常用方法</h1><ol>
+<li><strong>构造方法</strong><ul>
+<li><code>CountDownLatch(int count)</code>: 创建一个 <code>CountDownLatch</code> 对象，初始化计数器为 <code>count</code>。</li>
+</ul>
+</li>
+<li><code>**await()**</code>** 方法**:<ul>
+<li><code>await()</code>: 当前线程会等待，直到计数器为 0。线程会被阻塞，直到计数器减为零。</li>
+<li><code>await(long timeout, TimeUnit unit)</code>: 当前线程会等待指定的时间，超时后会自动继续执行。</li>
+</ul>
+</li>
+<li><code>**countDown()**</code>** 方法**:<ul>
+<li><code>countDown()</code>: 将计数器减1，表示一个线程完成了任务。</li>
+</ul>
+</li>
+<li><code>**getCount()**</code>** 方法**:<ul>
+<li><code>getCount()</code>: 返回当前计数器的值。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/JUC/%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/JUC/%E9%94%81/" class="post-title-link" itemprop="url">锁</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
     </span>
 
   
@@ -699,7 +1435,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/juc/%E9%94%81/CountDownLatch/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/JUC/ThreadLocal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -717,315 +1453,19 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/juc/%E9%94%81/CountDownLatch/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/JUC/ThreadLocal/" class="post-title-link" itemprop="url">ThreadLocal</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>CountDownLatch</code> 是 Java 中用于实现线程同步的一种工具，它的作用是允许一个或多个线程等待其他线程完成某些操作后再继续执行。  </p>
-<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><p><code>CountDownLatch</code> 的名字可以直译为“倒计时锁”，它通过维护一个计数器来实现线程之间的等待。这个计数器会被其他线程逐步减少，直到变为零，表示所有等待的操作完成，调用 <code>await()</code> 方法的线程才会被释放，可以继续执行。  </p>
-<h1 id="二-工作原理"><a href="#二-工作原理" class="headerlink" title="二.工作原理"></a>二.工作原理</h1><ul>
-<li><code>CountDownLatch</code> 在创建时会设置一个初始的计数值，这个计数值通常表示需要等待的事件或操作的数量。</li>
-<li>每当一个线程完成了它的任务，它就会调用 <code>countDown()</code> 方法将计数器减1。</li>
-<li>当计数器变为零时，所有调用 <code>await()</code> 方法的线程会被唤醒，继续执行。</li>
-</ul>
-<h1 id="三-常用方法"><a href="#三-常用方法" class="headerlink" title="三.常用方法"></a>三.常用方法</h1><ol>
-<li><strong>构造方法</strong><ul>
-<li><code>CountDownLatch(int count)</code>: 创建一个 <code>CountDownLatch</code> 对象，初始化计数器为 <code>count</code>。</li>
-</ul>
-</li>
-<li><code>**await()**</code>** 方法**:<ul>
-<li><code>await()</code>: 当前线程会等待，直到计数器为 0。线程会被阻塞，直到计数器减为零。</li>
-<li><code>await(long timeout, TimeUnit unit)</code>: 当前线程会等待指定的时间，超时后会自动继续执行。</li>
-</ul>
-</li>
-<li><code>**countDown()**</code>** 方法**:<ul>
-<li><code>countDown()</code>: 将计数器减1，表示一个线程完成了任务。</li>
-</ul>
-</li>
-<li><code>**getCount()**</code>** 方法**:<ul>
-<li><code>getCount()</code>: 返回当前计数器的值。</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/juc/%E7%BA%BF%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/juc/%E7%BA%BF%E7%A8%8B/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="线程的创建方式有哪些"><a href="#线程的创建方式有哪些" class="headerlink" title="线程的创建方式有哪些"></a>线程的创建方式有哪些</h1><h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><p><font style="color:rgb(44, 62, 80);">这是最直接的一种方式，用户自定义类继承java.lang.Thread类，重写其run()方法，run()方法中定义了线程执行的具体任务。创建该类的实例后，通过调用start()方法启动线程。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861235814-12fb85a3-acef-477e-992d-7a448f7ba29a.png"></p>
-<h2 id="实现Runnable-接口"><a href="#实现Runnable-接口" class="headerlink" title="实现Runnable 接口"></a>实现Runnable 接口</h2><p><font style="color:rgb(44, 62, 80);">如果一个类已经继承了其他类，就不能再继承Thread类，此时可以实现java.lang.Runnable接口。实现Runnable接口需要重写run()方法，然后将此Runnable对象作为参数传递给Thread类的构造器，创建Thread对象后调用其start()方法启动线程。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861316342-63764d77-9cfb-4c2f-853f-d36d01bf77b7.png"></p>
-<h2 id="实现Callable接口与FutureTask"><a href="#实现Callable接口与FutureTask" class="headerlink" title="实现Callable接口与FutureTask"></a>实现Callable接口与FutureTask</h2><p>Callable 与 Runnable 类似，但 call() 方法可以返回结果，并且允许抛出受检异常（因为签名是 <code>V call() throws Exception</code>）。</p>
-<p>Runnable.run() 和 Thread.run() 只能抛运行时异常，且没有返回值（签名为 <code>void run()</code>），因此无法处理受检异常，也无法产生结果。</p>
-<p>如果要执行 Callable，必须将其包装为 FutureTask，再交给线程或线程池执行。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861479075-ecd500fe-3a26-4ea8-8296-c6a2150c13a6.png"></p>
-<h3 id="获得执行结果"><a href="#获得执行结果" class="headerlink" title="获得执行结果"></a>获得执行结果</h3><p>FutureTask 有两种方法获得执行结果：</p>
-<ul>
-<li>get（）方法阻塞等待获取结果</li>
-<li>轮询获得（非阻塞）</li>
-</ul>
-<h4 id="get（）阻塞式"><a href="#get（）阻塞式" class="headerlink" title="get（）阻塞式"></a>get（）阻塞式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FutureTask&lt;String&gt; futureTask = new FutureTask&lt;String&gt;(new MyCallable());</span><br><span class="line">Thread thread = new Thread(futureTask);</span><br><span class="line">thread.start();</span><br><span class="line">String result=futureTask.get();</span><br></pre></td></tr></table></figure>
-
-<h4 id="轮询非阻塞式"><a href="#轮询非阻塞式" class="headerlink" title="轮询非阻塞式"></a>轮询非阻塞式</h4><p>通过isDone方法判断有没有执行完毕</p>
-<ul>
-<li>true:执行完 </li>
-<li>false:没有执行完</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FutureTask&lt;String&gt; futureTask = new FutureTask&lt;String&gt;(new MyCallable());</span><br><span class="line">Thread thread = new Thread(futureTask);</span><br><span class="line">thread.start();</span><br><span class="line">while(!futureTask.isDone())&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br><span class="line">String result = futureTask.get();</span><br></pre></td></tr></table></figure>
-
-<h3 id="FutureTask-吞异常"><a href="#FutureTask-吞异常" class="headerlink" title="FutureTask 吞异常"></a>FutureTask 吞异常</h3><p>虽然call方法中抛出了异常，但是没有调用FutureTask的get方法就会吞异常，控制台什么都不打印</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class MyCallable implements Callable&lt;String&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String call() throws Exception&#123;</span><br><span class="line">                throw new Exception(&quot;aaa&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException, ExecutionException &#123;</span><br><span class="line">     FutureTask&lt;String&gt; task=new FutureTask&lt;&gt;(new MyCallable());</span><br><span class="line">     Thread thread=new Thread(task);</span><br><span class="line">     thread.start();</span><br><span class="line">     //不调用get方法就会吞异常</span><br><span class="line">     //task.get() </span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763558824895-3663aa3f-b558-4608-bba6-05ef875afcf0.png"></p>
-<h4 id="原因（源码实现）"><a href="#原因（源码实现）" class="headerlink" title="原因（源码实现）"></a>原因（源码实现）</h4><p>FutureTask 中对于Runnable 接口的run（）方法的实现为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void run() &#123;</span><br><span class="line">    if (state != NEW) return;</span><br><span class="line">    Callable&lt;V&gt; c = callable;</span><br><span class="line">    try &#123;</span><br><span class="line">        V result = c.call();    // 调你的 MyCallable.call()</span><br><span class="line">        set(result);            // 正常结束，保存结果</span><br><span class="line">    &#125; catch (Throwable ex) &#123;</span><br><span class="line">        setException(ex);       // ✅ 把异常保存起来，不往外抛</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>也就是说：</p>
-<p>FutureTask 会把 <code>call()</code> 抛出的异常 catch 住，存到内部字段里，不让它继续往外抛到线程。只有调用get（）方法时异常才会继续往外抛</p>
-<h2 id="使用线程池"><a href="#使用线程池" class="headerlink" title="使用线程池"></a>使用线程池</h2><p>这也是比较推荐的方式使用线程池来创建管理线程，避免了频繁创建线程和销毁线程的开销</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861586943-0b18b948-a076-4550-893f-29cfc9aef989.png"></p>
-<h2 id="start-方法和run方法有什么区别"><a href="#start-方法和run方法有什么区别" class="headerlink" title="start 方法和run方法有什么区别"></a>start 方法和run方法有什么区别</h2><table>
-<thead>
-<tr>
-<th>区别项</th>
-<th><code>start()</code><br/> 方法</th>
-<th><code>run()</code><br/> 方法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>定义位置</strong></td>
-<td>定义在 <code>Thread</code><br/> 类中，由 JVM 实现</td>
-<td>定义在 <code>Runnable</code><br/> 接口中，由用户重写</td>
-</tr>
-<tr>
-<td><strong>作用</strong></td>
-<td><strong>启动一个新的线程</strong>，让 JVM 调用 <code>run()</code></td>
-<td>普通方法调用，<strong>不会创建新线程</strong></td>
-</tr>
-<tr>
-<td><strong>执行线程</strong></td>
-<td>由 <strong>新的子线程</strong> 执行 <code>run()</code></td>
-<td>在 <strong>当前主线程</strong> 中执行</td>
-</tr>
-<tr>
-<td><strong>能否多次调用</strong></td>
-<td>❌ 只能调用一次（多次会抛异常）毕竟线程只能创建一次</td>
-<td>✅ 可以重复调用</td>
-</tr>
-<tr>
-<td><strong>是否并发执行</strong></td>
-<td>✅ 会并发执行（主线程与子线程同时运行）</td>
-<td>❌ 同步执行（顺序执行）</td>
-</tr>
-</tbody></table>
-<h2 id="如何停止一个线程的运行"><a href="#如何停止一个线程的运行" class="headerlink" title="如何停止一个线程的运行"></a>如何停止一个线程的运行</h2><p><em>线程的终止就是运行完run方法</em></p>
-<h3 id="异常法停止，线程调用interrupt-方法后，在线程的run方法中判断当前对象的interrupted-状态，如果是中断状态则抛出异常，达到中断线程的效果。"><a href="#异常法停止，线程调用interrupt-方法后，在线程的run方法中判断当前对象的interrupted-状态，如果是中断状态则抛出异常，达到中断线程的效果。" class="headerlink" title="异常法停止，线程调用interrupt()方法后，在线程的run方法中判断当前对象的interrupted()状态，如果是中断状态则抛出异常，达到中断线程的效果。"></a>异常法停止，<font style="color:rgb(44, 62, 80);">线程调用interrupt()方法后，在线程的run方法中判断当前对象的interrupted()状态，如果是中断状态则抛出异常，达到中断线程的效果。</font></h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760862207613-b47102e1-ddc0-4a49-9ac6-7c35ea1c7b6f.png"></p>
-<h3 id="stop-暴力停止：线程调用stop-方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。"><a href="#stop-暴力停止：线程调用stop-方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。" class="headerlink" title="stop()暴力停止：线程调用stop()方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。"></a><font style="color:rgb(48, 79, 254);">stop()暴力停止</font><font style="color:rgb(44, 62, 80);">：线程调用stop()方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。</font></h3><h3 id="使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。"><a href="#使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。" class="headerlink" title="使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。"></a><font style="color:rgb(48, 79, 254);">使用return停止线程</font><font style="color:rgb(44, 62, 80);">：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。</font></h3><h2 id="调用-interrupt-是如何让线程抛出异常的"><a href="#调用-interrupt-是如何让线程抛出异常的" class="headerlink" title="调用 interrupt 是如何让线程抛出异常的?"></a><font style="color:rgb(44, 62, 80);">调用 interrupt 是如何让线程抛出异常的?</font></h2><p>_<strong>对于处于阻塞状态的线程</strong>__，调用 <em><code>_interrupt()_</code></em> 方法会让它被 <strong><strong>JVM 强制唤醒</strong></strong>，   并且 <strong><strong>抛出一个 <strong><em><code>_**InterruptedException**_</code></em></strong> 异常</strong></strong>。  _</p>
-<p><font style="color:rgb(44, 62, 80);">每个线程都一个与之关联的布尔属性来表示其中断状态，当一个线程被其它线程调用</font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;Thread.interrupt()&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">方法中断时，会根据实际情况做出响应。</font></p>
-<table>
-<thead>
-<tr>
-<th>线程状态</th>
-<th>调用 <code>interrupt()</code><br/> 后会怎样</th>
-<th>是否抛出 <code>InterruptedException</code></th>
-<th>中断标志位是否被设置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>非阻塞状态</strong>（正在运行中）</td>
-<td>不会抛异常，<strong>只是设置中断标志位为 true</strong></td>
-<td>❌ 不会抛异常</td>
-<td>✅ 会被设置为 <code>true</code></td>
-</tr>
-<tr>
-<td><strong>阻塞状态</strong>（如 <code>sleep()</code><br/>、<code>wait()</code><br/>、<code>join()</code><br/>）</td>
-<td>JVM 会<strong>立即唤醒线程</strong>并**抛出 **<code>**InterruptedException**</code></td>
-<td>✅ 会抛异常</td>
-<td>⚠️ <strong>不会保留中断标志</strong>（被清除为 <code>false</code><br/>）</td>
-</tr>
-</tbody></table>
-<p><code>interrupt()</code> 永远都会设置中断标志位（true），<br>但如果线程正处于阻塞状态并因此抛出 <code>InterruptedException</code>，<br><strong>JVM 会自动清除该标志位（恢复为 false）</strong>。  </p>
-<h2 id="blocked和waiting有什么区别"><a href="#blocked和waiting有什么区别" class="headerlink" title="blocked和waiting有什么区别"></a>blocked和waiting有什么区别</h2><table>
-<thead>
-<tr>
-<th><font style="color:rgb(44, 62, 80);">状态</font></th>
-<th><font style="color:rgb(44, 62, 80);">产生原因</font></th>
-<th><font style="color:rgb(44, 62, 80);">等待对象</font></th>
-<th><font style="color:rgb(44, 62, 80);">唤醒方式</font></th>
-<th><font style="color:rgb(44, 62, 80);">是否释放锁</font></th>
-<th><font style="color:rgb(44, 62, 80);">常见触发方法</font></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>BLOCKED（阻塞）</strong></td>
-<td><font style="color:rgb(44, 62, 80);">等待 </font><strong>进入 synchronized 临界区</strong></td>
-<td><font style="color:rgb(44, 62, 80);">对象监视器锁（Monitor）</font></td>
-<td><font style="color:rgb(44, 62, 80);">持锁线程释放锁</font></td>
-<td>❌<font style="color:rgb(44, 62, 80);"> 不释放锁（因为还没拿到）</font></td>
-<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;synchronized&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> 竞争</font></td>
-</tr>
-<tr>
-<td><strong>WAITING（等待）</strong></td>
-<td><font style="color:rgb(44, 62, 80);">已经获取锁，但主动</font><strong>放弃执行权，等待通知</strong></td>
-<td><font style="color:rgb(44, 62, 80);">任意对象的 monitor（监视器）</font></td>
-<td><font style="color:rgb(44, 62, 80);">被其他线程调用 </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;notify()&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> &#x2F; </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;notifyAll()&lt;/font&gt;</code></td>
-<td>✅<font style="color:rgb(44, 62, 80);"> 释放锁</font></td>
-<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;Object.wait()&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> &#x2F; </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;LockSupport.park()&lt;/font&gt;</code></td>
-</tr>
-</tbody></table>
-<h2 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a><font style="color:rgb(44, 62, 80);">notify和notifyAll的区别</font></h2><p><font style="color:rgb(44, 62, 80);">同样是唤醒等待的线程，同样最多只有一个线程能获得锁，同样不能控制哪个线程获得锁。</font></p>
-<p><font style="color:rgb(44, 62, 80);">区别在于：</font></p>
-<ul>
-<li><font style="color:rgb(44, 62, 80);">notify：唤醒一个线程，其他线程依然处于wait的等待唤醒状态</font></li>
-<li><font style="color:rgb(44, 62, 80);">notifyAll：所有线程退出wait的状态，开始竞争锁，但只有一个线程能抢到</font></li>
-</ul>
-<h3 id="notify选择哪个线程唤醒"><a href="#notify选择哪个线程唤醒" class="headerlink" title="notify选择哪个线程唤醒"></a><font style="color:rgb(44, 62, 80);">notify选择哪个线程唤醒</font></h3><p><font style="color:rgb(44, 62, 80);">这个是由jvm实现的不同的jvm有不同的实现策略，一般的话是随机或者先进先出</font></p>
-<font style="color:rgb(44, 62, 80);">  
-</font><font style="color:rgb(44, 62, 80);"> </font>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/juc/ThreadLocal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/juc/ThreadLocal/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
     </span>
 
   
@@ -1061,576 +1501,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/juc/synchronized%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/juc/synchronized%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>synchronized</code> 是 Java 中的一个关键字，用于实现线程同步，确保同一时间内只有一个线程可以访问某段代码，同时synchronized是可重入锁。</p>
-<h1 id="Sychronized的使用方法"><a href="#Sychronized的使用方法" class="headerlink" title="Sychronized的使用方法"></a>Sychronized的使用方法</h1><h2 id="修饰实例方法（对象锁）"><a href="#修饰实例方法（对象锁）" class="headerlink" title="修饰实例方法（对象锁）"></a>修饰实例方法（对象锁）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void method()&#123;</span><br><span class="line">// 方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><font style="color:rgb(37, 41, 51);">这种方式锁住的是</font><strong><font style="color:rgb(37, 41, 51);">当前实例对象</font></strong><font style="color:rgb(37, 41, 51);">(this)，同一个实例的多个同步方法会互斥，不同实例的同步方法不会相互干扰。</font></p>
-<h2 id="修饰静态方法（类锁）"><a href="#修饰静态方法（类锁）" class="headerlink" title="修饰静态方法（类锁）"></a><font style="color:rgb(37, 41, 51);">修饰静态方法（类锁）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static sychronized void method() &#123;</span><br><span class="line">//方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><font style="color:rgb(37, 41, 51);">这种方式锁住的是</font><strong><font style="color:rgb(37, 41, 51);">类对象</font></strong><font style="color:rgb(37, 41, 51);">(Class对象)，所有实例共享同一把锁，即使不同实例调用静态同步方法也会互斥。</font></p>
-<h2 id="同步代码块（指定锁对象）"><a href="#同步代码块（指定锁对象）" class="headerlink" title=" 同步代码块（指定锁对象）"></a><font style="color:rgb(37, 41, 51);"> 同步代码块（指定锁对象）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class TicketService &#123;</span><br><span class="line">    private int tickets;</span><br><span class="line">    private final Object lock = new Object();</span><br><span class="line"></span><br><span class="line">    public void sellTicket() &#123;</span><br><span class="line">        synchronized(lock) &#123;</span><br><span class="line">            if(tickets &gt; 0) &#123;</span><br><span class="line">                tickets--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>注意这种方式锁住的是lock 这个Object 对象实例而不是Object 这个类对象</p>
-<h2 id="同步静态代码块（类锁）"><a href="#同步静态代码块（类锁）" class="headerlink" title="同步静态代码块（类锁）"></a><font style="color:rgb(37, 41, 51);">同步静态代码块（类锁）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void sellTicket()&#123;</span><br><span class="line">synchronized (ClassName.class) &#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这种方式锁住的就是ClassName这个类对象了</p>
-<h1 id="如何理解锁住类对象和锁住对象实例"><a href="#如何理解锁住类对象和锁住对象实例" class="headerlink" title="如何理解锁住类对象和锁住对象实例"></a>如何理解锁住类对象和锁住对象实例</h1><p> 一定不要认为锁住类对象之后就锁住了所有实例，因为<strong>静态同步方法锁住的是类本身（</strong><code>**Test.class**</code><strong>），而实例同步方法锁住的是某个具体的对象实例</strong>，它们锁定的是不同的资源，因此不会互相干扰。  </p>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    public static synchronized void lock()&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            sleep(100000);</span><br><span class="line">        &#125;</span><br><span class="line">        catch(InterruptedException e)&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized void print()&#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            System.out.println(&quot;111&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line">            Test test = new Test();</span><br><span class="line">          Thread t1 = new Thread(Test::lock);</span><br><span class="line">          Thread t2=new Thread(test::print);</span><br><span class="line">          t1.start();</span><br><span class="line">          t2.start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这段代码中虽然t1线程sleep 没有释放Test类锁，但是t2线程依然可以正常打印,因为t2线程申请的呃锁是实例锁，实例锁和类对象锁是两种不同的锁！</p>
-<h1 id="synchronized锁升级"><a href="#synchronized锁升级" class="headerlink" title="synchronized锁升级"></a>synchronized锁升级</h1><h2 id="synchronized-锁的四种状态"><a href="#synchronized-锁的四种状态" class="headerlink" title="synchronized 锁的四种状态"></a>synchronized 锁的四种状态</h2><p><em>注意synchronized 的锁只会升级不会降级</em></p>
-<h3 id="无锁状态（No-Lock）："><a href="#无锁状态（No-Lock）：" class="headerlink" title="无锁状态（No Lock）："></a><strong>无锁状态（No Lock）</strong>：</h3><ul>
-<li><strong>说明</strong>：对象在没有任何线程竞争的情况下处于无锁状态。此时，任何线程都能轻松访问该对象的方法或代码块。</li>
-<li><strong>何时发生</strong>：当没有线程访问或竞争锁时，锁处于无锁状态。</li>
-</ul>
-<h3 id="偏向锁（Biased-Locking）："><a href="#偏向锁（Biased-Locking）：" class="headerlink" title="偏向锁（Biased Locking）："></a><strong>偏向锁（Biased Locking）</strong>：</h3><ul>
-<li><strong>说明</strong>：当对象的锁长时间没有被其他线程竞争时，JVM 会启用偏向锁。偏向锁会将锁附加到第一个获得锁的线程上，减少锁的获取和释放操作，避免不必要的竞争。</li>
-<li><strong>何时发生</strong>：当对象只有一个线程访问时，JVM 会为该对象启用偏向锁，锁会”偏向”于第一个获取锁的线程。</li>
-<li><strong>升级条件</strong>：当其他线程竞争该锁时，偏向锁会升级为轻量级锁。</li>
-</ul>
-<h3 id="轻量级锁（Lightweight-Locking）："><a href="#轻量级锁（Lightweight-Locking）：" class="headerlink" title="轻量级锁（Lightweight Locking）："></a><strong>轻量级锁（Lightweight Locking）</strong>：</h3><ul>
-<li><strong>说明</strong>：当有多个线程竞争锁时，JVM 会启用轻量级锁。轻量级锁使用 <strong>CAS（Compare-And-Swap）</strong> 技术，通过在对象头中记录锁的状态来减少锁的开销，避免线程阻塞。</li>
-<li><strong>何时发生</strong>：当锁发生竞争时，JVM 会通过 CAS 尝试轻量级锁。如果竞争不激烈且 CAS 成功，线程可以直接获得锁。</li>
-<li><strong>升级条件</strong>：如果 CAS 操作失败或竞争非常激烈，轻量级锁会升级为重量级锁。</li>
-</ul>
-<h3 id="重量级锁（Heavyweight-Locking）："><a href="#重量级锁（Heavyweight-Locking）：" class="headerlink" title="重量级锁（Heavyweight Locking）："></a>重量级锁（Heavyweight Locking）：</h3><ul>
-<li><strong>说明</strong>：当线程竞争激烈且无法通过轻量级锁解决时，JVM 会使用重量级锁。重量级锁通过操作系统的互斥量（mutex）来管理锁，这会导致线程阻塞和上下文切换，性能较差。</li>
-<li><strong>何时发生</strong>：当多个线程竞争同一把锁，并且轻量级锁无法解决竞争时，JVM 会升级为重量级锁。</li>
-<li><strong>升级条件</strong>：轻量级锁竞争失败时，JVM 会使用操作系统的互斥量（mutex）进行锁的管理。</li>
-</ul>
-<h2 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h2><h3 id="偏向锁的工作原理"><a href="#偏向锁的工作原理" class="headerlink" title="偏向锁的工作原理"></a>偏向锁的工作原理</h3><ul>
-<li>当一个线程第一次获得对象的锁时，JVM 会将该对象的锁状态设置为 <strong>偏向锁</strong>，并记录下获得锁的线程 ID。</li>
-<li>之后，如果相同的线程再次访问该对象，不需要重新获取锁，<strong>JVM 会直接认为这个线程已经持有锁</strong>，因此锁的获取和释放都没有任何开销。</li>
-<li><strong>锁的释放</strong>：当线程退出同步代码块时，锁会被释放，但锁的状态仍然保持为偏向锁，直到有另一个线程竞争锁。</li>
-</ul>
-<h3 id="何时使用偏向锁"><a href="#何时使用偏向锁" class="headerlink" title="何时使用偏向锁"></a>何时使用偏向锁</h3><p> 偏向锁适用于 <strong>没有竞争</strong> 的情况，即在大部分时间里，只有一个线程访问该对象。当一个线程获取锁后，偏向锁会继续偏向这个线程，避免每次都要进行加锁的性能开销。  </p>
-<h3 id="无锁-偏向锁的升级过程"><a href="#无锁-偏向锁的升级过程" class="headerlink" title="无锁-&gt;偏向锁的升级过程"></a>无锁-&gt;偏向锁的升级过程</h3><p> 当第一个线程访问同步代码时（也就是synchronized 修饰的代码块），它会 <strong>尝试获取对象的锁</strong>。此时，JVM 会将对象的锁从无锁状态切换为 <strong>偏向锁</strong>，并将锁标记为偏向于当前线程。锁的状态会保存当前线程的 ID。  </p>
-<h2 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h2><h3 id="轻量级锁的工作原理"><a href="#轻量级锁的工作原理" class="headerlink" title="轻量级锁的工作原理"></a>轻量级锁的工作原理</h3><p><strong>CAS 操作</strong>：轻量级锁通过 <strong>CAS（Compare-And-Swap）</strong> 技术来实现加锁。它尝试通过原子操作直接改变对象头的锁标志位。  </p>
-<p><strong>竞争时</strong>：当有多个线程竞争锁时，JVM 会让线程通过 <strong>自旋</strong>（不断尝试）来获取锁，直到成功为止。  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/java/%E9%94%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/java/%E9%94%81/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="java锁的分类"><a href="#java锁的分类" class="headerlink" title="java锁的分类"></a>java锁的分类</h2><table>
-<thead>
-<tr>
-<th>分类层级</th>
-<th>常见锁类型</th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1️⃣ <strong>语言级别</strong></td>
-<td><code>synchronized</code></td>
-<td>最基本的互斥锁</td>
-</tr>
-<tr>
-<td>2️⃣ <strong>JUC并发包</strong></td>
-<td><code>ReentrantLock</code></td>
-<td>手动可控的可重入锁</td>
-</tr>
-<tr>
-<td>3️⃣ <strong>读写分离锁</strong></td>
-<td><code>ReentrantReadWriteLock</code></td>
-<td>读共享、写独占，提高读多写少场景效率</td>
-</tr>
-<tr>
-<td>4️⃣ <strong>自旋与乐观锁</strong></td>
-<td><code>AtomicInteger</code><br/>、CAS</td>
-<td>无锁方案，性能更高（硬件支持）</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Sychnorized"><a href="#Sychnorized" class="headerlink" title="Sychnorized"></a>Sychnorized</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void add() &#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p> 等价于：  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void add() &#123;</span><br><span class="line">    synchronized(this) &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是Sychnorized 锁的颗粒度问题</p>
-<p>public synchronized void add() {</p>
-<pre><code>count++;
-</code></pre>
-<p>}这样写不仅仅是锁住这个方法而是synchronized(this)锁住这个对象</p>
-<table>
-<thead>
-<tr>
-<th>锁方式</th>
-<th>锁对象</th>
-<th>作用范围</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>synchronized(this)</code></td>
-<td>当前实例</td>
-<td>锁住当前对象的同步代码块或方法</td>
-</tr>
-<tr>
-<td><code>synchronized(类名.class)</code></td>
-<td>类对象</td>
-<td>锁住整个类的所有实例（相当于静态锁）</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="可重入锁ReentrantLock"><a href="#可重入锁ReentrantLock" class="headerlink" title="可重入锁ReentrantLock"></a>可重入锁ReentrantLock</h2><p>ReentrantLock lock &#x3D; new ReentrantLock();</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void add() &#123;</span><br><span class="line">    lock.lock();        // 手动加锁</span><br><span class="line">    try &#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125; finally &#123;</span><br><span class="line">        lock.unlock();  // 手动释放</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="读写锁：ReentrantReadWriteLock"><a href="#读写锁：ReentrantReadWriteLock" class="headerlink" title="读写锁：ReentrantReadWriteLock"></a>读写锁：<code>ReentrantReadWriteLock</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();</span><br><span class="line"></span><br><span class="line">rwLock.readLock().lock();   // 多个线程可以同时读</span><br><span class="line">rwLock.writeLock().lock();  // 写时独占</span><br></pre></td></tr></table></figure>
-
-<h2 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h2><p>乐观锁和悲观锁是一种思想有着不同的实现</p>
-<ul>
-<li>“悲观锁”指的是一种<strong>策略</strong>：操作资源前先上锁，防止别人动；</li>
-<li>“乐观锁”则是另一种<strong>策略</strong>：操作时不锁，等要提交时再判断有没有冲突。</li>
-</ul>
-<h2 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h2><p> 自旋锁是一种<strong>不让线程进入阻塞状态</strong>、而是<strong>在用户态反复尝试获取锁</strong>的机制。  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/java/%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="线程池的基本工作流程"><a href="#线程池的基本工作流程" class="headerlink" title="线程池的基本工作流程"></a>线程池的基本工作流程</h1><p>corePoolSize-&gt;workQueue-&gt;maximumPoolSize</p>
-<p>1.<strong>线程池先看当前运行的线程数是否小于 corePoolSize</strong></p>
-<ul>
-<li>如果是 → 直接创建新线程执行任务（即“核心线程”）。</li>
-<li>如果否 → 进入下一步。</li>
-</ul>
-<ol start="2">
-<li><strong>如果线程数 ≥ corePoolSize，就尝试把任务放进队列 workQueue</strong></li>
-</ol>
-<ul>
-<li>如果队列没满 → 任务进入队列等待。</li>
-<li>如果队列满了 → 进入下一步。</li>
-</ul>
-<ol start="3">
-<li><strong>如果队列已满，并且线程数 &lt; maximumPoolSize</strong></li>
-</ol>
-<ul>
-<li>再创建新线程（非核心线程）来执行任务。</li>
-</ul>
-<ol start="4">
-<li><strong>如果线程数已经达到 maximumPoolSize，且队列也满</strong></li>
-</ol>
-<ul>
-<li>就会触发 <strong>拒绝策略 handler</strong>，决定怎么处理任务（丢弃、抛异常、调用者运行等）。</li>
-</ul>
-<ol start="5">
-<li><strong>线程空闲时，如果超过 keepAliveTime</strong></li>
-</ol>
-<ul>
-<li>非核心线程会被销毁；</li>
-<li>若设置了 <code>allowCoreThreadTimeout = true</code>，核心线程也可能销毁。</li>
-</ul>
-<h1 id="线程池的核心参数"><a href="#线程池的核心参数" class="headerlink" title="线程池的核心参数"></a>线程池的核心参数</h1><ol>
-<li><p><strong><font style="color:rgb(51, 51, 51);">corePoolSize</font></strong><font style="color:rgb(51, 51, 51);">（必需）：核心线程数。默认情况下，核心线程会一直存活，但是当将 </font><strong><font style="color:rgb(51, 51, 51);">allowCoreThreadTimeout </font></strong><font style="color:rgb(51, 51, 51);">设置为 true 时，核心线程也会超时回收。</font></p>
-<p>   注意一开始并不会创建核心线程，只有当执行execute的时候的时候才会创建核心线程,如果 想让核心线程在创建线程池时就全部启动  （常用于高并发预热场景）需要调用prestartAllCoreThreads()方法</p>
-</li>
-</ol>
-<ul>
-<li><strong><font style="color:rgb(51, 51, 51);">maximumPoolSize</font></strong><font style="color:rgb(51, 51, 51);">（必需）：线程池所能容纳的最大线程数。当活跃线程数达到该数值后，后续的新任务将会阻塞。maximumPoolSize包括corePoolSize</font></li>
-<li><strong><font style="color:rgb(51, 51, 51);">keepAliveTime</font></strong><font style="color:rgb(51, 51, 51);">（必需）：线程闲置超时时长。如果超过该时长，非核心线程就会被回收。如果将 </font><strong><font style="color:rgb(51, 51, 51);">allowCoreThreadTimeout </font></strong><font style="color:rgb(51, 51, 51);">设置为 true 时，核心线程也会超时回收。</font></li>
-<li><strong><font style="color:rgb(51, 51, 51);">unit</font></strong><font style="color:rgb(51, 51, 51);">（必需）：指定 keepAliveTime 参数的时间单位。常用的有：</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.MILLISECONDS</font></strong><font style="color:rgb(51, 51, 51);">（毫秒）、</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.SECONDS</font></strong><font style="color:rgb(51, 51, 51);">（秒）、</font><strong><font style="color:rgb(51, 51, 51);">TimeUnit.MINUTES</font></strong><font style="color:rgb(51, 51, 51);">（分）。</font></li>
-<li><strong><font style="color:rgb(51, 51, 51);">workQueue</font></strong><font style="color:rgb(51, 51, 51);">（必需）：任务队列。通过线程池的 execute() 方法提交的 Runnable 对象将存储在该参数中。其采用阻塞队列实现。</font></li>
-<li><strong><font style="color:rgb(51, 51, 51);">threadFactory</font></strong><font style="color:rgb(51, 51, 51);">（可选）：线程工厂。用于指定为线程池创建新线程的方式。</font></li>
-<li><strong><font style="color:rgb(51, 51, 51);">handler</font></strong><font style="color:rgb(51, 51, 51);">（可选）：拒绝策略。当达到最大线程数时需要执行的拒绝策略。</font></li>
-</ul>
-<h2 id="什么是阻塞队列什么是非阻塞队列"><a href="#什么是阻塞队列什么是非阻塞队列" class="headerlink" title="什么是阻塞队列什么是非阻塞队列"></a>什么是阻塞队列什么是非阻塞队列</h2><ol>
-<li>阻塞队列:阻塞队列是一种支持线程等待的队列 当队列<strong>满了</strong>或者<strong>空了</strong>时，它会让线程“暂时休眠”，直到条件满足再继续执行。  </li>
-<li>非阻塞队列： 非阻塞队列不会让线程等待，它只会<strong>立即返回结果</strong>。</li>
-</ol>
-<p>比如：</p>
-<ul>
-<li>如果队列满了，<code>offer()</code> 返回 false；</li>
-<li>如果队列空了，<code>poll()</code> 返回 null。</li>
-</ul>
-<p>它不会让线程睡眠、等待条件变化。  </p>
-<h2 id="WorkQueue"><a href="#WorkQueue" class="headerlink" title="WorkQueue"></a>WorkQueue</h2><h3 id="Wot"><a href="#Wot" class="headerlink" title="Wot"></a>Wot</h3><p>“核心线程忙 → 把任务放进 workQueue → 等待线程来取任务执行”</p>
-<table>
-<thead>
-<tr>
-<th>队列类型</th>
-<th>类名</th>
-<th>特点</th>
-<th>适用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>有界队列</strong></td>
-<td><code>ArrayBlockingQueue</code></td>
-<td>固定容量，先进先出</td>
-<td>控制任务数量，防止OOM</td>
-</tr>
-<tr>
-<td><strong>无界队列</strong></td>
-<td><code>LinkedBlockingQueue</code></td>
-<td>理论无限大（默认 Integer.MAX_VALUE）</td>
-<td>任务量大但执行快的场景</td>
-</tr>
-<tr>
-<td><strong>同步移交队列</strong></td>
-<td><code>SynchronousQueue</code></td>
-<td>不存任务，任务必须直接交给线程</td>
-<td>高并发、短任务的即时执行场景</td>
-</tr>
-</tbody></table>
-<h2 id="ThreadFactory-线程工厂"><a href="#ThreadFactory-线程工厂" class="headerlink" title="ThreadFactory 线程工厂"></a>ThreadFactory 线程工厂</h2><h3 id="threadFactory是什么？"><a href="#threadFactory是什么？" class="headerlink" title="threadFactory是什么？"></a>threadFactory是什么？</h3><p>它是一个<strong>负责创建线程的工厂对象</strong>，类型是 <code>java.util.concurrent.ThreadFactory</code>。</p>
-<p>当线程池需要新线程时，不是自己 <code>new Thread(...)</code>，<br>而是调用线程工厂的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thread newThread(Runnable r)</span><br></pre></td></tr></table></figure>
-
-<p> 👉 这样做的好处是：<br>你可以<strong>自定义线程的名字、优先级、是否为守护线程、异常处理方式等</strong>。  </p>
-<p><em>javaThreadExecutor 中的ThreadFactory 是工厂模式中的工厂方法</em></p>
-<h2 id="默认线程工厂（Executors-defaultThreadFactory）"><a href="#默认线程工厂（Executors-defaultThreadFactory）" class="headerlink" title="默认线程工厂（Executors.defaultThreadFactory）"></a>默认线程工厂（Executors.defaultThreadFactory）</h2><p>默认工厂创建的线程：</p>
-<ul>
-<li>名字：<code>pool-1-thread-1</code>、<code>pool-1-thread-2</code> 等；</li>
-<li>优先级：默认优先级；</li>
-<li>不是守护线程。</li>
-</ul>
-<h2 id="自定义线程工厂（常见写法）"><a href="#自定义线程工厂（常见写法）" class="headerlink" title="自定义线程工厂（常见写法）"></a>自定义线程工厂（常见写法）</h2><p><font style="color:rgb(77, 77, 77);">实现 </font><strong><font style="color:rgb(77, 77, 77);">ThreadFactory </font></strong><font style="color:rgb(77, 77, 77);">接口，并实现 </font><strong><font style="color:rgb(77, 77, 77);">newThread(Runnable r) </font></strong><font style="color:rgb(77, 77, 77);">方法</font></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ThreadFactory factory = new ThreadFactory() &#123;</span><br><span class="line">    private final AtomicInteger count = new AtomicInteger(1);</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Thread newThread(Runnable r) &#123;</span><br><span class="line">        Thread thread = new Thread(r);</span><br><span class="line">        thread.setName(&quot;order-processor-&quot; + count.getAndIncrement());</span><br><span class="line">        thread.setDaemon(false); // 设置为非守护线程</span><br><span class="line">        return thread;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h2><p>当线程池的线程数达到最大线程数时，需要执行拒绝策略。拒绝策略需要实现 RejectedExecutionHandler 接口，并实现 rejectedExecution(Runnable r, ThreadPoolExecutor executor) 方法。不过同样的 Executors 框架已经为我们实现了 4 种拒绝策略：</p>
-<table>
-<thead>
-<tr>
-<th>策略类名</th>
-<th>行为</th>
-<th>常见场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>AbortPolicy</strong>（默认）</td>
-<td>直接抛出 <code>RejectedExecutionException</code><br/> 异常</td>
-<td>适合对丢任务不能容忍的系统（例如支付、订单）</td>
-</tr>
-<tr>
-<td><strong>CallerRunsPolicy</strong></td>
-<td>谁提交任务，谁就自己执行（不进线程池）</td>
-<td>可以缓冲压力，常用于“降级”策略</td>
-</tr>
-<tr>
-<td><strong>DiscardPolicy</strong></td>
-<td>直接丢掉任务，不抛异常</td>
-<td>容忍少量任务丢失的场景（如日志上报）</td>
-</tr>
-<tr>
-<td><strong>DiscardOldestPolicy</strong></td>
-<td>丢掉队列中最旧的任务，然后重新尝试提交当前任务</td>
-<td>适用于只关心最新数据的任务（如监控采样）</td>
-</tr>
-</tbody></table>
-<h2 id="功能线程池"><a href="#功能线程池" class="headerlink" title="功能线程池"></a>功能线程池</h2><p>功能线程池也就是<font style="color:rgb(77, 77, 77);">提前封装好的ThreadPoolExecutor，但是不建议使用而是应该使用ThreadPoolExecutor这样可以更加明确线程的运行规则,避免资源耗尽的风险</font></p>
-<h1 id="提交任务"><a href="#提交任务" class="headerlink" title="提交任务"></a>提交任务</h1><p>线程池通过execute或submit 方法提交任务</p>
-<h2 id="execute（）"><a href="#execute（）" class="headerlink" title="execute（）"></a>execute（）</h2><ul>
-<li>只能提交 Runnable</li>
-<li>没有返回值</li>
-<li>如果任务抛异常 → 异常会直接在控制台打印（线程池中的线程抛出）</li>
-</ul>
-<h2 id="submit（）"><a href="#submit（）" class="headerlink" title="submit（）"></a>submit（）</h2><ul>
-<li><strong>可以提交 Runnable 或 Callable</strong></li>
-<li><strong>返回 Future，用于拿结果</strong></li>
-<li>如果任务抛异常 → 异常会被 Future 捕获，不会直接打印<br>（必须通过 <code>future.get()</code> 才能看到异常，否则会被吞掉）</li>
-</ul>
-<h3 id="Future-和FutureTask的关系"><a href="#Future-和FutureTask的关系" class="headerlink" title="Future 和FutureTask的关系"></a>Future 和FutureTask的关系</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763557612897-0002f956-ac5f-45a1-bece-8059f54ec5f5.png"></p>
-<p>Future是接口只代表一个结果，可以查询结果，取消任务，本身不能运行任务</p>
-<p>FutureTask 是类实现了Runnable和Future 接口，因此它可以Future-&gt;get()，cancel 查询结果取消任务,</p>
-<p>Runnable-&gt;可以运行任务，所以FutureTask是一个可以被执行的任务容器</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/java/%E7%B1%BB%E4%BF%A1%E6%81%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/java/%E7%B1%BB%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="为什么java-一直在谈论类信息，而c-就没有这么显示的谈论"><a href="#为什么java-一直在谈论类信息，而c-就没有这么显示的谈论" class="headerlink" title="为什么java 一直在谈论类信息，而c++就没有这么显示的谈论"></a>为什么java 一直在谈论类信息，而c++就没有这么显示的谈论</h1><h2 id="什么是类信息"><a href="#什么是类信息" class="headerlink" title="什么是类信息"></a>什么是类信息</h2><p> 类信息（Class Metadata）就是 JVM 对“类本身”的描述数据。  </p>
-<p>比如：<br>当 JVM 加载一个类（例如 <code>User.class</code>）时，它需要知道：</p>
-<ul>
-<li>这个类的名字是什么？（<code>User</code>）</li>
-<li>它的父类是谁？（<code>Object</code>）</li>
-<li>实现了哪些接口？</li>
-<li>有哪些字段？（<code>id</code>, <code>name</code>）</li>
-<li>有哪些方法？（<code>getName()</code>, <code>setName()</code>）</li>
-</ul>
-<h2 id="为什么java-需要类信息"><a href="#为什么java-需要类信息" class="headerlink" title="为什么java 需要类信息"></a>为什么java 需要类信息</h2><p> 因为 <strong>Java 是运行在虚拟机上的语言</strong>，所有对象、方法调用、反射、动态加载都要靠 JVM 去调度。JVM 必须知道每个类的完整结构，才能执行它的字节码。</p>
-<p>比如反射</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; cls = User.class;</span><br><span class="line">Field field = cls.getDeclaredField(&quot;name&quot;);</span><br><span class="line">System.out.println(field.getType());  </span><br></pre></td></tr></table></figure>
-
-<p> JVM 就是根据**类信息表（Class Metadata）**去查找 <code>User</code> 类里有哪些字段、类型是什么。   如果没有“类信息”，反射根本做不到。  </p>
-<h2 id="那为什么c-中很少谈论类信息呢"><a href="#那为什么c-中很少谈论类信息呢" class="headerlink" title="那为什么c++中很少谈论类信息呢"></a>那为什么c++中很少谈论类信息呢</h2><p>因为 C++：</p>
-<ul>
-<li>是<strong>直接编译成机器码</strong>的语言（没有虚拟机），</li>
-<li>类结构在编译期就确定，</li>
-<li>编译器直接把方法、字段的偏移地址写进二进制文件。</li>
-</ul>
-<p>换句话说：**C++ 的类信息是“编译器自己知道的”，不需要运行时保存。**比如c++要调用类方法直接通过地址偏移量就找到了，不需要再查什么类信息，因为 编译器在生成机器码时，已经计算好了“函数或变量的内存偏移地址”。  </p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1646,8 +1518,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

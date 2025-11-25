@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一.简要概括好的，下面是对 Spring Bean 生命周期四个阶段的一句话概括：  实例化（Instantiation）：Spring 通过反射创建 Bean 对象的实例。 属性赋值（Populate Properties）：Spring 将配置文件或注解中定义的依赖注入到 Bean 的属性中。（三级缓存） 初始化（Initialization）：Spring 调用 Bean 的初始化方法（如">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring Bean 声明周期">
+<meta property="og:url" content="http://example.com/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="一.简要概括好的，下面是对 Spring Bean 生命周期四个阶段的一句话概括：  实例化（Instantiation）：Spring 通过反射创建 Bean 对象的实例。 属性赋值（Populate Properties）：Spring 将配置文件或注解中定义的依赖注入到 Bean 的属性中。（三级缓存） 初始化（Initialization）：Spring 调用 Bean 的初始化方法（如">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/jpeg/50543647/1762671637828-8ec38a3d-535d-41e8-8246-2f12b8f70380.jpeg">
+<meta property="article:published_time" content="2025-11-25T13:35:19.088Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.895Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/jpeg/50543647/1762671637828-8ec38a3d-535d-41e8-8246-2f12b8f70380.jpeg">
+
+
+<link rel="canonical" href="http://example.com/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/","path":"2025/11/25/SpringBoot/spring_Bean_声明周期/","title":"spring Bean 声明周期"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>spring Bean 声明周期 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E7%AE%80%E8%A6%81%E6%A6%82%E6%8B%AC"><span class="nav-number">1.</span> <span class="nav-text">一.简要概括</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">二.初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%B6%E6%AE%B5%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.1.</span> <span class="nav-text">初始化阶段执行顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">Bean的初始化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PostConstruct%EF%BC%88%E9%87%8D%E7%82%B9-%E2%AD%90%EF%BC%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">@PostConstruct（重点 ⭐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#afterPropertiesSet-%E4%B8%8E-init-method%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-number">2.2.2.</span> <span class="nav-text">afterPropertiesSet 与 init-method（了解）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aware%E5%9B%9E%E8%B0%83"><span class="nav-number">2.3.</span> <span class="nav-text">aware回调</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Aware%E6%8E%A5%E5%8F%A3%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8"><span class="nav-number">2.3.1.</span> <span class="nav-text">常见的Aware接口及其作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.3.2.</span> <span class="nav-text">运行时发生了什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanPostProcessor-%E5%89%8D%E7%BD%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%90%8E%E7%BD%AE%E5%A4%84%E7%90%86"><span class="nav-number">2.4.</span> <span class="nav-text">BeanPostProcessor 前置处理与后置处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E5%A4%84%E7%90%86"><span class="nav-number">2.4.1.</span> <span class="nav-text">前置处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%BD%AE%E5%A4%84%E7%90%86"><span class="nav-number">2.4.2.</span> <span class="nav-text">后置处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PostConstruct%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.4.3.</span> <span class="nav-text">@PostConstruct注解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89-%E9%94%80%E6%AF%81%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">三.销毁过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PreDestory%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.1.</span> <span class="nav-text">@PreDestory注解</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/SpringBoot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="spring Bean 声明周期 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          spring Bean 声明周期
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一-简要概括"><a href="#一-简要概括" class="headerlink" title="一.简要概括"></a>一.简要概括</h1><p>好的，下面是对 Spring Bean 生命周期四个阶段的<strong>一句话概括</strong>：</p>
+<ol>
+<li><strong>实例化（Instantiation）</strong>：Spring 通过反射创建 Bean 对象的实例。</li>
+<li><strong>属性赋值（Populate Properties）</strong>：Spring 将配置文件或注解中定义的依赖注入到 Bean 的属性中。（三级缓存）</li>
+<li><strong>初始化（Initialization）</strong>：Spring 调用 Bean 的初始化方法（如 <code>@PostConstruct</code>、<code>afterPropertiesSet()</code> 或自定义 init-method）进行初始化逻辑。</li>
+<li><strong>销毁（Destruction）</strong>：当容器关闭时，Spring 调用销毁方法（如 <code>@PreDestroy</code>、<code>destroy()</code> 或自定义 destroy-method）释放资源。</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2025/jpeg/50543647/1762671637828-8ec38a3d-535d-41e8-8246-2f12b8f70380.jpeg"></h3><h1 id="二-初始化"><a href="#二-初始化" class="headerlink" title="二.初始化"></a>二.初始化</h1><p> 初始化阶段的目标：让 Bean <strong>完全准备好可以使用</strong>。  经过第一二步 反射出来的对象现在还只是“一个有属性的普通对象”；Spring 要在初始化阶段执行一系列“钩子（回调）”，让 Bean 真正“活起来”。  </p>
+<h2 id="初始化阶段执行顺序"><a href="#初始化阶段执行顺序" class="headerlink" title="初始化阶段执行顺序"></a>初始化阶段执行顺序</h2><p>1️⃣ 实例化（new 对象）</p>
+<p>2️⃣ 属性注入（依赖注入）</p>
+<p>3️⃣ 调用 Aware 接口（如 BeanNameAware）</p>
+<p>4️⃣ BeanPostProcessor 前置处理</p>
+<p>➡️ 5️⃣ @PostConstruct（执行初始化逻辑）</p>
+<p>6️⃣ afterPropertiesSet() —— 来自 InitializingBean 接口</p>
+<p>7️⃣ init-method() —— 在 XML &#x2F; @Bean 中指定</p>
+<p>8️⃣ BeanPostProcessor 后置处理（常用于 AOP 代理）</p>
+<br/>
+
+
+
+<h2 id="Bean的初始化方法"><a href="#Bean的初始化方法" class="headerlink" title="Bean的初始化方法"></a>Bean的初始化方法</h2><h3 id="PostConstruct（重点-⭐）"><a href="#PostConstruct（重点-⭐）" class="headerlink" title="@PostConstruct（重点 ⭐）"></a>@PostConstruct（重点 ⭐）</h3><ul>
+<li><strong>作用</strong>：在 Bean 完成依赖注入后、但在使用前自动执行一次初始化逻辑。</li>
+<li><strong>执行时机</strong>：依赖注入完成 → 初始化前（在 AOP 代理之前）。</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct</span><br><span class="line">public void init() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;Bean 初始化逻辑执行...&quot;);</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>@PostConstructor 方法要求</p>
+<ul>
+<li><strong>返回值类型</strong>：<code>void</code></li>
+<li><strong>无参数</strong>（不能带任何参数）</li>
+<li><strong>不能抛出受检异常（checked exception）</strong></li>
+</ul>
+<h3 id="afterPropertiesSet-与-init-method（了解）"><a href="#afterPropertiesSet-与-init-method（了解）" class="headerlink" title="afterPropertiesSet 与 init-method（了解）"></a>afterPropertiesSet 与 init-method（了解）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>定义方式</th>
+<th>调用时机</th>
+<th>场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>afterPropertiesSet()</code></td>
+<td>实现 <code>InitializingBean</code><br/> 接口</td>
+<td>@PostConstruct 之后</td>
+<td>用于框架级初始化</td>
+</tr>
+<tr>
+<td><code>init-method()</code></td>
+<td>在 XML 或 @Bean 指定</td>
+<td>afterPropertiesSet 之后</td>
+<td>用于配置文件初始化</td>
+</tr>
+</tbody></table>
+<p> 三者都能定义初始化逻辑，执行顺序为：<br><code>@PostConstruct → afterPropertiesSet → init-method</code></p>
+<h2 id="aware回调"><a href="#aware回调" class="headerlink" title="aware回调"></a>aware回调</h2><p>aware 相关接口就是在告诉bean自己是谁（BeanNameAware），自己在哪（ApplicationContextAware），谁创建了自己（BeanFactoryAware）</p>
+<h3 id="常见的Aware接口及其作用"><a href="#常见的Aware接口及其作用" class="headerlink" title="常见的Aware接口及其作用"></a>常见的Aware接口及其作用</h3><table>
+<thead>
+<tr>
+<th>接口名</th>
+<th>注入的对象</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>BeanNameAware</code></td>
+<td>当前 Bean 的名字</td>
+<td>让 Bean 知道自己在容器中的名字</td>
+</tr>
+<tr>
+<td><code>BeanFactoryAware</code></td>
+<td>BeanFactory 对象</td>
+<td>可以手动获取其他 Bean（不推荐）</td>
+</tr>
+<tr>
+<td><code>ApplicationContextAware</code></td>
+<td>ApplicationContext</td>
+<td>拿到整个上下文，能访问 Bean、资源、事件发布等</td>
+</tr>
+</tbody></table>
+<h3 id="运行时发生了什么？"><a href="#运行时发生了什么？" class="headerlink" title="运行时发生了什么？"></a>运行时发生了什么？</h3><p> 当 Spring 创建完 Bean 实例并注入属性后，会在初始化前执行👇：  </p>
+<p>invokeAwareMethods(beanName, bean);</p>
+<br/>
+
+<p> Spring 会判断当前 Bean 是否实现了这些接口：  </p>
+<p>if (bean instanceof BeanNameAware) {</p>
+<pre><code>((BeanNameAware) bean).setBeanName(beanName);
+</code></pre>
+<p>}</p>
+<p>if (bean instanceof BeanFactoryAware) {</p>
+<pre><code>((BeanFactoryAware) bean).setBeanFactory(this);
+</code></pre>
+<p>}</p>
+<p>if (bean instanceof ApplicationContextAware) {</p>
+<pre><code>((ApplicationContextAware) bean).setApplicationContext(context);
+</code></pre>
+<p>}</p>
+<br/>
+
+<p><strong>也就是说：</strong><br>Spring 主动调用这些 <code>setXXX()</code> 方法，把容器对象传进去。这样 Bean 就能拿到容器级资源了。  </p>
+<h2 id="BeanPostProcessor-前置处理与后置处理"><a href="#BeanPostProcessor-前置处理与后置处理" class="headerlink" title="BeanPostProcessor 前置处理与后置处理"></a>BeanPostProcessor 前置处理与后置处理</h2><p>接口定义</p>
+<p>public interface BeanPostProcessor {</p>
+<pre><code>// 初始化前调用
+
+Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
+
+
+
+// 初始化后调用
+
+Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
+</code></pre>
+<p>}</p>
+<br/>
+
+
+
+<h3 id="前置处理"><a href="#前置处理" class="headerlink" title="前置处理"></a>前置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法（如 <code>@PostConstruct</code> 或 <code>init-method</code>）<strong>执行之前</strong>。  </p>
+<p><strong>常见用途：</strong></p>
+<ul>
+<li>对 Bean 的属性进行额外处理或校验；</li>
+</ul>
+<h3 id="后置处理"><a href="#后置处理" class="headerlink" title="后置处理"></a>后置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法执行完成后调用。</p>
+<p><strong>常见用途：</strong></p>
+<ul>
+<li>AOP 动态代理（Spring AOP 就是通过后置处理实现的）；</li>
+</ul>
+<h3 id="PostConstruct注解"><a href="#PostConstruct注解" class="headerlink" title="@PostConstruct注解"></a>@PostConstruct注解</h3><p> @PostConstruc   作用是让方法在 <strong>Bean 完成依赖注入后</strong>、但在 Bean 被使用之前 自动执行。  </p>
+<p>在完整的生命周期中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1️⃣ 实例化（new）</span><br><span class="line">2️⃣ 属性注入（依赖注入）</span><br><span class="line">3️⃣ 调用 Aware 接口</span><br><span class="line">4️⃣ BeanPostProcessor 前置处理</span><br><span class="line">➡️ 5️⃣ @PostConstruct 执行 ← 这里</span><br><span class="line">6️⃣ afterPropertiesSet()（InitializingBean）</span><br><span class="line">7️⃣ init-method()</span><br><span class="line">8️⃣ BeanPostProcessor 后置处理（AOP代理）</span><br></pre></td></tr></table></figure>
+
+<p>💡 所以：</p>
+<p><code>@PostConstruct</code> 是 <strong>初始化阶段的第一个执行点</strong>，<br>它会在所有依赖注入完成后、但在任何自定义初始化方法之前被调用。</p>
+<h1 id="三-销毁过程"><a href="#三-销毁过程" class="headerlink" title="三.销毁过程"></a>三.销毁过程</h1><p>销毁触发场景有两种:</p>
+<ol>
+<li>Spring 容器正常关闭(context.close（)</li>
+<li>应用关闭时</li>
+</ol>
+<h2 id="PreDestory注解"><a href="#PreDestory注解" class="headerlink" title="@PreDestory注解"></a>@PreDestory注解</h2><p><code>@PreDestroy</code> 表示：</p>
+<p>在 <strong>Bean 被销毁前</strong> 自动执行标注的方法，用于清理资源。</p>
+<p>比如关闭连接、释放线程池、清空缓存等。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class MyService &#123;</span><br><span class="line"></span><br><span class="line"><span class="code">    @PreDestroy</span></span><br><span class="line"><span class="code">    public void cleanup() &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;🧹 Bean 即将被销毁，执行清理逻辑...&quot;);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>@PreDestory方法要求</p>
+<ul>
+<li>方法必须是 <code>**void**</code>** 返回值、无参数**；</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/25/SpringBoot/AOP/" rel="prev" title="AOP">
+                  <i class="fa fa-angle-left"></i> AOP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/25/SpringBoot/Spring_IOC/" rel="next" title="Spring IOC">
+                  Spring IOC <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

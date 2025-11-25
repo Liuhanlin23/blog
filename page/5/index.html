@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="刘翰霖">
@@ -75,6 +76,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -95,6 +99,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -129,9 +137,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -156,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%8E%E7%A3%81%E7%9B%98%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3mysql_%E7%B4%A2%E5%BC%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,19 +187,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%8E%E7%A3%81%E7%9B%98%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3mysql_%E7%B4%A2%E5%BC%95/" class="post-title-link" itemprop="url">从磁盘角度理解mysql 索引</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E7%B4%A2%E5%BC%95/" itemprop="url" rel="index"><span itemprop="name">索引</span></a>
+        </span>
     </span>
 
   
@@ -199,43 +216,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>_ 数据库与缓存的强一致性其实是一个伪命题。既然引入缓存是为了提高系统的并发性能，就必须接受两者之间__<strong>可能存在短暂不一致</strong><strong>的事实。<br>因此，我们的目标不是追求完全一致，而是</strong><strong>尽可能保证最终一致性</strong><strong>。<br>在当前实践中，最稳妥、通用的做法是：</strong><strong>先更新数据库，再删除缓存（Cache-Aside 模式）</strong>__，这样可以最大程度地降低数据不一致的风险。  _</p>
-<h2 id="先更新数据库还是先更新缓存"><a href="#先更新数据库还是先更新缓存" class="headerlink" title="先更新数据库还是先更新缓存"></a>先更新数据库还是先更新缓存</h2><p> 当执行写操作时，无论是<strong>先更新数据库再更新缓存</strong>，还是<strong>先更新缓存再更新数据库</strong>，都可能导致<strong>数据库与缓存数据不一致</strong>的问题。  </p>
-<h3 id="先更新数据库，再更新缓存"><a href="#先更新数据库，再更新缓存" class="headerlink" title="先更新数据库，再更新缓存"></a>先更新数据库，再更新缓存</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760857257593-45414a73-5251-4100-ae53-01c13ed45062.png"></p>
-<p>举个例子，比如有A,B两个请求同时更新同一条数据，则可能出现这样的顺序</p>
-<p>A 请求先将数据库的数据更新为 1，然后在更新缓存前，请求 B 将数据库的数据更新为 2，紧接着也把缓存更新为 2，然后 A 请求更新缓存为 1。</p>
-<p>此时，数据库中的数据是 2，而缓存中的数据却是 1，<strong>出现了缓存和数据库中的数据不一致的现象。</strong></p>
-<h3 id="先更新缓存再更新数据库"><a href="#先更新缓存再更新数据库" class="headerlink" title="先更新缓存再更新数据库"></a>先更新缓存再更新数据库</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760857381327-125861e6-888d-4faf-b492-47d0122254cb.png">A 请求先将缓存的数据更新为 1，然后在更新数据库前，B 请求来了，将缓存的数据更新为 2，紧接着把数据库更新为 2，然后 A 请求将数据库的数据更新为 1。</p>
-<p>此时，数据库中的数据是 1，而缓存中的数据却是 2，<strong>出现了缓存和数据库中的数据不一致的现象。</strong></p>
-<p>所以，<strong>无论是「先更新数据库，再更新缓存」，还是「先更新缓存，再更新数据库」</strong>，这两个方案都存在并发问题，当两个请求并发更新同一条数据的时候，可能会出现缓存和数据库中的数据不一致的现象。</p>
-<h2 id="删除缓存"><a href="#删除缓存" class="headerlink" title="删除缓存"></a>删除缓存</h2><p><strong>最好的方式还是先更新数据库再删除缓存</strong></p>
-<h3 id="先更新数据库再删除缓存"><a href="#先更新数据库再删除缓存" class="headerlink" title="先更新数据库再删除缓存"></a>先更新数据库再删除缓存</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858210694-457dfc38-b9eb-4a05-8643-25787beaea1c.png"></p>
-<p><font style="color:rgb(44, 62, 80);">假如某个用户数据在缓存中不存在，请求 A 读取数据时从数据库中查询到年龄为 20，在未写入缓存中时另一个请求 B 更新数据。它更新数据库中的年龄为 21，并且清空缓存。这时请求 A 把从数据库中读到的年龄为 20 的数据写入到缓存中。最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库数据不一致。</font><strong><font style="color:rgb(48, 79, 254);">但是在实际中，这个问题出现的概率并不高</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
-<p><strong><font style="color:rgb(48, 79, 254);">因为缓存的写入通常要远远快于数据库的写入</font></strong><font style="color:rgb(44, 62, 80);">，所以在实际中很难出现请求 B 已经更新了数据库并且删除了缓存，请求 A 才更新完缓存的情况。</font></p>
-<p><font style="color:rgb(44, 62, 80);">而一旦请求 A 早于请求 B 删除缓存之前更新了缓存，那么接下来的请求就会因为缓存不命中而从数据库中重新读取数据，所以不会出现这种不一致的情况。</font></p>
-<p><font style="color:rgb(44, 62, 80);">所以，</font><strong><font style="color:rgb(48, 79, 254);">「先更新数据库 + 再删除缓存」的方案，是可以很大程度保证数据一致性的</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
-<p><font style="color:rgb(44, 62, 80);">并且实际中我们也会为缓存加上过期时间，如果出现数据库和缓存不一致，也是再这个时间呢，最终还是可以实现一致性</font></p>
-<h4 id="如何应对缓存删除失败"><a href="#如何应对缓存删除失败" class="headerlink" title="如何应对缓存删除失败"></a><font style="color:rgb(44, 62, 80);">如何应对缓存删除失败</font></h4><p>假设我么再更新完数据库后删除缓存失败了，导致缓存还是旧值，不又会出现缓存数据不一致么？所以针对这个问题有两个解决方案</p>
-<h5 id="1-消息队列重试机制"><a href="#1-消息队列重试机制" class="headerlink" title="1.消息队列重试机制"></a>1.消息队列重试机制</h5><p><font style="color:rgb(44, 62, 80);">我们可以引入</font><strong><font style="color:rgb(48, 79, 254);">消息队列</font></strong><font style="color:rgb(44, 62, 80);">，将第二个操作（删除缓存）要操作的数据加入到消息队列，由消费者来操作数据。保证并发能力的同时又一定程度的避免缓存删除失败出现的缓存数据不一致</font></p>
+          <p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777445096-2722feb3-a908-442b-8dea-dcf575adf14a.png"></p>
+<h3 id="一、磁盘与-I-O-的基础概念"><a href="#一、磁盘与-I-O-的基础概念" class="headerlink" title="一、磁盘与 I&#x2F;O 的基础概念"></a>一、磁盘与 I&#x2F;O 的基础概念</h3><p>磁盘的最小读写单元是 <strong>扇区（Sector）</strong>，通常大小为 <strong>512 字节</strong>。<br>操作系统以 <strong>页（Page）</strong> 为单位读写数据（MySQL 默认页大小为 16KB）。</p>
+<p>为了方便理解，这里以扇区为例模拟磁盘读写。</p>
+<h3 id="二、没有索引时：全表扫描"><a href="#二、没有索引时：全表扫描" class="headerlink" title="二、没有索引时：全表扫描"></a>二、没有索引时：全表扫描</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777482567-fd59e418-8aa8-47d8-afcd-76d5f87e0138.png"></p>
+<p>假设：</p>
 <ul>
-<li><font style="color:rgb(44, 62, 80);">如果应用</font><strong><font style="color:rgb(48, 79, 254);">删除缓存失败</font></strong><font style="color:rgb(44, 62, 80);">，可以从消息队列中重新读取数据，然后再次删除缓存，这个就是</font><strong><font style="color:rgb(48, 79, 254);">重试机制</font></strong><font style="color:rgb(44, 62, 80);">。当然，如果重试超过的一定次数，还是没有成功，我们就需要向业务层发送报错信息了。</font></li>
-<li><font style="color:rgb(44, 62, 80);">如果</font><strong><font style="color:rgb(48, 79, 254);">删除缓存成功</font></strong><font style="color:rgb(44, 62, 80);">，就要把数据从消息队列中移除，避免重复操作，否则就继续重试。</font></li>
+<li>每行数据大小为 <strong>128 字节</strong>；</li>
+<li>一张表有 <strong>800 行数据</strong>；</li>
+<li>磁盘每个扇区大小为 <strong>512 字节</strong>。</li>
 </ul>
-<p>缺点：<font style="color:rgb(44, 62, 80);">对代码入侵性比较强，因为需要改造原本业务的代码。</font></p>
-<h5 id="订阅mysql-binlog，再操作删除"><a href="#订阅mysql-binlog，再操作删除" class="headerlink" title="订阅mysql binlog，再操作删除"></a>订阅mysql binlog，再操作删除</h5><p><font style="color:rgb(44, 62, 80);">「</font><strong><font style="color:rgb(48, 79, 254);">先更新数据库，再删缓存</font></strong><font style="color:rgb(44, 62, 80);">」的策略的第一步是更新数据库，那么更新数据库成功，就会产生一条变更日志，记录在 binlog 里。于是我们就可以通过订阅 binlog 日志，拿到具体要操作的数据，然后再执行缓存删除，阿里巴巴开源的 Canal 中间件就是基于这个实现的。</font></p>
-<h3 id="先删除缓存，再更新数据库"><a href="#先删除缓存，再更新数据库" class="headerlink" title="先删除缓存，再更新数据库"></a><font style="color:rgb(44, 62, 80);">先删除缓存，再更新数据库</font></h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858396753-dfbe5a38-281c-45fc-bf86-d07ff31fe8ea.png"></p>
-<p>再来看看先删除缓存，再更新数据库</p>
-<p><font style="color:rgb(44, 62, 80);">假设某个用户的年龄是 20，请求 A 要更新用户年龄为 21，所以它会删除缓存中的内容。这时，另一个请求 B 要读取这个用户的年龄，它查询缓存发现未命中后，会从数据库中读取到年龄为 20，并且写入到缓存中，然后请求 A 继续更改数据库，将用户的年龄更新为 21。</font></p>
-<p><font style="color:rgb(44, 62, 80);">最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库的数据不一致。</font></p>
-<p><font style="color:rgb(44, 62, 80);">可以看到，</font><strong><font style="color:rgb(48, 79, 254);">先删除缓存，再更新数据库，在「读 + 写」并发的时候，还是会出现缓存和数据库的数据不一致的问题</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
-<h4 id="延迟双删"><a href="#延迟双删" class="headerlink" title="延迟双删"></a><font style="color:rgb(44, 62, 80);">延迟双删</font></h4><p><em>这个方案是有待商榷的，知识网上有这样的言论，在实际开发中可以忽略这个方案</em></p>
-<p><font style="color:rgb(44, 62, 80);">针对「先删除缓存，再更新数据库」方案在「读 + 写」并发请求而造成缓存不一致的解决办法是「</font><strong><font style="color:rgb(48, 79, 254);">延迟双删</font></strong><font style="color:rgb(44, 62, 80);">」。</font></p>
-<p><font style="color:rgb(44, 62, 80);">延迟双删实现的伪代码如下：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858663392-a7a0e5d3-72b5-4955-b3d6-a1ffa7830af4.png"></p>
-<p><font style="color:rgb(44, 62, 80);">加了个睡眠时间，主要是为了确保请求 A 在睡眠的时候，请求 B 能够在这这一段时间完成「从数据库读取数据，再把缺失的缓存写入缓存」的操作，然后请求 A 睡眠完，再删除缓存。</font></p>
-<p><font style="color:rgb(44, 62, 80);">所以，请求 A 的睡眠时间就需要大于请求 B 「从数据库读取数据 + 写入缓存」的时间。</font></p>
-<p><font style="color:rgb(44, 62, 80);">但是这个睡眠时间就很难设定，设定太大了会导致并发能力下降，太小了就又会容易出现数据库缓存不一致问题，所以还是建议采用像更新数据库，再删除缓存的方案</font></p>
-<p><font style="color:rgb(44, 62, 80);"></font></p>
+<p> 总数据量为：  800 × 128 &#x3D; 102,400 字节</p>
+<p>每个扇区能存放：512 ÷ 128 &#x3D; 4 行数据</p>
+<p> 因此需要：  800 ÷ 4 &#x3D; 200 个扇区</p>
+<p> 如果没有索引，MySQL 查询时必须扫描全部 200 个扇区，也就是 <strong>200 次磁盘 I&#x2F;O</strong>。  </p>
+<h3 id="三、引入索引：减少磁盘-I-O"><a href="#三、引入索引：减少磁盘-I-O" class="headerlink" title="三、引入索引：减少磁盘 I&#x2F;O"></a>三、引入索引：减少磁盘 I&#x2F;O</h3><p>键值（key） → 数据所在磁盘页的地址（pointer）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777621855-077c911f-e2eb-416a-979c-0f0881d0654b.png"></p>
+<p>所以此时就就将200次磁盘io变为了现在索引中查找100*128&#x2F;512 在索引中找的的数据进行查找</p>
+<p>同样的我们可以在进行二级索引,三级索引…减少磁盘io</p>
+<h3 id="四、多级索引：B-Tree-结构的出现"><a href="#四、多级索引：B-Tree-结构的出现" class="headerlink" title="四、多级索引：B+Tree 结构的出现"></a>四、多级索引：B+Tree 结构的出现</h3><p>当索引记录本身也很大时（例如几百万条），<br>我们还可以在索引上再建索引 —— 即 <strong>多级索引</strong>。<br>这就形成了 MySQL 的 <strong>B+Tree 索引结构</strong>。</p>
+<p>每一层索引都存储下一层节点的磁盘地址。<br>通过分层目录结构，MySQL 可以在 3～4 次磁盘 I&#x2F;O 内定位到目标数据</p>
+<h3 id="五、B-Tree-查找过程示例"><a href="#五、B-Tree-查找过程示例" class="headerlink" title="五、B+Tree 查找过程示例"></a>五、B+Tree 查找过程示例</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760778577127-29a8bdf3-5ed7-4c0a-9de7-38c69ab412b9.png"></p>
+<h3 id="查找步骤："><a href="#查找步骤：" class="headerlink" title="查找步骤："></a>查找步骤：</h3><ol>
+<li>在根节点中找到 <code>33 &lt; 37 &lt; 65</code>，进入对应的下层节点；</li>
+<li>在第二层节点中锁定包含 37 的区间；</li>
+<li>到叶子节点中精确查找 <code>id=37</code>；</li>
+<li>如果是 <strong>聚簇索引</strong>，叶子节点直接存放数据；<br>如果是 <strong>二级索引</strong>，叶子节点存放主键值，再回表查找数据。</li>
+</ol>
+<p>🔹 访问树的每一层都需要一次磁盘 I&#x2F;O；<br>通常 B+Tree 高度为 3～4 层，<br>所以 MySQL 只需 3～4 次 I&#x2F;O 就能定位到任意记录。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760778600374-90c4805d-457c-470d-98c7-5f998a1856ef.png"></p>
 
       
     </div>
@@ -262,7 +271,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/RDB_%E5%BF%AB%E7%85%A7%E6%8C%81%E4%B9%85%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81_%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -280,19 +289,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/RDB_%E5%BF%AB%E7%85%A7%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81_%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95/" class="post-title-link" itemprop="url">什么时候需要 不需要创建索引</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E7%B4%A2%E5%BC%95/" itemprop="url" rel="index"><span itemprop="name">索引</span></a>
+        </span>
     </span>
 
   
@@ -305,32 +318,53 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>RDB快照就是记录的某一瞬间的内存数据，记录的是实际数据，而AOF文件记录的是写操作命令，所以redis在回复数据的时候RDB恢复数据的效率比AOF高</p>
-<h2 id="快照怎么用"><a href="#快照怎么用" class="headerlink" title="快照怎么用"></a>快照怎么用</h2><ol>
-<li>redis 提供了两个命令来生成RDB文件，分别是save 和 bgsave</li>
-</ol>
+          <h1 id="一-什么时候需要创建索引"><a href="#一-什么时候需要创建索引" class="headerlink" title="一.什么时候需要创建索引"></a>一.什么时候需要创建索引</h1><ul>
+<li><strong>唯一性字段</strong>：如商品编码、身份证号等。保证唯一、方便定位。</li>
+<li><strong>常用于 WHERE 的字段</strong>：提高查询过滤效率；若有多个条件，可建<strong>联合索引</strong>。</li>
+<li><strong>常用于 GROUP BY &#x2F; ORDER BY 的字段</strong>：索引中的数据有序，可避免额外排序，提升分组与排序性能。</li>
+</ul>
+<h2 id="理解为什么-GROUP-BY-ORDER-BY-字段使用索引可以避免额外排序"><a href="#理解为什么-GROUP-BY-ORDER-BY-字段使用索引可以避免额外排序" class="headerlink" title="理解为什么 GROUP BY &#x2F; ORDER BY 字段使用索引可以避免额外排序"></a>理解为什么 <code>GROUP BY</code> &#x2F; <code>ORDER BY</code> 字段使用索引可以避免额外排序</h2><p>MySQL 的 <strong>B+Tree 索引</strong> 是<strong>有序结构</strong>，索引中的键值天然按升序（或定义顺序）存储。因此：</p>
 <ul>
-<li>save就是在主线程中执行快照操作，可能会阻塞主线程</li>
-<li>bgsave就是在子进程中执行快照操作，可以避免主线程的阻塞</li>
+<li>如果查询排序字段或分组字段使用了索引，MySQL 可直接按照索引顺序扫描数据。</li>
+<li>无需再在内存中执行排序操作，性能更高。</li>
 </ul>
-<ol start="2">
-<li>可以通过配置文件来实现每隔一段时间自动执行一次bgsave命令</li>
-</ol>
-<h2 id="如何执行bgsave-快照（写时复制）"><a href="#如何执行bgsave-快照（写时复制）" class="headerlink" title="如何执行bgsave 快照（写时复制）"></a>如何执行bgsave 快照（写时复制）</h2><ul>
-<li><strong>主进程</strong> 收到 <code>BGSAVE</code> 命令后，检查当前是否已有子进程在执行 <code>BGSAVE</code> 或 <code>BGREWRITEAOF</code>（两者不能并行）</li>
-<li><strong>主进程</strong> 调用 <code>fork()</code> 创建 <strong>RDB 保存子进程</strong></li>
-<li><strong>子进程</strong> 通过 <strong>写时复制（Copy-On-Write, COW）</strong> 技术，扫描当前数据库中的所有数据，并将数据序列化写入临时文件（如 <code>temp-12345.rdb</code>）</li>
-<li>在写入期间，<strong>主进程</strong> 仍然可以正常处理客户端请求（读写不受阻塞）</li>
-<li><strong>子进程</strong> 写入完成后，将临时文件重命名为正式的 <code>dump.rdb</code> 文件</li>
-<li><strong>子进程</strong> 向主进程发送完成信号</li>
+<hr>
+<h3 id="三种典型情况"><a href="#三种典型情况" class="headerlink" title="三种典型情况"></a>三种典型情况</h3><h4 id="情况一：单列索引可直接排序"><a href="#情况一：单列索引可直接排序" class="headerlink" title="情况一：单列索引可直接排序"></a>情况一：单列索引可直接排序</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">20</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> age;</span><br></pre></td></tr></table></figure>
+
+<p>若 <code>age</code> 有索引，索引中的记录已按 <code>age</code> 升序存放。<br>MySQL 直接顺序扫描即可，无需再次排序。</p>
+<p>✅ 无需额外排序。</p>
+<hr>
+<h4 id="情况二：WHERE-和-ORDER-BY-使用不同字段"><a href="#情况二：WHERE-和-ORDER-BY-使用不同字段" class="headerlink" title="情况二：WHERE 和 ORDER BY 使用不同字段"></a>情况二：<code>WHERE</code> 和 <code>ORDER BY</code> 使用不同字段</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">20</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> name;</span><br></pre></td></tr></table></figure>
+
+<p><code>WHERE</code> 使用 <code>age</code> 索引过滤，但 <code>name</code> 并非同一索引顺序，<br>筛选结果仍需在内存中重新排序。</p>
+<p>⚠️ 需要额外排序（<code>filesort</code>）。</p>
+<hr>
+<h4 id="情况三：联合索引同时覆盖过滤与排序"><a href="#情况三：联合索引同时覆盖过滤与排序" class="headerlink" title="情况三：联合索引同时覆盖过滤与排序"></a>情况三：联合索引同时覆盖过滤与排序</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> INDEX idx_age_name <span class="keyword">ON</span> <span class="keyword">user</span>(age, name);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">user</span> <span class="keyword">WHERE</span> age <span class="operator">&gt;</span> <span class="number">20</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> name;</span><br></pre></td></tr></table></figure>
+
+<p>联合索引 <code>(age, name)</code> 既可加速 <code>WHERE</code>，又保持 <code>ORDER BY</code> 顺序一致。</p>
+<p>✅ 完全利用索引，一次扫描即可输出有序结果。</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>索引的有序性</strong>使得 <code>GROUP BY</code> &#x2F; <code>ORDER BY</code> 能直接使用索引顺序。</li>
+<li><strong>WHERE + ORDER BY</strong> 若在同一索引上，可实现“边查边有序”。</li>
+<li>不同字段或索引不匹配时，MySQL 必须额外排序，性能下降。</li>
 </ul>
-<p>主进程在执行bgsave可以正常处理客户端请求的关键就是写实复制</p>
-<ul>
-<li>创建子进程后，父进程和子进程共享相同的数据页  </li>
-<li>当主进程或子进程对共享数据进行<strong>写操作</strong>时，操作系统才会复制出该数据页的副本，写操作在副本上完成。  </li>
-<li>这样既保证了子进程读取的是快照时刻的数据，又避免了在创建时整体复制内存导致的性能消耗。</li>
+<h1 id="二-什么时候不需要创建索引"><a href="#二-什么时候不需要创建索引" class="headerlink" title="二. 什么时候不需要创建索引"></a>二. 什么时候不需要创建索引</h1><h4 id="1-不参与查询条件的字段"><a href="#1-不参与查询条件的字段" class="headerlink" title="1. 不参与查询条件的字段"></a>1. 不参与查询条件的字段</h4><ul>
+<li>在 <code>WHERE</code>、<code>GROUP BY</code>、<code>ORDER BY</code> 中从未出现的字段没必要建索引；</li>
+<li>索引只对“查找、排序、分组”起作用，其他字段建了也白搭。</li>
 </ul>
-<p> 需要注意的是，<strong>RDB 快照没有类似 AOF 的重写缓冲区</strong>。<br>因此，RDB 快照只会保存<strong>快照开始那一刻的内存数据</strong>，而在快照生成过程中发生的任何数据修改，都不会被记录进当前的 RDB 文件中。  </p>
+<h4 id="2-重复值太多的字段"><a href="#2-重复值太多的字段" class="headerlink" title="2. 重复值太多的字段"></a>2. 重复值太多的字段</h4><ul>
+<li>如性别（男女）或状态（0&#x2F;1），区分度太低；</li>
+<li>MySQL 查询优化器会自动判断这些情况并放弃索引，直接全表扫描。</li>
+</ul>
+<h4 id="3-表数据太少"><a href="#3-表数据太少" class="headerlink" title="3. 表数据太少"></a>3. 表数据太少</h4><ul>
+<li>数据量几百上千行以内，索引带来的维护开销 &gt; 性能收益。</li>
+</ul>
+<h4 id="4-高频更新的字段"><a href="#4-高频更新的字段" class="headerlink" title="4. 高频更新的字段"></a>4. 高频更新的字段</h4><ul>
+<li>比如用户余额、库存数量等频繁变化字段；</li>
+<li>每次更新都要维护 B+Tree，有序性调整会拖慢性能。</li>
+</ul>
+<h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><p>不查、不分、不排、重复多、数据少、改太勤 → 都别建索引。</p>
 
       
     </div>
@@ -357,7 +391,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF%E6%8C%81%E4%B9%85%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -375,19 +409,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">总结</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
+        </span>
     </span>
 
   
@@ -400,376 +438,327 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="AOF持久化是如何实现的"><a href="#AOF持久化是如何实现的" class="headerlink" title="AOF持久化是如何实现的"></a>AOF持久化是如何实现的</h2><p>AOF持久化本质就是借助AOF日志保存Redis 执行的写操作命令（注意只会记录写操作命令,读操作命令不会记录没有意义）,当Redis 重启的时候,先去读取这个文件里的命令并执行,就实现了保存数据的功能</p>
-<p><em>Redis中的AOF持久化功能默认是不开启的,需要我们修改该redis.conf配置文件中的一下参数</em></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760771191162-5b9c1f9e-cfaa-4702-9891-d581b5ea65ea.png"></p>
-<p><em>AOF日志文件本也就是普通文本，不过它保存的不是原生的reids 命令，而是RESP协议格式,这种格式对机器更友好,执行效率更高并且不会产生歧义</em></p>
-<h2 id="Redis-的AOF日志写入在什么时候？为什么？"><a href="#Redis-的AOF日志写入在什么时候？为什么？" class="headerlink" title="Redis 的AOF日志写入在什么时候？为什么？"></a>Redis 的AOF日志写入在什么时候？为什么？</h2><p><strong>redis 是在写入操作之后才执行AOF日志写入</strong></p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
-<li><font style="color:#DF2A3F;">避免额外的检查开销</font></li>
-<li>.+,如果先写入日志再执行写操作命令的话,还需要检查命令是否执行成功,不成功的话还要进行日志的回退</li>
-<li><font style="color:#DF2A3F;">不会阻塞当前写操作命令的执行</font>,因为是写操作成功才会执行AOF日志写入</li>
-</ol>
-<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><ol>
-<li><font style="color:#DF2A3F;">丢失风险</font><font style="color:#000000;">,执行写操作和记录日志是两个过程,如果写操作后redis还没来得即将命令写入硬盘，服务器发生宕机就会出现丢失风险</font></li>
-<li><font style="color:#DF2A3F;">给下一个命令带来阻塞</font><font style="color:#000000;">，前面说到由于是再写操作后才执行AOF日志写入,所以不会阻塞当前的写操作命令,但可能会阻塞下一个命令</font></li>
-</ol>
-<h2 id="三种回写策略"><a href="#三种回写策略" class="headerlink" title="三种回写策略"></a>三种回写策略</h2><p><font style="color:rgb(44, 62, 80);">Redis 写入 AOF 日志的过程，如下图：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760772039086-de8c9f2a-efec-4b93-a323-8fd3676a7432.png"></p>
+          <h1 id="三个日志讲完，总结一下update语句的执行过程"><a href="#三个日志讲完，总结一下update语句的执行过程" class="headerlink" title="三个日志讲完，总结一下update语句的执行过程"></a>三个日志讲完，总结一下update语句的执行过程</h1><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761365873191-d811b269-daff-4ffc-bd78-d13a9cd04a51.png"></p>
+<h3 id="查找数据"><a href="#查找数据" class="headerlink" title="查找数据"></a><strong>查找数据</strong></h3><ul>
+<li>执行器通过主键 <code>id=1</code> 向存储引擎请求该行记录。</li>
+<li>如果数据 <strong>在 Buffer Pool 中</strong> → 直接取出；</li>
+<li>如果数据 <strong>不在 Buffer Pool 中</strong> → 从磁盘读入内存。</li>
+</ul>
+<hr>
+<h3 id="执行器判断是否需要更新"><a href="#执行器判断是否需要更新" class="headerlink" title="执行器判断是否需要更新"></a>执行器判断是否需要更新</h3><ul>
+<li>对比新旧值：<ul>
+<li>如果相同 → 不更新；</li>
+<li>如果不同 → 把新旧值交给 InnoDB 层执行真正更新。</li>
+</ul>
+</li>
+</ul>
+<h3 id="生成-Undo-日志-开启事务"><a href="#生成-Undo-日志-开启事务" class="headerlink" title="生成 Undo 日志(开启事务)"></a>生成 Undo 日志(开启事务)</h3><ul>
+<li>更新前，InnoDB 先生成一条 <strong>undo log</strong>，记录旧值，用于回滚或 MVCC。<font style="color:rgb(44, 62, 80);">undo log 会写入 Buffer Pool 中的 Undo 页面，不过在内存修改该 Undo 页面后，需要记录对应的 redo log。</font></li>
+</ul>
+<h3 id="生成-Redo-日志"><a href="#生成-Redo-日志" class="headerlink" title="生成 Redo 日志"></a>生成 Redo 日志</h3><ul>
+<li><font style="color:rgb(44, 62, 80);">InnoDB 层开始更新记录，会先更新内存（同时标记为脏页），然后将记录写到 redo log 里面，这个时候更新就算完成了(WAL)。后续由后台线程选择一个合适的时机将脏页写入到磁盘。</font></li>
+</ul>
+<h3 id="写入-Binlog"><a href="#写入-Binlog" class="headerlink" title="写入 Binlog"></a>写入 Binlog</h3><ul>
+<li><font style="color:rgb(44, 62, 80);">在一条更新语句执行完成后，然后开始记录该语句对应的 binlog，此时记录的 binlog 会被保存到 binlog cache，并没有刷新到硬盘上的 binlog 文件，在事务提交时才会统一将该事务运行过程中的所有 binlog 刷新到硬盘。</font></li>
+</ul>
+<h3 id="两阶段提交（2PC）"><a href="#两阶段提交（2PC）" class="headerlink" title="两阶段提交（2PC）  "></a><font style="color:rgb(44, 62, 80);">两阶段提交（2PC）  </font></h3><ul>
+<li><font style="color:rgb(44, 62, 80);"> 事务提交，剩下的就是「两阶段提交」的事情了，接下来就讲这个。</font></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/Undo_Log%EF%BC%88%E5%9B%9E%E6%BB%9A%E6%97%A5%E5%BF%97%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/Undo_Log%EF%BC%88%E5%9B%9E%E6%BB%9A%E6%97%A5%E5%BF%97%EF%BC%89/" class="post-title-link" itemprop="url">Undo Log（回滚日志）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什么是undo-log"><a href="#什么是undo-log" class="headerlink" title="什么是undo log"></a>什么是undo log</h1><p><strong>undo log（回滚日志）</strong>：是 <strong>InnoDB存储引擎</strong>生成的日志， 用来记录数据被修改前“旧值”的一种日志，用于 <strong>事务回滚</strong> 和 <strong>MVCC 多版本并发控制</strong>。  </p>
+<p><strong>举个例子：</strong></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761274889032-dac751b9-0c60-4a8d-9ada-ab8fe9682f3c.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761275104827-3c8e0348-12b6-42e9-aa40-e6e2399ee837.png"></p>
+<p>注意：</p>
+<ul>
+<li>undo log（回滚日志）不是一个传统意义上的普通日志文件，不像普通的日志文件那样顺序写入文本，它在 InnoDB 里存放在一个叫 <code>rollback segment</code> 的区域中。</li>
+<li>它<strong>逻辑上更像一个链表结构</strong>（或者更准确地说，一系列链式版本），用于<strong>记录每次事务对数据行的修改前的版本</strong>。</li>
+<li>每条记录通过 <code>roll_pointer</code>（隐藏列之一）<strong>指向上一个版本</strong>，这样 MySQL 就能从最新版本一路“回滚”找到旧版本。</li>
+</ul>
+<p>所以可以总结成一句话：</p>
+<p>✅ undo log 不是传统意义上的文件日志，而是存储在表空间中的一系列链式记录，用来追溯数据的历史版本，从而支持事务回滚和 MVCC。</p>
+<h1 id="undo-log-版本链"><a href="#undo-log-版本链" class="headerlink" title="undo log 版本链"></a>undo log 版本链</h1><p>当一条数据被修改的时候，InnoDB会</p>
 <ol>
-<li>reids 执行写操作的时候,会将命令追加到用户缓冲区</li>
-<li>然后通过write()系统调用将命令写入到内核缓冲区</li>
-<li>之后os内核自主决定什么时候将内核缓冲区的数据写入到硬盘</li>
+<li>把修改前的旧值及撤销操作所需的元信息（如操作类型、事务ID等）写入 undo log  </li>
+<li>把新值写回数据页</li>
+<li>在数据页中更新两个隐藏字段:<ol>
+<li>trx_id: 当前修改事务的ID</li>
+<li>roll_pointer: 指向刚刚写入的undo log记录</li>
 </ol>
-<p>所以此时redis 就会出现三种回写策略</p>
-<ol>
-<li>Always <font style="color:rgb(44, 62, 80);">每次写操作命令执行完后，同步将 AOF 日志数据写回硬盘；</font></li>
-<li><font style="color:rgb(44, 62, 80);">Everysec，（每秒）每次写操作命令执行完后，同步将 AOF 日志数据写回硬盘；</font></li>
-<li><font style="color:rgb(44, 62, 80);">No， 不由redis控制写回硬盘的时机，转交给os控制写回的时机，也就是每次写操作命令执行后,先将命令写入到AOF文件的内核缓冲区,再由OS决定何时将缓冲区内容写回硬盘</font></li>
+</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760772797212-2e76b6c0-92c8-4592-b6e5-6f3d80bdc90e.png"></p>
-<p>Redis 的三种 AOF 写回策略，本质上都是用来控制 <code>fsync()</code> 的调用时机——也就是<strong>何时将内核缓冲区（Page Cache）中的数据真正写入磁盘</strong>。</p>
-<p>需要注意的是，Redis 的 AOF 写入过程包含两层缓冲：</p>
+<p>所以每次修改都会生成一个新的undo log 记录，并且数据行会指向这条记录， 这一串 <strong>从最新版本到最旧版本</strong> 的结构，就是所谓的 <strong>版本链</strong></p>
+<h1 id="为什么undo-log-写入日志的时候不仅要写入旧值，还需要写入旧值变新值操作的原信息"><a href="#为什么undo-log-写入日志的时候不仅要写入旧值，还需要写入旧值变新值操作的原信息" class="headerlink" title="为什么undo log 写入日志的时候不仅要写入旧值，还需要写入旧值变新值操作的原信息"></a>为什么undo log 写入日志的时候不仅要写入旧值，还需要写入旧值变新值操作的原信息</h1><p>如果 undo log 只是存旧值，那它就变成了“数据快照”或者“历史备份”，<br>而不是一个能让数据库<strong>正确撤销事务</strong>的日志。数据库回滚时需要的不仅是“旧值是什么”，<br>更需要知道，如何将新值变回旧值进行回滚，所以undo log 也记录了回滚操作的原信息</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/Redo_Log_%E9%87%8D%E5%81%9A%E6%97%A5%E5%BF%97_/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/Redo_Log_%E9%87%8D%E5%81%9A%E6%97%A5%E5%BF%97_/" class="post-title-link" itemprop="url">Redo Log 重做日志</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>redo log 是 Inoodb 存储引擎生成的日志， 用来“重做”未写入磁盘数据的日志，用来保证崩溃恢复的  ，实现了事务的持久性，主要用于掉电等故障恢复</p>
+<p> 它记录的不是“旧版本”，而是 <strong>数据页（磁盘的数据页而不是内存页地址）的修改行为</strong>（例如“把页X中偏移量Y的值改成Z”）。  </p>
+<p>为了防止断电导致数据丢失，当有一条记录需要更新的时候，innoDB引擎就会先更新内存（同时标记为脏页），然后将本次对这个页的修改以redo log 的形式记录下来，这个时候更新就算完成了，后续innodb引擎会在适当的时候，由后台线程将缓存在Buffer Pool的脏页刷新到磁盘里，这就是WAL(Write-Ahead Logging)技术，WAL技术指的是，MySQL的写操作并不是立刻写到磁盘上，而是先写日志，然后在合适的时间再写到磁盘上</p>
+<h1 id="redo-log-要写到磁盘，数据也要写到磁盘，为什么要多次一举"><a href="#redo-log-要写到磁盘，数据也要写到磁盘，为什么要多次一举" class="headerlink" title="redo log 要写到磁盘，数据也要写到磁盘，为什么要多次一举"></a>redo log 要写到磁盘，数据也要写到磁盘，为什么要多次一举</h1><p>Redo Log 采用*<em>追加写（顺序写）<strong><strong>的方式写入磁盘，而数据页更新属于</strong></strong>随机写</em>*。<br>由于磁盘的顺序写效率远高于随机写，Redo Log 能显著降低磁盘 I&#x2F;O 开销。</p>
+<p>类比：顺序写就像在笔记本上按页写字；<br>随机写则像每写一个字都要翻到对应的页再写，效率显然更低。</p>
+<h1 id="产生的-redo-log-是直接写入磁盘的吗？"><a href="#产生的-redo-log-是直接写入磁盘的吗？" class="headerlink" title="产生的 redo log 是直接写入磁盘的吗？"></a>产生的 redo log 是直接写入磁盘的吗？</h1><p>不是，<font style="color:rgb(44, 62, 80);">redo log 也是先写入自己的缓存里—— </font><strong><font style="color:rgb(48, 79, 254);">redo log buffer，</font></strong><font style="color:#000000;">后续再持久化磁盘</font></p>
+<h2 id="redo-log-的刷盘策略"><a href="#redo-log-的刷盘策略" class="headerlink" title="redo log 的刷盘策略"></a><font style="color:#000000;">redo log 的刷盘策略</font></h2><p><font style="color:rgb(44, 62, 80);">缓存在 redo log buffer 里的 redo log 还是在内存中，它什么时候刷新到磁盘？</font></p>
+<p><font style="color:rgb(44, 62, 80);">主要有下面几个时机：</font></p>
 <ul>
-<li><strong>用户态缓冲区（aof_buf）</strong>：Redis 进程内部维护，用于暂存命令文本。</li>
-<li><strong>内核态缓冲区（Page Cache）</strong>：操作系统层面的文件缓存。</li>
+<li><font style="color:rgb(44, 62, 80);">MySQL 正常关闭时；</font></li>
+<li><font style="color:rgb(44, 62, 80);">当 redo log buffer 中记录的写入量大于 redo log buffer 内存空间的一半时，会触发落盘；</font></li>
+<li><font style="color:rgb(44, 62, 80);">InnoDB 的后台线程每隔 1 秒，将 redo log buffer 持久化到磁盘。</font></li>
+<li>每次事务提交时都将缓存在 redo log buffer 里的 redo log 直接持久化到磁盘（这个策略可由innodb_flush_log_at_trx_commit 参数控制，下面会说）。</li>
 </ul>
-<p>虽然这三种写回策略直接控制的是“内核缓冲区 → 磁盘”的刷新频率，但 Redis 在语义层面也保证了用户缓冲区的安全：<br>在调用 <code>fsync()</code> 之前，它会先调用 <code>write()</code>，确保用户态缓冲区的数据已经写入内核态缓冲区。</p>
-<p>换句话说，三种写回策略控制的是<strong>数据何时真正落盘</strong>，<br>而 Redis 自身的实现逻辑确保了在触发 <code>fsync()</code> 之前，用户态缓冲区中的数据已经被安全送入内核态缓冲区。</p>
-<h2 id="write（）和fsync（）的调用线程"><a href="#write（）和fsync（）的调用线程" class="headerlink" title="write（）和fsync（）的调用线程"></a>write（）和fsync（）的调用线程</h2><p> AOF 三种写回策略中，执行 write() 将 AOF 缓冲区写入内核页缓存的步骤始终由主线程完成，write() 很快，几乎不会阻塞。<br>差异在于执行 fsync() 的方式：<br>Always 模式下，由<font style="color:#DF2A3F;">主线程同步执行 fsync()</font>，必须等磁盘落盘完成才继续，速度慢，遇到大 key 会明显阻塞。<br>Everysec 模式下，由<font style="color:#DF2A3F;">后台的慢 IO 线程异池</font>异步执行 fsync()，主线程只负责 write，不会因磁盘 IO 被阻塞，最多丢 1 秒数据。<br>No 模式下，主线程仅 write，不主动 fsync，刷盘完全由操作系统自行处理，性能最好，但可能丢较多数据。  </p>
-<h2 id="AOF重写机制"><a href="#AOF重写机制" class="headerlink" title="AOF重写机制"></a>AOF重写机制</h2><p><strong>AOF 日志是一个文件，随着执行的写操作命令越来越多，文件的大小会越来越大。</strong></p>
-<p>如果当 AOF 日志文件过大就会带来性能问题，比如重启 Redis 后，需要读 AOF 文件的内容以恢复数据，如果文件过大，整个恢复的过程就会很慢。</p>
-<p>所以，Redis 为了避免 AOF 文件越写越大，提供了 <strong>AOF 重写机制</strong>，当 AOF 文件的大小超过所设定的阈值后，Redis 就会启用 AOF 重写机制，来压缩 AOF 文件。</p>
-<p>AOF 重写机制是在重写时，读取当前数据库中的所有键值对，然后将每一个键值对用一条命令记录到「新的 AOF 文件」，等到全部记录完成后，就将新的 AOF 文件替换现有的 AOF 文件。</p>
-<p>例如，在没有重写前，假如先后执行了set name a 和 set name b，这两个命令，就会将这两个记录写入到AOF中，但是其实只有最后一个命令set name 是有效的,所以再进行AOF重写之后就会大大压缩AOF文件，同时再AOF日志恢复数据的时候效率也会提高</p>
-<h3 id="AOF如何进行重写"><a href="#AOF如何进行重写" class="headerlink" title="AOF如何进行重写"></a>AOF如何进行重写</h3><p>AOF的写入操作是在主进程完成的，因为它写入的命令不多，但是再触发AOF重写的时候需要创建子进程完成，因为很耗时会阻塞redis</p>
-<h3 id="重写过程"><a href="#重写过程" class="headerlink" title="重写过程"></a>重写过程</h3><ul>
-<li>主进程创建AOF重写子进程</li>
-<li>子进程扫描数据库中的所有数据,逐一把内存数据的键值对转换成一条命令，再将命令记录到新的重写日志中，完成后会向主进程发送信号</li>
-<li>主进程接收到这个信号后将<strong>AOF重写缓冲区</strong>中的所有内容追加到新的AOF日志中，使得新旧两个AOF文件所保存的数据库状态一直</li>
-<li>最后将新AOF文件替换旧的AOF文件</li>
-</ul>
-<h3 id="AOF重写缓冲区VS-AOF缓冲区"><a href="#AOF重写缓冲区VS-AOF缓冲区" class="headerlink" title="AOF重写缓冲区VS AOF缓冲区"></a>AOF重写缓冲区VS AOF缓冲区</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760850284564-1e7b07e8-170f-4a37-8a13-4c254706de10.png"></p>
-<p><strong>AOF 缓冲区</strong>是 Redis 在正常运行时用于暂存写命令的用户态内存区域，这些命令会被定期写入磁盘形成 AOF 日志；<br>而 <strong>AOF 重写缓冲区</strong> 仅在执行 AOF 重写（rewrite）时存在，用于临时保存重写过程中产生的新写命令，保证重写完成后数据不丢失。<br>两者都属于 <strong>用户态缓冲区</strong>，位于 Redis 进程内部内存中。  </p>
-<h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><p> 假设你在运行中的 Redis 中执行以下操作：  </p>
-<p>SET name Alice</p>
-<p>SET age 20</p>
-<br/>
-
-<p>这两条命令会先写入 <strong>AOF 缓冲区（aof_buf）</strong>，然后根据 <code>appendfsync</code> 策略被写入磁盘。</p>
-<p>此时如果 Redis 触发了 <strong>AOF 重写</strong>（为了压缩日志文件），后台子进程会创建一个新文件来重写旧日志；<br>在这段时间你又执行了：</p>
-<p>SET city Beijing</p>
-<br/>
-
-<p>这条新命令会被同时写入：</p>
+<h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>当执行更新语句时，InnoDB 会自动开启一个事务：</p>
 <ul>
-<li>普通的 <strong>AOF 缓冲区</strong>（保持旧文件正确性）；</li>
-<li>以及 <strong>AOF 重写缓冲区</strong>（保证新文件重写完成后也包含这条命令，防止数据不一致）。</li>
+<li>更新时，生成的 <strong>redo log</strong> 先写入 <strong>redo log buffer（内存）</strong>；</li>
+<li>事务提交时，再将 redo log buffer 中的内容 <strong>顺序写入磁盘文件（redo log 文件）</strong>；</li>
+<li>这就是默认行为：<strong>提交时刷盘（write on commit）</strong>。</li>
 </ul>
-<p>当重写结束后，Redis 会把重写缓冲区中的 <code>SET city Beijing</code> 追加到新文件末尾，然后替换旧 AOF 文件。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF+RDB%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF+RDB%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><font style="color:rgb(44, 62, 80);">如果想要开启混合持久化功能，可以在 Redis 配置文件将下面这个配置项设置成 yes：</font></p>
-<p>aof-use-rdb-preamble yes</p>
-<br/>
-
-<p>混合持久化可以兼顾RDB的恢复速度，以及解决RDB快照生成时丢失进行快照生成过程的数据修改</p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ul>
-<li>当开启混合持久化时，执行 <strong>AOF 重写</strong> 会由主进程 <code>fork</code> 出一个 <strong>重写子进程</strong>。</li>
-<li>子进程会将当前内存中的数据以 <strong>RDB 格式</strong> 写入新的 AOF 文件（即写入时是全量数据）。</li>
-<li>在此过程中，主进程仍可处理新的写命令；这些命令会被记录到 <strong>AOF 重写缓冲区</strong> 中。</li>
-<li>重写完成后，主进程将缓冲区中的增量命令以 <strong>AOF 格式</strong> 追加到新文件末尾。</li>
-<li>最终，新 AOF 文件由两部分组成：</li>
-<li><strong>前半部分：RDB 格式的全量数据</strong></li>
-<li><strong>后半部分：AOF 格式的增量命令</strong></li>
-<li>写入完成后，Redis 会用新的混合格式 AOF 文件替换旧文件，实现高效且数据一致的持久化。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/%E5%93%88%E5%B8%8C%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>redis 中的hash表数据结构就是一个正常的哈希表采用<strong>链式哈希</strong>来解决哈希冲突</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760539193121-5c42e9fe-e3e5-4db4-a7f2-ba3afe433d1c.png">如图dictht 指向一个哈希表的数组,数组中每个元素都是一个哈希表节点的链表</p>
-<h2 id="rehash"><a href="#rehash" class="headerlink" title="rehash"></a>rehash</h2><p>redis的哈希表有一个 特点就是一个哈希表结构体中定义了两个哈希表，<font style="color:rgb(44, 62, 80);">之所以定义了 2 个哈希表，是因为进行 rehash 的时候，需要用上 2 个哈希表了。</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760539292770-805ea47d-cbd6-4894-9afe-272a166d6f28.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760539328496-c26f66ec-9eca-4646-a7ab-6fac98d90ad1.png"></p>
-<h3 id="渐进式hash"><a href="#渐进式hash" class="headerlink" title="渐进式hash"></a>渐进式hash</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760539601585-aa657ad0-eca8-41a2-81d6-d9e289855d27.png"></p>
-<h3 id="rehash的触发条件"><a href="#rehash的触发条件" class="headerlink" title="rehash的触发条件"></a>rehash的触发条件</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760539624416-d50fac17-c054-44b3-a616-ec241a4307a7.png"></p>
-<p><strong><font style="color:rgb(48, 79, 254);"></font></strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/ZSET/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/ZSET/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一-什么是zset"><a href="#一-什么是zset" class="headerlink" title="一.什么是zset"></a>一.什么是zset</h1><p> Redis 中的 **ZSet（Sorted Set，有序集合） ,它在集合（Set）的基础上，为每个元素关联了一个 score（分数），并且所有元素会根据这个分数自动 从小到大排序。  **</p>
-<p>** 非常适合用来做排行榜、延时队列、优先级任务、推荐系统等场景。  **</p>
-<h1 id="二-zset的常用命令"><a href="#二-zset的常用命令" class="headerlink" title="二.zset的常用命令"></a>二.zset的常用命令</h1><table>
+<h3 id="参数控制：innodb-flush-log-at-trx-commit"><a href="#参数控制：innodb-flush-log-at-trx-commit" class="headerlink" title="参数控制：innodb_flush_log_at_trx_commit"></a>参数控制：<code>innodb_flush_log_at_trx_commit</code></h3><p> InnoDB 提供三种不同的刷盘策略，通过该参数控制，取值为 <code>0</code>、<code>1</code>、<code>2</code>，默认值为 <code>1</code>：  </p>
+<table>
 <thead>
 <tr>
-<th>命令</th>
-<th>功能</th>
-<th>示例</th>
+<th>参数值</th>
+<th>行为描述</th>
+<th>数据安全性</th>
+<th>性能</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>ZADD key score member [score member ...]</code></td>
-<td>添加元素及其分数</td>
-<td><code>ZADD rank 100 user1 90 user2</code></td>
+<td><strong>0</strong></td>
+<td>事务提交时仅写入 redo log buffer，不主动触发写磁盘操作</td>
+<td>❌ 数据丢失风险高（宕机后 buffer 丢失）</td>
+<td>✅ 性能最佳</td>
 </tr>
 <tr>
-<td><code>ZRANGE key start stop [WITHSCORES]</code></td>
-<td>按排名升序取值</td>
-<td><code>ZRANGE rank 0 2 WITHSCORES</code></td>
+<td><strong>1</strong>（默认）</td>
+<td>每次事务提交时，将 redo log buffer 的内容<strong>直接写入磁盘</strong></td>
+<td>✅ 最安全（crash-safe）</td>
+<td>⚠️ 性能略低</td>
 </tr>
 <tr>
-<td><code>ZREVRANGE key start stop [WITHSCORES]</code></td>
-<td>按排名降序取值</td>
-<td><code>ZREVRANGE rank 0 2 WITHSCORES</code></td>
-</tr>
-<tr>
-<td><code>ZSCORE key member</code></td>
-<td>查询指定成员的分数</td>
-<td><code>ZSCORE rank user1</code></td>
-</tr>
-<tr>
-<td><code>ZINCRBY key increment member</code></td>
-<td>增加某个成员的分数</td>
-<td><code>ZINCRBY rank 10 user1</code></td>
-</tr>
-<tr>
-<td><code>ZREM key member [member ...]</code></td>
-<td>删除元素</td>
-<td><code>ZREM rank user2</code></td>
-</tr>
-<tr>
-<td><code>ZCARD key</code></td>
-<td>获取集合中元素个数</td>
-<td><code>ZCARD rank</code></td>
-</tr>
-<tr>
-<td><code>ZRANK key member</code></td>
-<td>获取成员的升序排名</td>
-<td><code>ZRANK rank user1</code></td>
-</tr>
-<tr>
-<td><code>ZREVRANK key member</code></td>
-<td>获取成员的降序排名</td>
-<td><code>ZREVRANK rank user1</code></td>
-</tr>
-<tr>
-<td><code>ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT offset count]</code></td>
-<td>按分数范围取值</td>
-<td><code>ZRANGEBYSCORE rank 50 100 WITHSCORES</code></td>
-</tr>
-<tr>
-<td><code>ZREMrangeByScore key min max</code></td>
-<td>删除某个分数区间的成员</td>
-<td><code>ZREMRANGEBYSCORE rank 0 50</code></td>
+<td><strong>2</strong></td>
+<td>每次提交时写入到 <strong>redo log 文件（Page Cache）</strong>，但不强制落盘</td>
+<td>⚠️ 可能丢失 Page Cache 中数据（OS 缓存未刷盘）</td>
+<td>✅ 性能较优</td>
 </tr>
 </tbody></table>
-<p>三.zset的底层数据结构</p>
-<p><strong>ZSet 底层使用跳表（SkipList）实现，而不是平衡树。</strong><br>跳表通过多层索引结构实现平均 O(log n) 的查找效率，与平衡树相同，但结构更简单、插入删除更高效。  </p>
-<h2 id="redis-中zset为什么使用跳表而不是平衡树"><a href="#redis-中zset为什么使用跳表而不是平衡树" class="headerlink" title="redis 中zset为什么使用跳表而不是平衡树"></a>redis 中zset为什么使用跳表而不是平衡树</h2><ol>
-<li>从内存角度看，跳表比平衡树更省空间：跳表节点平均仅需约两个指针（前后），而平衡树节点通常要维护三个指针（左、右、父）  </li>
-<li>跳表底层是<strong>有序链表</strong>，范围查询可从起点一路向后遍历，<br>复杂度 O(log n + k)，实现简单；平衡树则需进行<strong>中序遍历</strong>。</li>
-<li><strong>实现更简单、维护成本低</strong>：跳表更新删除只需要变动指针即可；平衡树必须通过<strong>旋转操作</strong>维持结构平衡，逻辑繁琐、实现复杂。</li>
+<p> 💡 注意：<br>“写入 redo log 文件” ≠ “写入磁盘”。操作系统文件系统通常有 <strong>Page Cache</strong>（文件缓存），数据只有在 Page Cache 刷盘后才真正持久化。  </p>
+<h4 id="参数-0-和-2-时-redo-log-的刷盘时机"><a href="#参数-0-和-2-时-redo-log-的刷盘时机" class="headerlink" title="参数 0 和 2 时 redo log 的刷盘时机"></a>参数 0 和 2 时 redo log 的刷盘时机</h4><p> 当 <code>innodb_flush_log_at_trx_commit</code> 设置为 <strong>0</strong> 或 <strong>2</strong> 时，InnoDB 不会在每次事务提交时立刻把 redo log 写入磁盘，而是由后台线程<strong>每隔 1 秒</strong>执行一次刷盘操作。  </p>
+<p>** 参数值 &#x3D; 0  **</p>
+<ul>
+<li>*<em>redo log 先写入 <strong><strong>redo log buffer（内存）</strong></strong>；</em>*</li>
+<li><strong>后台线程每 1 秒通过 <strong><code>**write()**</code></strong> 写入操作系统的 <strong><strong>Page Cache</strong></strong>；</strong></li>
+<li><strong>然后调用 <strong><code>**fsync()**</code></strong> 将 Page Cache 内容持久化到磁盘。</strong></li>
+<li><strong>若 MySQL 进程崩溃，则 buffer 中的日志会丢失，可能导致最近 1 秒的数据丢失。</strong></li>
+</ul>
+<p>** 参数值 &#x3D; 2  **</p>
+<ul>
+<li><strong>redo log 在事务提交时写入 <strong><strong>操作系统 Page Cache</strong></strong>（通过 <strong><code>**write()**</code></strong>）；</strong></li>
+<li><strong>后台线程每秒调用 <strong><code>**fsync()**</code></strong> 将 Page Cache 的数据真正写入磁盘；</strong></li>
+<li><strong>若 <strong><strong>仅 MySQL 崩溃</strong></strong>，数据仍然在 OS 缓存中，不会丢失；</strong></li>
+<li><strong>只有当 操作系统同时崩溃 才会丢失最近 1 秒的数据。</strong></li>
+</ul>
+<p>对比总结</p>
+<table>
+<thead>
+<tr>
+<th>参数值</th>
+<th>刷盘时机</th>
+<th>崩溃风险</th>
+<th>性能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>每秒后台线程刷盘</td>
+<td>MySQL crash → 丢数据</td>
+<td>✅ 最高</td>
+<td>数据在内存中</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>每秒后台线程 fsync</td>
+<td>OS crash → 丢数据</td>
+<td>⚖️ 较高</td>
+<td>数据在 OS 缓存中</td>
+</tr>
+</tbody></table>
+<h1 id="redo-log文件写满会怎么样"><a href="#redo-log文件写满会怎么样" class="headerlink" title="redo log文件写满会怎么样"></a>redo log文件写满会怎么样</h1><p>**redo log 是一个循环使用的环形日志文件。**当日志写满时，MySQL 会暂停写入，执行 checkpoint，将脏页刷盘，腾出空间后再继续写入。  </p>
+<h3 id="redo-log-的组成"><a href="#redo-log-的组成" class="headerlink" title="redo log 的组成"></a>redo log 的组成</h3><ul>
+<li>InnoDB 默认有一个 <strong>重做日志文件组（redo log group）</strong>，通常包含两个文件：<br><code>ib_logfile0</code> 和 <code>ib_logfile1</code>。</li>
+<li>每个文件大小固定，比如每个 1GB，总共 2GB。</li>
+<li>redo log 文件采用 <strong>循环写入（circular writing）</strong> 的方式，从头写到尾再回到开头。</li>
+</ul>
+<h3 id="写入机制"><a href="#写入机制" class="headerlink" title="写入机制"></a>写入机制</h3><ol>
+<li>InnoDB 先写 <code>ib_logfile0</code>；</li>
+<li>当 <code>ib_logfile0</code> 写满时，切换到 <code>ib_logfile1</code>；</li>
+<li>当 <code>ib_logfile1</code> 也写满，再切回 <code>ib_logfile0</code>；</li>
+<li>如此循环往复。</li>
 </ol>
+<p>这就像一个“环形缓冲区”，始终在两个文件间循环写入。</p>
+<h3 id="write-pos-和-checkpoint-的含义"><a href="#write-pos-和-checkpoint-的含义" class="headerlink" title="write pos 和 checkpoint 的含义"></a>write pos 和 checkpoint 的含义</h3><ul>
+<li><strong>write pos</strong>：表示当前 redo log 写入的位置（即“尾部”）。</li>
+<li><strong>checkpoint</strong>：表示哪些 redo log 日志已经可以覆盖（即“头部”）。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761364764754-c481738e-27b1-4dd4-9f62-bfd9209728bd.png"></p>
+<ul>
+<li><strong>write pos → checkpoint 之间的红色部分</strong>：<br>存放<strong>新的更新记录</strong>（已经写入但尚未落盘）。</li>
+<li><strong>checkpoint → write pos 之间的蓝色部分</strong>：<br>表示<strong>已落盘的脏页</strong>，这些 redo log 可以被覆盖。</li>
+</ul>
+<h3 id="redo-log-写满会怎样？"><a href="#redo-log-写满会怎样？" class="headerlink" title="redo log 写满会怎样？"></a>redo log 写满会怎样？</h3><p>当 <code>write pos</code><strong>追上</strong><code>checkpoint</code>（即红色区域把蓝色吃光）时：</p>
+<ul>
+<li>表示 <strong>redo log 空间被写满</strong>；</li>
+<li><strong>MySQL 会暂停所有更新操作，****<font style="color:rgb(48, 79, 254);">也就是说 MySQL 会被阻塞</font></strong><font style="color:rgb(44, 62, 80);">（</font><em><font style="color:rgb(200, 73, 255);">因此所以针对并发量大的系统，适当设置 redo log 的文件大小非常重要</font></em><font style="color:rgb(44, 62, 80);">）</font>；</li>
+<li>系统必须先执行 <strong>checkpoint</strong>：<ul>
+<li>把 Buffer Pool 中的脏页写入磁盘；</li>
+<li>标记哪些 redo log 已经“安全落盘”；</li>
+<li>然后移动 checkpoint，释放出旧的 redo log 空间；</li>
+</ul>
+</li>
+<li>空间腾出后，MySQL 才能恢复执行新的更新操作。</li>
+</ul>
 
       
     </div>
@@ -796,7 +785,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/ZipList/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/binlog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -814,19 +803,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/ZipList/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/binlog/" class="post-title-link" itemprop="url">binlog</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/%E6%97%A5%E5%BF%97/" itemprop="url" rel="index"><span itemprop="name">日志</span></a>
+        </span>
     </span>
 
   
@@ -839,307 +832,1224 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=171555619&content_type=Article&match_order=1&q=%E5%8E%8B%E7%BC%A9%E5%88%97%E8%A1%A8&zhida_source=entity"><strong><font style="color:rgb(9, 64, 142);">压缩列表</font></strong></a><strong><font style="color:rgb(25, 27, 31);">（</font></strong><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=171555619&content_type=Article&match_order=1&q=ziplist&zhida_source=entity"><strong><font style="color:rgb(9, 64, 142);">ziplist</font></strong></a><strong><font style="color:rgb(25, 27, 31);">）本质上就是一个字节数组，是</font></strong><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=171555619&content_type=Article&match_order=1&q=Redis&zhida_source=entity"><strong><font style="color:rgb(9, 64, 142);">Redis</font></strong></a><strong><font style="color:rgb(25, 27, 31);">为了节约内存而设计的一种线性数据结构</font></strong></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760537667649-decf9823-34b3-449a-997e-315d61f152ec.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760537684492-157cd6b7-4198-4169-8ffb-7d15c239aada.png"></p>
-<p><strong><font style="color:rgb(25, 27, 31);">而压缩列表节点又有三个属性组成，分别是previous_entry_length，encoding，content</font></strong><font style="color:rgb(25, 27, 31);">。</font></p>
+          <p><strong>binlog（Binary Log）</strong> 是 <strong>MySQL Server 层</strong> 的日志，用于<strong>记录所有对数据库的更改操作</strong>（比如 <code>INSERT</code>、<code>UPDATE</code>、<code>DELETE</code>）。不记录查询操作，它是“逻辑日志”，记录的是<strong>SQL 语句或行的变化</strong>，而不是页的物理修改。</p>
+<h1 id="为什么有了redo-log-还需要binlog"><a href="#为什么有了redo-log-还需要binlog" class="headerlink" title="为什么有了redo log 还需要binlog"></a>为什么有了redo log 还需要binlog</h1><h2 id="redo-log-是“InnoDB-专属的”"><a href="#redo-log-是“InnoDB-专属的”" class="headerlink" title="redo log 是“InnoDB 专属的”"></a>redo log 是“InnoDB 专属的”</h2><ul>
+<li>redo log 是 <strong>InnoDB 存储引擎</strong> 自己写的日志；</li>
+<li>它只关心<strong>磁盘页的物理修改</strong>；</li>
+<li>目的是为了 <strong>崩溃恢复（crash-safe）</strong>；</li>
+<li>如果数据库突然掉电，InnoDB 可以根据 redo log 把未刷盘的页恢复出来。</li>
+</ul>
+<p>所以 redo log 是 <strong>“保证事务的持久性”</strong> 的。</p>
+<h2 id="binlog-是“MySQL-Server-层的通用日志”"><a href="#binlog-是“MySQL-Server-层的通用日志”" class="headerlink" title="binlog 是“MySQL Server 层的通用日志”"></a>binlog 是“MySQL Server 层的通用日志”</h2><ul>
+<li>它是 MySQL 整个系统层面的日志；</li>
+<li>所有存储引擎（不仅是 InnoDB）都会写；</li>
+<li>记录的是 <strong>逻辑操作（SQL 或行变化）</strong>；</li>
+<li>用来做：<ol>
+<li><strong>主从复制</strong>（replication）；</li>
+<li><strong>数据恢复（PITR）</strong>。</li>
+</ol>
+</li>
+</ul>
+<p>🧩 binlog 是 <strong>“保证数据可复制、可恢复”</strong> 的关键。</p>
+<h2 id="为什么不能用一个？"><a href="#为什么不能用一个？" class="headerlink" title="为什么不能用一个？"></a>为什么不能用一个？</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>只靠 redo log</th>
+<th>只靠 binlog</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统崩溃</td>
+<td>✅ 可恢复事务</td>
+<td>❌ 因为它只在 commit 时写入，可能丢事务</td>
+</tr>
+<tr>
+<td>主从复制</td>
+<td>❌ redo log 是物理的，主库没法发给从库</td>
+<td>✅ 复制用 binlog</td>
+</tr>
+<tr>
+<td>跨存储引擎</td>
+<td>❌ redo 仅 InnoDB 可用</td>
+<td>✅ binlog 所有引擎都能写</td>
+</tr>
+<tr>
+<td>写入效率</td>
+<td>高（循环写）</td>
+<td>低（追加写）</td>
+</tr>
+</tbody></table>
+<h1 id="binlog-的三种格式"><a href="#binlog-的三种格式" class="headerlink" title="binlog 的三种格式"></a>binlog 的三种格式</h1><h3 id="①-STATEMENT（语句模式）"><a href="#①-STATEMENT（语句模式）" class="headerlink" title="① STATEMENT（语句模式）"></a>① <strong>STATEMENT（语句模式）</strong></h3><ul>
+<li>每条修改数据的 <strong>SQL 语句</strong> 都会被记录到 binlog 中。</li>
+<li>主从复制时，从库会<strong>重新执行同样的 SQL 语句</strong>。</li>
+<li>优点：日志量小、效率高。</li>
+<li>缺点：如果 SQL 中使用了 <strong>随机或时间函数（如 <strong><code>**UUID()**</code></strong>、</strong><code>**NOW()**</code><strong>）</strong>，主从库结果可能不一致。</li>
+</ul>
+<h3 id="②-ROW（行模式）"><a href="#②-ROW（行模式）" class="headerlink" title="② ROW（行模式）"></a>② <strong>ROW（行模式）</strong></h3><ul>
+<li>记录的是<strong>每一行数据修改前后的变化结果</strong>。</li>
+<li>不会出现动态函数导致的不一致问题。</li>
+<li>优点：复制更安全、主从数据完全一致。</li>
+<li>缺点：更新多行会生成多条记录，<strong>binlog 文件体积更大</strong>。</li>
+</ul>
+<h3 id="③-MIXED（混合模式）"><a href="#③-MIXED（混合模式）" class="headerlink" title="③ MIXED（混合模式）"></a>③ <strong>MIXED（混合模式）</strong></h3><ul>
+<li>结合前两种：<ul>
+<li>一般语句用 <strong>STATEMENT 模式</strong>；</li>
+<li>遇到不安全语句（如包含随机函数）自动切换为 <strong>ROW 模式</strong>。</li>
+</ul>
+</li>
+<li>优点：<strong>兼顾安全与效率</strong>。</li>
+</ul>
+<p>📘 <strong>一句话记忆：</strong></p>
+<ul>
+<li><strong>STATEMENT</strong>：记录 SQL 语句 → 小但可能不一致</li>
+<li><strong>ROW</strong>：记录行变化 → 安全但体积大</li>
+<li><strong>MIXED</strong>：自动选择 → 平衡两者</li>
+</ul>
+<h1 id="binlog和redo-log的写入方式"><a href="#binlog和redo-log的写入方式" class="headerlink" title="binlog和redo log的写入方式"></a>binlog和redo log的写入方式</h1><ul>
+<li><font style="color:rgb(44, 62, 80);">binlog 是追加写，写满一个文件，就创建一个新的文件继续写，不会覆盖以前的日志，保存的是全量的日志。</font></li>
+<li><font style="color:rgb(44, 62, 80);">redo log 是循环写，日志空间大小是固定，全部写满就从头开始，保存未被刷入磁盘的脏页日志。</font></li>
+</ul>
+<h1 id="如果不小心将整个数据库的数据删除了，使用binlog还是redo-log-文件恢复数据"><a href="#如果不小心将整个数据库的数据删除了，使用binlog还是redo-log-文件恢复数据" class="headerlink" title="如果不小心将整个数据库的数据删除了，使用binlog还是redo log 文件恢复数据?"></a>如果不小心将整个数据库的数据删除了，使用binlog还是redo log 文件恢复数据?</h1><p>使用binlog ，<font style="color:rgb(44, 62, 80);">因为 redo log 文件是循环写，是会边写边擦除日志的，只记录未被刷入磁盘的数据的物理日志，已经刷入磁盘的数据都会从 redo log 文件里擦除。</font></p>
+<p><font style="color:rgb(44, 62, 80);">binlog 文件保存的是全量的日志，也就是保存了所有数据变更的情况，理论上只要记录在 binlog 上的数据，都可以恢复，所以如果不小心整个数据库的数据被删除了，得用 binlog 文件恢复数据。</font></p>
+<h1 id="binlog-什么时候刷盘"><a href="#binlog-什么时候刷盘" class="headerlink" title="binlog 什么时候刷盘"></a><font style="color:rgb(44, 62, 80);">binlog 什么时候刷盘</font></h1><h2 id="binlog-的写入流程"><a href="#binlog-的写入流程" class="headerlink" title="binlog 的写入流程"></a>binlog 的写入流程</h2><p>1️⃣ <strong>事务执行阶段</strong></p>
+<ul>
+<li>SQL 执行时，日志内容<strong>先写入 binlog cache（每个线程独立）</strong>，还没落盘。</li>
+</ul>
+<p>2️⃣ <strong>事务提交时（commit）</strong></p>
+<ul>
+<li>把当前事务对应的 binlog cache 内容，<strong>一次性写入 binlog 文件（write）</strong>；</li>
+<li>然后根据配置决定是否执行 <strong>fsync（真正落盘）</strong>；</li>
+<li>最后清空线程的 binlog cache。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761365672367-53a07905-9033-446e-b0d7-9b12556e9d43.png"></p>
+<p><font style="color:rgb(44, 62, 80);">虽然每个线程有自己 binlog cache，但是最终都写到同一个 binlog 文件：</font></p>
+<h2 id="sync-binlog-参数控制刷盘频率"><a href="#sync-binlog-参数控制刷盘频率" class="headerlink" title="sync_binlog 参数控制刷盘频率  "></a><font style="color:rgb(44, 62, 80);">sync_binlog 参数控制刷盘频率  </font></h2><table>
+<thead>
+<tr>
+<th>参数值</th>
+<th>刷盘策略</th>
+<th>性能</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>sync_binlog = 0</code></td>
+<td>每次事务提交只 write，不 fsync，由操作系统决定何时落盘</td>
+<td>性能最好</td>
+<td>崩溃可能丢日志</td>
+</tr>
+<tr>
+<td><code>sync_binlog = 1</code></td>
+<td>每次事务提交后立刻 fsync</td>
+<td>最安全</td>
+<td>性能最差</td>
+</tr>
+<tr>
+<td><code>sync_binlog = N (N&gt;1)</code></td>
+<td>每提交 N 个事务后执行一次 fsync</td>
+<td>性能与安全折中</td>
+<td>最多丢 N 个事务日志</td>
+</tr>
+</tbody></table>
+<h2 id="MySQL-默认值与推荐设置"><a href="#MySQL-默认值与推荐设置" class="headerlink" title="MySQL 默认值与推荐设置"></a>MySQL 默认值与推荐设置</h2><ul>
+<li>默认：<code>sync_binlog = 0</code>（性能优先，风险较高）</li>
+<li>推荐：根据业务情况选择</li>
+<li>若要求高可靠性（金融类） → <code>sync_binlog = 1</code></li>
+<li>若能容忍少量数据丢失 → <code>sync_binlog = 100~1000</code></li>
+</ul>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">标量子查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p> 标量子查询是 <strong>只返回一个值（一个单元格）</strong> 的子查询。<br>这个值可以出现在主查询的 <code>SELECT</code>、<code>WHERE</code>、<code>HAVING</code> 等语句中，就像一个普通字段或常量一样使用。  </p>
+<p> 换句话说：<br>👉 标量子查询的结果相当于“先执行一个查询得到一个数字&#x2F;字符串”，<br>然后把它当成主查询的一部分。  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761124631592-af8bcef8-cc87-4716-ab4d-c3d02cec98fd.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761124799521-00487298-149e-41d5-913e-35f281ca3507.png"></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="1-标量子查询必须只返回-一行一列-否则会报错"><a href="#1-标量子查询必须只返回-一行一列-否则会报错" class="headerlink" title="1. 标量子查询必须只返回 一行一列  否则会报错"></a>1. 标量子查询必须只返回 一行一列  否则会报错</h3><p>比如： SELECT (SELECT dept_name FROM dept) – 如果返回多行就报错 </p>
+<h2 id="标量子查询和主查询的执行顺序"><a href="#标量子查询和主查询的执行顺序" class="headerlink" title="标量子查询和主查询的执行顺序"></a>标量子查询和主查询的执行顺序</h2><h3 id="标量子查询（scalar-subquery）可以理解为："><a href="#标量子查询（scalar-subquery）可以理解为：" class="headerlink" title="标量子查询（scalar subquery）可以理解为："></a>标量子查询（scalar subquery）可以理解为：</h3><p>“在外层查询运行时，先执行里面的小查询，把结果当作一个值代入外层”。<br>比如 👇</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT name,</span><br><span class="line">       (SELECT dept_name FROM dept WHERE dept.id = emp.dept_id) AS deptName</span><br><span class="line">FROM emp;</span><br></pre></td></tr></table></figure>
+
+<p>执行顺序是：</p>
+<p>1️⃣ <strong>外层主查询</strong> 从 <code>emp</code> 表取出每一行员工数据。<br>2️⃣ 对每一行，执行内层子查询：SELECT dept_name FROM dept WHERE dept.id &#x3D; emp.dept_id;</p>
+<p> 它返回部门名（一个值）。<br>3️⃣ 把这个值放入结果集的 <code>deptName</code> 列。<br>4️⃣ 重复步骤 2–3，直到所有员工行都处理完。  </p>
+<h3 id="执行过程图解"><a href="#执行过程图解" class="headerlink" title="执行过程图解"></a>执行过程图解</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125101941-ecd4f800-1d20-4454-83eb-1707804cdaf1.png"></p>
+<h3 id="如果是非相关子查询，执行更简单（性能很强，可以放心使用）"><a href="#如果是非相关子查询，执行更简单（性能很强，可以放心使用）" class="headerlink" title="如果是非相关子查询，执行更简单（性能很强，可以放心使用）"></a>如果是非相关子查询，执行更简单（性能很强，可以放心使用）</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125181879-d279466a-e03b-47eb-b8a4-927dafbe0bf3.png"></p>
+<h3 id="如果是“相关子查询”，每行执行一次-（性能低，慎用，除非条件固定，结果稳定）"><a href="#如果是“相关子查询”，每行执行一次-（性能低，慎用，除非条件固定，结果稳定）" class="headerlink" title="如果是“相关子查询”，每行执行一次  （性能低，慎用，除非条件固定，结果稳定）"></a>如果是“相关子查询”，每行执行一次  （性能低，慎用，除非条件固定，结果稳定）</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125256449-e0f52e33-2bf8-4586-a4cd-361144b25bda.png"></p>
+<p> ✅ <strong>子查询结果缓存（Subquery Cache）</strong><br>当子查询的输入条件相同且结果未过期时，数据库可以复用上一次的查询结果，而无需重新计算，从而提高查询性能。<br>👉 因此，在子查询**<font style="color:#DF2A3F;">条件固定</font><strong><strong>、</strong></strong><font style="color:#DF2A3F;">结果稳定</font><strong>的场景下，使用子查询通常</strong><font style="color:#DF2A3F;">性能较高</font><strong>，</strong><font style="color:#DF2A3F;">值得推荐</font>**。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/SQL/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/SQL/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">多表查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一-mysql多表查询方式对比"><a href="#一-mysql多表查询方式对比" class="headerlink" title="一.mysql多表查询方式对比"></a>一.mysql多表查询方式对比</h1><table>
+<thead>
+<tr>
+<th>查询类型</th>
+<th>关键字</th>
+<th>返回结果</th>
+<th>典型用途</th>
+<th>示例 SQL</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>内连接（Inner Join）</strong></td>
+<td><code>INNER JOIN</code><br/> &#x2F; <code>JOIN</code></td>
+<td>仅返回两表中匹配的记录（交集）</td>
+<td>查询两个表中都有匹配关系的数据</td>
+<td><code>SELECT a.name, b.course FROM student a INNER JOIN score b ON a.id = b.stu_id;</code></td>
+<td>无匹配的记录不会出现在结果中</td>
+</tr>
+<tr>
+<td><strong>左连接（Left Join）</strong></td>
+<td><code>LEFT JOIN</code></td>
+<td>保留左表全部记录，右表无匹配则为 <code>NULL</code></td>
+<td>查询主表数据及其关联数据（即使没有关联）</td>
+<td><code>SELECT a.name, b.course FROM student a LEFT JOIN score b ON a.id = b.stu_id;</code></td>
+<td>条件放在 <code>ON</code><br/> 而不是 <code>WHERE</code><br/>，避免过滤掉 NULL</td>
+</tr>
+<tr>
+<td><strong>右连接（Right Join）</strong></td>
+<td><code>RIGHT JOIN</code></td>
+<td>保留右表全部记录，左表无匹配则为 <code>NULL</code></td>
+<td>与左连接相反，用于保留右表数据</td>
+<td><code>SELECT a.name, b.course FROM student a RIGHT JOIN score b ON a.id = b.stu_id;</code></td>
+<td>不常用，可改写为 LEFT JOIN</td>
+</tr>
+<tr>
+<td><strong>全连接（Full Join）</strong></td>
+<td><code>FULL JOIN</code><br/>（MySQL 不支持，可用 <code>UNION</code><br/> 模拟）</td>
+<td>返回两表所有记录，匹配则合并，不匹配则补 NULL</td>
+<td>查看两表所有数据（匹配与不匹配）</td>
+<td><code>(SELECT * FROM A LEFT JOIN B ON ...) UNION (SELECT * FROM A RIGHT JOIN B ON ...)</code></td>
+<td>MySQL 无原生支持</td>
+</tr>
+<tr>
+<td><strong>交叉连接（笛卡尔积）</strong></td>
+<td><code>CROSS JOIN</code><br/> &#x2F; 省略 ON 条件</td>
+<td>返回两表所有组合（A×B）</td>
+<td>生成测试数据、枚举组合</td>
+<td><code>SELECT a.name, b.course FROM student a CROSS JOIN course b;</code></td>
+<td>若无 WHERE 条件，结果集极大，慎用</td>
+</tr>
+<tr>
+<td><strong>自连接（Self Join）</strong></td>
+<td>表自己连接自己</td>
+<td>将同一张表当作两张表使用</td>
+<td>查询层级结构、父子关系</td>
+<td><code>SELECT a.name AS emp, b.name AS manager FROM employee a LEFT JOIN employee b ON a.manager_id = b.id;</code></td>
+<td>必须使用表别名区分</td>
+</tr>
+<tr>
+<td><strong>多表连接（Multi Join）</strong></td>
+<td>多次使用 JOIN</td>
+<td>同时连接三张及以上表</td>
+<td>复杂报表查询</td>
+<td><code>SELECT * FROM A JOIN B ON ... JOIN C ON ...</code></td>
+<td>注意驱动表选择与索引使用</td>
+</tr>
+<tr>
+<td><strong>子查询（Subquery）</strong></td>
+<td><code>SELECT ... WHERE id IN (SELECT ...)</code></td>
+<td>嵌套查询结果再过滤</td>
+<td>复杂条件筛选、聚合对比</td>
+<td><code>SELECT * FROM user WHERE id IN (SELECT user_id FROM order);</code></td>
+<td>性能较差，可改写为 JOIN</td>
+</tr>
+<tr>
+<td><strong>联合查询（Union &#x2F; Union All）</strong></td>
+<td><code>UNION</code><br/> &#x2F; <code>UNION ALL</code></td>
+<td>合并两个结果集</td>
+<td>合并同结构查询结果</td>
+<td><code>(SELECT name FROM t1) UNION (SELECT name FROM t2)</code></td>
+<td><code>UNION</code><br/> 去重，<code>UNION ALL</code><br/> 不去重，字段数和类型需一致</td>
+</tr>
+</tbody></table>
+<h1 id="二-详解"><a href="#二-详解" class="headerlink" title="二.详解"></a>二.详解</h1><p>表1：student 学生表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>class_id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p>表2：class 班级表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>class_name</th>
+<th>teacher</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>二年级一班</td>
+<td>赵老师</td>
+</tr>
+</tbody></table>
+<h2 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h2><p><strong>笛卡尔积</strong>就是：<strong>将两个表中所有的记录逐一组合，生成所有可能的排列。</strong></p>
+<p><strong>结果行数 &#x3D; 表A行数 × 表B行数</strong></p>
+<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><ul>
+<li>无条件：SELECT * FROM student, class;</li>
+</ul>
+<p>结果:</p>
+<table>
+<thead>
+<tr>
+<th>student.id</th>
+<th>name</th>
+<th>class_id</th>
+<th>class.id</th>
+<th>class_name</th>
+<th>teacher</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>4</td>
+<td>二年级一班</td>
+<td>赵老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>4</td>
+<td>二年级一班</td>
+<td>赵老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+<td>4</td>
+<td>二年级一班</td>
+<td>赵老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+<td>4</td>
+<td>二年级一班</td>
+<td>赵老师</td>
+</tr>
+</tbody></table>
+<ul>
+<li>有条件：SELECT* FROM student,class where student.class_id&#x3D;class.id</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>student.id</th>
+<th>name</th>
+<th>class_id</th>
+<th>class.id</th>
+<th>class_name</th>
+<th>teacher</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>张三</td>
+<td>1</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+<td>2</td>
+<td>2</td>
+<td>一年级二班</td>
+<td>李老师</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+<td>1</td>
+<td>1</td>
+<td>一年级一班</td>
+<td>张老师</td>
+</tr>
+<tr>
+<td>4</td>
+<td>赵六</td>
+<td>3</td>
+<td>3</td>
+<td>一年级三班</td>
+<td>王老师</td>
+</tr>
+</tbody></table>
+<h2 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h2><p><strong>内连接（INNER JOIN）本质上就是笛卡尔积，只不过通常会加上连接条件。</strong><br>➤ <strong>写了条件</strong> ⇒ 有条件的笛卡尔积（只保留匹配行）<br>➤ <strong>没写条件</strong> ⇒ 无条件的笛卡尔积（所有组合都出现）  </p>
+<h3 id="SQL语句-1"><a href="#SQL语句-1" class="headerlink" title="SQL语句"></a>SQL语句</h3><p>SELECT 列名列表 FROM 表1 [AS] 别名1 （INNER） JOIN 表2 [AS] 别名2 ON 连接条件;</p>
+<p><em>INNER关键字可省略</em></p>
+<h2 id="左连接，右连接"><a href="#左连接，右连接" class="headerlink" title="左连接，右连接"></a>左连接，右连接</h2><ul>
+<li><strong>LEFT JOIN：</strong> 保留左表全部记录，右表匹配不到的部分字段用 <code>**NULL**</code> 填充。</li>
+<li><strong>RIGHT JOIN：</strong> 保留右表全部记录，左表匹配不到的部分字段用 <code>**NULL**</code> 填充。</li>
+<li><strong>ON：</strong> 指定两表的关联条件（例如 <code>s.class_id = c.id</code>），用于判断哪些行是匹配的。</li>
+</ul>
+<h3 id="SQL语句-2"><a href="#SQL语句-2" class="headerlink" title="SQL语句"></a>SQL语句</h3><p>SELECT 列名列表 FROM 表1 [AS] 别名1 LEFT JOIN 表2 [AS] 别名2 ON 连接条件;</p>
+<p>SELECT 列名列表 FROM 表1 [AS] 别名1 RIGHT JOIN 表2 [AS] 别名2 ON 连接条件;</p>
+<h2 id="全连接"><a href="#全连接" class="headerlink" title="全连接"></a>全连接</h2><p><strong>全连接（FULL JOIN &#x2F; FULL OUTER JOIN）</strong><br>会返回<strong>左表和右表的所有记录</strong>，</p>
+<ul>
+<li>匹配的行：正常合并</li>
+<li>不匹配的行：用 <strong>NULL</strong> 填充缺失部分</li>
+</ul>
+<p>换句话说：</p>
+<p><strong>FULL JOIN &#x3D; LEFT JOIN + RIGHT JOIN 的并集</strong></p>
+<h3 id="SQL语句-3"><a href="#SQL语句-3" class="headerlink" title="SQL语句"></a>SQL语句</h3><p>SELECT 列名列表 FROM 表1 [AS] 别名1 FULL JOIN 表2 [AS] 别名2 ON 连接条件;</p>
+<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><p><strong>自连接（Self Join）</strong><br>是指一张表自己连接自己，用于查询<strong>同一张表中存在层级关系或关联关系</strong>的数据。</p>
+<p>本质上就是：</p>
+<p><strong>把同一张表当作两张表来用，通过别名区分。</strong></p>
+<h3 id="SQL语句-4"><a href="#SQL语句-4" class="headerlink" title="SQL语句"></a>SQL语句</h3><p>SELECT 列名列表 FROM 表名 AS 别名1 [INNER | LEFT | RIGHT] JOIN 表名 AS 别名2 ON 连接条件;</p>
+<p>✅ 注意：</p>
+<ul>
+<li>必须给表起两个不同的别名（例如 <code>a</code> 和 <code>b</code>）；</li>
+<li>否则 MySQL 无法区分同一张表的两次引用。</li>
+</ul>
+<h2 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h2><p><strong>联合查询（UNION）</strong><br>用于将<strong>多个 <strong><code>**SELECT**</code></strong> 查询的结果</strong>纵向合并为一个结果集。</p>
+<p>它不是“横向连接”（那是 JOIN），<br>而是<strong>上下拼接</strong>，把多次查询的结果叠加在一起。</p>
+<h3 id="SQL语句-5"><a href="#SQL语句-5" class="headerlink" title="SQL语句"></a>SQL语句</h3><p>SELECT 列名列表 FROM 表1 … UNION [ALL]</p>
+<p>SELECT 列名列表 FROM 表2 …;</p>
+<h3 id="UNION-和UNION-ALL的区别"><a href="#UNION-和UNION-ALL的区别" class="headerlink" title="UNION 和UNION ALL的区别"></a>UNION 和UNION ALL的区别</h3><p><code>UNION</code> 会自动去重，<code>UNION ALL</code> 不会去重。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/SQL/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/SQL/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">分组查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p> MySQL 的 <strong>分组查询</strong> 主要是通过 <code>GROUP BY</code> 子句来实现的，它将查询结果按指定的列进行分组，通常配合聚合函数（如 <code>COUNT()</code>、<code>SUM()</code>、<code>AVG()</code>、<code>MAX()</code>、<code>MIN()</code> 等）来对每一组数据进行计算和统计。</p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><p>SELECT column1, column2, aggregation_function(column3) </p>
+<p>FROM table_name </p>
+<p>GROUP BY column1, column2;</p>
+<br/>
+
 <ol>
-<li><strong><font style="color:rgb(25, 27, 31);">previous_entry_length</font></strong></li>
+<li><code>**SELECT**</code> 用于指定查询的列，包含：</li>
 </ol>
-<p><font style="color:rgb(25, 27, 31);">这个属性记录了压缩列表前一个节点的长度，用于实现“链表的向前查找”</font></p>
-<p><font style="color:rgb(25, 27, 31);">这个属性记录了压缩列表前一个节点的长度，</font><strong><font style="color:rgb(25, 27, 31);">该属性根据前一个节点的大小不同可以是1个字节或者5个字节。</font></strong></p>
-<p><font style="color:rgb(25, 27, 31);">如果前一个节点的长度小于254个字节，那么previous_entry_length的大小为1个字节，</font><strong><font style="color:rgb(25, 27, 31);">即前一个节点的长度可以使用1个字节表示</font></strong></p>
-<p><font style="color:rgb(25, 27, 31);">如果前一个节点的长度大于等于254个字节，那么previous_entry_length的大小为5个字节</font><strong><font style="color:rgb(25, 27, 31);">，第一个字节会被设置为0xFE(十进制的254），之后的四个字节则用于保存前一个节点的长度。</font></strong></p>
+<ul>
+<li><strong>普通列</strong>：如 <code>column1</code> 和 <code>column2</code>，用于分组的依据。</li>
+<li><strong>聚合函数</strong>：如 <code>aggregation_function(column3)</code>，对某列（例如 <code>column3</code>）应用聚合操作。</li>
+</ul>
+<p><code>2. **GROUP BY**``column1, column2</code>：按 <code>column1</code> 和 <code>column2</code> 列分组，将数据分成多个组，每个组的值在这两列上是相同的。  </p>
+<p><code>3. ``aggregation_function(column3)</code>：对列 <code>column3</code> 的数据执行聚合操作并返回一个结果。常见的聚合函数有：</p>
+<ul>
+<li><code>COUNT(column3)</code>：返回 <code>column3</code> 中非 <code>NULL</code> 值的行数。</li>
+<li><code>SUM(column3)</code>：返回 <code>column3</code> 所有值的和。</li>
+<li><code>AVG(column3)</code>：返回 <code>column3</code> 所有值的平均值。</li>
+<li><code>MIN(column3)</code>：返回 <code>column3</code> 中的最小值。</li>
+<li><code>MAX(column3)</code>：返回 <code>column3</code> 中的最大值。</li>
+</ul>
+<ol start="4">
+<li><font style="color:#DF2A3F;">注意</font></li>
+</ol>
+<p> 在 <code>GROUP BY</code> 分组查询中，<font style="color:#DF2A3F;">聚合函数中的列不一定需要出现在 </font><code>&lt;font style=&quot;color:#DF2A3F;&quot;&gt;GROUP BY&lt;/font&gt;</code><font style="color:#DF2A3F;"> 中</font>，<font style="color:#DF2A3F;">但如果列没有出现在 </font><code>&lt;font style=&quot;color:#DF2A3F;&quot;&gt;GROUP BY&lt;/font&gt;</code><font style="color:#DF2A3F;"> 中且没有经过聚合函数处理，它不能直接在 </font><code>&lt;font style=&quot;color:#DF2A3F;&quot;&gt;SELECT&lt;/font&gt;</code><font style="color:#DF2A3F;"> 中查询</font>，否则查询会报错。  </p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p> 假设有一个 <code>employees</code> 表，包含 <code>department_id</code>（部门ID）、<code>salary</code>（薪资）、<code>hire_date</code>（入职日期）等列。  </p>
+<h3 id="按部门分组，计算每个部门的总薪资"><a href="#按部门分组，计算每个部门的总薪资" class="headerlink" title="按部门分组，计算每个部门的总薪资"></a>按部门分组，计算每个部门的总薪资</h3><p>SELECT department_id, SUM(salary) AS total_salary</p>
+<p>FROM employees</p>
+<p>GROUP BY department_id;</p>
+<ul>
+<li>这里，<code>department_id</code> 是分组依据，<code>SUM(salary)</code> 计算每个部门的总薪资。</li>
+<li><code>salary</code> 并没有出现在 <code>GROUP BY</code> 中，但它通过 <code>SUM()</code> 聚合函数来处理。</li>
+</ul>
+<h3 id="按部门分组，计算每个部门的最高薪资和入职最早的员工"><a href="#按部门分组，计算每个部门的最高薪资和入职最早的员工" class="headerlink" title="按部门分组，计算每个部门的最高薪资和入职最早的员工"></a>按部门分组，计算每个部门的最高薪资和入职最早的员工</h3><p>SELECT department_id, MAX(salary) AS highest_salary, MIN(hire_date) AS earliest_hire_date</p>
+<p>FROM employees</p>
+<p>GROUP BY department_id;</p>
+<ul>
+<li><code>department_id</code> 是分组依据，<code>MAX(salary)</code> 和 <code>MIN(hire_date)</code> 分别用于计算每个部门的最高薪资和最早入职的日期。</li>
+<li><code>salary</code> 和 <code>hire_date</code> 并没有出现在 <code>GROUP BY</code> 中，但它们通过聚合函数来处理。</li>
+</ul>
+<h3 id="错误示例（如果你没有使用聚合函数处理其他列）"><a href="#错误示例（如果你没有使用聚合函数处理其他列）" class="headerlink" title="错误示例（如果你没有使用聚合函数处理其他列）"></a>错误示例（如果你没有使用聚合函数处理其他列）</h3><p>SELECT department_id, hire_date</p>
+<p>FROM employees</p>
+<p>GROUP BY department_id;</p>
+<p> 这个查询会报错，因为 <code>hire_date</code> 没有使用聚合函数，且它也没有出现在 <code>GROUP BY</code> 中。在这种情况下，数据库不能确定如何处理 <code>hire_date</code>，因为每个部门可能有多个不同的入职日期。  </p>
+<h1 id="HAVING-子句"><a href="#HAVING-子句" class="headerlink" title="HAVING 子句"></a>HAVING 子句</h1><h3 id="HAVING-子句的作用"><a href="#HAVING-子句的作用" class="headerlink" title="HAVING 子句的作用"></a><code>HAVING</code> 子句的作用</h3><ul>
+<li><code>HAVING</code> 用于对 <strong>分组后的数据</strong> 进行过滤。它类似于 <code>WHERE</code> 子句，但不同的是，<code>WHERE</code> 用于过滤 <strong>原始数据</strong>，而 <code>HAVING</code> 用于过滤 <strong>已经分组</strong> 后的结果。</li>
+<li><code>**HAVING**</code> 常与聚合函数一起使用，用于根据聚合结果进行条件判断。</li>
+</ul>
+<h2 id="HAVING-子句的语法"><a href="#HAVING-子句的语法" class="headerlink" title="HAVING 子句的语法"></a><code>HAVING</code> 子句的语法</h2><p>SELECT column1, column2, aggregation_function(column3)</p>
+<p>FROM table_name</p>
+<p>GROUP BY column1, column2</p>
+<p>HAVING condition;</p>
+<br/>
+
+<ul>
+<li><code>**HAVING**</code> 子句在分组之后应用，用来过滤聚合结果。</li>
+<li><code>HAVING</code> 后面可以跟聚合函数的条件（例如 <code>COUNT()</code>、<code>SUM()</code>、<code>AVG()</code> 等）。</li>
+<li><code>WHERE</code> 不能用于过滤聚合后的结果，必须先使用 <code>GROUP BY</code> 进行分组，再使用 <code>HAVING</code> 来过滤。</li>
+</ul>
+<h3 id="HAVING-和-WHERE-的区别："><a href="#HAVING-和-WHERE-的区别：" class="headerlink" title="HAVING 和 WHERE 的区别："></a><code>HAVING</code> 和 <code>WHERE</code> 的区别：</h3><ul>
+<li><code>WHERE</code> 用于过滤 <strong>原始数据</strong>，不能与聚合函数一起使用。</li>
+<li><code>HAVING</code> 用于过滤 <strong>分组后的数据</strong>，可以与聚合函数一起使用。</li>
+</ul>
+<h1 id="分组查询数据链路"><a href="#分组查询数据链路" class="headerlink" title="分组查询数据链路"></a>分组查询数据链路</h1><p>假设我们有以下 <code>employees</code> 表：</p>
+<table>
+<thead>
+<tr>
+<th>department_id</th>
+<th>employee_id</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>101</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>1</td>
+<td>102</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>103</td>
+<td>7000</td>
+</tr>
+<tr>
+<td>2</td>
+<td>104</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>105</td>
+<td>9000</td>
+</tr>
+<tr>
+<td>3</td>
+<td>106</td>
+<td>10000</td>
+</tr>
+</tbody></table>
+<p> 我们要执行一个按 <code>department_id</code> 分组的查询，来计算每个部门的 <strong>总薪资</strong>（<code>SUM(salary)</code>）和 <strong>员工人数</strong>（<code>COUNT(employee_id)</code>），并筛选出薪资总和大于 15000 的部门。  </p>
+<p>SELECT department_id, SUM(salary) AS total_salary, COUNT(employee_id) AS employee_count</p>
+<p>FROM employees</p>
+<p>GROUP BY department_id</p>
+<p>HAVING SUM(salary) &gt; 15000;</p>
+<br/>
+
+<h4 id="1-原始数据："><a href="#1-原始数据：" class="headerlink" title="1. 原始数据："></a>1. <strong>原始数据：</strong></h4><p>我们从表 <code>employees</code> 中根据where查询出原始数据</p>
+<h4 id="2-分组操作："><a href="#2-分组操作：" class="headerlink" title="2. 分组操作："></a>2. <strong>分组操作：</strong></h4><p>根据 <code>department_id</code> 列将数据分成三个组。</p>
+<ul>
+<li><strong>组 1</strong>: <code>department_id = 1</code><ul>
+<li>(101, 5000), (102, 6000)</li>
+</ul>
+</li>
+<li><strong>组 2</strong>: <code>department_id = 2</code><ul>
+<li>(103, 7000), (104, 8000)</li>
+</ul>
+</li>
+<li><strong>组 3</strong>: <code>department_id = 3</code><ul>
+<li>(105, 9000), (106, 10000)</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-应用聚合函数："><a href="#3-应用聚合函数：" class="headerlink" title="3. 应用聚合函数："></a>3. <strong>应用聚合函数：</strong></h4><p>对每个分组应用聚合函数来计算 <strong>总薪资</strong>（<code>SUM(salary)</code>）和 <strong>员工数</strong>（<code>COUNT(employee_id)</code>）。</p>
+<ul>
+<li><strong>组 1</strong>:<ul>
+<li>总薪资： <code>5000 + 6000 = 11000</code></li>
+<li>员工数： <code>COUNT(2)</code></li>
+</ul>
+</li>
+<li><strong>组 2</strong>:<ul>
+<li>总薪资： <code>7000 + 8000 = 15000</code></li>
+<li>员工数： <code>COUNT(2)</code></li>
+</ul>
+</li>
+<li><strong>组 3</strong>:<ul>
+<li>总薪资： <code>9000 + 10000 = 19000</code></li>
+<li>员工数： <code>COUNT(2)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="4-查询结果："><a href="#4-查询结果：" class="headerlink" title="4. 查询结果："></a>4. <strong>查询结果：</strong></h4><p>这时，每个分组的聚合结果已被计算出来。</p>
+<table>
+<thead>
+<tr>
+<th>department_id</th>
+<th>total_salary</th>
+<th>employee_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>11000</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>15000</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>19000</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<h4 id="5-应用-HAVING-子句："><a href="#5-应用-HAVING-子句：" class="headerlink" title="5. 应用 **HAVING** 子句："></a>5. <strong>应用 <strong><code>**HAVING**</code></strong> 子句：</strong></h4><p><code>HAVING</code> 用于过滤分组后的结果。在这个查询中，我们只保留总薪资大于 15000 的部门。</p>
+<table>
+<thead>
+<tr>
+<th>department_id</th>
+<th>total_salary</th>
+<th>employee_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>19000</td>
+<td>2</td>
+</tr>
+</tbody></table>
+<h4 id="6-最终结果："><a href="#6-最终结果：" class="headerlink" title="6. 最终结果："></a>6. <strong>最终结果：</strong></h4><p>最终，查询结果只包含总薪资大于 15000 的部门：</p>
+<table>
+<thead>
+<tr>
+<th>department_id</th>
+<th>total_salary</th>
+<th>employee_count</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td>19000</td>
+<td>2</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/SQL/ROW_NUMBER/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/SQL/ROW_NUMBER/" class="post-title-link" itemprop="url">ROW NUMBER</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>**ROW_NUMBER()**</code> 是 SQL 中的窗口函数之一，用于为结果集中的每一行分配一个唯一的序列号。这个序列号是根据你指定的排序规则（通过 <code>ORDER BY</code> 子句）生成的，通常用于分页、排序、去重等场景。  </p>
+<h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><p>ROW_NUMBER() OVER (PARTITION BY partition_column ORDER BY order_column)  </p>
+<br/>
+
+<ul>
+<li><code>**PARTITION BY**</code>（可选）：用于指定分组。<code>ROW_NUMBER()</code> 会在每个分组内重新计数。如果没有指定 <code>PARTITION BY</code>，则表示整个结果集为一个分组。</li>
+<li><code>**ORDER BY**</code>：指定序列号的排序方式。<code>ROW_NUMBER()</code> 会根据这个列的顺序为每行分配一个唯一的序列号。</li>
+</ul>
+<h2 id="返回值："><a href="#返回值：" class="headerlink" title="返回值："></a>返回值：</h2><p><code>**ROW_NUMBER()**</code> 返回一个整数，从 <code>1</code> 开始，为每一行生成一个唯一的、按指定排序的序列号。  </p>
+<h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p> 假设有一个 <code>employees</code> 表，包含以下数据：  </p>
+<table>
+<thead>
+<tr>
+<th>emp_no</th>
+<th>name</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>101</td>
+<td>Alice</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Bob</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Charlie</td>
+<td>7000</td>
+</tr>
+<tr>
+<td>104</td>
+<td>David</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Eva</td>
+<td>9000</td>
+</tr>
+</tbody></table>
+<p> 我们想要为这个结果集按 <code>salary</code> 排序，并为每个员工生成一个序列号。  </p>
+<ol>
+<li>**按 <strong><code>**salary**</code></strong> 排序使用 **<code>**ROW_NUMBER()**</code>：</li>
+</ol>
+<p>SELECT emp_no, name, salary,</p>
+<pre><code>   ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num
+</code></pre>
+<p>FROM employees;</p>
+<br/>
+
+<p> 结果：  </p>
+<table>
+<thead>
+<tr>
+<th>emp_no</th>
+<th>name</th>
+<th>salary</th>
+<th>row_num</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>105</td>
+<td>Eva</td>
+<td>9000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>104</td>
+<td>David</td>
+<td>8000</td>
+<td>2</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Charlie</td>
+<td>7000</td>
+<td>3</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Bob</td>
+<td>6000</td>
+<td>4</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Alice</td>
+<td>5000</td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p><code>ROW_NUMBER()</code> 按照 <code>salary</code> 列从高到低排序，并为每行分配一个唯一的序列号。  </p>
 <ol start="2">
-<li><strong><font style="color:rgb(25, 27, 31);">encoding</font></strong></li>
+<li><strong>使用 <strong><code>**PARTITION BY**</code></strong> 分组后进行 <strong><code>**ROW_NUMBER()**</code></strong> 排序</strong>：</li>
 </ol>
-<p><strong>当前节点的数据类型与长度编码信息</strong><strong><font style="color:rgb(25, 27, 31);">。  </font></strong></p>
-<p>它的作用是告诉 Redis：</p>
-<p><strong><font style="color:rgb(25, 27, 31);">“当前节点的内容（content）是字符串还是整数？如果是字符串，它的长度是多少？如果是整数，是哪种整数类型？”</font></strong></p>
-<ol start="3">
-<li><strong><font style="color:rgb(25, 27, 31);">content</font></strong></li>
-</ol>
-<p><strong><font style="color:rgb(25, 27, 31);">content属性负责保存节点的值，值的具体类型由上一个字段encoding来决定。</font></strong></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760538093497-b652385b-6c44-454b-a413-24fbd791ee9b.png"></p>
-<h2 id="连锁更新"><a href="#连锁更新" class="headerlink" title="连锁更新"></a>连锁更新</h2><p><strong><font style="color:rgb(25, 27, 31);">当添加或删除节点时，可能就会因为previous_entry_length的变化导致发生连锁的更新操作。</font></strong></p>
+<p> 假设我们对 <code>department_id</code> 进行分组，并在每个部门内按 <code>salary</code> 排序，为每个部门的员工生成一个序列号。  </p>
+<p>SELECT emp_no, name, department_id, salary,</p>
+<pre><code>   ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS row_num
+</code></pre>
+<p>FROM employees;</p>
+<br/>
 
-      
-    </div>
+<h4 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h4><p>假设数据如下，带有 <code>department_id</code>：</p>
+<table>
+<thead>
+<tr>
+<th>emp_no</th>
+<th>name</th>
+<th>department_id</th>
+<th>salary</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>101</td>
+<td>Alice</td>
+<td>1</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>102</td>
+<td>Bob</td>
+<td>1</td>
+<td>6000</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Charlie</td>
+<td>2</td>
+<td>7000</td>
+</tr>
+<tr>
+<td>104</td>
+<td>David</td>
+<td>2</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Eva</td>
+<td>2</td>
+<td>9000</td>
+</tr>
+</tbody></table>
+<p><strong>执行结果</strong>：  </p>
+<table>
+<thead>
+<tr>
+<th>emp_no</th>
+<th>name</th>
+<th>department_id</th>
+<th>salary</th>
+<th>row_num</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>102</td>
+<td>Bob</td>
+<td>1</td>
+<td>6000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>101</td>
+<td>Alice</td>
+<td>1</td>
+<td>5000</td>
+<td>2</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Eva</td>
+<td>2</td>
+<td>9000</td>
+<td>1</td>
+</tr>
+<tr>
+<td>104</td>
+<td>David</td>
+<td>2</td>
+<td>8000</td>
+<td>2</td>
+</tr>
+<tr>
+<td>103</td>
+<td>Charlie</td>
+<td>2</td>
+<td>7000</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<p> 在每个 <code>department_id</code> 中，<code>ROW_NUMBER()</code> 从 1 开始，按 <code>salary</code> 降序排列  </p>
+<h2 id="应用查询"><a href="#应用查询" class="headerlink" title="应用查询"></a>应用查询</h2><h3 id="分页查询："><a href="#分页查询：" class="headerlink" title="分页查询："></a>分页查询：</h3><p><code>ROW_NUMBER()</code> 常用于分页查询，结合 <code>WHERE</code> 子句和 <code>BETWEEN</code> 子句来获取特定范围的行。  </p>
+<p>WITH NumberedEmployees AS (</p>
+<pre><code>SELECT emp_no, name, salary, 
 
-    
-    
-    
+       ROW_NUMBER() OVER (ORDER BY salary DESC) AS row_num
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+FROM employees
+</code></pre>
+<p>)</p>
+<p>SELECT emp_no, name, salary</p>
+<p>FROM NumberedEmployees</p>
+<p>WHERE row_num BETWEEN 10 AND 20;</p>
+<br/>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/redis_%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/redis_%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>主线程：唯一负责命令解析&#x2F;执行、数据结构操作、事件循环调度、AOF&#x2F;RDB 触发等“核心逻辑”。（也就是真正执行读写操作的线程）</li>
-<li>网络io线程，多个网络io线程处理网络io</li>
-<li>BIO 线程池（处理慢io的线程池）：固定几个后台线程处理慢 IO（aof fsync、close&#x2F;open、lazy-free 等），避免主线程被阻塞。比如说当写回策略是Everysec 的时候就由慢io线程池调用fsync 方法将AOF内核缓冲区刷新到磁盘中</li>
+<h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p> 当我们想去除某些重复行时，<code>ROW_NUMBER()</code> 可以帮助我们标记重复的行，并只保留特定的行。  </p>
+<h3 id="按特定顺序排序并标记每一行的顺序"><a href="#按特定顺序排序并标记每一行的顺序" class="headerlink" title="按特定顺序排序并标记每一行的顺序"></a>按特定顺序排序并标记每一行的顺序</h3><p> 比如，当我们需要按某种规则排序并标记每行的排名时，<code>ROW_NUMBER()</code> 很有用。  </p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><code>**ROW_NUMBER()**</code> 是一个窗口函数，用于根据特定排序为结果集中的每一行分配一个唯一的序列号。</li>
+<li>可以通过 <code>**PARTITION BY**</code> 分组，并使用 <code>**ORDER BY**</code> 进行排序。</li>
+<li>它广泛应用于分页查询、去重、排序等场景。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/redis_%E5%A4%A7key/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/redis_%E5%A4%A7key/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="redis-的大key-会引发什么问题"><a href="#redis-的大key-会引发什么问题" class="headerlink" title="redis 的大key 会引发什么问题"></a>redis 的大key 会引发什么问题</h1><h2 id="大key-对AOF的影响"><a href="#大key-对AOF的影响" class="headerlink" title="大key 对AOF的影响"></a>大key 对AOF的影响</h2><ol>
-<li>如果使用always写回策略，那么由主线程同步调用fsync（）方法，对于大key的写入很耗时，会造成阻塞</li>
-<li>如果是Everysec或no 策略则不会影响主线程，因为Everysec 由慢IO线程池异步调用fsync，no策略是由OS自主调用fsync</li>
-</ol>
-<h2 id="大Key对AOF重写和RDB的影响"><a href="#大Key对AOF重写和RDB的影响" class="headerlink" title="大Key对AOF重写和RDB的影响"></a>大Key对AOF重写和RDB的影响</h2><h3 id="容易触发AOF重写-当AOF日志写入了很多大key，AOF日志文件会迅速增大，会很快触发AOF重写"><a href="#容易触发AOF重写-当AOF日志写入了很多大key，AOF日志文件会迅速增大，会很快触发AOF重写" class="headerlink" title="容易触发AOF重写:当AOF日志写入了很多大key，AOF日志文件会迅速增大，会很快触发AOF重写"></a><font style="color:#DF2A3F;">容易触发AOF重写:</font>当AOF日志写入了很多大key，AOF日志文件会迅速增大，会很快触发AOF重写</h3><h3 id="创建子进程的途中，由于要复制父进程的页表等数据结构，阻塞的时间跟页表的大小有关，页表越大，阻塞的时间也越长；"><a href="#创建子进程的途中，由于要复制父进程的页表等数据结构，阻塞的时间跟页表的大小有关，页表越大，阻塞的时间也越长；" class="headerlink" title="创建子进程的途中，由于要复制父进程的页表等数据结构，阻塞的时间跟页表的大小有关，页表越大，阻塞的时间也越长；"></a><font style="color:rgb(44, 62, 80);">创建子进程的途中，由于要复制父进程的页表等数据结构，阻塞的时间跟页表的大小有关，页表越大，阻塞的时间也越长；</font></h3><p>Redis 在执行 AOF 重写或 RDB 快照时需要 <code>fork()</code> 创建子进程。<code>fork()</code> 会将父进程的整张页表复制一份给子进程，因此当实例中存在大量大 key、占用内存页很多时，页表规模会变得很大，导致页表复制过程耗时严重，从而使 <code>fork()</code> 阻塞主线程。</p>
-<p>例如你用一个 <strong>大 key</strong> 存了 500MB 数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET bigkey &lt;500MB value&gt;</span><br></pre></td></tr></table></figure>
-
-<p>那么 Redis 进程就会多出 <strong>500MB 内存占用</strong>。</p>
-<p>而操作系统管理内存的单位是 <strong>页（page）</strong>，一般是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 页 = 4KB</span><br></pre></td></tr></table></figure>
-
-<p>那么 500MB 大概需要：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">500MB / 4KB ≈ 128,000 个页</span><br></pre></td></tr></table></figure>
-
-<p>也就是说：</p>
-<p>Redis 必须创建 <strong>128,000 个页表项</strong> 来记录这些映射关系。</p>
-<p>因此：</p>
-<p><strong>大 Key 必然导致页表变大，因为大 Key 占用更多内存页，而每一个页都要一个页表项。</strong></p>
-<h3 id="创建完子进程后，如果子进程或者父进程修改了共享数据，就会发生写时复制，这期间会拷贝物理内存，如果内存越大，自然阻塞的时间也越长"><a href="#创建完子进程后，如果子进程或者父进程修改了共享数据，就会发生写时复制，这期间会拷贝物理内存，如果内存越大，自然阻塞的时间也越长" class="headerlink" title="创建完子进程后，如果子进程或者父进程修改了共享数据，就会发生写时复制，这期间会拷贝物理内存，如果内存越大，自然阻塞的时间也越长"></a><font style="color:rgb(44, 62, 80);">创建完子进程后，如果子进程或者父进程修改了共享数据，就会发生写时复制，这期间会拷贝物理内存，如果内存越大，自然阻塞的时间也越长</font></h3><h2 id="大key-除了影响持久化外，还会有一下影响"><a href="#大key-除了影响持久化外，还会有一下影响" class="headerlink" title="大key 除了影响持久化外，还会有一下影响"></a>大key 除了影响持久化外，还会有一下影响</h2><ol>
-<li><font style="color:rgb(44, 62, 80);">客户端超时阻塞。由于 Redis 执行命令是单线程处理，然后在操作大 key 时会比较耗时，那么就会阻塞 Redis，从客户端这一视角看，就是很久很久都没有响应。</font></li>
-<li><font style="color:rgb(44, 62, 80);">引发网络阻塞。每次获取大 key 产生的网络流量较大，引发网络阻塞。每次获取大 key 产生的网络流量较大，这对于普通千兆网卡的服务器来说是灾难性的。</font></li>
-<li><font style="color:rgb(44, 62, 80);">使用del删除大 key 时，会阻塞工作线程（建议使用unlink 命令删除大key）</font></li>
-</ol>
-<h1 id="如何避免大key呢"><a href="#如何避免大key呢" class="headerlink" title="如何避免大key呢"></a><font style="color:rgb(44, 62, 80);">如何避免大key呢</font></h1><ol>
-<li>在设计阶段，尽量把大key 拆成很多小key</li>
-<li>不要使用del命令删除大key，该命令会阻塞主线程，使用unlink（redis4.0）命令删除（ 主线程只负责将 key 从字典中移除，不会阻塞  ，真正的内存释放由后台慢IO线程池完成）</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/redis/redis/redis_%E4%B8%AD%E7%9A%84LRU%E5%92%8CLFU%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/redis/redis/redis_%E4%B8%AD%E7%9A%84LRU%E5%92%8CLFU%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h2><p>LRU算法全称是Latest Recently Used 最近最少使用，最选择淘汰最近最少使用的数据</p>
-<h3 id="传统LRU的实现"><a href="#传统LRU的实现" class="headerlink" title="传统LRU的实现"></a>传统LRU的实现</h3><p>传统 LRU 算法的实现是基于「链表」结构，链表中的元素按照操作顺序从前往后排列，最新操作的键会被移动到表头，当需要内存淘汰时，只需要删除链表尾部的元素即可，因为链表尾部就代表最久未被使用的元素。</p>
-<p>Redis 并没有使用这样的方式实现 LRU 算法，因为传统的 LRU 算法存在两个问题：</p>
-<ul>
-<li>需要用链表管理所有的缓存数据，这会带来额外的空间开销；</li>
-<li>当有数据被访问时，需要在链表上把该数据移动到头端，如果有大量数据被访问，就会带来很多链表移动操作，会很耗时，进而会降低 Redis 缓存性能。</li>
-</ul>
-<h3 id="redis-如何实现LRU"><a href="#redis-如何实现LRU" class="headerlink" title="redis 如何实现LRU"></a>redis 如何实现LRU</h3><p>redis 实现的是一种近似的LRU算法，目的是为了更好的节约内存，它的实现方式是在Redis的对象结构体中添加一个额外的字段，用于记录数据的最后一次访问时间</p>
-<p>当Redis 进行内存淘汰的时候，会使用<strong>随机采样</strong>的方法来淘汰数据，就是随机取5个值（此值可配），然后淘汰最久没有使用的那个</p>
-<p>Redis 实现的 LRU 算法的优点：</p>
-<ul>
-<li>不用为所有的数据维护一个大链表，节省了空间占用；</li>
-<li>不用在每次数据访问时都移动链表项，提升了缓存的性能；</li>
-</ul>
-<p>但是 LRU 算法有一个问题，<strong>无法解决缓存污染问题</strong>，比如应用一次读取了大量的数据，而这些数据只会被读取这一一次，那么这些数据会留存在 Redis 缓存中很长一段时间，造成缓存污染。</p>
-<p>因此，在 Redis 4.0 之后引入了 LFU 算法来解决这个问题。</p>
-<h2 id="LFU"><a href="#LFU" class="headerlink" title="LFU"></a>LFU</h2><p>LFU 全称是 Least Frequently Used，翻译为<strong>最近最不常用</strong>。<br>LFU 算法是根据数据访问次数来淘汰数据的，它的核心思想是：“如果数据过去被访问得多次，那么将来被访问的频率也更高。”</p>
-<p> 所以，LFU 算法会记录每个数据的访问次数。当一个数据被再次访问时，就会增加该数据的访问次数。这样就解决了偶尔被访问一次之后，数据仍然在缓存中长期占用的问题。**所以作为缓存数据库，相比于 LRU 算法，LFU 算法更加合理。 ** </p>
-<h3 id="redisLFU的实现"><a href="#redisLFU的实现" class="headerlink" title="redisLFU的实现"></a>redisLFU的实现</h3><p> LFU 算法相对于 LRU 算法的实现，多记录了「<strong>数据的访问频次</strong>」的信息（<font style="color:#DF2A3F;">是访问频次不是访问次数！！！</font>）。<br>Redis 对象的结构如下：  </p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760854468519-f5cc7c5a-4549-4b63-ae0d-d1109e89c61e.png"></p>
-<p>Redis 对象头中的 lru 字段，在 LRU 算法下和 LFU 算法下使用方式并不相同。</p>
-<p><strong>在 LRU 算法中</strong>，Redis 对象头的 24 bits 的 lru 字段是用来记录 key 的访问时间戳，因此在 LRU 模式下，Redis 可以根据对象头中的 lru 字段记录的值，来比较最后一次 key 的访问时间长短，从而淘汰最久未被使用的 key。</p>
-<p><strong>在 LFU 算法中</strong>，Redis 对象头的 24 bits 的 lru 字段被分成两段来存储，高 16bit 存储 ldt（Last Decrement Time），低 8bit 存储 logc（Logistic Counter）。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760854505771-8999f755-382a-4261-9426-e1f99c6476df.png"></p>
-<ul>
-<li><font style="color:rgb(44, 62, 80);">ldt 是用来记录 key 的访问时间戳；</font></li>
-<li><strong>logc</strong><font style="color:rgb(44, 62, 80);"> 是用来记录 key 的</font><font style="color:#DF2A3F;">访问频次</font><font style="color:rgb(44, 62, 80);">，它的值越小表示使用频率越低，越容易淘汰。每个新加入的 key 的 logc 初始值为 5。  </font></li>
-</ul>
-<p><font style="color:#DF2A3F;">注意，logc 并不是单纯的访问次数，而是访问</font><strong><font style="color:#DF2A3F;">频次（访问频率）</font></strong><font style="color:#DF2A3F;">，因为 </font><strong><font style="color:#DF2A3F;">logc 会随时间推移而衰减</font></strong><font style="color:#DF2A3F;">。</font></p>
-<p><font style="color:#000000;">在每次 key 被访问时，会先对 logc 做一个衰减操作，衰减的值跟前后访问时间的差距有关：<br></font><font style="color:#000000;">如果上一次访问的时间与这一次访问的时间差距很大，那么衰减的值就越大。<br></font><font style="color:#000000;">这种实现的 LFU 算法是根据</font><strong><font style="color:#000000;">访问频率</font></strong><font style="color:#000000;">来淘汰数据的，而不只是访问次数。<br></font><font style="color:#000000;">访问频率需要考虑 key 的访问是多长时间段内发生的。<br></font><font style="color:#000000;">key 的先前访问距离当前时间越长，那么这个 key 的访问频率相应地就会降低，这样被淘汰的概率也会更大。</font></p>
-<p><font style="color:#000000;">对 logc 做完衰减操作后，就开始对 logc 进行增加操作。<br></font><font style="color:#000000;">增加操作并不是单纯的 +1，而是根据概率增加，如果 logc 越大的 key，它的 logc 就越难再增加。</font></p>
-<p><font style="color:#000000;">所以，Redis 在访问 key 时，对于 logc 是这样变化的：<br></font><font style="color:#000000;">1️⃣</font><font style="color:#000000;"> 先按照上次访问间隔当前的时长，来对 logc 进行衰减；<br></font><font style="color:#000000;">2️⃣</font><font style="color:#000000;"> 然后，再按照一定概率增加 logc 的值。</font></p>
-<p><code>&lt;font style=&quot;color:#000000;&quot;&gt;redis.conf&lt;/font&gt;</code><font style="color:#000000;"> 提供了两个配置项，用于调整 LFU 算法从而控制 logc 的增长和衰减：</font></p>
-<ul>
-<li><strong><font style="color:#000000;">lfu-decay-time</font></strong><font style="color:#000000;">：用于调整 logc 的衰减速度，它是一个以分钟为单位的数值，默认值为 1；lfu-decay-time 越大，衰减越慢。</font></li>
-<li><strong><font style="color:#000000;">lfu-log-factor</font></strong><font style="color:#000000;">：用于调整 logc 的增长速度，lfu-log-factor 值越大，logc 增长越慢。</font></li>
-</ul>
-<p><font style="color:#DF2A3F;">  </font></p>
 
       
     </div>
@@ -1159,7 +2069,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1175,8 +2085,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

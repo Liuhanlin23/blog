@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,11 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="HTTP各版本对比   对比项 HTTP&#x2F;1.1 HTTP&#x2F;2 HTTP&#x2F;3    发布时间 1999 年（RFC 2616） 2015 年（RFC 7540） 2022 年（RFC 9114）   传输协议 TCP TCP QUIC（UDP）   连接复用 ❌ 每次一个请求 ✅ 多路复用 ✅ 多路复用   队头阻塞 ⚠️ 存在 ⚠️ TCP 层仍存在 ✅ 完全消除">
 <meta property="og:type" content="article">
-<meta property="og:title" content="刘翰霖">
+<meta property="og:title" content="HTTP 1.1与HTTP 2">
 <meta property="og:url" content="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/index.html">
 <meta property="og:site_name" content="刘翰霖">
 <meta property="og:description" content="HTTP各版本对比   对比项 HTTP&#x2F;1.1 HTTP&#x2F;2 HTTP&#x2F;3    发布时间 1999 年（RFC 2616） 2015 年（RFC 7540） 2022 年（RFC 9114）   传输协议 TCP TCP QUIC（UDP）   连接复用 ❌ 每次一个请求 ✅ 多路复用 ✅ 多路复用   队头阻塞 ⚠️ 存在 ⚠️ TCP 层仍存在 ✅ 完全消除">
@@ -33,8 +34,8 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203086685-34f10817-2306-476f-bcd2-bd62e98f262e.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203914100-35225b1c-4226-4aad-acd5-2cb604cef39d.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761203963602-15e3c956-eef4-4eba-bbbf-32563e0c123f.png">
-<meta property="article:published_time" content="2025-11-25T12:31:43.382Z">
-<meta property="article:modified_time" content="2025-11-25T12:27:21.563Z">
+<meta property="article:published_time" content="2025-11-25T13:35:19.248Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:27.967Z">
 <meta property="article:author" content="刘翰霖">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761189940349-a5fcddf8-16cb-49a2-b493-6a4362630c68.png">
@@ -43,10 +44,10 @@
 <link rel="canonical" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/","path":"2025/11/25/网络/HTTP协议/HTTP_1.1与HTTP_2/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_1.1%E4%B8%8EHTTP_2/","path":"2025/11/25/网络/HTTP协议/HTTP_1.1与HTTP_2/","title":"HTTP 1.1与HTTP 2"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | 刘翰霖</title>
+<title>HTTP 1.1与HTTP 2 | 刘翰霖</title>
   
 
 
@@ -87,6 +88,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -107,6 +111,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -142,9 +150,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -183,24 +196,28 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="name" content="HTTP 1.1与HTTP 2 | 刘翰霖">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          HTTP 1.1与HTTP 2
         </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="index"><span itemprop="name">HTTP协议</span></a>
+        </span>
     </span>
 
   
@@ -563,13 +580,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTPS/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/%E4%B8%80%E4%B8%AA%E8%BF%9B%E7%A8%8B%E5%8F%AF%E4%BB%A5%E5%BB%BA%E7%AB%8B%E5%A4%9A%E5%B0%91%E4%B8%AA%E8%BF%9E%E6%8E%A5/" rel="prev" title="一个进程可以建立多少个连接">
+                  <i class="fa fa-angle-left"></i> 一个进程可以建立多少个连接
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_2_%E4%B8%8EHTTP_3/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/HTTP%E5%8D%8F%E8%AE%AE/HTTP_2_%E4%B8%8EHTTP_3/" rel="next" title="HTTP 2 与HTTP 3">
+                  HTTP 2 与HTTP 3 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -595,8 +612,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

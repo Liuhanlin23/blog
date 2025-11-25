@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,12 +18,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="标量子查询是 只返回一个值（一个单元格） 的子查询。这个值可以出现在主查询的 SELECT、WHERE、HAVING 等语句中，就像一个普通字段或常量一样使用。    换句话说：👉 标量子查询的结果相当于“先执行一个查询得到一个数字&#x2F;字符串”，然后把它当成主查询的一部分。     注意事项1. 标量子查询必须只返回 一行一列  否则会报错比如： SELECT (SELECT dept">
 <meta property="og:type" content="article">
-<meta property="og:title" content="刘翰霖">
-<meta property="og:url" content="http://example.com/2025/11/25/mysql/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:title" content="标量子查询">
+<meta property="og:url" content="http://example.com/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="刘翰霖">
 <meta property="og:description" content="标量子查询是 只返回一个值（一个单元格） 的子查询。这个值可以出现在主查询的 SELECT、WHERE、HAVING 等语句中，就像一个普通字段或常量一样使用。    换句话说：👉 标量子查询的结果相当于“先执行一个查询得到一个数字&#x2F;字符串”，然后把它当成主查询的一部分。     注意事项1. 标量子查询必须只返回 一行一列  否则会报错比如： SELECT (SELECT dept">
 <meta property="og:locale" content="zh_CN">
@@ -31,20 +32,20 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125101941-ecd4f800-1d20-4454-83eb-1707804cdaf1.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125181879-d279466a-e03b-47eb-b8a4-927dafbe0bf3.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761125256449-e0f52e33-2bf8-4586-a4cd-361144b25bda.png">
-<meta property="article:published_time" content="2025-11-25T12:31:43.060Z">
-<meta property="article:modified_time" content="2025-11-25T12:27:21.386Z">
+<meta property="article:published_time" content="2025-11-25T13:35:18.213Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:27.329Z">
 <meta property="article:author" content="刘翰霖">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761124631592-af8bcef8-cc87-4716-ab4d-c3d02cec98fd.png">
 
 
-<link rel="canonical" href="http://example.com/2025/11/25/mysql/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/">
+<link rel="canonical" href="http://example.com/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/mysql/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/","path":"2025/11/25/mysql/SQL/标量子查询/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/","path":"2025/11/25/MySQL/SQL/标量子查询/","title":"标量子查询"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | 刘翰霖</title>
+<title>标量子查询 | 刘翰霖</title>
   
 
 
@@ -85,6 +86,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -105,6 +109,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -140,9 +148,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -168,7 +181,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/mysql/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/SQL/%E6%A0%87%E9%87%8F%E5%AD%90%E6%9F%A5%E8%AF%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,24 +194,28 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="name" content="标量子查询 | 刘翰霖">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          标量子查询
         </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
     </span>
 
   
@@ -238,13 +255,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/11/25/mysql/SQL/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                <a href="/2025/11/25/MySQL/SQL/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" rel="prev" title="多表查询">
+                  <i class="fa fa-angle-left"></i> 多表查询
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/11/25/mysql/%E6%85%A2sql%E4%BC%98%E5%8C%96/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                <a href="/2025/11/25/MySQL/%E6%97%A5%E5%BF%97/binlog/" rel="next" title="binlog">
+                  binlog <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -270,8 +287,6 @@
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>

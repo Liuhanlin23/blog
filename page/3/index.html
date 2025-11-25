@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -17,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="刘翰霖">
@@ -75,6 +76,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -95,6 +99,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -129,9 +137,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">98</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -156,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/%E6%B3%A8%E8%A7%A3/ConditionOnProperty/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,19 +187,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/%E6%B3%A8%E8%A7%A3/ConditionOnProperty/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">基本配置</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/SpringBootDataRedis/" itemprop="url" rel="index"><span itemprop="name">SpringBootDataRedis</span></a>
+        </span>
     </span>
 
   
@@ -199,115 +216,64 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><code>@ConditionalOnProperty</code> 用来<strong>根据配置文件中的某个属性是否存在 &#x2F; 是否为某个值</strong>，决定某个 Bean、某个配置类是否要加载。  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@Slf4j</span><br><span class="line">@ConditionalOnProperty(</span><br><span class="line">        prefix = &quot;app.log-aspect&quot;,//配置前缀</span><br><span class="line">        name = &quot;enabled&quot;,//配置名</span><br><span class="line">        havingValue = &quot;true&quot;,      // 只有为 true 时才生效</span><br><span class="line">        matchIfMissing = false     // 没配的话默认不生效（视需求可改）</span><br><span class="line">)</span><br><span class="line">class CacheHistLog &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="一-引入依赖"><a href="#一-引入依赖" class="headerlink" title="一. 引入依赖"></a>一. 引入依赖</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
-<p>对应application.yml 配置</p>
-<p>app.log-aspect.enabled: true</p>
-<br/>
+<h1 id="二-基础配置"><a href="#二-基础配置" class="headerlink" title="二.基础配置"></a>二.基础配置</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    redis:</span><br><span class="line">      host: localhost</span><br><span class="line">      port: <span class="number">6379</span></span><br><span class="line">      # password: your_password</span><br><span class="line">      lettuce:</span><br><span class="line">        pool:</span><br><span class="line">          max-active: <span class="number">16</span></span><br><span class="line">          max-idle: <span class="number">8</span></span><br><span class="line">          min-idle: <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一-定义自定义注解"><a href="#一-定义自定义注解" class="headerlink" title="一.定义自定义注解"></a>一.定义自定义注解</h1><p> 使用 Java 原生的 <code>@interface</code> 来定义。例如我们要定义一个注解，用于记录方法执行日志：  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">// 注解作用目标：方法</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span> <span class="comment">// 运行时保留</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> LogExecutionTime &#123;</span><br><span class="line">    String <span class="title function_">value</span><span class="params">()</span> <span class="keyword">default</span> <span class="string">&quot;&quot;</span>; <span class="comment">// 可以添加参数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>常用元注解说明</p>
-<table>
+<h1 id="三-选择-api"><a href="#三-选择-api" class="headerlink" title="三.选择 api"></a>三.选择 api</h1><table>
 <thead>
 <tr>
-<th>注解</th>
-<th>作用</th>
+<th>对比项</th>
+<th><strong>StringRedisTemplate</strong></th>
+<th><strong>RedisTemplate&lt;K, V&gt;</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>@Target</code></td>
-<td>指定注解可以用在什么位置（类、方法、字段等）</td>
+<td><strong>泛型类型</strong></td>
+<td>固定为 <code>&lt;String, String&gt;</code></td>
+<td>可自定义，如 <code>&lt;String, Object&gt;</code></td>
 </tr>
 <tr>
-<td><code>@Retention</code></td>
-<td>指定注解的生命周期（SOURCE &#x2F; CLASS &#x2F; RUNTIME）</td>
+<td><strong>默认序列化器</strong></td>
+<td><code>StringRedisSerializer</code><br/>（字符串序列化）</td>
+<td><code>JdkSerializationRedisSerializer</code><br/>（二进制序列化）</td>
 </tr>
 <tr>
-<td><code>@Documented</code></td>
-<td>生成文档时是否包含注解</td>
+<td><strong>是否需要自定义序列化</strong></td>
+<td>否</td>
+<td>通常需要配置 JSON 序列化器</td>
 </tr>
 <tr>
-<td><code>@Inherited</code></td>
-<td>是否允许子类继承该注解</td>
+<td><strong>是否可直接存对象（类）</strong></td>
+<td>❌ 否（需手动转 JSON）</td>
+<td>✅ 是（推荐使用 JSON 序列化）</td>
+</tr>
+<tr>
+<td><strong>是否支持 Redis 五大结构（String、List、Hash、Set、ZSet）</strong></td>
+<td>✅ 支持（仅限字符串类型）</td>
+<td>✅ 支持（支持任意类型）</td>
+</tr>
+<tr>
+<td><strong>数据可读性（在 Redis CLI 中查看）</strong></td>
+<td>✅ 明文（UTF-8 可读）</td>
+<td>⚠️ 默认不可读（JDK 序列化后为二进制）</td>
+</tr>
+<tr>
+<td><strong>使用复杂度</strong></td>
+<td>简单（开箱即用）</td>
+<td>稍复杂（需配置序列化器）</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>存字符串：验证码、token、计数器、状态标志等</td>
+<td>存复杂对象：用户信息、缓存实体、JSON 数据等</td>
+</tr>
+<tr>
+<td><strong>推荐程度</strong></td>
+<td>⭐⭐⭐（简单字符串场景）</td>
+<td>⭐⭐⭐⭐（通用复杂场景）</td>
 </tr>
 </tbody></table>
-<h1 id="二-编写切面类-AOP方式实现逻辑"><a href="#二-编写切面类-AOP方式实现逻辑" class="headerlink" title="二.编写切面类(AOP方式实现逻辑)"></a>二.编写切面类(AOP方式实现逻辑)</h1><p> Spring Boot 最常见的方式是结合 <strong>AOP（面向切面编程）</strong> 来实现注解逻辑。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LogExecutionAspect</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around(&quot;@annotation(logExecutionTime)&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">around</span><span class="params">(ProceedingJoinPoint joinPoint, LogExecutionTime logExecutionTime)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> joinPoint.proceed(); <span class="comment">// 执行目标方法</span></span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">&quot;方法 &quot;</span> + joinPoint.getSignature().getName()</span><br><span class="line">                + <span class="string">&quot; 执行耗时: &quot;</span> + (end - start) + <span class="string">&quot;ms&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 
       
     </div>
@@ -334,7 +300,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/SpringBootDataRedis/RedisTemplate_Api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -352,19 +318,23 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Redis/SpringBootDataRedis/RedisTemplate_Api/" class="post-title-link" itemprop="url">RedisTemplate Api</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/SpringBootDataRedis/" itemprop="url" rel="index"><span itemprop="name">SpringBootDataRedis</span></a>
+        </span>
     </span>
 
   
@@ -377,626 +347,1105 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Spring 中实现定时任务一共两步：</p>
-<ul>
-<li>开启定时任务支持: @EnableScheduling  </li>
-<li>编写定时任务: @Scheduled</li>
-</ul>
-<h1 id="开启定时任务支持-EnableScheduling"><a href="#开启定时任务支持-EnableScheduling" class="headerlink" title="开启定时任务支持(@EnableScheduling)"></a>开启定时任务支持(@EnableScheduling)</h1><p>在你的 Spring Boot 启动类上加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootApplication</span><br><span class="line">@EnableScheduling  // 开启定时任务</span><br><span class="line">public class App &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(App.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="定义支持Json-的RedisTemplate-Bean"><a href="#定义支持Json-的RedisTemplate-Bean" class="headerlink" title="定义支持Json 的RedisTemplate Bean"></a>定义支持Json 的RedisTemplate Bean</h1><p><em>RedisTemplate 默认的序列化形式是二进制</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisConfig</span> &#123;</span><br><span class="line">  <span class="comment">// 定义一个名为 redisTemplate 的 Bean，返回 RedisTemplate&lt;String, Object&gt;</span></span><br><span class="line">  <span class="comment">// Spring 会将这个 Bean 自动注入到需要使用 RedisTemplate 的地方</span></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title function_">redisTemplate</span><span class="params">(RedisConnectionFactory cf)</span> &#123;</span><br><span class="line">    <span class="comment">// 创建 RedisTemplate 对象（泛型指定 key 为 String，value 为 Object）</span></span><br><span class="line">    RedisTemplate&lt;String, Object&gt; tpl = <span class="keyword">new</span> <span class="title class_">RedisTemplate</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注入 Redis 连接工厂（Spring Boot 会自动帮我们配置好连接池和客户端）</span></span><br><span class="line">    tpl.setConnectionFactory(cf);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1️ 定义 Key 与 HashKey 的序列化器 —— String 类型</span></span><br><span class="line">    <span class="comment">// Redis 中所有 key 都是字符串类型，这样在 redis-cli 中可以直接看到明文</span></span><br><span class="line">    <span class="type">StringRedisSerializer</span> <span class="variable">keySer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringRedisSerializer</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2️ 定义 Value 与 HashValue 的序列化器 —— JSON 类型</span></span><br><span class="line">    <span class="comment">// 这里使用 GenericJackson2JsonRedisSerializer，它会自动：</span></span><br><span class="line">    <span class="comment">//   - 将对象转为 JSON 存入 Redis；</span></span><br><span class="line">    <span class="comment">//   - 保存类型信息，反序列化时能还原对象；</span></span><br><span class="line">    <span class="comment">//   - 跨语言可读（不同语言也能解析 JSON）</span></span><br><span class="line">    <span class="type">GenericJackson2JsonRedisSerializer</span> <span class="variable">valSer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GenericJackson2JsonRedisSerializer</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3️ 设置各部分的序列化策略</span></span><br><span class="line">    <span class="comment">// key 和 hash key 用字符串序列化</span></span><br><span class="line">    tpl.setKeySerializer(keySer);</span><br><span class="line">    tpl.setHashKeySerializer(keySer);</span><br><span class="line">    <span class="comment">// value 和 hash value 用 JSON 序列化</span></span><br><span class="line">    tpl.setValueSerializer(valSer);</span><br><span class="line">    tpl.setHashValueSerializer(valSer);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4️ 初始化配置（生效设置）</span></span><br><span class="line">    tpl.afterPropertiesSet();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5️ 返回配置好的 RedisTemplate 实例</span></span><br><span class="line">    <span class="keyword">return</span> tpl;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="编写定时任务"><a href="#编写定时任务" class="headerlink" title="编写定时任务"></a>编写定时任务</h1><p>你可以在任何 Spring Bean 中写定时任务方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class MyTask &#123;</span><br><span class="line"></span><br><span class="line">    // 每隔 5 秒执行一次</span><br><span class="line">    @Scheduled(fixedRate = 5000)</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(&quot;执行任务：&quot; + LocalDateTime.now());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用-Cron-fixedRate-fixedDelay-参数说明"><a href="#常用-Cron-fixedRate-fixedDelay-参数说明" class="headerlink" title="常用 Cron&#x2F;fixedRate&#x2F;fixedDelay 参数说明"></a>常用 Cron&#x2F;fixedRate&#x2F;fixedDelay 参数说明</h2><table>
+<table>
 <thead>
 <tr>
-<th>注解属性</th>
+<th>序列化器</th>
+<th>作用对象</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>setKeySerializer()</code></td>
+<td>Redis 最外层 key</td>
+<td>所有结构通用</td>
+</tr>
+<tr>
+<td><code>setValueSerializer()</code></td>
+<td>Redis String 结构的 value</td>
+<td>仅 opsForValue() 时使用</td>
+</tr>
+<tr>
+<td><code>setHashKeySerializer()</code></td>
+<td>Hash 内部 field 名称</td>
+<td>仅 opsForHash() 时使用</td>
+</tr>
+<tr>
+<td><code>setHashValueSerializer()</code></td>
+<td>Hash 内部 field 的值</td>
+<td>仅 opsForHash() 时使用</td>
+</tr>
+</tbody></table>
+<h1 id="RedisTemplate-的常用方法"><a href="#RedisTemplate-的常用方法" class="headerlink" title="RedisTemplate 的常用方法"></a>RedisTemplate 的常用方法</h1><h2 id="一、RedisTemplate-的核心结构"><a href="#一、RedisTemplate-的核心结构" class="headerlink" title="一、RedisTemplate 的核心结构"></a>一、RedisTemplate 的核心结构</h2><p><code>RedisTemplate</code> 封装了对 Redis 的各种数据结构操作方法，通过以下 5 个「ops」接口：  </p>
+<table>
+<thead>
+<tr>
+<th>数据结构</th>
+<th>方法入口</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String（字符串）</td>
+<td><code>opsForValue()</code></td>
+<td>最常用，用于缓存、计数器</td>
+</tr>
+<tr>
+<td>Hash（哈希表）</td>
+<td><code>opsForHash()</code></td>
+<td>存储结构化对象（类似 Map）</td>
+</tr>
+<tr>
+<td>List（列表）</td>
+<td><code>opsForList()</code></td>
+<td>队列、栈、消息列表</td>
+</tr>
+<tr>
+<td>Set（无序集合）</td>
+<td><code>opsForSet()</code></td>
+<td>去重集合、标签集合</td>
+</tr>
+<tr>
+<td>ZSet（有序集合）</td>
+<td><code>opsForZSet()</code></td>
+<td>排行榜、权重分数表</td>
+</tr>
+</tbody></table>
+<h2 id="二、常用方法总览表"><a href="#二、常用方法总览表" class="headerlink" title="二、常用方法总览表"></a>二、常用方法总览表</h2><h3 id="opsForValue-——-操作普通键值-String"><a href="#opsForValue-——-操作普通键值-String" class="headerlink" title="opsForValue() —— 操作普通键值 (String)"></a>opsForValue() —— 操作普通键值 (String)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义 &#x2F; 用途</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>set(key, value)</code></td>
+<td>设置键值</td>
+<td><code>opsForValue().set(&quot;name&quot;, &quot;Alice&quot;)</code></td>
+</tr>
+<tr>
+<td><code>set(key, value, timeout)</code></td>
+<td>设置带过期时间</td>
+<td><code>opsForValue().set(&quot;code&quot;, &quot;1234&quot;, Duration.ofMinutes(5))</code></td>
+</tr>
+<tr>
+<td><code>get(key)</code></td>
+<td>获取值</td>
+<td><code>opsForValue().get(&quot;name&quot;)</code></td>
+</tr>
+<tr>
+<td><code>increment(key)</code></td>
+<td>自增（计数器）</td>
+<td><code>opsForValue().increment(&quot;viewCount&quot;)</code></td>
+</tr>
+<tr>
+<td><code>decrement(key)</code></td>
+<td>自减</td>
+<td><code>opsForValue().decrement(&quot;stock&quot;)</code></td>
+</tr>
+<tr>
+<td><code>getAndSet(key, value)</code></td>
+<td>取旧值并设置新值</td>
+<td><code>opsForValue().getAndSet(&quot;token&quot;, &quot;newToken&quot;)</code></td>
+</tr>
+<tr>
+<td><code>multiSet(map)</code></td>
+<td>批量设置</td>
+<td><code>opsForValue().multiSet(map)</code></td>
+</tr>
+<tr>
+<td><code>multiGet(keys)</code></td>
+<td>批量获取</td>
+<td><code>opsForValue().multiGet(keys)</code></td>
+</tr>
+</tbody></table>
+<h3 id="opsForHash-——-操作哈希表-Hash"><a href="#opsForHash-——-操作哈希表-Hash" class="headerlink" title="opsForHash() —— 操作哈希表 (Hash)"></a>opsForHash() —— 操作哈希表 (Hash)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>含义 &#x2F; 用途</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>put(key, hashKey, value)</code></td>
+<td>设置哈希字段</td>
+<td><code>opsForHash().put(&quot;user:1&quot;, &quot;name&quot;, &quot;Alice&quot;)</code></td>
+</tr>
+<tr>
+<td><code>get(key, hashKey)</code></td>
+<td>获取哈希字段值</td>
+<td><code>opsForHash().get(&quot;user:1&quot;, &quot;name&quot;)</code></td>
+</tr>
+<tr>
+<td><code>putAll(key, map)</code></td>
+<td>批量设置字段</td>
+<td><code>opsForHash().putAll(&quot;user:1&quot;, map)</code></td>
+</tr>
+<tr>
+<td><code>entries(key)</code></td>
+<td>获取所有字段和值</td>
+<td><code>opsForHash().entries(&quot;user:1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>delete(key, hashKeys...)</code></td>
+<td>删除字段</td>
+<td><code>opsForHash().delete(&quot;user:1&quot;, &quot;age&quot;)</code></td>
+</tr>
+<tr>
+<td><code>hasKey(key, hashKey)</code></td>
+<td>判断字段是否存在</td>
+<td><code>opsForHash().hasKey(&quot;user:1&quot;, &quot;name&quot;)</code></td>
+</tr>
+<tr>
+<td><code>increment(key, hashKey, delta)</code></td>
+<td>哈希字段自增</td>
+<td><code>opsForHash().increment(&quot;user:1&quot;, &quot;score&quot;, 10)</code></td>
+</tr>
+<tr>
+<td><code>keys(key)</code></td>
+<td>获取哈希所有字段名</td>
+<td><code>opsForHash().keys(&quot;user:1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>values(key)</code></td>
+<td>获取所有字段值</td>
+<td><code>opsForHash().values(&quot;user:1&quot;)</code></td>
+</tr>
+</tbody></table>
+<h3 id="opsForList-——-操作列表-List"><a href="#opsForList-——-操作列表-List" class="headerlink" title="opsForList() —— 操作列表 (List)"></a>opsForList() —— 操作列表 (List)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>leftPush(key, value)</code></td>
+<td>从左入队</td>
+<td><code>opsForList().leftPush(&quot;queue&quot;, &quot;task1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>rightPush(key, value)</code></td>
+<td>从右入队</td>
+<td><code>opsForList().rightPush(&quot;queue&quot;, &quot;task2&quot;)</code></td>
+</tr>
+<tr>
+<td><code>leftPop(key)</code></td>
+<td>从左出队</td>
+<td><code>opsForList().leftPop(&quot;queue&quot;)</code></td>
+</tr>
+<tr>
+<td><code>rightPop(key)</code></td>
+<td>从右出队</td>
+<td><code>opsForList().rightPop(&quot;queue&quot;)</code></td>
+</tr>
+<tr>
+<td><code>range(key, start, end)</code></td>
+<td>按索引范围获取元素</td>
+<td><code>opsForList().range(&quot;queue&quot;, 0, -1)</code></td>
+</tr>
+<tr>
+<td><code>size(key)</code></td>
+<td>获取长度</td>
+<td><code>opsForList().size(&quot;queue&quot;)</code></td>
+</tr>
+<tr>
+<td><code>index(key, index)</code></td>
+<td>获取指定位置元素</td>
+<td><code>opsForList().index(&quot;queue&quot;, 0)</code></td>
+</tr>
+<tr>
+<td><code>remove(key, count, value)</code></td>
+<td>删除匹配的元素</td>
+<td><code>opsForList().remove(&quot;queue&quot;, 1, &quot;task1&quot;)</code></td>
+</tr>
+</tbody></table>
+<h3 id="opsForSet-——-操作集合-Set"><a href="#opsForSet-——-操作集合-Set" class="headerlink" title="opsForSet() —— 操作集合 (Set)"></a>opsForSet() —— 操作集合 (Set)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>add(key, values...)</code></td>
+<td>添加元素</td>
+<td><code>opsForSet().add(&quot;online&quot;, &quot;u1&quot;, &quot;u2&quot;)</code></td>
+</tr>
+<tr>
+<td><code>remove(key, values...)</code></td>
+<td>移除元素</td>
+<td><code>opsForSet().remove(&quot;online&quot;, &quot;u1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>members(key)</code></td>
+<td>获取所有成员</td>
+<td><code>opsForSet().members(&quot;online&quot;)</code></td>
+</tr>
+<tr>
+<td><code>isMember(key, value)</code></td>
+<td>判断是否存在</td>
+<td><code>opsForSet().isMember(&quot;online&quot;, &quot;u1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>intersect(k1, k2)</code></td>
+<td>交集</td>
+<td><code>opsForSet().intersect(&quot;a&quot;, &quot;b&quot;)</code></td>
+</tr>
+<tr>
+<td><code>union(k1, k2)</code></td>
+<td>并集</td>
+<td><code>opsForSet().union(&quot;a&quot;, &quot;b&quot;)</code></td>
+</tr>
+<tr>
+<td><code>difference(k1, k2)</code></td>
+<td>差集</td>
+<td><code>opsForSet().difference(&quot;a&quot;, &quot;b&quot;)</code></td>
+</tr>
+</tbody></table>
+<h3 id="opsForZSet-——-操作有序集合-ZSet"><a href="#opsForZSet-——-操作有序集合-ZSet" class="headerlink" title="opsForZSet() —— 操作有序集合 (ZSet)"></a>opsForZSet() —— 操作有序集合 (ZSet)</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>add(key, value, score)</code></td>
+<td>添加元素及分数</td>
+<td><code>opsForZSet().add(&quot;rank&quot;, &quot;u1&quot;, 100)</code></td>
+</tr>
+<tr>
+<td><code>score(key, value)</code></td>
+<td>获取分数</td>
+<td><code>opsForZSet().score(&quot;rank&quot;, &quot;u1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>incrementScore(key, value, delta)</code></td>
+<td>增加分数</td>
+<td><code>opsForZSet().incrementScore(&quot;rank&quot;, &quot;u1&quot;, 5)</code></td>
+</tr>
+<tr>
+<td><code>range(key, start, end)</code></td>
+<td>获取升序成员</td>
+<td><code>opsForZSet().range(&quot;rank&quot;, 0, 9)</code></td>
+</tr>
+<tr>
+<td><code>reverseRange(key, start, end)</code></td>
+<td>获取降序成员</td>
+<td><code>opsForZSet().reverseRange(&quot;rank&quot;, 0, 9)</code></td>
+</tr>
+<tr>
+<td><code>remove(key, values...)</code></td>
+<td>删除元素</td>
+<td><code>opsForZSet().remove(&quot;rank&quot;, &quot;u1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>rank(key, value)</code></td>
+<td>获取排名（升序）</td>
+<td><code>opsForZSet().rank(&quot;rank&quot;, &quot;u1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>reverseRank(key, value)</code></td>
+<td>获取排名（降序）</td>
+<td><code>opsForZSet().reverseRank(&quot;rank&quot;, &quot;u1&quot;)</code></td>
+</tr>
+</tbody></table>
+<h2 id="三-通用操作方法"><a href="#三-通用操作方法" class="headerlink" title="三. 通用操作方法"></a>三. 通用操作方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>delete(key)</code></td>
+<td>删除指定 key</td>
+<td><code>redisTemplate.delete(&quot;user:1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>hasKey(key)</code></td>
+<td>判断 key 是否存在</td>
+<td><code>redisTemplate.hasKey(&quot;user:1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>keys(pattern)</code></td>
+<td>获取匹配的 key 集合</td>
+<td><code>redisTemplate.keys(&quot;user:*&quot;)</code></td>
+</tr>
+<tr>
+<td><code>expire(key, time)</code></td>
+<td>设置过期时间</td>
+<td><code>redisTemplate.expire(&quot;user:1&quot;, Duration.ofMinutes(5))</code></td>
+</tr>
+<tr>
+<td><code>getExpire(key)</code></td>
+<td>获取 TTL（剩余时间）</td>
+<td><code>redisTemplate.getExpire(&quot;user:1&quot;)</code></td>
+</tr>
+<tr>
+<td><code>rename(oldKey, newKey)</code></td>
+<td>重命名 key</td>
+<td><code>redisTemplate.rename(&quot;temp&quot;, &quot;user:1&quot;)</code></td>
+</tr>
+</tbody></table>
+<p>__</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%93%A8%E5%85%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%93%A8%E5%85%B5/" class="post-title-link" itemprop="url">哨兵</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">高可用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="为什么要有哨兵"><a href="#为什么要有哨兵" class="headerlink" title="为什么要有哨兵"></a>为什么要有哨兵</h1><p> Redis 主从模式主节点挂了会导致写不可用，因此需要 Sentinel （哨兵）自动监控主节点状态，在主节点宕机时自动将从节点提升为主节点并完成主从切换，从而实现高可用。  </p>
+<h1 id="哨兵如何工作"><a href="#哨兵如何工作" class="headerlink" title="哨兵如何工作"></a>哨兵如何工作</h1><p> 哨兵节点（Sentinel）并不是从节点，它与主从节点完全不同，是独立运行的监控进程。  <font style="color:rgb(44, 62, 80);">主要负责三件事情：</font><strong><font style="color:rgb(48, 79, 254);">监控、选主、通知</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763717373105-eae2c585-0f54-4699-9957-95898b39974c.png"></p>
+<h1 id="如何判断主节点故障"><a href="#如何判断主节点故障" class="headerlink" title="如何判断主节点故障"></a>如何判断主节点故障</h1><p> 哨兵每隔 <strong>1 秒</strong> 会向<font style="color:#DF2A3F;">所有主从节点</font>发送 <code>PING</code> 来判断是否在线。  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763717698223-f096d090-f61c-446f-83df-132c3a8543a1.png"></p>
+<h2 id="主观下线"><a href="#主观下线" class="headerlink" title="主观下线"></a>主观下线</h2><p>判断标准：<code>down-after-milliseconds</code>（redis.conf配置文件） 时间内没有收到 <code>PING</code> 的回复。</p>
+<p>只有“主节点”会进一步触发后续流程；从节点即使主观下线也不触发 failover。</p>
+<p>⚠️ 主观下线只是 “怀疑”，不一定是真的宕机<br>因为可能是<strong>哨兵自身网络不好</strong>。</p>
+<h2 id="客观下线"><a href="#客观下线" class="headerlink" title="客观下线"></a>客观下线</h2><p><strong>客观下线 &#x3D; 多个哨兵投票共同认为主节点确实宕机</strong></p>
+<p>过程如下：</p>
+<ol>
+<li><p>一个哨兵先主观判断主节点 下线</p>
+</li>
+<li><p>它向其它哨兵发送：</p>
+</li>
+</ol>
+<p><strong>“你觉得主节点下线了吗？”</strong></p>
+<p>如下图的意思：</p>
+<ul>
+<li>哨兵 B 觉得主节点下线 → 投赞成票</li>
+<li>哨兵 A 网络状况好 → 不认为下线</li>
+<li>哨兵 C 也判断为下线</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763717818056-9af235f7-a9a4-422a-9317-39f18dcc5308.png"></p>
+<ol start="3">
+<li>赞成票 ≥ <code>quorum</code>（法定票数redis.conf配置文件）</li>
+</ol>
+<p>→ 主节点被标记为 <strong>客观下线（ODOWN）</strong></p>
+<p>例如：</p>
+<ul>
+<li>有 3 个哨兵</li>
+<li><code>quorum = 2</code><br>→ 任意两个哨兵认为“主节点下线”即可进入 ODOWN。</li>
+</ul>
+<p>⚠️ quorum 的目的是：</p>
+<p>避免某个哨兵网络不好导致误判主节点故障。</p>
+<h2 id="为什么-Redis-需要多个哨兵？"><a href="#为什么-Redis-需要多个哨兵？" class="headerlink" title="为什么 Redis 需要多个哨兵？"></a>为什么 Redis 需要多个哨兵？</h2><p>因为：</p>
+<ul>
+<li>单个哨兵网络可能出问题</li>
+<li>单个哨兵无法判断是“主节点真的挂了”，还是“自己的网络挂了”</li>
+</ul>
+<p>所以 Redis 要求：</p>
+<p>最少 3 个哨兵组成集群，这样才更可靠。</p>
+<h1 id="哪个哨兵进行主从故障转移"><a href="#哪个哨兵进行主从故障转移" class="headerlink" title="哪个哨兵进行主从故障转移"></a>哪个哨兵进行主从故障转移</h1><p> 哨兵集群发现主节点“客观下线（ODOWN）”之后，需要选出一个 Leader，由它来<strong>执行故障转移</strong></p>
+<h2 id="谁可以成为-Leader-候选者？"><a href="#谁可以成为-Leader-候选者？" class="headerlink" title="谁可以成为 Leader 候选者？"></a>谁可以成为 Leader 候选者？</h2><p>只有<font style="color:#DF2A3F;">“最先”</font>判断出主节点<font style="color:#DF2A3F;"> 客观下线 </font>的哨兵，才有资格成为候选者。</p>
+<p>流程：</p>
+<ol>
+<li>某个哨兵 B 最先判断主节点为 主观下线（SDOWN）</li>
+<li>它向所有哨兵发送 <code>is-master-down-by-addr</code> 请求</li>
+<li>当收到足够票数达到 <code>quorum</code> 值 → 判定主节点 客观下线（ODOWN）</li>
+<li>这个最早判断 客观下线 的哨兵 &#x3D; Leader 候选者</li>
+</ol>
+<p>→ 所以候选者只有来自“最先判断 客观下线 的哨兵”。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763718114569-dc04d665-a8bf-415c-9614-5e5ff2982ff4.png"></p>
+<h2 id="如果同时出现多个候选人怎么办？"><a href="#如果同时出现多个候选人怎么办？" class="headerlink" title="如果同时出现多个候选人怎么办？"></a>如果同时出现多个候选人怎么办？</h2><p>候选人选举成功的两个条件:</p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">第一，拿到半数以上的赞成票（</font><font style="color:#DF2A3F;">不包括半数，因此推荐设置奇数个哨兵节点</font><font style="color:rgb(44, 62, 80);">）；</font></li>
+<li><font style="color:rgb(44, 62, 80);">第二，拿到的票数同时还需要大于等于哨兵配置文件中的 quorum 值。</font></li>
+</ul>
+<p><strong>基于“任期”和“先来后到”机制自动决出唯一 Leader</strong>。</p>
+<p>流程：</p>
+<ol>
+<li>两个哨兵（如 A、B）几乎同时判断 ODOWN → 两个候选者</li>
+<li>其它哨兵收到多个投票请求时，只会把票投给<br><strong>最先到达的请求</strong></li>
+<li>所以先发送请求的一方会更容易拿到多数票</li>
+<li>若最终出现平票或条件不满足 → 重试下一轮选举</li>
+</ol>
+<p>最终必然只会产生一个满足多数票 + quorum 的 Leader。</p>
+<h1 id="为什么哨兵节点至少要有-3-个？"><a href="#为什么哨兵节点至少要有-3-个？" class="headerlink" title="为什么哨兵节点至少要有 3 个？"></a>为什么哨兵节点至少要有 3 个？</h1><p><em>哨兵节点可以有1个（非常不推荐），3个…就是不能有两个，同时推荐设置奇数个哨兵节点</em></p>
+<h2 id="哨兵只有-2-个时的问题"><a href="#哨兵只有-2-个时的问题" class="headerlink" title="哨兵只有 2 个时的问题"></a><font style="color:rgb(44, 62, 80);">哨兵只有 2 个时的问题</font></h2><p><font style="color:rgb(44, 62, 80);">哨兵数量 &#x3D; 2<br></font><font style="color:rgb(44, 62, 80);">Leader 选举必须满足两条件：</font></p>
+<ol>
+<li><strong>多数票（&gt; 1）→ 必须拿 2 票</strong></li>
+<li><strong>≥ quorum（一般也是 2）</strong></li>
+</ol>
+<p><font style="color:rgb(44, 62, 80);">但实际情况是：</font></p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">哨兵 A 给自己投 1 票</font></li>
+<li><font style="color:rgb(44, 62, 80);">哨兵 B 给自己投 1 票<br></font><font style="color:rgb(44, 62, 80);">→ </font><strong>谁都拿不到 2 票</strong><font style="color:rgb(44, 62, 80);"><br></font><font style="color:rgb(44, 62, 80);">→ Leader 永远选不出来<br></font><font style="color:rgb(44, 62, 80);">→ </font><strong>无法进行主从切换（failover）</strong></li>
+</ul>
+<p><font style="color:rgb(44, 62, 80);">同时：</font></p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">只要某个哨兵网络抖动</font></li>
+<li><font style="color:rgb(44, 62, 80);">就会误判主节点“下线”</font></li>
+<li><font style="color:rgb(44, 62, 80);">又没有多数哨兵确认<br></font><font style="color:rgb(44, 62, 80);">→ </font><strong>易产生脑裂风险</strong></li>
+</ul>
+<p><strong>哨兵 &#x3D; 2 是 Redis 官方明确不推荐的最糟糕部署。</strong></p>
+<h2 id="如果哨兵-5-个，quorum-3"><a href="#如果哨兵-5-个，quorum-3" class="headerlink" title="如果哨兵 &#x3D; 5 个，quorum &#x3D; 3"></a>如果哨兵 &#x3D; 5 个，quorum &#x3D; 3</h2><h3 id="挂-1-个哨兵"><a href="#挂-1-个哨兵" class="headerlink" title="挂 1 个哨兵"></a>挂 1 个哨兵</h3><p>剩余 4 个<br>→ 多数票 &#x3D; 3<br>→ quorum &#x3D; 3<br>→ 仍能正常判定 ODOWN → 正常 failover</p>
+<h3 id="挂-2-个哨兵"><a href="#挂-2-个哨兵" class="headerlink" title="挂 2 个哨兵"></a>挂 2 个哨兵</h3><p>剩 3 个<br>→ 多数票 &#x3D; 2<br>→ quorum &#x3D; 3（达不到）<br>→ 无法判定 ODOWN<br>→ 无法 failover<br>→ 系统不安全</p>
+<p>所以：</p>
+<p>quorum 设置 &#x3D; 哨兵数量的 1&#x2F;2 + 1（向上取整）<br>同时哨兵数量应奇数（3、5、7 …）以获得更好容错性。</p>
+<h1 id="主从故障转移的过程"><a href="#主从故障转移的过程" class="headerlink" title="主从故障转移的过程"></a>主从故障转移的过程</h1><p>选举哨兵leader后就可以进行主从故障转移了，主要分为四步:</p>
+<ol>
+<li>从所有从节点中挑选一个最优的，提升为新的主节点  </li>
+<li>让剩余从节点改为复制新主节点  </li>
+<li><font style="color:rgb(44, 62, 80);">将新主节点的 IP 地址和信息，通过「发布者&#x2F;订阅者机制」通知给客户端</font></li>
+<li><font style="color:rgb(44, 62, 80);">继续监视旧主节点，当这个旧主节点重新上线时，将它设置为新主节点的从节点</font></li>
+</ol>
+<h2 id="选出新主节点"><a href="#选出新主节点" class="headerlink" title="选出新主节点"></a>选出新主节点</h2><h3 id="第一步：过滤掉不符合条件的从节点"><a href="#第一步：过滤掉不符合条件的从节点" class="headerlink" title="第一步：过滤掉不符合条件的从节点"></a>第一步：过滤掉不符合条件的从节点</h3><p>主要过滤两类：</p>
+<ol>
+<li>已经下线的从节点</li>
+</ol>
+<p>这些从节点已经断开，不可能成为主节点 → 直接排除。</p>
+<ol start="2">
+<li>网络状态不好的从节点</li>
+</ol>
+<p>Redis 维护一个 <code>down-after-milliseconds</code>（redis.conf配置） 参数。</p>
+<ul>
+<li>如果一个从节点在 <code>down-after-milliseconds * 10</code> 毫秒内，多次与主节点失联</li>
+<li>或者连续断链次数超过 10 次<br>→ 认为这个从节点网络不稳定，不适合作为新主节点。</li>
+</ul>
+<p>为什么要这样做？<br>因为如果选了一个网络差的从节点做新主，整个集群会继续频繁故障。</p>
+<p>过滤完以后，仅保留“健康的从节点”。</p>
+<h3 id="第二部-对所有从节点进行三轮考察：优先级、复制进度、ID-号。在进行每一轮考察的时候，哪个从节点优先胜出，就选择其作为新主节点。"><a href="#第二部-对所有从节点进行三轮考察：优先级、复制进度、ID-号。在进行每一轮考察的时候，哪个从节点优先胜出，就选择其作为新主节点。" class="headerlink" title="第二部:对所有从节点进行三轮考察：优先级、复制进度、ID 号。在进行每一轮考察的时候，哪个从节点优先胜出，就选择其作为新主节点。"></a>第二部:<font style="color:rgb(44, 62, 80);">对所有从节点进行三轮考察</font><font style="color:#DF2A3F;">：优先级、复制进度、ID 号。</font><font style="color:rgb(44, 62, 80);">在进行每一轮考察的时候，哪个从节点优先胜出，就选择其作为新主节点。</font></h3><h4 id="第一轮：比较优先级（priority）"><a href="#第一轮：比较优先级（priority）" class="headerlink" title="第一轮：比较优先级（priority）"></a>第一轮：比较优先级（priority）</h4><p>每个从节点在配置文件里有一个：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slave-priority</span><br></pre></td></tr></table></figure>
+
+<p>数值越小 → 优先级越高 → 越容易当选。</p>
+<p>如果某个从节点优先级设置为 0 → 永远不会当主节点（官方特性）。</p>
+<p>如果某个节点优先级最高（值最小） → <strong>直接胜出。</strong></p>
+<h4 id="第二轮：比较复制偏移量（数据完整度）"><a href="#第二轮：比较复制偏移量（数据完整度）" class="headerlink" title="第二轮：比较复制偏移量（数据完整度）"></a>第二轮：比较复制偏移量（数据完整度）</h4><p>如果多个从节点优先级相同，则比较：</p>
+<p>谁的复制 offset 大，谁的数据最完整，谁就更适合作为新主节点。</p>
+<p>原因：数据越完整，切换后数据丢失越少。</p>
+<h4 id="第三轮：比较-runid（ID-较小者胜出）"><a href="#第三轮：比较-runid（ID-较小者胜出）" class="headerlink" title="第三轮：比较 runid（ID 较小者胜出）"></a>第三轮：比较 runid（ID 较小者胜出）</h4><p>如果优先级也相同，复制数据量也一致，则使用从节点的 ID（runid）做最后比较：</p>
+<p>→ ID 更小者胜出</p>
+<h2 id="将从节点指向新主节点"><a href="#将从节点指向新主节点" class="headerlink" title="将从节点指向新主节点"></a><font style="color:rgb(44, 62, 80);">将从节点指向新主节点</font></h2><p><font style="color:rgb(44, 62, 80);">当新主节点出现之后，哨兵 leader 下一步要做的就是，让已下线主节点属下的所有「从节点」指向「新主节点」，这一动作可以通过向「从节点」发送 </font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;SLAVEOF&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);"> 命令来实现。</font></p>
+<h2 id="通知客户的主节点已更换"><a href="#通知客户的主节点已更换" class="headerlink" title="通知客户的主节点已更换"></a><font style="color:rgb(44, 62, 80);">通知客户的主节点已更换</font></h2><p>当哨兵完成主从切换后，客户端必须知道“新的主节点地址”，否则客户端仍然会连接旧主节点，导致读写失败。</p>
+<p>Redis Sentinel 使用 <strong>发布&#x2F;订阅机制（pub&#x2F;sub）</strong> 来向客户端广播这些事件。</p>
+<p>每个哨兵节点都提供一个 Pub&#x2F;Sub 频道，客户端连接哨兵后可以订阅这些频道。</p>
+<p>当主节点发生变化，哨兵会向这些频道发送事件消息，客户端从中获得：</p>
+<ul>
+<li>新主节点的 IP、Port</li>
+<li>故障转移进度</li>
+<li>主从切换的所有重要步骤</li>
+</ul>
+<p>让客户端能够自动重连新的主节点。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/webp/50543647/1763719375362-67110649-1127-48a2-af35-93cfbb7b4313.webp"></p>
+<h2 id="将旧主节点变为从节点"><a href="#将旧主节点变为从节点" class="headerlink" title="将旧主节点变为从节点"></a><font style="color:rgb(44, 62, 80);">将旧主节点变为从节点</font></h2><p><font style="color:rgb(44, 62, 80);">故障转移操作最后要做的是，继续监视旧主节点，当旧主节点重新上线时，哨兵集群就会向它发送 </font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;SLAVEOF&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);"> 命令，让它成为新主节点的从节点。</font></p>
+<h1 id="如何搭建哨兵集群"><a href="#如何搭建哨兵集群" class="headerlink" title="如何搭建哨兵集群"></a><font style="color:rgb(44, 62, 80);">如何搭建哨兵集群</font></h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="post-title-link" itemprop="url">主从复制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">高可用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什么时主从复制"><a href="#什么时主从复制" class="headerlink" title="什么时主从复制"></a>什么时主从复制</h1><p>主服务器进行写操作，当发生写操作的时候自动将写操作同步给从服务器，保证数据一致性</p>
+<p>从服务器一般是只读的，并接受主服务器同步过来的写操作命令</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763714896045-2a422a2d-71f3-4a72-99e7-dbf4aeb0c90a.png"></p>
+<h1 id="第一次同步"><a href="#第一次同步" class="headerlink" title="第一次同步"></a>第一次同步</h1><p>主从服务器的第一次同步过程可分为三个阶段</p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">第一阶段是建立链接、协商同步；</font></li>
+<li><font style="color:rgb(44, 62, 80);">第二阶段是主服务器同步数据给从服务器；</font></li>
+<li><font style="color:rgb(44, 62, 80);">第三阶段是主服务器发送新写操作命令给从服务器。</font></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763715176587-9d0ac381-fbbf-4136-8208-c0b4ce7b8dbc.png"></p>
+<h2 id="第一阶段建立连接，协商同步"><a href="#第一阶段建立连接，协商同步" class="headerlink" title="第一阶段建立连接，协商同步"></a>第一阶段建立连接，协商同步</h2><p>从节点执行 <code>replicaof</code> 后，会主动向主节点发送 <code>psync</code> 命令，请求进行数据同步。</p>
+<p><code>psync</code> 带两个参数：</p>
+<ol>
+<li><strong>runid</strong>：主节点的唯一 ID。<ul>
+<li>从节点第一次同步时不知道主节点的 runid，所以会发送 <code>&quot;?&quot;</code>。</li>
+</ul>
+</li>
+<li><strong>offset</strong>：已复制进度。<ul>
+<li>第一次同步没有任何进度 → 发送 <code>-1</code>。</li>
+</ul>
+</li>
+</ol>
+<p>主节点收到 psync 后，发现这是第一次同步，于是返回：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FULLRESYNC &lt;runid&gt; &lt;offset&gt;</span><br></pre></td></tr></table></figure>
+
+<p>从节点收到后会记录下主节点的 runid 和 offset，用于以后增量同步。</p>
+<p><code>FULLRESYNC</code> 的含义：</p>
+<p><strong>主节点将对从节点执行全量同步（即把所有数据完整同步一遍）。</strong></p>
+<p>这就是第一次主从同步的第一阶段：<br><strong>确认 runid、offset，随后进入全量复制流程的准备阶段。</strong></p>
+<h2 id="第二阶段主服务器同步数据给从服务器"><a href="#第二阶段主服务器同步数据给从服务器" class="headerlink" title="第二阶段主服务器同步数据给从服务器"></a>第二阶段主服务器同步数据给从服务器</h2><p>主节点在收到 <code>FULLRESYNC</code> 请求后，会执行 <code>bgsave</code> 生成一份 RDB 文件，然后把该文件传输给从节点。从节点收到 RDB 后，会先清空自身数据，再加载这份 RDB 文件，使自身状态与主节点一致。</p>
+<p>需要注意的是：<br><code>bgsave</code> 是由 <strong>子进程</strong> 负责生成 RDB 文件的，因此不会阻塞主线程，主节点仍然可以继续处理新的写操作命令。</p>
+<p>但是，这些写操作发生在 RDB 生成期间，并不会记录到刚生成的 RDB 文件中。如果不处理，这段时间内主从节点的数据就会不一致。</p>
+<p>为了保证主从数据一致性，主节点会将<strong>在以下三个时间段内发生的写命令</strong>全部写入 <code>replication buffer</code>（复制缓冲区）：</p>
+<ol>
+<li><strong>主节点正在生成 RDB 文件期间</strong></li>
+<li><strong>主节点将 RDB 文件发送给从节点期间</strong></li>
+<li><strong>从节点加载 RDB 文件期间</strong></li>
+</ol>
+<p>等从节点成功加载完 RDB 后，会继续从主节点的复制缓冲区中获取这些增量写命令，从而完成全量 + 增量的同步过程。</p>
+<h2 id="第三阶段主服务器发送新写操作命令给从服务器"><a href="#第三阶段主服务器发送新写操作命令给从服务器" class="headerlink" title="第三阶段主服务器发送新写操作命令给从服务器"></a>第三阶段主服务器发送新写操作命令给从服务器</h2><p>主节点将 RDB 文件发送完毕后，从节点收到 RDB 文件，会先清空自身旧数据，然后将 RDB 内容完整加载到内存。加载完成后，从节点会向主节点发送一个确认消息。</p>
+<p>接下来，主节点会把在全量同步期间存放在 <code>replication buffer</code> 中的所有写操作命令按顺序发送给从节点。从节点依次执行这些增量命令后，其数据状态就与主节点完全一致了。</p>
+<p>至此，主从复制的第一次同步（全量同步 + 增量同步）全部完成。</p>
+<h1 id="基于长连接的命令传播"><a href="#基于长连接的命令传播" class="headerlink" title="基于长连接的命令传播"></a>基于长连接的命令传播</h1><p>主从服务器在完成第一次同步之后，双方之间就会维护一个TCP连接</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763715510976-8e59b57c-62ba-4a1b-b2d9-c3689bf96dc9.png"></p>
+<p>后续主服务器通过这个TCP连接将写操作操作命令同步给从服务器</p>
+<p>这个TCP连接是长连接，目的是避免了频繁的TCP创建和断开带来的性能开销，这个过程就叫基于长连接的命令传播</p>
+<h1 id="分摊主服务器的压力"><a href="#分摊主服务器的压力" class="headerlink" title="分摊主服务器的压力"></a>分摊主服务器的压力</h1><p>在第一次全量同步中，主节点需要同时做两件耗时操作：生成 RDB 文件并将其传输给从节点。</p>
+<p>如果从节点很多，而且都要和主节点做全量同步，就会出现两个问题：</p>
+<ol>
+<li><strong>fork() 压力大</strong><br>主节点执行 <code>bgsave</code> 会 fork 出子进程生成 RDB。<br>如果主节点数据量很大，fork 复制页表的开销会明显变慢，甚至阻塞主线程，影响 Redis 处理正常请求。</li>
+<li><strong>网络带宽压力大</strong><br>主节点需要把 RDB 文件分别发送给每一个从节点，RDB 文件越大、从节点越多，主节点的网络压力越大，可能影响主节点执行命令的响应速度。</li>
+</ol>
+<p>这个情况就像一个创业公司，最开始员工少，老板一个人能管；但随着公司扩大，一个老板同时管理所有员工就忙不过来，需要设置“经理”来分担管理任务。</p>
+<p>Redis 也可以采用类似思路：<br><strong>让从节点继续挂自己的从节点</strong>。<br>这个二级从节点既可以同步来自主节点的数据，也可以作为“主节点”向下一级从节点提供同步，这种组织结构就是链式复制。</p>
+<p>这样一来，真正直接从主节点同步数据的从节点变少，主节点的 fork 压力和网络压力都会降低。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763715727573-64078359-f5bf-4e61-9e88-c4a33b5a5300.png"></p>
+<h2 id="如何让一个节点成为二级节点"><a href="#如何让一个节点成为二级节点" class="headerlink" title="如何让一个节点成为二级节点"></a>如何让一个节点成为二级节点</h2><p><font style="color:rgb(44, 62, 80);">我们在「从服务器」上执行下面这条命令，使其作为目标服务器的从服务器：</font></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">replicaof &lt;目标服务器的IP&gt; 6379</span><br></pre></td></tr></table></figure>
+
+<p>如果此时目标服务器本身也是从服务器，那么该目标服务器就会成二级节点（经理），不仅可以接受主服务器同步的数据，也会把数据同步给自己旗下的从服务器，减轻主服务器压力</p>
+<p>_注意： 三级节点只会向它的直属上级（二级节点）同步，不会同时和主节点同步。  _</p>
+<h1 id="增量复制"><a href="#增量复制" class="headerlink" title="增量复制"></a>增量复制</h1><p>当主从完成第一次全量同步后，后续依赖长连接进行命令复制。但网络可能随时延迟或断开，此时从节点无法继续接收主节点的写入命令，数据会发生不一致。</p>
+<p>当网络恢复后，从节点需要与主节点重新同步。<br>**Redis 2.8 之前必须重新全量同步（代价巨大）。<br>**<strong>Redis 2.8 之后引入了“增量复制（psync）”，大幅减少开销。</strong></p>
+<h2 id="增量复制过程"><a href="#增量复制过程" class="headerlink" title="增量复制过程"></a>增量复制过程</h2><p>从节点网络恢复后：</p>
+<ol>
+<li>从节点向主节点发送：</li>
+</ol>
+<p>psync runid offset</p>
+<br/>
+
+<p>（这里 offset ≠ -1，而是上次正常同步时的复制偏移量）</p>
+<ol start="2">
+<li>主节点判断是否可以从“增量数据”继续同步<br>若可以 → 返回：</li>
+</ol>
+<p>CONTINUE</p>
+<br/>
+
+<p>若不可以 → 返回：</p>
+<p>FULLRESYNC</p>
+<br/>
+
+<p>（重新全量复制）</p>
+<ol start="3">
+<li>如果返回 CONTINUE，主节点会把断线期间的写操作日志发送给从节点，从节点执行这些命令后即可追上主节点。</li>
+</ol>
+<h2 id="主节点如何知道哪些增量数据发给-从节点"><a href="#主节点如何知道哪些增量数据发给-从节点" class="headerlink" title="主节点如何知道哪些增量数据发给 从节点"></a>主节点如何知道哪些增量数据发给 从节点</h2><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763716294025-8050848e-c36d-4dee-81dc-4c3560a98a6d.png"></p>
+<p>依赖两个结构：</p>
+<h3 id="repl-backlog-buffer（复制积压缓冲区）"><a href="#repl-backlog-buffer（复制积压缓冲区）" class="headerlink" title="repl_backlog_buffer（复制积压缓冲区）"></a>repl_backlog_buffer（复制积压缓冲区）</h3><ul>
+<li>环形缓冲区，默认大小 <strong>1MB</strong></li>
+<li>主节点只要执行了写操作，不仅发送给从节点，还会把命令写入这个 buffer</li>
+<li>保留最近一段时间的写操作命令</li>
+</ul>
+<h3 id="replication-offset（复制偏移量）"><a href="#replication-offset（复制偏移量）" class="headerlink" title="replication offset（复制偏移量）"></a>replication offset（复制偏移量）</h3><ul>
+<li>主节点记录 master_repl_offset</li>
+<li>从节点记录 slave_repl_offset</li>
+<li>用于标记双方同步进度</li>
+</ul>
+<p>主节点通过比较 offset 和 backlog 中的数据范围，判断是否能“增量同步”。</p>
+<p>比如只要满足</p>
+<p>slave_repl_offset(从节点已经同步到的偏移量)&gt;&#x3D;repl_backlog_off （backlog 起始偏移量）  </p>
+<p>slave_repl_offset&lt;&#x3D;master_repl_offset（ 主节点全局复制偏移量  ）</p>
+<br/>
+
+<p><em><font style="color:#DF2A3F;">这个offset 便宜量是全局递增的</font></em></p>
+<p>就说明：</p>
+<p>slave_offset 对应的数据仍然在 backlog 范围内，主节点可以增量同步。</p>
+<h1 id="避免断线后频繁全量同步"><a href="#避免断线后频繁全量同步" class="headerlink" title="避免断线后频繁全量同步"></a>避免断线后频繁全量同步</h1><p>为了避免短线后频繁的全量同步，我们需要 增大 backlog 的大小  </p>
+<p>Redis 官方给的估算公式是：</p>
+<p>repl_backlog_buffer_size ≈ second * write_size_per_second</p>
+<br/>
+
+<p>含义是：</p>
+<ul>
+<li><code>second</code> &#x3D; 从节点断线后重新连上主节点的最长时间（秒）</li>
+<li><code>write_size_per_second</code> &#x3D; 主节点每秒产生的写命令量</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li>主节点每秒产生 1MB 写命令</li>
+<li>从节点断线 5 秒才能恢复</li>
+</ul>
+<p>则：</p>
+<p>最小 backlog buffer &#x3D; 1MB * 5 &#x3D; 5MB</p>
+<br/>
+
+<p>可以设为再高一点，如 10MB。</p>
+<h2 id="修改-backlog-大小的配置项"><a href="#修改-backlog-大小的配置项" class="headerlink" title="修改 backlog 大小的配置项"></a>修改 backlog 大小的配置项</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repl-backlog-size 10mb</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/Cluster_%E9%9B%86%E7%BE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/Cluster_%E9%9B%86%E7%BE%A4/" class="post-title-link" itemprop="url">Cluster 集群</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E9%AB%98%E5%8F%AF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">高可用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="为什么需要Cluster-集群"><a href="#为什么需要Cluster-集群" class="headerlink" title="为什么需要Cluster 集群"></a>为什么需要Cluster 集群</h1><h2 id="主从复制模式的局限"><a href="#主从复制模式的局限" class="headerlink" title="主从复制模式的局限"></a>主从复制模式的局限</h2><p>主从复制只能做到 <strong>读写分离、自动切换</strong>，但它有一个根本问题：</p>
+<p><strong>每个节点的存储数据完全一样，无法扩容，并且浪费内存。</strong></p>
+<h2 id="Redis-Cluster（切片集群）解决什么问题？"><a href="#Redis-Cluster（切片集群）解决什么问题？" class="headerlink" title="Redis Cluster（切片集群）解决什么问题？"></a>Redis Cluster（切片集群）解决什么问题？</h2><p>它从 Redis 3.0 开始加入，是官方的分布式存储方案。</p>
+<p>核心思想： 数据分片（Sharding）</p>
+<p>每个 Redis 节点只存一部分数据，而不是全部数据。</p>
+<p>例如有 3 个节点：</p>
+<ul>
+<li>节点 A：存 0–5000 的 key</li>
+<li>节点 B：存 5001–10000 的 key</li>
+<li>节点 C：存 10001–16383 的 key</li>
+</ul>
+<p>每个节点都保存不同的数据，从而解决：</p>
+<ul>
+<li>内存无法扩容的问题</li>
+<li>单机持久化慢的问题</li>
+<li>单机故障恢复困难的问题</li>
+</ul>
+<h1 id="客户端是怎样知道该访问哪个分片的-哈希槽"><a href="#客户端是怎样知道该访问哪个分片的-哈希槽" class="headerlink" title="客户端是怎样知道该访问哪个分片的?哈希槽"></a><font style="color:rgb(44, 62, 80);">客户端是怎样知道该访问哪个分片的?哈希槽</font></h1><h2 id="什么是哈希槽（Hash-Slot）？"><a href="#什么是哈希槽（Hash-Slot）？" class="headerlink" title="什么是哈希槽（Hash Slot）？"></a>什么是哈希槽（Hash Slot）？</h2><p>Redis Cluster 将整个数据空间划分为 <strong>16384 个哈希槽（slot）</strong>。</p>
+<p>每个 key 会经过以下步骤确定槽号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slot = CRC16(key) % 16384</span><br></pre></td></tr></table></figure>
+
+<p>也就是说：</p>
+<p><strong>每个 key 都属于一个槽，槽再映射到某个 Redis 节点。</strong></p>
+<h2 id="槽如何分配给节点？"><a href="#槽如何分配给节点？" class="headerlink" title="槽如何分配给节点？"></a><strong>槽如何分配给节点？</strong></h2><p>假设集群有 A、B、C 三个节点，16384 个槽平均分配可能是：</p>
+<ul>
+<li>节点 A：0 ~ 5460</li>
+<li>节点 B：5461 ~ 10922</li>
+<li>节点 C：10923 ~ 16383</li>
+</ul>
+<p>每个节点只负责自己范围内的槽，也只存这些槽中的数据。</p>
+<h2 id="客户端访问数据的过程"><a href="#客户端访问数据的过程" class="headerlink" title="客户端访问数据的过程"></a>客户端访问数据的过程</h2><p>客户端写入或读取一个 key 时：</p>
+<ol>
+<li>计算该 key 的槽号</li>
+<li>根据槽号找到所属节点</li>
+<li>直接向该节点发送读写指令</li>
+</ol>
+<h2 id="如果访问错节点会怎样？"><a href="#如果访问错节点会怎样？" class="headerlink" title="如果访问错节点会怎样？"></a>如果访问错节点会怎样？</h2><p>当客户端发送请求到错误的节点时（该节点不负责该槽）：</p>
+<ul>
+<li>Redis 会返回 <strong>MOVED</strong> 或 <strong>ASK</strong> 重定向</li>
+<li>客户端收到后自动跳转到正确节点继续操作</li>
+</ul>
+<p>这是 Redis Cluster 实现路由与扩容迁移的重要机制。</p>
+<h1 id="Moved-和Ask-重定向"><a href="#Moved-和Ask-重定向" class="headerlink" title="Moved 和Ask 重定向"></a>Moved 和Ask 重定向</h1><h2 id="为什么出现重定向"><a href="#为什么出现重定向" class="headerlink" title="为什么出现重定向"></a>为什么出现重定向</h2><p>在 Redis Cluster 中，客户端是根据本地缓存的哈希槽路由表（提升效率）来决定把 key 发给哪个节点的。<br>但 Redis Cluster 是一个<strong>支持动态扩容、缩容和槽迁移</strong>的分布式系统，因此：</p>
+<p><strong>节点实际负责的槽可能随集群变化，而客户端缓存的槽分布信息可能过期或不完整。</strong></p>
+<p>当客户端访问的节点并不再负责该槽时，就会出现“重定向”：</p>
+<h3 id="出现-MOVED-重定向-的原因"><a href="#出现-MOVED-重定向-的原因" class="headerlink" title="出现 MOVED 重定向 的原因"></a>出现 <strong>MOVED 重定向</strong> 的原因</h3><p> 槽已经被永久迁移到新的节点，而客户端还不知道最新的槽分布。  </p>
+<h3 id="出现-ASK-重定向-的原因"><a href="#出现-ASK-重定向-的原因" class="headerlink" title="出现 ASK 重定向 的原因"></a>出现 ASK 重定向 的原因</h3><p>槽正在迁移中（处在移动的中间状态），部分 key 已经迁到新节点，部分还没迁完。</p>
+<h2 id="Moved-重定向"><a href="#Moved-重定向" class="headerlink" title="Moved 重定向"></a>Moved 重定向</h2><p> 当客户端向某个 Redis 节点发送读写请求时，如果该节点<strong>已经不再负责该槽</strong>（slot），它会返回Moved 重定向</p>
+<p>表示：</p>
+<p>“这个槽已经被永久迁移到新的节点了，你的路由表是旧的，请到新节点处理。”</p>
+<p>客户端收到 MOVED 后会：</p>
+<ol>
+<li>更新本地缓存的哈希槽路由表</li>
+<li>将本次命令重发给正确的节点</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763720861046-fe2dee08-fb08-4c0a-8bd0-ef574d8784a8.png"></p>
+<h2 id="Ask重定向"><a href="#Ask重定向" class="headerlink" title="Ask重定向"></a>Ask重定向</h2><p><strong>ASK 重定向发生在槽（slot）正在迁移的过程中。</strong></p>
+<p>在集群扩容或缩容时，槽会从源节点迁移到目标节点。在迁移的中间阶段：</p>
+<ul>
+<li>槽还没有完全迁移完</li>
+<li>但是某些 key 已经被迁移到目标节点</li>
+</ul>
+<p>当客户端仍将请求发送到源节点时，源节点会返回：Ask重定向</p>
+<p>表示：</p>
+<p>“这个 key 已经搬到新节点了，但槽还在迁移动中。你<strong>暂时</strong>去目标节点访问即可。”</p>
+<p>客户端收到 ASK 后：</p>
+<ol>
+<li>不会更新自己的 slot → node 路由表（因为槽迁移尚未完成）</li>
+<li>会向目标节点发送一个 <code>ASKING</code> 命令</li>
+<li>再发送真正的 key 命令</li>
+</ol>
+<p>ASK 是一种 <strong>临时跳转</strong>，用于处理中间状态，不代表槽已经永久迁移。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763720876617-bd1dcbd8-2547-4da6-969c-311eee0c4b92.png"></p>
+<h1 id="哈希槽和一致性哈希的区别"><a href="#哈希槽和一致性哈希的区别" class="headerlink" title="哈希槽和一致性哈希的区别"></a>哈希槽和一致性哈希的区别</h1><h3 id="1-结构本质不同"><a href="#1-结构本质不同" class="headerlink" title="1. 结构本质不同"></a><strong>1. 结构本质不同</strong></h3><ul>
+<li><strong>哈希槽（Redis Cluster）</strong>：<br>固定 16384 个槽，每个 key 通过 CRC16 落到其中一个槽，然后槽再映射到具体节点。不是环形结构。</li>
+<li><strong>一致性哈希（Consistent Hash）</strong>：<br>一个巨大的环（2^32 空间），节点按 hash 值分布在环上，key 落在环上顺时针第一个节点。</li>
+</ul>
+<h3 id="2-扩容方式不同"><a href="#2-扩容方式不同" class="headerlink" title="2.扩容方式不同"></a>2.扩容方式不同</h3><ul>
+<li><strong>哈希槽</strong>：<br>槽数量固定，不变。扩容只需要把部分槽迁移到新节点，迁移范围可控。</li>
+<li><strong>一致性哈希</strong>：<br>新节点加入会自动接管环上一段区间，需要迁移那一段的数据，具体迁多少完全由 hash 分布决定，不可控。</li>
+</ul>
+<h3 id="3-多-Key-操作支持不同"><a href="#3-多-Key-操作支持不同" class="headerlink" title="3.多 Key 操作支持不同"></a><strong>3.多 Key 操作支持不同</strong></h3><ul>
+<li><strong>哈希槽</strong>：<br>通过 key tag（如 <code>{user:1}</code>）可以让多个 key 落在同一个槽，从而支持 MGET &#x2F; MSET 等多 key 操作。</li>
+<li><strong>一致性哈希</strong>：<br>key 之间 hash 完全独立，多 key 很可能落在不同节点，天然不支持多 key 原子性操作。</li>
+</ul>
+<h1 id="哈希槽VS直接根据节点数量取哈希"><a href="#哈希槽VS直接根据节点数量取哈希" class="headerlink" title="哈希槽VS直接根据节点数量取哈希"></a>哈希槽VS直接根据节点数量取哈希</h1><p><strong>哈希槽：</strong></p>
+<ul>
+<li>将 key 映射到固定的 slot</li>
+<li>slot 数量不变</li>
+<li>扩容时迁移 slot → 节点 的归属</li>
+<li>迁移量小、可控、稳定</li>
+</ul>
+<p><strong>节点数取哈希：</strong></p>
+<ul>
+<li>key 直接依赖 N</li>
+<li>N 一变，结果全变</li>
+<li>迁移量巨大，无法用于分布式数据库</li>
+</ul>
+<p><strong>因此 Redis Cluster 采用哈希槽，而不是按节点数量取模的方式。</strong></p>
+<h2 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h2><p>** **假设一开始只有 3 个节点。  </p>
+<ol>
+<li>hash(key) % 节点数  （ 灾难性  ）</li>
+</ol>
+<p>node &#x3D; hash(key) % 3</p>
+<br/>
+
+<p> 现在扩容到 <strong>4 个节点</strong>：  </p>
+<p>node &#x3D; hash(key) % 4</p>
+<br/>
+
+<p>结果：</p>
+<p><strong>所有 key 的落点全部变化！</strong></p>
+<p>因为 <code>%3</code> 和 <code>%4</code> 输出完全不同。<br>你必须迁移 <strong>几乎所有数据</strong>。</p>
+<ol start="2">
+<li>hash槽</li>
+</ol>
+<p>redis 固定 <strong>16384 个槽</strong>：</p>
+<p>slot &#x3D; hash(key) % 16384   ← 永远不变</p>
+<br/>
+
+<p>扩容时只是：</p>
+<p>把部分槽从旧节点搬到新节点</p>
+<br/>
+
+<p>例如原来：</p>
+<ul>
+<li>节点A：槽 0~5460</li>
+<li>节点B：槽 5461~10922</li>
+<li>节点C：槽 10923~16383</li>
+</ul>
+<p>扩容后：</p>
+<ul>
+<li>节点A：槽 0~4095</li>
+<li>节点B：槽 4096~8191</li>
+<li>节点C：槽 8192~12287</li>
+<li>节点D：槽 12288~16383</li>
+</ul>
+<p> 迁移量只发生在被<font style="color:#DF2A3F;">重新分配的槽</font>，而不是<font style="color:#DF2A3F;">所有 key</font>。  </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/bitmap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/bitmap/" class="post-title-link" itemprop="url">bitmap</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>bitmap 位图，本质上就是一个很长的二进制数组</p>
+<h1 id="bitmap常用命令"><a href="#bitmap常用命令" class="headerlink" title="bitmap常用命令"></a>bitmap常用命令</h1><ol>
+<li>设置某一位的值-&gt;setbit（初始化）</li>
+</ol>
+<p>SETBIT key offset(位图中的第几位，offset 从0开始） value(只能是0或1)</p>
+<br/>
+
+<ol start="2">
+<li>获取某一位的值</li>
+</ol>
+<p>GETBIT key offset</p>
+<br/>
+
+<ol start="3">
+<li>统计1的数量-&gt;bitcount</li>
+</ol>
+<p>BITCOUNT key</p>
+<br/>
+
+<ol start="4">
+<li>按范围统计 → <code>BITCOUNT key start end</code></li>
+</ol>
+<p>统计区间范围内 bit&#x3D;1 的数量。</p>
+<p>这个start end 区间是按照字节来算的左闭右闭区间</p>
+<p>例如从第 0 - 7 字节：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BITCOUNT user:sign:202501 0 0</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>多个bitmao之间的操作bitop</li>
+</ol>
+<p> Redis 支持三种运算：  </p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
 <th>含义</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>fixedRate</code></td>
-<td>上一次开始执行时间 → 间隔多久再次执行</td>
+<td>AND</td>
+<td>与</td>
 </tr>
 <tr>
-<td><code>fixedDelay</code></td>
-<td>上一次执行结束时间 → 间隔多久再次执行</td>
+<td>OR</td>
+<td>或</td>
 </tr>
 <tr>
-<td><code>cron</code></td>
-<td>使用 cron 表达式指定执行时间</td>
+<td>XOR</td>
+<td>异或</td>
 </tr>
 </tbody></table>
-<p><em>默认所有定时任务公用一个线程，对于cpu密集性的定时任务可以引入线程池</em></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/Spring_%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/Spring_%E7%9A%84%E4%BB%A3%E7%90%86%E5%AF%B9%E8%B1%A1/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是代理对象"><a href="#什么是代理对象" class="headerlink" title="什么是代理对象"></a>什么是代理对象</h1><p><strong>代理对象就是一个“替身对象”，它包裹了你的原始对象（目标对象）</strong>，拦截你对目标对象的调用，在前后插入一些额外逻辑。  </p>
-<p>在 Java 中，这种代理对象通常由两种机制实现：</p>
-<ol>
-<li><strong>JDK 动态代理（JDK Proxy）</strong></li>
-<li><strong>CGLIB 字节码代理</strong></li>
-</ol>
-<p>Spring 会根据 Bean 的情况自动选择其中一种。</p>
-<h1 id="为什么-Spring-要创建代理对象？"><a href="#为什么-Spring-要创建代理对象？" class="headerlink" title="为什么 Spring 要创建代理对象？"></a>为什么 Spring 要创建代理对象？</h1><p> 为了实现<strong>AOP（面向切面编程）</strong>、<strong>事务控制</strong>、<strong>安全检查</strong>、<strong>缓存注解</strong>等等。这些特性都需要在方法执行前后“插入逻辑”，而不修改原代码。  </p>
-<p>例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">class UserService &#123;</span><br><span class="line">    @Transactional</span><br><span class="line">    public void saveUser() &#123;</span><br><span class="line">        // 保存用户逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在 Spring 中，<code>@Transactional</code> 依靠 <strong>AOP 代理机制</strong> 实现。</p>
-<p>当我们调用：userService.saveUser();时，实际上并不是调用的原始的UserService，而是Spring 创建的代理对象，这个代理对象会在方法执行的前后自动插入事务逻辑</p>
-<p><strong>伪代码理解</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">    // 1️⃣ 开启事务（setAutoCommit(false)）</span><br><span class="line">    //    把数据库连接绑定到当前线程（ThreadLocal）</span><br><span class="line">    beginTransaction();</span><br><span class="line"></span><br><span class="line">    // 2️⃣ 调用目标方法</span><br><span class="line">    userService.saveUser();</span><br><span class="line"></span><br><span class="line">    // 3️⃣ 方法执行成功 → 提交事务</span><br><span class="line">    commit();</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">    // 4️⃣ 方法抛异常 → 回滚事务</span><br><span class="line">    rollback();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="Spring-两种动态代理的区别"><a href="#Spring-两种动态代理的区别" class="headerlink" title="Spring 两种动态代理的区别"></a>Spring 两种动态代理的区别</h1><p><strong>JDK 动态代理基于接口</strong>，<strong>CGLIB 代理基于继承（子类字节码增强）</strong></p>
-<h2 id="JDK动态代理：基于接口"><a href="#JDK动态代理：基于接口" class="headerlink" title="JDK动态代理：基于接口"></a>JDK动态代理：基于接口</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p> 通过 <strong>反射机制</strong> 在运行时生成一个实现了目标对象所有接口的代理类。  </p>
-<p>示例：</p>
-<p>假设我们有个接口和实现类:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public interface UserService &#123;</span><br><span class="line">    void sayHello();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class UserServiceImpl implements UserService &#123;</span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;Hello!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用jdk动态生成代理</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class JdkProxyDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        UserService target = new UserServiceImpl();</span><br><span class="line">        UserService proxy = (UserService) Proxy.newProxyInstance(</span><br><span class="line">            target.getClass().getClassLoader(),</span><br><span class="line">            target.getClass().getInterfaces(),</span><br><span class="line">            new InvocationHandler() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">                    System.out.println(&quot;Before...&quot;);</span><br><span class="line">                    Object result = method.invoke(target, args); // 通过反射调用目标方法</span><br><span class="line">                    System.out.println(&quot;After...&quot;);</span><br><span class="line">                    return result;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">        proxy.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="CGLIB动态代理：基于继承（spring-Boot-默认代理方式）"><a href="#CGLIB动态代理：基于继承（spring-Boot-默认代理方式）" class="headerlink" title="CGLIB动态代理：基于继承（spring Boot 默认代理方式）"></a>CGLIB动态代理：基于继承（spring Boot 默认代理方式）</h2><p> CGLIB 代理靠“继承目标类 + 重写方法”  </p>
-<p>示例:<br>CGLIB会动态生成一个子类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class UserService$$EnhancerByCGLIB extends UserService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void sayHello() &#123;</span><br><span class="line">        System.out.println(&quot;方法执行前&quot;);</span><br><span class="line">        super.sayHello();</span><br><span class="line">        System.out.println(&quot;方法执行后&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>两种代理方式的性能对比</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>阶段</th>
-<th>JDK Proxy</th>
-<th>CGLIB</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>生成代理速度</strong></td>
-<td>🚀 快</td>
-<td>🐢 慢（需生成字节码）</td>
-</tr>
-<tr>
-<td><strong>方法调用速度</strong></td>
-<td>稍慢（反射调用）</td>
-<td>稍快（FastClass 机制）</td>
-</tr>
-<tr>
-<td><strong>首次使用延迟</strong></td>
-<td>低</td>
-<td>稍高（需生成代理类）</td>
-</tr>
-<tr>
-<td><strong>总体性能</strong></td>
-<td>差异已很小（JDK8+ 优化后几乎一致）</td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="动态代理和静态代理的区别"><a href="#动态代理和静态代理的区别" class="headerlink" title="动态代理和静态代理的区别"></a>动态代理和静态代理的区别</h1><ol>
-<li>静态代理是指：<strong>代理类在编译时就已经存在</strong>，由程序员手写或编译生成。也就是说，你要先写一个接口、一个真实类（被代理类），再写一个代理类，在里面调用真实类的方法。</li>
-<li>动态代理是指：<strong>代理类在运行时动态生成，而不是编译时写死的。</strong></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/Spring_%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/Spring_%E4%B8%89%E7%BA%A7%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是Spring-三级缓存"><a href="#什么是Spring-三级缓存" class="headerlink" title="什么是Spring 三级缓存"></a>什么是Spring 三级缓存</h1><p> Spring 的三级缓存是用来<strong>提前暴露未完全创建的 Bean 对象</strong>，从而解决<strong>单例 Bean 的循环依赖问题</strong>的机制。  </p>
-<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">class A &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private B b;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">@Service</span><br><span class="line">class B &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private A a;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p> A 依赖 B，B 又依赖 A。<br>👉 如果直接反射 new，就会死循环。  </p>
-<p> 所以 Spring 必须想办法“先创建一半”，把<strong>引用提前暴露</strong>出去。这就是三级缓存登场的地方。</p>
-<h1 id="三级缓存结构-（核心类-DefaultSingletonBeanRegistry）"><a href="#三级缓存结构-（核心类-DefaultSingletonBeanRegistry）" class="headerlink" title="三级缓存结构  （核心类 DefaultSingletonBeanRegistry）"></a>三级缓存结构  （核心类 DefaultSingletonBeanRegistry）</h1><p>Spring 在这个类里维护了三个Map</p>
-<table>
-<thead>
-<tr>
-<th>缓存层级</th>
-<th>名称</th>
-<th>作用</th>
-<th>何时存放</th>
-<th>何时清除</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>一级缓存</strong></td>
-<td><code>singletonObjects</code></td>
-<td>已经完全初始化好的单例 Bean（可直接使用）</td>
-<td>Bean 创建完成后放入</td>
-<td>容器关闭时清空</td>
-</tr>
-<tr>
-<td><strong>二级缓存</strong></td>
-<td><code>earlySingletonObjects</code></td>
-<td>提前曝光的 Bean 实例（已 new 但未完全初始化）</td>
-<td>遇到循环依赖时提前暴露</td>
-<td>创建完成后清空</td>
-</tr>
-<tr>
-<td><strong>三级缓存</strong></td>
-<td><code>singletonFactories</code></td>
-<td>可以创建“早期对象”的工厂（ObjectFactory）</td>
-<td>实例化后、属性注入前放入</td>
-<td>当对象被取出或转移到二级缓存后清空</td>
-</tr>
-</tbody></table>
-<h2 id="创建对象过程"><a href="#创建对象过程" class="headerlink" title="创建对象过程"></a>创建对象过程</h2><h3 id="1️⃣-创建-A"><a href="#1️⃣-创建-A" class="headerlink" title="1️⃣ 创建 A"></a>1️⃣ 创建 A</h3><ul>
-<li><strong>通过反射调用构造器</strong>实例化出 A（实例化阶段完成，但还未注入属性）。</li>
-<li><strong>注册 A 的早期对象工厂</strong>：</li>
-<li>singletonFactories[“A”] &#x3D; () -&gt; getEarlyBeanReference(“A”, A实例）</li>
-<li>（这一步只是把一个“可以返回 A 早期引用的工厂函数”放入三级缓存）  </li>
-<li>进入注入A属性阶段，发现依赖B-&gt;执行getBean(“B”) 去创建B</li>
-</ul>
-<h3 id="2️⃣-创建-B（因为-A-依赖-B）"><a href="#2️⃣-创建-B（因为-A-依赖-B）" class="headerlink" title="2️⃣ 创建 B（因为 A 依赖 B）"></a>2️⃣ 创建 B（因为 A 依赖 B）</h3><ul>
-<li><strong>通过反射调用构造器</strong>实例化出 B（实例化阶段完成）。</li>
-<li><strong>注册 B 的早期对象工厂</strong>：</li>
-<li>singletonFactories[“B”] &#x3D; () -&gt; getEarlyBeanReference(“B”, B实例)</li>
-<li>进入注入B属性阶段，发现依赖A-&gt;执行getBean(“A”)</li>
-</ul>
-<h3 id="3️⃣-在创建-B-的过程中注入-A"><a href="#3️⃣-在创建-B-的过程中注入-A" class="headerlink" title="3️⃣ 在创建 B 的过程中注入 A"></a>3️⃣ 在创建 B 的过程中注入 A</h3><p>调用 <code>getBean(&quot;A&quot;)</code> 时，Spring 依次查找：</p>
-<ul>
-<li>一级缓存（singletonObjects）：❌ 没有</li>
-<li>二级缓存（earlySingletonObjects）：❌ 没有</li>
-<li>三级缓存（singletonFactories）：✅ 有 “A 的工厂”</li>
-<li>调用该工厂：   生成 <strong>A 的早期引用</strong>（可能是原始 A，也可能是 AOP 代理对象）。  将这个早期 A 放入二级缓存：</li>
-<li>使用这个早期 A 给 B 注入依赖。</li>
-</ul>
-<h3 id="4️⃣-B-创建完成"><a href="#4️⃣-B-创建完成" class="headerlink" title="4️⃣ B 创建完成"></a>4️⃣ B 创建完成</h3><ul>
-<li>B 的依赖注入与初始化都完成 → 放入一级缓存：  </li>
-<li>清理 B 的二级、三级缓存记录。</li>
-</ul>
-<h3 id="5️⃣-回到-A，完成剩余步骤"><a href="#5️⃣-回到-A，完成剩余步骤" class="headerlink" title="5️⃣ 回到 A，完成剩余步骤"></a>5️⃣ 回到 A，完成剩余步骤</h3><ul>
-<li>继续给 A 注入 B（此时 B 已在一级缓存中，可以直接注入）。</li>
-<li>A 完成依赖注入与初始化 → 放入一级缓存：</li>
-<li>清理 A 的二级、三级缓存记录。</li>
-</ul>
-<h1 id="为什么是三级缓存而不是二级缓存"><a href="#为什么是三级缓存而不是二级缓存" class="headerlink" title="为什么是三级缓存而不是二级缓存"></a>为什么是三级缓存而不是二级缓存</h1><h2 id="如果只有二级缓存，会出现什么问题"><a href="#如果只有二级缓存，会出现什么问题" class="headerlink" title="如果只有二级缓存，会出现什么问题"></a>如果只有二级缓存，会出现什么问题</h2><p>假设我们只有：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一级缓存：存成品</span><br><span class="line">二级缓存：存半成品</span><br></pre></td></tr></table></figure>
-
-<p>流程是这样的：</p>
-<ol>
-<li>A 实例化 → 放入二级缓存</li>
-<li>B 创建 → 需要 A → 从二级缓存拿 A → 成功</li>
-<li>然后 A 完成初始化（此时 AOP 代理可能介入）→ A 最终变成代理对象。</li>
-</ol>
-<p><strong>问题就来了：</strong></p>
-<p>此时 B 已经拿到了“原始的 A 对，而不是代理后的对象！</p>
-<p>也就是说：</p>
-<ul>
-<li>A 最终在容器中是 <code>AProxy</code></li>
-<li>B 注入的是 <code>A 原对象</code></li>
-<li>这会让 AOP 失效（B 调用 A 的方法绕过了代理）</li>
-</ul>
-<p> 💥 <strong>二级缓存无法解决 “A 被代理后，B 拿到的 A 不是最终版本” 的问题。</strong></p>
-<h2 id="Spring-用第三级缓存结局了这个问题"><a href="#Spring-用第三级缓存结局了这个问题" class="headerlink" title="Spring 用第三级缓存结局了这个问题"></a>Spring 用第三级缓存结局了这个问题</h2><p>Spring 在 <strong>三级缓存</strong> 放的不是对象本身，而是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ObjectFactory&lt;?&gt; factory = () -&gt; getEarlyBeanReference(beanName, originalBean);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>也就是一个“<strong>延迟生成早期对象的函数</strong>”。<br>当 B 在创建时需要 A：</p>
-<ul>
-<li>容器调用这个工厂；</li>
-<li>这个工厂里会先判断：A 是否需要被 AOP 代理；</li>
-<li>如果需要，就返回代理对象；</li>
-<li>否则返回原始对象。</li>
-</ul>
-<p>✅ 这样 B 拿到的 A 就与容器最终保存的一致（可能是代理）。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/Spring_IOC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/Spring_IOC/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h1><p>IOC即控制反转，,依赖注入（DI）是实现这种技术的一种方式，简单来讲就是对象的创建和依赖关系交给Spring 控制</p>
-<h1 id="Spring-IOC的底层实现机制"><a href="#Spring-IOC的底层实现机制" class="headerlink" title="Spring IOC的底层实现机制"></a>Spring IOC的底层实现机制</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/spring_Bean_%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一-简要概括"><a href="#一-简要概括" class="headerlink" title="一.简要概括"></a>一.简要概括</h1><p>好的，下面是对 Spring Bean 生命周期四个阶段的<strong>一句话概括</strong>：</p>
-<ol>
-<li><strong>实例化（Instantiation）</strong>：Spring 通过反射创建 Bean 对象的实例。</li>
-<li><strong>属性赋值（Populate Properties）</strong>：Spring 将配置文件或注解中定义的依赖注入到 Bean 的属性中。（三级缓存）</li>
-<li><strong>初始化（Initialization）</strong>：Spring 调用 Bean 的初始化方法（如 <code>@PostConstruct</code>、<code>afterPropertiesSet()</code> 或自定义 init-method）进行初始化逻辑。</li>
-<li><strong>销毁（Destruction）</strong>：当容器关闭时，Spring 调用销毁方法（如 <code>@PreDestroy</code>、<code>destroy()</code> 或自定义 destroy-method）释放资源。</li>
-</ol>
-<h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.nlark.com/yuque/0/2025/jpeg/50543647/1762671637828-8ec38a3d-535d-41e8-8246-2f12b8f70380.jpeg"></h3><h1 id="二-初始化"><a href="#二-初始化" class="headerlink" title="二.初始化"></a>二.初始化</h1><p> 初始化阶段的目标：让 Bean <strong>完全准备好可以使用</strong>。  经过第一二步 反射出来的对象现在还只是“一个有属性的普通对象”；Spring 要在初始化阶段执行一系列“钩子（回调）”，让 Bean 真正“活起来”。  </p>
-<h2 id="初始化阶段执行顺序"><a href="#初始化阶段执行顺序" class="headerlink" title="初始化阶段执行顺序"></a>初始化阶段执行顺序</h2><p>1️⃣ 实例化（new 对象）</p>
-<p>2️⃣ 属性注入（依赖注入）</p>
-<p>3️⃣ 调用 Aware 接口（如 BeanNameAware）</p>
-<p>4️⃣ BeanPostProcessor 前置处理</p>
-<p>➡️ 5️⃣ @PostConstruct（执行初始化逻辑）</p>
-<p>6️⃣ afterPropertiesSet() —— 来自 InitializingBean 接口</p>
-<p>7️⃣ init-method() —— 在 XML &#x2F; @Bean 中指定</p>
-<p>8️⃣ BeanPostProcessor 后置处理（常用于 AOP 代理）</p>
+<h3 id="求同时在线（两个-bitmap-都为-1）"><a href="#求同时在线（两个-bitmap-都为-1）" class="headerlink" title="求同时在线（两个 bitmap 都为 1）"></a>求同时在线（两个 bitmap 都为 1）</h3><p>BITOP AND user:online:both day1 day2</p>
 <br/>
 
-
-
-<h2 id="Bean的初始化方法"><a href="#Bean的初始化方法" class="headerlink" title="Bean的初始化方法"></a>Bean的初始化方法</h2><h3 id="PostConstruct（重点-⭐）"><a href="#PostConstruct（重点-⭐）" class="headerlink" title="@PostConstruct（重点 ⭐）"></a>@PostConstruct（重点 ⭐）</h3><ul>
-<li><strong>作用</strong>：在 Bean 完成依赖注入后、但在使用前自动执行一次初始化逻辑。</li>
-<li><strong>执行时机</strong>：依赖注入完成 → 初始化前（在 AOP 代理之前）。</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct</span><br><span class="line">public void init() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;Bean 初始化逻辑执行...&quot;);</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>@PostConstructor 方法要求</p>
-<ul>
-<li><strong>返回值类型</strong>：<code>void</code></li>
-<li><strong>无参数</strong>（不能带任何参数）</li>
-<li><strong>不能抛出受检异常（checked exception）</strong></li>
-</ul>
-<h3 id="afterPropertiesSet-与-init-method（了解）"><a href="#afterPropertiesSet-与-init-method（了解）" class="headerlink" title="afterPropertiesSet 与 init-method（了解）"></a>afterPropertiesSet 与 init-method（了解）</h3><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>定义方式</th>
-<th>调用时机</th>
-<th>场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>afterPropertiesSet()</code></td>
-<td>实现 <code>InitializingBean</code><br/> 接口</td>
-<td>@PostConstruct 之后</td>
-<td>用于框架级初始化</td>
-</tr>
-<tr>
-<td><code>init-method()</code></td>
-<td>在 XML 或 @Bean 指定</td>
-<td>afterPropertiesSet 之后</td>
-<td>用于配置文件初始化</td>
-</tr>
-</tbody></table>
-<p> 三者都能定义初始化逻辑，执行顺序为：<br><code>@PostConstruct → afterPropertiesSet → init-method</code></p>
-<h2 id="aware回调"><a href="#aware回调" class="headerlink" title="aware回调"></a>aware回调</h2><p>aware 相关接口就是在告诉bean自己是谁（BeanNameAware），自己在哪（ApplicationContextAware），谁创建了自己（BeanFactoryAware）</p>
-<h3 id="常见的Aware接口及其作用"><a href="#常见的Aware接口及其作用" class="headerlink" title="常见的Aware接口及其作用"></a>常见的Aware接口及其作用</h3><table>
-<thead>
-<tr>
-<th>接口名</th>
-<th>注入的对象</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>BeanNameAware</code></td>
-<td>当前 Bean 的名字</td>
-<td>让 Bean 知道自己在容器中的名字</td>
-</tr>
-<tr>
-<td><code>BeanFactoryAware</code></td>
-<td>BeanFactory 对象</td>
-<td>可以手动获取其他 Bean（不推荐）</td>
-</tr>
-<tr>
-<td><code>ApplicationContextAware</code></td>
-<td>ApplicationContext</td>
-<td>拿到整个上下文，能访问 Bean、资源、事件发布等</td>
-</tr>
-</tbody></table>
-<h3 id="运行时发生了什么？"><a href="#运行时发生了什么？" class="headerlink" title="运行时发生了什么？"></a>运行时发生了什么？</h3><p> 当 Spring 创建完 Bean 实例并注入属性后，会在初始化前执行👇：  </p>
-<p>invokeAwareMethods(beanName, bean);</p>
+<h3 id="求两天内任意一天在线"><a href="#求两天内任意一天在线" class="headerlink" title="求两天内任意一天在线"></a>求两天内任意一天在线</h3><p>BITOP OR user:online:any day1 day2</p>
 <br/>
-
-<p> Spring 会判断当前 Bean 是否实现了这些接口：  </p>
-<p>if (bean instanceof BeanNameAware) {</p>
-<pre><code>((BeanNameAware) bean).setBeanName(beanName);
-</code></pre>
-<p>}</p>
-<p>if (bean instanceof BeanFactoryAware) {</p>
-<pre><code>((BeanFactoryAware) bean).setBeanFactory(this);
-</code></pre>
-<p>}</p>
-<p>if (bean instanceof ApplicationContextAware) {</p>
-<pre><code>((ApplicationContextAware) bean).setApplicationContext(context);
-</code></pre>
-<p>}</p>
-<br/>
-
-<p><strong>也就是说：</strong><br>Spring 主动调用这些 <code>setXXX()</code> 方法，把容器对象传进去。这样 Bean 就能拿到容器级资源了。  </p>
-<h2 id="BeanPostProcessor-前置处理与后置处理"><a href="#BeanPostProcessor-前置处理与后置处理" class="headerlink" title="BeanPostProcessor 前置处理与后置处理"></a>BeanPostProcessor 前置处理与后置处理</h2><p>接口定义</p>
-<p>public interface BeanPostProcessor {</p>
-<pre><code>// 初始化前调用
-
-Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
-
-
-
-// 初始化后调用
-
-Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
-</code></pre>
-<p>}</p>
-<br/>
-
-
-
-<h3 id="前置处理"><a href="#前置处理" class="headerlink" title="前置处理"></a>前置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法（如 <code>@PostConstruct</code> 或 <code>init-method</code>）<strong>执行之前</strong>。  </p>
-<p><strong>常见用途：</strong></p>
-<ul>
-<li>对 Bean 的属性进行额外处理或校验；</li>
-</ul>
-<h3 id="后置处理"><a href="#后置处理" class="headerlink" title="后置处理"></a>后置处理</h3><p><strong>调用时机：</strong><br>在 Bean 初始化方法执行完成后调用。</p>
-<p><strong>常见用途：</strong></p>
-<ul>
-<li>AOP 动态代理（Spring AOP 就是通过后置处理实现的）；</li>
-</ul>
-<h3 id="PostConstruct注解"><a href="#PostConstruct注解" class="headerlink" title="@PostConstruct注解"></a>@PostConstruct注解</h3><p> @PostConstruc   作用是让方法在 <strong>Bean 完成依赖注入后</strong>、但在 Bean 被使用之前 自动执行。  </p>
-<p>在完整的生命周期中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1️⃣ 实例化（new）</span><br><span class="line">2️⃣ 属性注入（依赖注入）</span><br><span class="line">3️⃣ 调用 Aware 接口</span><br><span class="line">4️⃣ BeanPostProcessor 前置处理</span><br><span class="line">➡️ 5️⃣ @PostConstruct 执行 ← 这里</span><br><span class="line">6️⃣ afterPropertiesSet()（InitializingBean）</span><br><span class="line">7️⃣ init-method()</span><br><span class="line">8️⃣ BeanPostProcessor 后置处理（AOP代理）</span><br></pre></td></tr></table></figure>
-
-<p>💡 所以：</p>
-<p><code>@PostConstruct</code> 是 <strong>初始化阶段的第一个执行点</strong>，<br>它会在所有依赖注入完成后、但在任何自定义初始化方法之前被调用。</p>
-<h1 id="三-销毁过程"><a href="#三-销毁过程" class="headerlink" title="三.销毁过程"></a>三.销毁过程</h1><p>销毁触发场景有两种:</p>
-<ol>
-<li>Spring 容器正常关闭(context.close（)</li>
-<li>应用关闭时</li>
-</ol>
-<h2 id="PreDestory注解"><a href="#PreDestory注解" class="headerlink" title="@PreDestory注解"></a>@PreDestory注解</h2><p><code>@PreDestroy</code> 表示：</p>
-<p>在 <strong>Bean 被销毁前</strong> 自动执行标注的方法，用于清理资源。</p>
-<p>比如关闭连接、释放线程池、清空缓存等。</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class MyService &#123;</span><br><span class="line"></span><br><span class="line"><span class="code">    @PreDestroy</span></span><br><span class="line"><span class="code">    public void cleanup() &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;🧹 Bean 即将被销毁，执行清理逻辑...&quot;);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>@PreDestory方法要求</p>
-<ul>
-<li>方法必须是 <code>**void**</code>** 返回值、无参数**；</li>
-</ul>
-
       
     </div>
 
@@ -1022,7 +1471,7 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/spring_boot/AOP/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/RDB_%E5%BF%AB%E7%85%A7%E6%8C%81%E4%B9%85%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1040,19 +1489,23 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/spring_boot/AOP/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/RDB_%E5%BF%AB%E7%85%A7%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">RDB 快照持久化</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">持久化</span></a>
+        </span>
     </span>
 
   
@@ -1065,64 +1518,32 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>** AOP（面向切面编程）是一种将公共逻辑抽取并封装为切面的编程思想，它能够在需要的地方自动切入，从而实现代码复用，同时保持业务代码的简洁与清晰。** </p>
-<ol>
-<li>优点：</li>
+          <p>RDB快照就是记录的某一瞬间的内存数据，记录的是实际数据，而AOF文件记录的是写操作命令，所以redis在回复数据的时候RDB恢复数据的效率比AOF高</p>
+<h2 id="快照怎么用"><a href="#快照怎么用" class="headerlink" title="快照怎么用"></a>快照怎么用</h2><ol>
+<li>redis 提供了两个命令来生成RDB文件，分别是save 和 bgsave</li>
 </ol>
 <ul>
-<li>代码解耦：公共逻辑与业务逻辑分离，业务代码更干净。</li>
-<li>复用性强：一个切面可以应用到多个方法，减少重复代码。</li>
-<li>灵活扩展：新增公共逻辑时，只需修改切面，无需改动业务代码。</li>
+<li>save就是在主线程中执行快照操作，可能会阻塞主线程</li>
+<li>bgsave就是在子进程中执行快照操作，可以避免主线程的阻塞</li>
 </ul>
 <ol start="2">
-<li>缺点：</li>
+<li>可以通过配置文件来实现每隔一段时间自动执行一次bgsave命令</li>
 </ol>
-<ul>
-<li>调试复杂：切面逻辑可能影响多个方法，错误时需要追踪切面代码。</li>
-<li>性能开销：AOP通过动态代理实现，大量切面可能增加方法调用耗时（但日常业务中可忽略）。</li>
+<h2 id="如何执行bgsave-快照（写时复制）"><a href="#如何执行bgsave-快照（写时复制）" class="headerlink" title="如何执行bgsave 快照（写时复制）"></a>如何执行bgsave 快照（写时复制）</h2><ul>
+<li><strong>主进程</strong> 收到 <code>BGSAVE</code> 命令后，检查当前是否已有子进程在执行 <code>BGSAVE</code> 或 <code>BGREWRITEAOF</code>（两者不能并行）</li>
+<li><strong>主进程</strong> 调用 <code>fork()</code> 创建 <strong>RDB 保存子进程</strong></li>
+<li><strong>子进程</strong> 通过 <strong>写时复制（Copy-On-Write, COW）</strong> 技术，扫描当前数据库中的所有数据，并将数据序列化写入临时文件（如 <code>temp-12345.rdb</code>）</li>
+<li>在写入期间，<strong>主进程</strong> 仍然可以正常处理客户端请求（读写不受阻塞）</li>
+<li><strong>子进程</strong> 写入完成后，将临时文件重命名为正式的 <code>dump.rdb</code> 文件</li>
+<li><strong>子进程</strong> 向主进程发送完成信号</li>
 </ul>
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1758699052849-34cdcf47-ccc2-4141-804d-d9e344bf35a7.png"></p>
-<ol>
-<li>切面(Aspect)： 编写执行逻辑,里面定义拦哪些点（ @Pointcut  ）,做哪些事（@Advice）</li>
-<li>切入点：要切入的方法</li>
-<li>通知: 在切入点执行的逻辑</li>
-</ol>
-<h3 id="五种常见的Advice"><a href="#五种常见的Advice" class="headerlink" title="五种常见的Advice"></a>五种常见的Advice</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1758699737745-2d664b0e-7940-4cfe-8527-e3d59acbf324.png"></p>
-<h2 id="创建Aop切面的示例"><a href="#创建Aop切面的示例" class="headerlink" title="创建Aop切面的示例"></a>创建Aop切面的示例</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@Aspect</span><br><span class="line">@Component</span><br><span class="line">public class TimeCostAspect &#123;</span><br><span class="line"><span class="code">    private static final Logger log = LoggerFactory.getLogger(TimeCostAspect.class);</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    // 拦截 service 包下所有方法</span></span><br><span class="line"><span class="code">    @Pointcut(&quot;execution(* com.example.demo.service..*(..))&quot;)</span></span><br><span class="line"><span class="code">    public void serviceMethods()&#123;&#125;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    @Around(&quot;serviceMethods()&quot;)</span></span><br><span class="line"><span class="code">    public Object logTime(ProceedingJoinPoint pjp) throws Throwable &#123;</span></span><br><span class="line"><span class="code">        long start = System.nanoTime();</span></span><br><span class="line"><span class="code">        try &#123;</span></span><br><span class="line"><span class="code">            return pjp.proceed();</span></span><br><span class="line"><span class="code">        &#125; finally &#123;</span></span><br><span class="line"><span class="code">            long costMs = (System.nanoTime() - start) / 1_000_000;</span></span><br><span class="line"><span class="code">            MethodSignature sig = (MethodSignature) pjp.getSignature();</span></span><br><span class="line"><span class="code">            String cls = sig.getDeclaringType().getSimpleName();</span></span><br><span class="line"><span class="code">            String method = sig.getName();</span></span><br><span class="line"><span class="code">            log.info(&quot;[AOP] &#123;&#125;.&#123;&#125; 执行耗时 &#123;&#125; ms&quot;, cls, method, costMs);</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用陷阱"><a href="#使用陷阱" class="headerlink" title="使用陷阱"></a>使用陷阱</h2><h3 id="自调用失效-同类内this-调自己"><a href="#自调用失效-同类内this-调自己" class="headerlink" title="自调用失效(同类内this 调自己)"></a>自调用失效(同类内this 调自己)</h3><p><strong>复现</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class HelloService &#123;</span><br><span class="line">  public String greet(String n)&#123; return &quot;hi &quot;+n; &#125;</span><br><span class="line">  public String outer(String n)&#123; return greet(n); &#125; // 自调用：绕过代理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t1&quot;) public String t1()&#123; return helloService.outer(&quot;Tom&quot;); &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>现象：只打印一次（</strong><code>**outer**</code><strong>），</strong><code>**greet**</code>** 没日志。  **</p>
-<p><strong>修正: 将方法抽离为Bean</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Service class Greeter &#123; public String greet(String n)&#123; return &quot;hi &quot;+n; &#125; &#125;</span><br><span class="line">@Service</span><br><span class="line">class HelloService &#123;</span><br><span class="line">  private final Greeter greeter;</span><br><span class="line">  public HelloService(Greeter g)&#123; this.greeter = g; &#125;</span><br><span class="line">  public String outer(String n)&#123; return greeter.greet(n); &#125; // 经过代理 → 触发</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="自己new-的对象不生效"><a href="#自己new-的对象不生效" class="headerlink" title="自己new 的对象不生效"></a>自己new 的对象不生效</h3><p><strong>复现</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 先不要给它加 @Component</span><br><span class="line">public class DiscountHelper &#123; public void apply()&#123; /<span class="emphasis">*...*</span>/ &#125; &#125;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class OrderService &#123;</span><br><span class="line">  public void place()&#123; new DiscountHelper().apply(); &#125; // 不是 Bean → 没代理</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t2&quot;) public String t2()&#123; orderService.place(); return &quot;ok&quot;; &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>现象：没有AOP日志记录</strong></p>
-<p><strong>修正：交给容器并注入使用，注意AOP只对Bean 对象生效！！！</strong></p>
-<p><strong>@Component</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class DiscountHelper &#123; public void apply()&#123; /<span class="emphasis">*...*</span>/ &#125; &#125;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class OrderService &#123;</span><br><span class="line">  private final DiscountHelper helper;</span><br><span class="line">  public OrderService(DiscountHelper h)&#123; this.helper = h; &#125;</span><br><span class="line">  public void place()&#123; helper.apply(); &#125; // 经过代理 → 触发</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="fianl-static-private-方法拦不到"><a href="#fianl-static-private-方法拦不到" class="headerlink" title="fianl&#x2F;static&#x2F;private 方法拦不到"></a>fianl&#x2F;static&#x2F;private 方法拦不到</h3><p><strong>复现</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class PayService &#123;</span><br><span class="line">  public final void settle()&#123; /<span class="emphasis">*...*</span>/ &#125;   // final 无法被 CGLIB 覆写</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@GetMapping(&quot;/t3&quot;) public String t3()&#123; payService.settle(); return &quot;ok&quot;; &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>现象:无日志</strong></p>
-<p><strong>修正:去掉 final&#x2F;static&#x2F;private</strong></p>
-<h3 id="Postconstruct-构造方法拦不到"><a href="#Postconstruct-构造方法拦不到" class="headerlink" title="@Postconstruct 构造方法拦不到"></a>@Postconstruct 构造方法拦不到</h3><p><strong>复现</strong></p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class BootService &#123;</span><br><span class="line">  @Autowired HelloService hello;</span><br><span class="line">  @PostConstruct public void init()&#123; hello.greet(&quot;X&quot;); &#125; // 代理可能尚未就绪/内部直接调用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>现象:无日志</strong></p>
-<h1 id="类内this调用自己失效解决方案"><a href="#类内this调用自己失效解决方案" class="headerlink" title="类内this调用自己失效解决方案"></a>类内this调用自己失效解决方案</h1><p> 类内调用失效的本质原因是：AOP 依赖代理生效，而 <code>this.xxx()</code> 是直接调用目标对象本身，不经过代理，自然无法触发 AOP。  </p>
-<p>可以有以下两种解决方案</p>
-<h2 id="将方法抽离为bean"><a href="#将方法抽离为bean" class="headerlink" title="将方法抽离为bean"></a>将方法抽离为bean</h2><h2 id="打开exposeProxy"><a href="#打开exposeProxy" class="headerlink" title="打开exposeProxy"></a>打开exposeProxy</h2><p> 在<strong>启动类</strong>或任何一个配置类上加：  @EnableAspectJAutoProxy(exposeProxy &#x3D; true)</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@EnableAspectJAutoProxy(exposeProxy = true)</span><br><span class="line">@SpringBootApplication</span><br><span class="line">public class DemoApplication &#123;</span><br><span class="line"><span class="code">    public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="code">        SpringApplication.run(DemoApplication.class, args);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>在类内调用this.xxx方法时先获得这个类的proxy 代理类</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void a() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;a()&quot;);</span></span><br><span class="line"><span class="code">    ((OrderService) AopContext.currentProxy()).b();</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="内部实现"><a href="#内部实现" class="headerlink" title="内部实现"></a>内部实现</h3><p>AopContext.currentProxy() 本质上就是从当前线程的 ThreadLocal 中读取“当前正在执行的代理对象”。<br>Spring 会在进入代理方法时将该代理写入 ThreadLocal，方法执行完再恢复，因此不同线程互不影响。</p>
+<p>主进程在执行bgsave可以正常处理客户端请求的关键就是写实复制</p>
+<ul>
+<li>创建子进程后，父进程和子进程共享相同的数据页  </li>
+<li>当主进程或子进程对共享数据进行<strong>写操作</strong>时，操作系统才会复制出该数据页的副本，写操作在副本上完成。  </li>
+<li>这样既保证了子进程读取的是快照时刻的数据，又避免了在创建时整体复制内存导致的性能消耗。</li>
+</ul>
+<p> 需要注意的是，<strong>RDB 快照没有类似 AOF 的重写缓冲区</strong>。<br>因此，RDB 快照只会保存<strong>快照开始那一刻的内存数据</strong>，而在快照生成过程中发生的任何数据修改，都不会被记录进当前的 RDB 文件中。  </p>
 
       
     </div>
@@ -1149,7 +1570,7 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/rocketmq/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF%E6%8C%81%E4%B9%85%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1167,19 +1588,23 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/rocketmq/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF%E6%8C%81%E4%B9%85%E5%8C%96/" class="post-title-link" itemprop="url">AOF持久化</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">持久化</span></a>
+        </span>
     </span>
 
   
@@ -1192,153 +1617,73 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="RocketMQ消费重试机制"><a href="#RocketMQ消费重试机制" class="headerlink" title="RocketMQ消费重试机制"></a>RocketMQ消费重试机制</h1><p> 在 <strong>RocketMQ</strong> 中，Broker 将消息发送给消费者后不会立即删除消息，而是保留在 <strong>CommitLog</strong> 中；仅当消费者成功确认（ACK）后，才认为消费完成。若消费者处理消息失败，Broker 会将消息放入 <strong>重试队列</strong>，并根据延迟级别多次重投；若超过最大重试次数仍未成功，则消息会被转入 <strong>死信队列（DLQ）</strong>，供人工排查与补偿处理。  </p>
-<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p><strong>RocketMQ 消费重试机制</strong>用于处理偶发性的业务消费失败，以保证消息最终一致性；<br>不应用于流程分支或限流控制，否则会导致消息堆积与系统性能下降。  </p>
-<h2 id="正确应用场景"><a href="#正确应用场景" class="headerlink" title="正确应用场景"></a>正确应用场景</h2><table>
-<thead>
-<tr>
-<th>场景</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>1. 业务逻辑暂时无法完成</strong></td>
-<td>比如依赖的下游服务未准备好、关联事务状态未更新、依赖数据尚未写入数据库等。消息重试可在一段时间后自动重新消费，最终成功。</td>
-</tr>
-<tr>
-<td><strong>2. 消费失败为偶发性错误</strong></td>
-<td>如网络抖动、瞬时资源不可用、数据库锁冲突等临时异常，短暂延迟后再次消费通常能恢复正常。</td>
-</tr>
-<tr>
-<td><strong>3. 需要保证业务最终一致性</strong></td>
-<td>在消息驱动的异步系统中，通过重试机制补偿异常情况，确保消息最终被成功处理。</td>
-</tr>
-</tbody></table>
-<p>错误应用场景</p>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>不合理点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>1. 用消费失败做业务条件分支</strong></td>
-<td>如果消费逻辑中主动让部分消息“失败”以触发不同分支流程，这属于滥用重试；应通过业务字段或消息路由实现逻辑分流。</td>
-</tr>
-<tr>
-<td><strong>2. 用消费失败实现限流&#x2F;削峰</strong></td>
-<td>消费失败会触发重投而不是减速，会造成消息积压与不必要的 Broker 压力。正确做法是使用 RateLimiter 或队列削峰机制。</td>
-</tr>
-<tr>
-<td><strong>3. 预期失败为常态</strong></td>
-<td>如果多数消息都会消费失败（例如逻辑未准备好），反复重试只会增加系统负担，建议通过延迟消息或消息过滤机制来解决。</td>
-</tr>
-</tbody></table>
-<h1 id="消费重试策略概述"><a href="#消费重试策略概述" class="headerlink" title="消费重试策略概述"></a>消费重试策略概述</h1><h2 id="消费重试的触发条件"><a href="#消费重试的触发条件" class="headerlink" title="消费重试的触发条件"></a>消费重试的触发条件</h2><h3 id="消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。"><a href="#消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。" class="headerlink" title="消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。</font></h3><p> 在 RocketMQ 中，<strong>消费失败（Consume Failure）</strong> 指的是消费者在收到消息后，<strong>没有正确处理完业务逻辑</strong>，   Broker 因此认为这条消息“未被成功消费”。  </p>
-<p>消费失败的触发条件</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>触发条件</th>
-<th>RocketMQ 的反应</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>1️⃣</strong>** 主动返回失败状态**</td>
-<td>代码中显式返回 <code>ConsumeConcurrentlyStatus.RECONSUME_LATER</code></td>
-<td>Broker 接收到失败标识，记录消费失败，延迟后重投</td>
-</tr>
-<tr>
-<td><strong>2️⃣</strong>** 抛出异常**</td>
-<td>消费逻辑抛出运行时异常（如 <code>NullPointerException</code><br/>, <code>SQLException</code><br/>）</td>
-<td>框架捕获异常并自动标记消费失败，Broker 触发重试</td>
-</tr>
-</tbody></table>
-<p>示例1:主动返回失败</p>
-<p>@Override</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        process(msgs); // 处理业务逻辑</span><br><span class="line">        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        // 主动告诉 Broker：这次我处理失败了，请稍后再投递一次</span><br><span class="line">        return ConsumeConcurrentlyStatus.RECONSUME_LATER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>示例2：抛出异常</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onMessage(String message) &#123;</span><br><span class="line">    // 假设处理逻辑异常</span><br><span class="line">    throw new RuntimeException(&quot;处理消息失败：&quot; + message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="消息处理超时，包括在PushConsumer中排队超时。"><a href="#消息处理超时，包括在PushConsumer中排队超时。" class="headerlink" title="消息处理超时，包括在PushConsumer中排队超时。"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">消息处理超时，包括在PushConsumer中排队超时。</font></h3><p><strong>消费超时</strong> 是指消费者在 Broker 规定的时间内未返回消费结果（成功或失败）。<br>由于 Broker 需要确认每条消息的消费状态，如果消费者长时间未响应，Broker 会认为该消息<strong>超时未完成消费</strong>，并将其判定为消费失败。<br>需要注意，消息超时并不等同于代码出错，它通常是由于<strong>消费者处理速度过慢、线程阻塞或业务逻辑执行过长</strong>等原因导致的。  </p>
-<p>消息超时触发条件</p>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>🕒 <strong>处理太慢</strong></td>
-<td>消费逻辑执行时间超过了 Broker 允许的上限（默认 15 分钟）</td>
-</tr>
-<tr>
-<td>🧵 <strong>线程排队超时</strong></td>
-<td>PushConsumer 模式中，消息在客户端线程池等待太久（线程繁忙）</td>
-</tr>
-<tr>
-<td>🧱 <strong>卡死或阻塞</strong></td>
-<td>消费者业务逻辑中死循环、网络阻塞、锁等待等，导致迟迟不返回结果</td>
-</tr>
-</tbody></table>
-<h2 id="消息重试策略主要行为"><a href="#消息重试策略主要行为" class="headerlink" title="消息重试策略主要行为"></a>消息重试策略主要行为</h2><p><strong>消息重试策略</strong>主要决定了当消息消费失败后，RocketMQ 如何重新投递消息。<br>它包含以下几个关键行为：</p>
-<ul>
-<li><strong>重试状态流转</strong>：描述消息在重试过程中的状态变化，比如“消费失败 → 等待重试 → 再次投递”。</li>
-<li><strong>重试间隔时间</strong>：指每次消费失败后，Broker 等待多长时间再重新发送这条消息。</li>
-<li><strong>最大重试次数</strong>：规定同一条消息最多可以被重新消费的次数，超过上限就会被放入死信队列（DLQ）。</li>
-</ul>
-<h2 id="消息重试策略差异"><a href="#消息重试策略差异" class="headerlink" title="消息重试策略差异"></a>消息重试策略差异</h2><p>根据消费者类型不同，消息重试策略的具体内部机制和设置方法有所不同，具体差异如下</p>
-<table>
-<thead>
-<tr>
-<th><strong>消费者类型</strong></th>
-<th><strong>重试过程状态机</strong></th>
-<th><strong>重试间隔</strong></th>
-<th><strong>最大重试次数</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>PushConsumer</strong></td>
-<td>已就绪 → 处理中 → 待重试 → 提交（成功） &#x2F; 死信（失败）</td>
-<td>无序消息：采用<strong>阶梯式延迟重试</strong>（10s、30s、1m、2m…）顺序消息：使用<strong>固定间隔时间</strong>重试</td>
-<td>由<strong>消费者分组元数据</strong>控制（默认 16 次，可通过参数配置）</td>
-</tr>
-<tr>
-<td><strong>SimpleConsumer</strong></td>
-<td>已就绪 → 处理中 → 提交（成功） &#x2F; 死信（失败）</td>
-<td>通过 <strong>API</strong> 调整消息的“不可见时间（Invisible Duration）”来自定义重试间隔</td>
-<td>同样由<strong>消费者分组元数据</strong>控制（默认 16 次）</td>
-</tr>
-</tbody></table>
-<p>说明补充：</p>
-<ul>
-<li><strong>PushConsumer</strong>：框架自动管理重试流程，开发者只需返回状态或抛异常即可触发重试。</li>
-<li><strong>SimpleConsumer</strong>：开发者完全掌控重试逻辑，可灵活调整“消息重新可见”的时间，实现自定义延迟重投。</li>
-</ul>
-<h3 id="PushConsumer-消费重试策略"><a href="#PushConsumer-消费重试策略" class="headerlink" title="PushConsumer 消费重试策略"></a>PushConsumer 消费重试策略</h3><p><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">PushConsumer消费消息时，消息的几个主要状态如下：</font></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057446263-23b87313-b037-4036-89ec-6c1a302d30b8.png"></p>
-<ul>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Ready：已就绪状态。消息在Apache RocketMQ服务端已就绪，可以被消费者消费。</font></li>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Inflight：处理中状态。消息被消费者客户端获取，处于消费中还未返回消费结果的状态。</font></li>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Commit：提交状态。消费成功的状态，消费者返回成功响应即可结束消息的状态机。</font></li>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">WaitingRetry 是 </font><strong>PushConsumer</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);"> 独有的状态。当消费者处理消息失败或发生消费超时时，RocketMQ 会触发重试逻辑：如果当前消息的重试次数还没达到上限，消息就会进入 </font><strong>待重试状态</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">。在等待一段时间（即重试间隔）后，消息会重新变为 </font><strong>已就绪状态</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">，再次投递给消费者。通过设置合适的重试间隔，可以避免消息频繁失败导致系统高频重试，从而提升系统稳定性。  </font></li>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">DLQ：死信状态。消费逻辑的最终兜底机制，若消息一直处理失败并不断进行重试，直到超过最大重试次数还未成功，此时消息不会再重试，会被投递至死信队列。您可以通过消费死信队列的消息进行业务恢复。</font></li>
-</ul>
-<h3 id="最大重试次数"><a href="#最大重试次数" class="headerlink" title="最大重试次数"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">最大重试次数</font></h3><p><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">PushConsumer的最大重试次数由消费者分组创建时的元数据控制，例如，最大重试次数为3次，则该消息最多可被投递4次，1次为原始消息，3次为重试投递次数。</font></p>
-<h3 id="重试间隔时间"><a href="#重试间隔时间" class="headerlink" title="重试间隔时间"></a>重试间隔时间</h3><ol>
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">无序消息（非顺序消息）：重试间隔为阶梯时间，具体时间如下：</font></li>
+          <h2 id="AOF持久化是如何实现的"><a href="#AOF持久化是如何实现的" class="headerlink" title="AOF持久化是如何实现的"></a>AOF持久化是如何实现的</h2><p>AOF持久化本质就是借助AOF日志保存Redis 执行的写操作命令（注意只会记录写操作命令,读操作命令不会记录没有意义）,当Redis 重启的时候,先去读取这个文件里的命令并执行,就实现了保存数据的功能</p>
+<p><em>Redis中的AOF持久化功能默认是不开启的,需要我们修改该redis.conf配置文件中的一下参数</em></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760771191162-5b9c1f9e-cfaa-4702-9891-d581b5ea65ea.png"></p>
+<p><em>AOF日志文件本也就是普通文本，不过它保存的不是原生的reids 命令，而是RESP协议格式,这种格式对机器更友好,执行效率更高并且不会产生歧义</em></p>
+<h2 id="Redis-的AOF日志写入在什么时候？为什么？"><a href="#Redis-的AOF日志写入在什么时候？为什么？" class="headerlink" title="Redis 的AOF日志写入在什么时候？为什么？"></a>Redis 的AOF日志写入在什么时候？为什么？</h2><p><strong>redis 是在写入操作之后才执行AOF日志写入</strong></p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li><font style="color:#DF2A3F;">避免额外的检查开销</font></li>
+<li>.+,如果先写入日志再执行写操作命令的话,还需要检查命令是否执行成功,不成功的话还要进行日志的回退</li>
+<li><font style="color:#DF2A3F;">不会阻塞当前写操作命令的执行</font>,因为是写操作成功才会执行AOF日志写入</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057688550-c82f2574-34d6-4b1c-a338-d41cda905268.png"></p>
-<p>注意:若重试次数超过16次，后面每次重试间隔都为2小时</p>
+<h3 id="缺陷"><a href="#缺陷" class="headerlink" title="缺陷"></a>缺陷</h3><ol>
+<li><font style="color:#DF2A3F;">丢失风险</font><font style="color:#000000;">,执行写操作和记录日志是两个过程,如果写操作后redis还没来得即将命令写入硬盘，服务器发生宕机就会出现丢失风险</font></li>
+<li><font style="color:#DF2A3F;">给下一个命令带来阻塞</font><font style="color:#000000;">，前面说到由于是再写操作后才执行AOF日志写入,所以不会阻塞当前的写操作命令,但可能会阻塞下一个命令</font></li>
+</ol>
+<h2 id="三种回写策略"><a href="#三种回写策略" class="headerlink" title="三种回写策略"></a>三种回写策略</h2><p><font style="color:rgb(44, 62, 80);">Redis 写入 AOF 日志的过程，如下图：</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760772039086-de8c9f2a-efec-4b93-a323-8fd3676a7432.png"></p>
+<ol>
+<li>reids 执行写操作的时候,会将命令追加到用户缓冲区</li>
+<li>然后通过write()系统调用将命令写入到内核缓冲区</li>
+<li>之后os内核自主决定什么时候将内核缓冲区的数据写入到硬盘</li>
+</ol>
+<p>所以此时redis 就会出现三种回写策略</p>
+<ol>
+<li>Always <font style="color:rgb(44, 62, 80);">每次写操作命令执行完后，同步将 AOF 日志数据写回硬盘；</font></li>
+<li><font style="color:rgb(44, 62, 80);">Everysec，（每秒）每次写操作命令执行完后，同步将 AOF 日志数据写回硬盘；</font></li>
+<li><font style="color:rgb(44, 62, 80);">No， 不由redis控制写回硬盘的时机，转交给os控制写回的时机，也就是每次写操作命令执行后,先将命令写入到AOF文件的内核缓冲区,再由OS决定何时将缓冲区内容写回硬盘</font></li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760772797212-2e76b6c0-92c8-4592-b6e5-6f3d80bdc90e.png"></p>
+<p>Redis 的三种 AOF 写回策略，本质上都是用来控制 <code>fsync()</code> 的调用时机——也就是<strong>何时将内核缓冲区（Page Cache）中的数据真正写入磁盘</strong>。</p>
+<p>需要注意的是，Redis 的 AOF 写入过程包含两层缓冲：</p>
+<ul>
+<li><strong>用户态缓冲区（aof_buf）</strong>：Redis 进程内部维护，用于暂存命令文本。</li>
+<li><strong>内核态缓冲区（Page Cache）</strong>：操作系统层面的文件缓存。</li>
+</ul>
+<p>虽然这三种写回策略直接控制的是“内核缓冲区 → 磁盘”的刷新频率，但 Redis 在语义层面也保证了用户缓冲区的安全：<br>在调用 <code>fsync()</code> 之前，它会先调用 <code>write()</code>，确保用户态缓冲区的数据已经写入内核态缓冲区。</p>
+<p>换句话说，三种写回策略控制的是<strong>数据何时真正落盘</strong>，<br>而 Redis 自身的实现逻辑确保了在触发 <code>fsync()</code> 之前，用户态缓冲区中的数据已经被安全送入内核态缓冲区。</p>
+<h2 id="write（）和fsync（）的调用线程"><a href="#write（）和fsync（）的调用线程" class="headerlink" title="write（）和fsync（）的调用线程"></a>write（）和fsync（）的调用线程</h2><p> AOF 三种写回策略中，执行 write() 将 AOF 缓冲区写入内核页缓存的步骤始终由主线程完成，write() 很快，几乎不会阻塞。<br>差异在于执行 fsync() 的方式：<br>Always 模式下，由<font style="color:#DF2A3F;">主线程同步执行 fsync()</font>，必须等磁盘落盘完成才继续，速度慢，遇到大 key 会明显阻塞。<br>Everysec 模式下，由<font style="color:#DF2A3F;">后台的慢 IO 线程异池</font>异步执行 fsync()，主线程只负责 write，不会因磁盘 IO 被阻塞，最多丢 1 秒数据。<br>No 模式下，主线程仅 write，不主动 fsync，刷盘完全由操作系统自行处理，性能最好，但可能丢较多数据。  </p>
+<h2 id="AOF重写机制"><a href="#AOF重写机制" class="headerlink" title="AOF重写机制"></a>AOF重写机制</h2><p><strong>AOF 日志是一个文件，随着执行的写操作命令越来越多，文件的大小会越来越大。</strong></p>
+<p>如果当 AOF 日志文件过大就会带来性能问题，比如重启 Redis 后，需要读 AOF 文件的内容以恢复数据，如果文件过大，整个恢复的过程就会很慢。</p>
+<p>所以，Redis 为了避免 AOF 文件越写越大，提供了 <strong>AOF 重写机制</strong>，当 AOF 文件的大小超过所设定的阈值后，Redis 就会启用 AOF 重写机制，来压缩 AOF 文件。</p>
+<p>AOF 重写机制是在重写时，读取当前数据库中的所有键值对，然后将每一个键值对用一条命令记录到「新的 AOF 文件」，等到全部记录完成后，就将新的 AOF 文件替换现有的 AOF 文件。</p>
+<p>例如，在没有重写前，假如先后执行了set name a 和 set name b，这两个命令，就会将这两个记录写入到AOF中，但是其实只有最后一个命令set name 是有效的,所以再进行AOF重写之后就会大大压缩AOF文件，同时再AOF日志恢复数据的时候效率也会提高</p>
+<h3 id="AOF如何进行重写"><a href="#AOF如何进行重写" class="headerlink" title="AOF如何进行重写"></a>AOF如何进行重写</h3><p>AOF的写入操作是在主进程完成的，因为它写入的命令不多，但是再触发AOF重写的时候需要创建子进程完成，因为很耗时会阻塞redis</p>
+<h3 id="重写过程"><a href="#重写过程" class="headerlink" title="重写过程"></a>重写过程</h3><ul>
+<li>主进程创建AOF重写子进程</li>
+<li>子进程扫描数据库中的所有数据,逐一把内存数据的键值对转换成一条命令，再将命令记录到新的重写日志中，完成后会向主进程发送信号</li>
+<li>主进程接收到这个信号后将<strong>AOF重写缓冲区</strong>中的所有内容追加到新的AOF日志中，使得新旧两个AOF文件所保存的数据库状态一直</li>
+<li>最后将新AOF文件替换旧的AOF文件</li>
+</ul>
+<h3 id="AOF重写缓冲区VS-AOF缓冲区"><a href="#AOF重写缓冲区VS-AOF缓冲区" class="headerlink" title="AOF重写缓冲区VS AOF缓冲区"></a>AOF重写缓冲区VS AOF缓冲区</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760850284564-1e7b07e8-170f-4a37-8a13-4c254706de10.png"></p>
+<p><strong>AOF 缓冲区</strong>是 Redis 在正常运行时用于暂存写命令的用户态内存区域，这些命令会被定期写入磁盘形成 AOF 日志；<br>而 <strong>AOF 重写缓冲区</strong> 仅在执行 AOF 重写（rewrite）时存在，用于临时保存重写过程中产生的新写命令，保证重写完成后数据不丢失。<br>两者都属于 <strong>用户态缓冲区</strong>，位于 Redis 进程内部内存中。  </p>
+<h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><p> 假设你在运行中的 Redis 中执行以下操作：  </p>
+<p>SET name Alice</p>
+<p>SET age 20</p>
 <br/>
 
-<ol start="2">
-<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">顺序消息：重试间隔为固定时间</font></li>
-</ol>
+<p>这两条命令会先写入 <strong>AOF 缓冲区（aof_buf）</strong>，然后根据 <code>appendfsync</code> 策略被写入磁盘。</p>
+<p>此时如果 Redis 触发了 <strong>AOF 重写</strong>（为了压缩日志文件），后台子进程会创建一个新文件来重写旧日志；<br>在这段时间你又执行了：</p>
+<p>SET city Beijing</p>
+<br/>
+
+<p>这条新命令会被同时写入：</p>
+<ul>
+<li>普通的 <strong>AOF 缓冲区</strong>（保持旧文件正确性）；</li>
+<li>以及 <strong>AOF 重写缓冲区</strong>（保证新文件重写完成后也包含这条命令，防止数据不一致）。</li>
+</ul>
+<p>当重写结束后，Redis 会把重写缓冲区中的 <code>SET city Beijing</code> 追加到新文件末尾，然后替换旧 AOF 文件。</p>
 
       
     </div>
@@ -1365,7 +1710,7 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/rocketmq/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF+RDB%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1383,19 +1728,23 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/rocketmq/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2025/11/25/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/AOF+RDB%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89/" class="post-title-link" itemprop="url">AOF+RDB（推荐）</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
+        <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-25 20:31:43 / 修改时间：20:27:21" itemprop="dateCreated datePublished" datetime="2025-11-25T20:31:43+08:00">2025-11-25</time>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/%E6%8C%81%E4%B9%85%E5%8C%96/" itemprop="url" rel="index"><span itemprop="name">持久化</span></a>
+        </span>
     </span>
 
   
@@ -1408,79 +1757,159 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一-rocketmq核心概念"><a href="#一-rocketmq核心概念" class="headerlink" title="一. rocketmq核心概念"></a>一. rocketmq核心概念</h1><table>
+          <p><font style="color:rgb(44, 62, 80);">如果想要开启混合持久化功能，可以在 Redis 配置文件将下面这个配置项设置成 yes：</font></p>
+<p>aof-use-rdb-preamble yes</p>
+<br/>
+
+<p>混合持久化可以兼顾RDB的恢复速度，以及解决RDB快照生成时丢失进行快照生成过程的数据修改</p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ul>
+<li>当开启混合持久化时，执行 <strong>AOF 重写</strong> 会由主进程 <code>fork</code> 出一个 <strong>重写子进程</strong>。</li>
+<li>子进程会将当前内存中的数据以 <strong>RDB 格式</strong> 写入新的 AOF 文件（即写入时是全量数据）。</li>
+<li>在此过程中，主进程仍可处理新的写命令；这些命令会被记录到 <strong>AOF 重写缓冲区</strong> 中。</li>
+<li>重写完成后，主进程将缓冲区中的增量命令以 <strong>AOF 格式</strong> 追加到新文件末尾。</li>
+<li>最终，新 AOF 文件由两部分组成：</li>
+<li><strong>前半部分：RDB 格式的全量数据</strong></li>
+<li><strong>后半部分：AOF 格式的增量命令</strong></li>
+<li>写入完成后，Redis 会用新的混合格式 AOF 文件替换旧文件，实现高效且数据一致的持久化。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/" class="post-title-link" itemprop="url">过期删除策略和内存淘汰策略</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="过期删除策略"><a href="#过期删除策略" class="headerlink" title="过期删除策略"></a>过期删除策略</h2><h3 id="redis-如何判定key-过期"><a href="#redis-如何判定key-过期" class="headerlink" title="redis 如何判定key 过期"></a>redis 如何判定key 过期</h3><ul>
+<li>当我们给一个 <strong>key 设置过期时间</strong> 时，Redis 会把该 key 及其对应的过期时间记录到一个 <strong>过期字典（expires 字典）</strong> 中。</li>
+<li>这个过期字典本质上是一个 <strong>哈希表（Hash Table）</strong>，键是 key 的名字，值是该 key 的过期时间戳。</li>
+<li>由于哈希表查找的时间复杂度是 <strong>O(1)</strong>，Redis 能非常快速地判断一个 key 是否设置了过期时间。</li>
+</ul>
+<p>当读取某个值的时候，redis 首先在主字典中查找该 key。  </p>
+<p>如果找到该 key，则进一步在 <strong>过期字典</strong> 中检查：</p>
+<ul>
+<li><strong>若 key 不在过期字典中</strong> → 说明该 key 没有设置过期时间，直接返回。</li>
+<li><strong>若 key 在过期字典中</strong> → Redis 会取出它的过期时间，与当前系统时间进行对比，判断是是否过期。</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763711708749-ac8eabb2-4065-4044-9d46-e77276cb9df2.png"></p>
+<h3 id="过期删除策略有哪些"><a href="#过期删除策略有哪些" class="headerlink" title="过期删除策略有哪些"></a>过期删除策略有哪些</h3><ul>
+<li><font style="color:rgb(44, 62, 80);">定时删除；</font></li>
+<li><font style="color:rgb(44, 62, 80);">惰性删除；</font></li>
+<li><font style="color:rgb(44, 62, 80);">定期删除；</font></li>
+</ul>
+<table>
 <thead>
 <tr>
-<th>名称</th>
-<th>中文含义</th>
-<th>在系统中的角色</th>
-<th>主要功能</th>
-<th>类比理解</th>
-<th>关系示意</th>
+<th>删除策略</th>
+<th>执行方式</th>
+<th>优点</th>
+<th>缺点</th>
+<th>举例说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>Producer</strong></td>
-<td>生产者</td>
-<td>消息的发送方</td>
-<td>负责生产并发送消息到指定的 <strong>Topic</strong></td>
-<td>“快递寄件人”</td>
-<td>Producer → Broker</td>
+<td><strong>定时删除</strong></td>
+<td>为每个 key 设置独立的定时器，一到过期时间立即删除。</td>
+<td>实时性最好，过期数据几乎不会被访问到。</td>
+<td>占用 CPU 资源多，若过期 key 较多会严重影响性能。</td>
+<td>假设设置了 1 万个 key 同时过期，Redis 会同时触发 1 万个删除操作，可能造成卡顿。</td>
 </tr>
 <tr>
-<td><strong>Consumer</strong></td>
-<td>消费者</td>
-<td>消息的接收方</td>
-<td>订阅并消费指定 <strong>Topic</strong> 下的消息</td>
-<td>“快递收件人”</td>
-<td>Broker → Consumer</td>
+<td><strong>惰性删除</strong></td>
+<td>访问 key 时才检查是否过期，若过期则在访问时删除。</td>
+<td>对 CPU 友好，无需额外定时任务。</td>
+<td>若 key 长期不被访问，会一直占用内存（内存泄漏风险）。</td>
+<td>某些冷数据长期不访问，就算过期了也不会被清理。</td>
 </tr>
 <tr>
-<td><strong>Topic</strong></td>
-<td>主题</td>
-<td>消息的逻辑分类</td>
-<td>用于区分不同类型的消息流，如订单、支付、通知等</td>
-<td>“快递包裹的类别标签”</td>
-<td>Broker 根据 Topic 管理消息</td>
-</tr>
-<tr>
-<td><strong>Broker</strong></td>
-<td>消息代理服务器</td>
-<td>消息的存储与转发节点</td>
-<td>接收 Producer 消息、存储消息、将消息推送给 Consumer</td>
-<td>“快递中转仓库”</td>
-<td>Producer ↔ Broker ↔ Consumer</td>
-</tr>
-<tr>
-<td><strong>NameServer</strong></td>
-<td>名称服务（注册中心）</td>
-<td>管理 Broker 元数据的节点</td>
-<td>维护 Topic 与 Broker 的对应关系，让 Producer 和 Consumer 能找到正确的 Broker</td>
-<td>“快递公司调度中心 &#x2F; 地址导航系统”</td>
-<td>Producer &amp; Consumer 都先访问它获取 Broker 地址</td>
+<td><strong>定期删除</strong></td>
+<td>Redis 每隔一段时间随机抽样检查部分设置了过期时间的 key，删除其中已过期的。</td>
+<td>在性能与内存之间取得平衡，避免占用过多 CPU。</td>
+<td>不能保证所有过期 key 都被立即清理，有一定延迟。</td>
+<td>Redis 默认每 100ms 进行一次过期采样，清理一部分已过期 key。</td>
 </tr>
 </tbody></table>
-<p>Broker和Topic 的关系为N:M，但是建议一个topic 对应多个broker（高可用）</p>
-<h1 id="二-整个消息流"><a href="#二-整个消息流" class="headerlink" title="二. 整个消息流"></a>二. 整个消息流</h1><p> Producer(生产者)</p>
-<pre><code>    │
-
-    ▼
-</code></pre>
-<p>   ┌────────────┐</p>
-<p>   │ NameServer │ ←→ 负责注册、发现 Broker</p>
-<p>   └────────────┘</p>
-<pre><code>    │
-
-    ▼
-</code></pre>
-<p>   ┌────────────┐</p>
-<p>   │   Broker   │ ←→ 存储消息（按 Topic 分类）</p>
-<p>   └────────────┘</p>
-<pre><code>    │
-
-    ▼
-</code></pre>
-<p> Consumer(消费者)</p>
+<h4 id="redis实际采用的是惰性删除-定期删除"><a href="#redis实际采用的是惰性删除-定期删除" class="headerlink" title="redis实际采用的是惰性删除+定期删除"></a>redis实际采用的是惰性删除+定期删除</h4><p>惰性删除： redis 每次在访问key的时候都会检查key是否过期过删除</p>
+<p>定期删除： redis 默认每秒进行10次过期检查数据库（ hz  字段更改配置 ），注意这10次检查不是全库扫描，而是从数据库中抽取一定数量的key进行过期检查（ active-expire-effort   字段更改配置）</p>
+<h2 id="redis-内存淘汰策略"><a href="#redis-内存淘汰策略" class="headerlink" title="redis 内存淘汰策略"></a>redis 内存淘汰策略</h2><p>redis内存淘汰策略分为八种，这八种策略大体分为<strong>不进行数据淘汰</strong>和<strong>进行数据淘汰</strong></p>
+<h4 id="不进行数据淘汰策略（redis默认策略）"><a href="#不进行数据淘汰策略（redis默认策略）" class="headerlink" title="不进行数据淘汰策略（redis默认策略）"></a>不进行数据淘汰策略（redis默认策略）</h4><p>noeviction  它表示当运行内存超过最大设置内存时，不淘汰任何数据。<br>这时如果有新的数据写入，会报错通知禁止写入，不淘汰任何数据，<br>但是如果没有数据写入的话，只是单纯的查询或者删除操作的话，还是可以正常工作。  </p>
+<h4 id="进行数据淘汰"><a href="#进行数据淘汰" class="headerlink" title="进行数据淘汰"></a>进行数据淘汰</h4><p>针对「进行数据淘汰」这一类策略，又可以细分为「在设置了过期时间的数据中进行淘汰」和「在所有数据范围内进行淘汰」这两类策略。</p>
+<p>在设置了过期时间的数据中进行淘汰：</p>
+<ul>
+<li><strong>volatile-random</strong>：随机淘汰设置了过期时间的任意键值；</li>
+<li><strong>volatile-ttl</strong>：优先淘汰更早过期的键值；</li>
+<li><strong>volatile-lru</strong>（Redis3.0 之前，默认的内存淘汰策略）：淘汰所有设置了过期时间的键值中，最久未使用的键值；</li>
+<li><strong>volatile-lfu</strong>（Redis 4.0 后新增的内存淘汰策略）：淘汰所有设置了过期时间的键值中，最少使用的键值。</li>
+</ul>
+<p>在所有数据范围内进行淘汰：</p>
+<ul>
+<li><strong>allkeys-random</strong>：随机淘汰任意键值；</li>
+<li><strong>allkeys-lru</strong>：淘汰整个键值中最久未使用的键值；</li>
+<li><strong>allkeys-lfu</strong>（Redis 4.0 后新增的内存淘汰策略）：淘汰整个键值中最少使用的键值。</li>
+</ul>
+<h4 id="查看redis-内存淘汰策略"><a href="#查看redis-内存淘汰策略" class="headerlink" title="查看redis 内存淘汰策略"></a>查看redis 内存淘汰策略</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760853787301-0a89c43b-9783-4704-bb3a-a91fd2ba0431.png"></p>
+<h4 id="修改redis-内存淘汰策略"><a href="#修改redis-内存淘汰策略" class="headerlink" title="修改redis 内存淘汰策略"></a>修改redis 内存淘汰策略</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760853796862-384ae849-2bff-41fc-8b21-c4397939ca58.png"></p>
 
       
     </div>
@@ -1500,7 +1929,7 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1516,8 +1945,6 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">刘翰霖</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
