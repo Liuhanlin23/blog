@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="RocketMQ消费重试机制 在 RocketMQ 中，Broker 将消息发送给消费者后不会立即删除消息，而是保留在 CommitLog 中；仅当消费者成功确认（ACK）后，才认为消费完成。若消费者处理消息失败，Broker 会将消息放入 重试队列，并根据延迟级别多次重投；若超过最大重试次数仍未成功，则消息会被转入 死信队列（DLQ），供人工排查与补偿处理。   应用场景RocketMQ 消费重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消费重试">
+<meta property="og:url" content="http://example.com/RocketMQ/RocketMQ/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="RocketMQ消费重试机制 在 RocketMQ 中，Broker 将消息发送给消费者后不会立即删除消息，而是保留在 CommitLog 中；仅当消费者成功确认（ACK）后，才认为消费完成。若消费者处理消息失败，Broker 会将消息放入 重试队列，并根据延迟级别多次重投；若超过最大重试次数仍未成功，则消息会被转入 死信队列（DLQ），供人工排查与补偿处理。   应用场景RocketMQ 消费重">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057446263-23b87313-b037-4036-89ec-6c1a302d30b8.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057688550-c82f2574-34d6-4b1c-a338-d41cda905268.png">
+<meta property="article:published_time" content="2025-11-25T13:31:54.419Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.863Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057446263-23b87313-b037-4036-89ec-6c1a302d30b8.png">
+
+
+<link rel="canonical" href="http://example.com/RocketMQ/RocketMQ/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/RocketMQ/RocketMQ/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/","path":"RocketMQ/RocketMQ/消费重试/","title":"消费重试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>消费重试 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RocketMQ%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">RocketMQ消费重试机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">2.1.</span> <span class="nav-text">正确应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95%E7%AD%96%E7%95%A5%E6%A6%82%E8%BF%B0"><span class="nav-number">3.</span> <span class="nav-text">消费重试策略概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95%E7%9A%84%E8%A7%A6%E5%8F%91%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">消费重试的触发条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%8C%85%E6%8B%AC%E6%B6%88%E8%B4%B9%E8%80%85%E8%BF%94%E5%9B%9E%E6%B6%88%E6%81%AF%E5%A4%B1%E8%B4%A5%E7%8A%B6%E6%80%81%E6%A0%87%E8%AF%86%E6%88%96%E6%8A%9B%E5%87%BA%E9%9D%9E%E9%A2%84%E6%9C%9F%E5%BC%82%E5%B8%B8%E3%80%82"><span class="nav-number">3.1.1.</span> <span class="nav-text">消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E5%A4%84%E7%90%86%E8%B6%85%E6%97%B6%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%9C%A8PushConsumer%E4%B8%AD%E6%8E%92%E9%98%9F%E8%B6%85%E6%97%B6%E3%80%82"><span class="nav-number">3.1.2.</span> <span class="nav-text">消息处理超时，包括在PushConsumer中排队超时。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%87%8D%E8%AF%95%E7%AD%96%E7%95%A5%E4%B8%BB%E8%A6%81%E8%A1%8C%E4%B8%BA"><span class="nav-number">3.2.</span> <span class="nav-text">消息重试策略主要行为</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B6%88%E6%81%AF%E9%87%8D%E8%AF%95%E7%AD%96%E7%95%A5%E5%B7%AE%E5%BC%82"><span class="nav-number">3.3.</span> <span class="nav-text">消息重试策略差异</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PushConsumer-%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95%E7%AD%96%E7%95%A5"><span class="nav-number">3.3.1.</span> <span class="nav-text">PushConsumer 消费重试策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E9%87%8D%E8%AF%95%E6%AC%A1%E6%95%B0"><span class="nav-number">3.3.2.</span> <span class="nav-text">最大重试次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E8%AF%95%E9%97%B4%E9%9A%94%E6%97%B6%E9%97%B4"><span class="nav-number">3.3.3.</span> <span class="nav-text">重试间隔时间</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/RocketMQ/RocketMQ/%E6%B6%88%E8%B4%B9%E9%87%8D%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="消费重试 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          消费重试
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RocketMQ/" itemprop="url" rel="index"><span itemprop="name">RocketMQ</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="RocketMQ消费重试机制"><a href="#RocketMQ消费重试机制" class="headerlink" title="RocketMQ消费重试机制"></a>RocketMQ消费重试机制</h1><p> 在 <strong>RocketMQ</strong> 中，Broker 将消息发送给消费者后不会立即删除消息，而是保留在 <strong>CommitLog</strong> 中；仅当消费者成功确认（ACK）后，才认为消费完成。若消费者处理消息失败，Broker 会将消息放入 <strong>重试队列</strong>，并根据延迟级别多次重投；若超过最大重试次数仍未成功，则消息会被转入 <strong>死信队列（DLQ）</strong>，供人工排查与补偿处理。  </p>
+<h1 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h1><p><strong>RocketMQ 消费重试机制</strong>用于处理偶发性的业务消费失败，以保证消息最终一致性；<br>不应用于流程分支或限流控制，否则会导致消息堆积与系统性能下降。  </p>
+<h2 id="正确应用场景"><a href="#正确应用场景" class="headerlink" title="正确应用场景"></a>正确应用场景</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 业务逻辑暂时无法完成</strong></td>
+<td>比如依赖的下游服务未准备好、关联事务状态未更新、依赖数据尚未写入数据库等。消息重试可在一段时间后自动重新消费，最终成功。</td>
+</tr>
+<tr>
+<td><strong>2. 消费失败为偶发性错误</strong></td>
+<td>如网络抖动、瞬时资源不可用、数据库锁冲突等临时异常，短暂延迟后再次消费通常能恢复正常。</td>
+</tr>
+<tr>
+<td><strong>3. 需要保证业务最终一致性</strong></td>
+<td>在消息驱动的异步系统中，通过重试机制补偿异常情况，确保消息最终被成功处理。</td>
+</tr>
+</tbody></table>
+<p>错误应用场景</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>不合理点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 用消费失败做业务条件分支</strong></td>
+<td>如果消费逻辑中主动让部分消息“失败”以触发不同分支流程，这属于滥用重试；应通过业务字段或消息路由实现逻辑分流。</td>
+</tr>
+<tr>
+<td><strong>2. 用消费失败实现限流&#x2F;削峰</strong></td>
+<td>消费失败会触发重投而不是减速，会造成消息积压与不必要的 Broker 压力。正确做法是使用 RateLimiter 或队列削峰机制。</td>
+</tr>
+<tr>
+<td><strong>3. 预期失败为常态</strong></td>
+<td>如果多数消息都会消费失败（例如逻辑未准备好），反复重试只会增加系统负担，建议通过延迟消息或消息过滤机制来解决。</td>
+</tr>
+</tbody></table>
+<h1 id="消费重试策略概述"><a href="#消费重试策略概述" class="headerlink" title="消费重试策略概述"></a>消费重试策略概述</h1><h2 id="消费重试的触发条件"><a href="#消费重试的触发条件" class="headerlink" title="消费重试的触发条件"></a>消费重试的触发条件</h2><h3 id="消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。"><a href="#消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。" class="headerlink" title="消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">消费失败，包括消费者返回消息失败状态标识或抛出非预期异常。</font></h3><p> 在 RocketMQ 中，<strong>消费失败（Consume Failure）</strong> 指的是消费者在收到消息后，<strong>没有正确处理完业务逻辑</strong>，   Broker 因此认为这条消息“未被成功消费”。  </p>
+<p>消费失败的触发条件</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>触发条件</th>
+<th>RocketMQ 的反应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1️⃣</strong>** 主动返回失败状态**</td>
+<td>代码中显式返回 <code>ConsumeConcurrentlyStatus.RECONSUME_LATER</code></td>
+<td>Broker 接收到失败标识，记录消费失败，延迟后重投</td>
+</tr>
+<tr>
+<td><strong>2️⃣</strong>** 抛出异常**</td>
+<td>消费逻辑抛出运行时异常（如 <code>NullPointerException</code><br/>, <code>SQLException</code><br/>）</td>
+<td>框架捕获异常并自动标记消费失败，Broker 触发重试</td>
+</tr>
+</tbody></table>
+<p>示例1:主动返回失败</p>
+<p>@Override</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        process(msgs); // 处理业务逻辑</span><br><span class="line">        return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        // 主动告诉 Broker：这次我处理失败了，请稍后再投递一次</span><br><span class="line">        return ConsumeConcurrentlyStatus.RECONSUME_LATER;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例2：抛出异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void onMessage(String message) &#123;</span><br><span class="line">    // 假设处理逻辑异常</span><br><span class="line">    throw new RuntimeException(&quot;处理消息失败：&quot; + message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="消息处理超时，包括在PushConsumer中排队超时。"><a href="#消息处理超时，包括在PushConsumer中排队超时。" class="headerlink" title="消息处理超时，包括在PushConsumer中排队超时。"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">消息处理超时，包括在PushConsumer中排队超时。</font></h3><p><strong>消费超时</strong> 是指消费者在 Broker 规定的时间内未返回消费结果（成功或失败）。<br>由于 Broker 需要确认每条消息的消费状态，如果消费者长时间未响应，Broker 会认为该消息<strong>超时未完成消费</strong>，并将其判定为消费失败。<br>需要注意，消息超时并不等同于代码出错，它通常是由于<strong>消费者处理速度过慢、线程阻塞或业务逻辑执行过长</strong>等原因导致的。  </p>
+<p>消息超时触发条件</p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🕒 <strong>处理太慢</strong></td>
+<td>消费逻辑执行时间超过了 Broker 允许的上限（默认 15 分钟）</td>
+</tr>
+<tr>
+<td>🧵 <strong>线程排队超时</strong></td>
+<td>PushConsumer 模式中，消息在客户端线程池等待太久（线程繁忙）</td>
+</tr>
+<tr>
+<td>🧱 <strong>卡死或阻塞</strong></td>
+<td>消费者业务逻辑中死循环、网络阻塞、锁等待等，导致迟迟不返回结果</td>
+</tr>
+</tbody></table>
+<h2 id="消息重试策略主要行为"><a href="#消息重试策略主要行为" class="headerlink" title="消息重试策略主要行为"></a>消息重试策略主要行为</h2><p><strong>消息重试策略</strong>主要决定了当消息消费失败后，RocketMQ 如何重新投递消息。<br>它包含以下几个关键行为：</p>
+<ul>
+<li><strong>重试状态流转</strong>：描述消息在重试过程中的状态变化，比如“消费失败 → 等待重试 → 再次投递”。</li>
+<li><strong>重试间隔时间</strong>：指每次消费失败后，Broker 等待多长时间再重新发送这条消息。</li>
+<li><strong>最大重试次数</strong>：规定同一条消息最多可以被重新消费的次数，超过上限就会被放入死信队列（DLQ）。</li>
+</ul>
+<h2 id="消息重试策略差异"><a href="#消息重试策略差异" class="headerlink" title="消息重试策略差异"></a>消息重试策略差异</h2><p>根据消费者类型不同，消息重试策略的具体内部机制和设置方法有所不同，具体差异如下</p>
+<table>
+<thead>
+<tr>
+<th><strong>消费者类型</strong></th>
+<th><strong>重试过程状态机</strong></th>
+<th><strong>重试间隔</strong></th>
+<th><strong>最大重试次数</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>PushConsumer</strong></td>
+<td>已就绪 → 处理中 → 待重试 → 提交（成功） &#x2F; 死信（失败）</td>
+<td>无序消息：采用<strong>阶梯式延迟重试</strong>（10s、30s、1m、2m…）顺序消息：使用<strong>固定间隔时间</strong>重试</td>
+<td>由<strong>消费者分组元数据</strong>控制（默认 16 次，可通过参数配置）</td>
+</tr>
+<tr>
+<td><strong>SimpleConsumer</strong></td>
+<td>已就绪 → 处理中 → 提交（成功） &#x2F; 死信（失败）</td>
+<td>通过 <strong>API</strong> 调整消息的“不可见时间（Invisible Duration）”来自定义重试间隔</td>
+<td>同样由<strong>消费者分组元数据</strong>控制（默认 16 次）</td>
+</tr>
+</tbody></table>
+<p>说明补充：</p>
+<ul>
+<li><strong>PushConsumer</strong>：框架自动管理重试流程，开发者只需返回状态或抛异常即可触发重试。</li>
+<li><strong>SimpleConsumer</strong>：开发者完全掌控重试逻辑，可灵活调整“消息重新可见”的时间，实现自定义延迟重投。</li>
+</ul>
+<h3 id="PushConsumer-消费重试策略"><a href="#PushConsumer-消费重试策略" class="headerlink" title="PushConsumer 消费重试策略"></a>PushConsumer 消费重试策略</h3><p><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">PushConsumer消费消息时，消息的几个主要状态如下：</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057446263-23b87313-b037-4036-89ec-6c1a302d30b8.png"></p>
+<ul>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Ready：已就绪状态。消息在Apache RocketMQ服务端已就绪，可以被消费者消费。</font></li>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Inflight：处理中状态。消息被消费者客户端获取，处于消费中还未返回消费结果的状态。</font></li>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">Commit：提交状态。消费成功的状态，消费者返回成功响应即可结束消息的状态机。</font></li>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">WaitingRetry 是 </font><strong>PushConsumer</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);"> 独有的状态。当消费者处理消息失败或发生消费超时时，RocketMQ 会触发重试逻辑：如果当前消息的重试次数还没达到上限，消息就会进入 </font><strong>待重试状态</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">。在等待一段时间（即重试间隔）后，消息会重新变为 </font><strong>已就绪状态</strong><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">，再次投递给消费者。通过设置合适的重试间隔，可以避免消息频繁失败导致系统高频重试，从而提升系统稳定性。  </font></li>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">DLQ：死信状态。消费逻辑的最终兜底机制，若消息一直处理失败并不断进行重试，直到超过最大重试次数还未成功，此时消息不会再重试，会被投递至死信队列。您可以通过消费死信队列的消息进行业务恢复。</font></li>
+</ul>
+<h3 id="最大重试次数"><a href="#最大重试次数" class="headerlink" title="最大重试次数"></a><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">最大重试次数</font></h3><p><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">PushConsumer的最大重试次数由消费者分组创建时的元数据控制，例如，最大重试次数为3次，则该消息最多可被投递4次，1次为原始消息，3次为重试投递次数。</font></p>
+<h3 id="重试间隔时间"><a href="#重试间隔时间" class="headerlink" title="重试间隔时间"></a>重试间隔时间</h3><ol>
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">无序消息（非顺序消息）：重试间隔为阶梯时间，具体时间如下：</font></li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1762057688550-c82f2574-34d6-4b1c-a338-d41cda905268.png"></p>
+<p>注意:若重试次数超过16次，后面每次重试间隔都为2小时</p>
+<br/>
+
+<ol start="2">
+<li><font style="color:rgb(28, 30, 33);background-color:rgb(250, 250, 250);">顺序消息：重试间隔为固定时间</font></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/RocketMQ/RocketMQ/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" rel="prev" title="基本概念">
+                  <i class="fa fa-angle-left"></i> 基本概念
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/CAP%E7%90%86%E8%AE%BA/" rel="next" title="CAP理论">
+                  CAP理论 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

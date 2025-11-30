@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="线程的创建方式有哪些继承Thread类这是最直接的一种方式，用户自定义类继承java.lang.Thread类，重写其run()方法，run()方法中定义了线程执行的具体任务。创建该类的实例后，通过调用start()方法启动线程。  实现Runnable 接口如果一个类已经继承了其他类，就不能再继承Thread类，此时可以实现java.lang.Runnable接口。实现Runnable接口需要重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程">
+<meta property="og:url" content="http://example.com/JUC/JUC/%E7%BA%BF%E7%A8%8B/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="线程的创建方式有哪些继承Thread类这是最直接的一种方式，用户自定义类继承java.lang.Thread类，重写其run()方法，run()方法中定义了线程执行的具体任务。创建该类的实例后，通过调用start()方法启动线程。  实现Runnable 接口如果一个类已经继承了其他类，就不能再继承Thread类，此时可以实现java.lang.Runnable接口。实现Runnable接口需要重">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861235814-12fb85a3-acef-477e-992d-7a448f7ba29a.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861316342-63764d77-9cfb-4c2f-853f-d36d01bf77b7.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861479075-ecd500fe-3a26-4ea8-8296-c6a2150c13a6.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763558824895-3663aa3f-b558-4608-bba6-05ef875afcf0.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861586943-0b18b948-a076-4550-893f-29cfc9aef989.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760862207613-b47102e1-ddc0-4a49-9ac6-7c35ea1c7b6f.png">
+<meta property="article:published_time" content="2025-11-25T13:35:06.827Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.675Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861235814-12fb85a3-acef-477e-992d-7a448f7ba29a.png">
+
+
+<link rel="canonical" href="http://example.com/JUC/JUC/%E7%BA%BF%E7%A8%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/JUC/JUC/%E7%BA%BF%E7%A8%8B/","path":"JUC/JUC/线程/","title":"线程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>线程 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-number">1.</span> <span class="nav-text">线程的创建方式有哪些</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%A7%E6%89%BFThread%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">继承Thread类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0Runnable-%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.2.</span> <span class="nav-text">实现Runnable 接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3%E4%B8%8EFutureTask"><span class="nav-number">1.3.</span> <span class="nav-text">实现Callable接口与FutureTask</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%BE%97%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">1.3.1.</span> <span class="nav-text">获得执行结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get%EF%BC%88%EF%BC%89%E9%98%BB%E5%A1%9E%E5%BC%8F"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">get（）阻塞式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AE%E8%AF%A2%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%BC%8F"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">轮询非阻塞式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FutureTask-%E5%90%9E%E5%BC%82%E5%B8%B8"><span class="nav-number">1.3.2.</span> <span class="nav-text">FutureTask 吞异常</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%88%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%89"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">原因（源码实现）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">1.4.</span> <span class="nav-text">使用线程池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#start-%E6%96%B9%E6%B3%95%E5%92%8Crun%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">1.5.</span> <span class="nav-text">start 方法和run方法有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="nav-number">1.6.</span> <span class="nav-text">如何停止一个线程的运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E5%B8%B8%E6%B3%95%E5%81%9C%E6%AD%A2%EF%BC%8C%E7%BA%BF%E7%A8%8B%E8%B0%83%E7%94%A8interrupt-%E6%96%B9%E6%B3%95%E5%90%8E%EF%BC%8C%E5%9C%A8%E7%BA%BF%E7%A8%8B%E7%9A%84run%E6%96%B9%E6%B3%95%E4%B8%AD%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E5%AF%B9%E8%B1%A1%E7%9A%84interrupted-%E7%8A%B6%E6%80%81%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%98%AF%E4%B8%AD%E6%96%AD%E7%8A%B6%E6%80%81%E5%88%99%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%EF%BC%8C%E8%BE%BE%E5%88%B0%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%95%88%E6%9E%9C%E3%80%82"><span class="nav-number">1.6.1.</span> <span class="nav-text">异常法停止，线程调用interrupt()方法后，在线程的run方法中判断当前对象的interrupted()状态，如果是中断状态则抛出异常，达到中断线程的效果。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stop-%E6%9A%B4%E5%8A%9B%E5%81%9C%E6%AD%A2%EF%BC%9A%E7%BA%BF%E7%A8%8B%E8%B0%83%E7%94%A8stop-%E6%96%B9%E6%B3%95%E4%BC%9A%E8%A2%AB%E6%9A%B4%E5%8A%9B%E5%81%9C%E6%AD%A2%EF%BC%8C%E6%96%B9%E6%B3%95%E5%B7%B2%E5%BC%83%E7%94%A8%EF%BC%8C%E8%AF%A5%E6%96%B9%E6%B3%95%E4%BC%9A%E6%9C%89%E4%B8%8D%E5%A5%BD%E7%9A%84%E5%90%8E%E6%9E%9C%EF%BC%9A%E5%BC%BA%E5%88%B6%E8%AE%A9%E7%BA%BF%E7%A8%8B%E5%81%9C%E6%AD%A2%E6%9C%89%E5%8F%AF%E8%83%BD%E4%BD%BF%E4%B8%80%E4%BA%9B%E8%AF%B7%E7%90%86%E6%80%A7%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%BE%97%E4%B8%8D%E5%88%B0%E5%AE%8C%E6%88%90%E3%80%82"><span class="nav-number">1.6.2.</span> <span class="nav-text">stop()暴力停止：线程调用stop()方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8return%E5%81%9C%E6%AD%A2%E7%BA%BF%E7%A8%8B%EF%BC%9A%E8%B0%83%E7%94%A8interrupt%E6%A0%87%E8%AE%B0%E4%B8%BA%E4%B8%AD%E6%96%AD%E7%8A%B6%E6%80%81%E5%90%8E%EF%BC%8C%E5%9C%A8run%E6%96%B9%E6%B3%95%E4%B8%AD%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%BA%E4%B8%AD%E6%96%AD%E7%8A%B6%E6%80%81%E5%88%99return%EF%BC%8C%E8%83%BD%E8%BE%BE%E5%88%B0%E5%81%9C%E6%AD%A2%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%95%88%E6%9E%9C%E3%80%82"><span class="nav-number">1.6.3.</span> <span class="nav-text">使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8-interrupt-%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%A9%E7%BA%BF%E7%A8%8B%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8%E7%9A%84"><span class="nav-number">1.7.</span> <span class="nav-text">调用 interrupt 是如何让线程抛出异常的?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blocked%E5%92%8Cwaiting%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">1.8.</span> <span class="nav-text">blocked和waiting有什么区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notify%E5%92%8CnotifyAll%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.9.</span> <span class="nav-text">notify和notifyAll的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#notify%E9%80%89%E6%8B%A9%E5%93%AA%E4%B8%AA%E7%BA%BF%E7%A8%8B%E5%94%A4%E9%86%92"><span class="nav-number">1.9.1.</span> <span class="nav-text">notify选择哪个线程唤醒</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/JUC/JUC/%E7%BA%BF%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="线程 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          线程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="线程的创建方式有哪些"><a href="#线程的创建方式有哪些" class="headerlink" title="线程的创建方式有哪些"></a>线程的创建方式有哪些</h1><h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><p><font style="color:rgb(44, 62, 80);">这是最直接的一种方式，用户自定义类继承java.lang.Thread类，重写其run()方法，run()方法中定义了线程执行的具体任务。创建该类的实例后，通过调用start()方法启动线程。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861235814-12fb85a3-acef-477e-992d-7a448f7ba29a.png"></p>
+<h2 id="实现Runnable-接口"><a href="#实现Runnable-接口" class="headerlink" title="实现Runnable 接口"></a>实现Runnable 接口</h2><p><font style="color:rgb(44, 62, 80);">如果一个类已经继承了其他类，就不能再继承Thread类，此时可以实现java.lang.Runnable接口。实现Runnable接口需要重写run()方法，然后将此Runnable对象作为参数传递给Thread类的构造器，创建Thread对象后调用其start()方法启动线程。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861316342-63764d77-9cfb-4c2f-853f-d36d01bf77b7.png"></p>
+<h2 id="实现Callable接口与FutureTask"><a href="#实现Callable接口与FutureTask" class="headerlink" title="实现Callable接口与FutureTask"></a>实现Callable接口与FutureTask</h2><p>Callable 与 Runnable 类似，但 call() 方法可以返回结果，并且允许抛出受检异常（因为签名是 <code>V call() throws Exception</code>）。</p>
+<p>Runnable.run() 和 Thread.run() 只能抛运行时异常，且没有返回值（签名为 <code>void run()</code>），因此无法处理受检异常，也无法产生结果。</p>
+<p>如果要执行 Callable，必须将其包装为 FutureTask，再交给线程或线程池执行。</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861479075-ecd500fe-3a26-4ea8-8296-c6a2150c13a6.png"></p>
+<h3 id="获得执行结果"><a href="#获得执行结果" class="headerlink" title="获得执行结果"></a>获得执行结果</h3><p>FutureTask 有两种方法获得执行结果：</p>
+<ul>
+<li>get（）方法阻塞等待获取结果</li>
+<li>轮询获得（非阻塞）</li>
+</ul>
+<h4 id="get（）阻塞式"><a href="#get（）阻塞式" class="headerlink" title="get（）阻塞式"></a>get（）阻塞式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FutureTask&lt;String&gt; futureTask = new FutureTask&lt;String&gt;(new MyCallable());</span><br><span class="line">Thread thread = new Thread(futureTask);</span><br><span class="line">thread.start();</span><br><span class="line">String result=futureTask.get();</span><br></pre></td></tr></table></figure>
+
+<h4 id="轮询非阻塞式"><a href="#轮询非阻塞式" class="headerlink" title="轮询非阻塞式"></a>轮询非阻塞式</h4><p>通过isDone方法判断有没有执行完毕</p>
+<ul>
+<li>true:执行完 </li>
+<li>false:没有执行完</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FutureTask&lt;String&gt; futureTask = new FutureTask&lt;String&gt;(new MyCallable());</span><br><span class="line">Thread thread = new Thread(futureTask);</span><br><span class="line">thread.start();</span><br><span class="line">while(!futureTask.isDone())&#123;</span><br><span class="line">    //...</span><br><span class="line">&#125;</span><br><span class="line">String result = futureTask.get();</span><br></pre></td></tr></table></figure>
+
+<h3 id="FutureTask-吞异常"><a href="#FutureTask-吞异常" class="headerlink" title="FutureTask 吞异常"></a>FutureTask 吞异常</h3><p>虽然call方法中抛出了异常，但是没有调用FutureTask的get方法就会吞异常，控制台什么都不打印</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class MyCallable implements Callable&lt;String&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public String call() throws Exception&#123;</span><br><span class="line">                throw new Exception(&quot;aaa&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException, ExecutionException &#123;</span><br><span class="line">     FutureTask&lt;String&gt; task=new FutureTask&lt;&gt;(new MyCallable());</span><br><span class="line">     Thread thread=new Thread(task);</span><br><span class="line">     thread.start();</span><br><span class="line">     //不调用get方法就会吞异常</span><br><span class="line">     //task.get() </span><br><span class="line">     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1763558824895-3663aa3f-b558-4608-bba6-05ef875afcf0.png"></p>
+<h4 id="原因（源码实现）"><a href="#原因（源码实现）" class="headerlink" title="原因（源码实现）"></a>原因（源码实现）</h4><p>FutureTask 中对于Runnable 接口的run（）方法的实现为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void run() &#123;</span><br><span class="line">    if (state != NEW) return;</span><br><span class="line">    Callable&lt;V&gt; c = callable;</span><br><span class="line">    try &#123;</span><br><span class="line">        V result = c.call();    // 调你的 MyCallable.call()</span><br><span class="line">        set(result);            // 正常结束，保存结果</span><br><span class="line">    &#125; catch (Throwable ex) &#123;</span><br><span class="line">        setException(ex);       // ✅ 把异常保存起来，不往外抛</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也就是说：</p>
+<p>FutureTask 会把 <code>call()</code> 抛出的异常 catch 住，存到内部字段里，不让它继续往外抛到线程。只有调用get（）方法时异常才会继续往外抛</p>
+<h2 id="使用线程池"><a href="#使用线程池" class="headerlink" title="使用线程池"></a>使用线程池</h2><p>这也是比较推荐的方式使用线程池来创建管理线程，避免了频繁创建线程和销毁线程的开销</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760861586943-0b18b948-a076-4550-893f-29cfc9aef989.png"></p>
+<h2 id="start-方法和run方法有什么区别"><a href="#start-方法和run方法有什么区别" class="headerlink" title="start 方法和run方法有什么区别"></a>start 方法和run方法有什么区别</h2><table>
+<thead>
+<tr>
+<th>区别项</th>
+<th><code>start()</code><br/> 方法</th>
+<th><code>run()</code><br/> 方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>定义位置</strong></td>
+<td>定义在 <code>Thread</code><br/> 类中，由 JVM 实现</td>
+<td>定义在 <code>Runnable</code><br/> 接口中，由用户重写</td>
+</tr>
+<tr>
+<td><strong>作用</strong></td>
+<td><strong>启动一个新的线程</strong>，让 JVM 调用 <code>run()</code></td>
+<td>普通方法调用，<strong>不会创建新线程</strong></td>
+</tr>
+<tr>
+<td><strong>执行线程</strong></td>
+<td>由 <strong>新的子线程</strong> 执行 <code>run()</code></td>
+<td>在 <strong>当前主线程</strong> 中执行</td>
+</tr>
+<tr>
+<td><strong>能否多次调用</strong></td>
+<td>❌ 只能调用一次（多次会抛异常）毕竟线程只能创建一次</td>
+<td>✅ 可以重复调用</td>
+</tr>
+<tr>
+<td><strong>是否并发执行</strong></td>
+<td>✅ 会并发执行（主线程与子线程同时运行）</td>
+<td>❌ 同步执行（顺序执行）</td>
+</tr>
+</tbody></table>
+<h2 id="如何停止一个线程的运行"><a href="#如何停止一个线程的运行" class="headerlink" title="如何停止一个线程的运行"></a>如何停止一个线程的运行</h2><p><em>线程的终止就是运行完run方法</em></p>
+<h3 id="异常法停止，线程调用interrupt-方法后，在线程的run方法中判断当前对象的interrupted-状态，如果是中断状态则抛出异常，达到中断线程的效果。"><a href="#异常法停止，线程调用interrupt-方法后，在线程的run方法中判断当前对象的interrupted-状态，如果是中断状态则抛出异常，达到中断线程的效果。" class="headerlink" title="异常法停止，线程调用interrupt()方法后，在线程的run方法中判断当前对象的interrupted()状态，如果是中断状态则抛出异常，达到中断线程的效果。"></a>异常法停止，<font style="color:rgb(44, 62, 80);">线程调用interrupt()方法后，在线程的run方法中判断当前对象的interrupted()状态，如果是中断状态则抛出异常，达到中断线程的效果。</font></h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760862207613-b47102e1-ddc0-4a49-9ac6-7c35ea1c7b6f.png"></p>
+<h3 id="stop-暴力停止：线程调用stop-方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。"><a href="#stop-暴力停止：线程调用stop-方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。" class="headerlink" title="stop()暴力停止：线程调用stop()方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。"></a><font style="color:rgb(48, 79, 254);">stop()暴力停止</font><font style="color:rgb(44, 62, 80);">：线程调用stop()方法会被暴力停止，方法已弃用，该方法会有不好的后果：强制让线程停止有可能使一些请理性的工作得不到完成。</font></h3><h3 id="使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。"><a href="#使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。" class="headerlink" title="使用return停止线程：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。"></a><font style="color:rgb(48, 79, 254);">使用return停止线程</font><font style="color:rgb(44, 62, 80);">：调用interrupt标记为中断状态后，在run方法中判断当前线程状态，如果为中断状态则return，能达到停止线程的效果。</font></h3><h2 id="调用-interrupt-是如何让线程抛出异常的"><a href="#调用-interrupt-是如何让线程抛出异常的" class="headerlink" title="调用 interrupt 是如何让线程抛出异常的?"></a><font style="color:rgb(44, 62, 80);">调用 interrupt 是如何让线程抛出异常的?</font></h2><p>_<strong>对于处于阻塞状态的线程</strong>__，调用 <em><code>_interrupt()_</code></em> 方法会让它被 <strong><strong>JVM 强制唤醒</strong></strong>，   并且 <strong><strong>抛出一个 <strong><em><code>_**InterruptedException**_</code></em></strong> 异常</strong></strong>。  _</p>
+<p><font style="color:rgb(44, 62, 80);">每个线程都一个与之关联的布尔属性来表示其中断状态，当一个线程被其它线程调用</font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;Thread.interrupt()&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">方法中断时，会根据实际情况做出响应。</font></p>
+<table>
+<thead>
+<tr>
+<th>线程状态</th>
+<th>调用 <code>interrupt()</code><br/> 后会怎样</th>
+<th>是否抛出 <code>InterruptedException</code></th>
+<th>中断标志位是否被设置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>非阻塞状态</strong>（正在运行中）</td>
+<td>不会抛异常，<strong>只是设置中断标志位为 true</strong></td>
+<td>❌ 不会抛异常</td>
+<td>✅ 会被设置为 <code>true</code></td>
+</tr>
+<tr>
+<td><strong>阻塞状态</strong>（如 <code>sleep()</code><br/>、<code>wait()</code><br/>、<code>join()</code><br/>）</td>
+<td>JVM 会<strong>立即唤醒线程</strong>并**抛出 **<code>**InterruptedException**</code></td>
+<td>✅ 会抛异常</td>
+<td>⚠️ <strong>不会保留中断标志</strong>（被清除为 <code>false</code><br/>）</td>
+</tr>
+</tbody></table>
+<p><code>interrupt()</code> 永远都会设置中断标志位（true），<br>但如果线程正处于阻塞状态并因此抛出 <code>InterruptedException</code>，<br><strong>JVM 会自动清除该标志位（恢复为 false）</strong>。  </p>
+<h2 id="blocked和waiting有什么区别"><a href="#blocked和waiting有什么区别" class="headerlink" title="blocked和waiting有什么区别"></a>blocked和waiting有什么区别</h2><table>
+<thead>
+<tr>
+<th><font style="color:rgb(44, 62, 80);">状态</font></th>
+<th><font style="color:rgb(44, 62, 80);">产生原因</font></th>
+<th><font style="color:rgb(44, 62, 80);">等待对象</font></th>
+<th><font style="color:rgb(44, 62, 80);">唤醒方式</font></th>
+<th><font style="color:rgb(44, 62, 80);">是否释放锁</font></th>
+<th><font style="color:rgb(44, 62, 80);">常见触发方法</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>BLOCKED（阻塞）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">等待 </font><strong>进入 synchronized 临界区</strong></td>
+<td><font style="color:rgb(44, 62, 80);">对象监视器锁（Monitor）</font></td>
+<td><font style="color:rgb(44, 62, 80);">持锁线程释放锁</font></td>
+<td>❌<font style="color:rgb(44, 62, 80);"> 不释放锁（因为还没拿到）</font></td>
+<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;synchronized&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> 竞争</font></td>
+</tr>
+<tr>
+<td><strong>WAITING（等待）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">已经获取锁，但主动</font><strong>放弃执行权，等待通知</strong></td>
+<td><font style="color:rgb(44, 62, 80);">任意对象的 monitor（监视器）</font></td>
+<td><font style="color:rgb(44, 62, 80);">被其他线程调用 </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;notify()&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> &#x2F; </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;notifyAll()&lt;/font&gt;</code></td>
+<td>✅<font style="color:rgb(44, 62, 80);"> 释放锁</font></td>
+<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;Object.wait()&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> &#x2F; </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;LockSupport.park()&lt;/font&gt;</code></td>
+</tr>
+</tbody></table>
+<h2 id="notify和notifyAll的区别"><a href="#notify和notifyAll的区别" class="headerlink" title="notify和notifyAll的区别"></a><font style="color:rgb(44, 62, 80);">notify和notifyAll的区别</font></h2><p><font style="color:rgb(44, 62, 80);">同样是唤醒等待的线程，同样最多只有一个线程能获得锁，同样不能控制哪个线程获得锁。</font></p>
+<p><font style="color:rgb(44, 62, 80);">区别在于：</font></p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">notify：唤醒一个线程，其他线程依然处于wait的等待唤醒状态</font></li>
+<li><font style="color:rgb(44, 62, 80);">notifyAll：所有线程退出wait的状态，开始竞争锁，但只有一个线程能抢到</font></li>
+</ul>
+<h3 id="notify选择哪个线程唤醒"><a href="#notify选择哪个线程唤醒" class="headerlink" title="notify选择哪个线程唤醒"></a><font style="color:rgb(44, 62, 80);">notify选择哪个线程唤醒</font></h3><p><font style="color:rgb(44, 62, 80);">这个是由jvm实现的不同的jvm有不同的实现策略，一般的话是随机或者先进先出</font></p>
+<font style="color:rgb(44, 62, 80);">  
+</font><font style="color:rgb(44, 62, 80);"> </font>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="prev" title="工厂模式">
+                  <i class="fa fa-angle-left"></i> 工厂模式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/JUC/JUC/CAS/" rel="next" title="CAS">
+                  CAS <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

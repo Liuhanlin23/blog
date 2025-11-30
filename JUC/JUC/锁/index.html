@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="内置锁（synchronized）  Java 中的 synchronized 关键字是内置锁机制的基础，可以用于方法或代码块。当一个线程进入 synchronized 代码块或方法时，它会获取关联对象的锁；当线程离开该代码块或方法时，锁会被释放。如果其他线程尝试获取同一个对象的锁，它们将被阻塞，直到锁被释放。其中，synchronized 加锁有无锁、偏向锁、轻量级锁和重量级锁四个级别。  偏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="锁">
+<meta property="og:url" content="http://example.com/JUC/JUC/%E9%94%81/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="内置锁（synchronized）  Java 中的 synchronized 关键字是内置锁机制的基础，可以用于方法或代码块。当一个线程进入 synchronized 代码块或方法时，它会获取关联对象的锁；当线程离开该代码块或方法时，锁会被释放。如果其他线程尝试获取同一个对象的锁，它们将被阻塞，直到锁被释放。其中，synchronized 加锁有无锁、偏向锁、轻量级锁和重量级锁四个级别。  偏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760864626719-5e7cb5fb-fa9e-40b1-8c20-5b99b31e91e3.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760865143357-26f061a5-cb9c-4c8e-af9f-4b9d983d266a.png">
+<meta property="article:published_time" content="2025-11-25T13:35:06.859Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.683Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760864626719-5e7cb5fb-fa9e-40b1-8c20-5b99b31e91e3.png">
+
+
+<link rel="canonical" href="http://example.com/JUC/JUC/%E9%94%81/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/JUC/JUC/%E9%94%81/","path":"JUC/JUC/锁/","title":"锁"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>锁 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#synchronized"><span class="nav-number">1.</span> <span class="nav-text">synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">2.</span> <span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReadWriteLock"><span class="nav-number">3.</span> <span class="nav-text">ReadWriteLock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS"><span class="nav-number">4.</span> <span class="nav-text">CAS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS%E7%9A%84%E6%89%A7%E8%A1%8C%E7%AD%96%E7%95%A5"><span class="nav-number">4.1.</span> <span class="nav-text">CAS的执行策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAS%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">CAS的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8-Atomic-%E5%8E%9F%E5%AD%90%E7%B1%BB%EF%BC%88%E6%9C%80%E5%B8%B8%E7%94%A8%E3%80%81%E6%9C%80%E5%AE%89%E5%85%A8%EF%BC%89"><span class="nav-number">4.2.1.</span> <span class="nav-text">用 Atomic 原子类（最常用、最安全）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-ABA%EF%BC%9A%E5%8A%A0%E2%80%9C%E7%89%88%E6%9C%AC%E5%8F%B7%E2%80%9D%EF%BC%88AtomicStampedReference%EF%BC%89"><span class="nav-number">4.2.2.</span> <span class="nav-text">解决 ABA：加“版本号”（AtomicStampedReference）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFABA%E9%97%AE%E9%A2%98"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">什么是ABA问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-AtomicStampedReference-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.3.</span> <span class="nav-text">2.AtomicStampedReference 的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">4.2.4.</span> <span class="nav-text">执行过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sychronized-%E7%9A%84%E9%94%81%E5%8D%87%E7%BA%A7"><span class="nav-number">5.</span> <span class="nav-text">Sychronized 的锁升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM%E5%AF%B9Synchronized%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">6.</span> <span class="nav-text">JVM对Synchronized的优化</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/JUC/JUC/%E9%94%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="锁 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          锁
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ol>
+<li>内置锁（synchronized）</li>
+</ol>
+<p>Java 中的 <code>synchronized</code> 关键字是内置锁机制的基础，可以用于方法或代码块。当一个线程进入 <code>synchronized</code> 代码块或方法时，它会获取关联对象的锁；当线程离开该代码块或方法时，锁会被释放。如果其他线程尝试获取同一个对象的锁，它们将被阻塞，直到锁被释放。<br>其中，<code>synchronized</code> 加锁有无锁、偏向锁、轻量级锁和重量级锁四个级别。</p>
+<ul>
+<li><strong>偏向锁</strong>：当一个线程进入同步块时，如果没有任何其他线程竞争，就会使用偏向锁，以减少锁的开销。</li>
+<li><strong>轻量级锁</strong>：使用线程栈上的数据结构，避免了操作系统级别的锁。</li>
+<li><strong>重量级锁</strong>：涉及操作系统级的互斥锁。</li>
+</ul>
+<ol start="2">
+<li><p>ReentrantLock   是一个显式的锁类，提供了比 <code>synchronized</code> 更高级的功能，如可中断的锁等待、定时锁等待、公平锁选项等。  <code>ReentrantLock</code> 使用 <code>lock()</code> 和 <code>unlock()</code> 方法来获取和释放锁。   公平锁：按照线程请求锁的顺序来分配，保证了锁分配的公平性，但可能增加锁的等待时间。   非公平锁：不保证锁的分配顺序，可以减少锁的竞争，提高性能，但可能造成某些线程的饥饿。  </p>
+</li>
+<li><p>读写锁（ReadWriteLock）   允许多个读取者同时访问共享资源，但只允许一个写入者。  </p>
+</li>
+<li><p>自旋锁   自旋锁是一种锁机制，线程在等待锁时会持续循环检查锁是否可用，   而不是放弃 CPU 并阻塞。通常可以使用 <strong>CAS（Compare-And-Swap）</strong> 来实现。<br>在锁等待时间很短的情况下可以提高性能，但过度自旋会浪费 CPU 资源。</p>
+</li>
+</ol>
+<h2 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h2><p><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;synchronized&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">关键字可以用于方法或代码块，它是Java中最早的锁实现，使用起来非常简单。</font></p>
+<table>
+<thead>
+<tr>
+<th><font style="color:rgb(44, 62, 80);">写法</font></th>
+<th><font style="color:rgb(44, 62, 80);">锁对象</font></th>
+<th><font style="color:rgb(44, 62, 80);">示例</font></th>
+<th><font style="color:rgb(44, 62, 80);">说明</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>修饰实例方法</strong></td>
+<td><font style="color:rgb(44, 62, 80);">当前实例对象 (</font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;this&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);">)</font></td>
+<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;public synchronized void method()&lt;/font&gt;</code></td>
+<td><font style="color:rgb(44, 62, 80);">同一对象的多个线程互斥，不同对象互不影响</font></td>
+</tr>
+<tr>
+<td><strong>修饰静态方法</strong></td>
+<td><font style="color:rgb(44, 62, 80);">当前类的 </font><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;Class&lt;/font&gt;</code><br/><font style="color:rgb(44, 62, 80);"> 对象</font></td>
+<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;public static synchronized void method()&lt;/font&gt;</code></td>
+<td><font style="color:rgb(44, 62, 80);">锁是类级别的，所有对象共享同一把锁</font></td>
+</tr>
+<tr>
+<td><strong>修饰代码块</strong></td>
+<td><font style="color:rgb(44, 62, 80);">任意对象</font></td>
+<td><code>&lt;font style=&quot;color:rgb(44, 62, 80);&quot;&gt;synchronized(lock){ ... }&lt;/font&gt;</code></td>
+<td><font style="color:rgb(44, 62, 80);">可自定义锁粒度，提高性能</font></td>
+</tr>
+</tbody></table>
+<h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a><font style="color:rgb(44, 62, 80);">ReentrantLock</font></h2><p><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;Lock&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">接口提供了比</font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;synchronized&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">更灵活的锁操作，包括尝试锁、可中断锁、定时锁等。</font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;ReentrantLock&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">是</font><code>&lt;font style=&quot;color:rgb(71, 101, 130);background-color:rgba(27, 31, 35, 0.05);&quot;&gt;Lock&lt;/font&gt;</code><font style="color:rgb(44, 62, 80);">接口的一个实现。</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760864626719-5e7cb5fb-fa9e-40b1-8c20-5b99b31e91e3.png"></p>
+<p>ReentrantLock就是可以自己控制加锁解锁的范围和c语言中的mutex 很类似</p>
+<h2 id="ReadWriteLock"><a href="#ReadWriteLock" class="headerlink" title="ReadWriteLock"></a>ReadWriteLock</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">public class Cache &#123;</span><br><span class="line">    private ReadWriteLock lock = new ReentrantReadWriteLock();</span><br><span class="line">    private Lock readLock = lock.readLock();</span><br><span class="line">    private Lock writeLock = lock.writeLock();</span><br><span class="line">    private Object data;</span><br><span class="line"></span><br><span class="line">    public Object readData() &#123;</span><br><span class="line">        //加读锁</span><br><span class="line">        readLock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            return data;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            readLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void writeData(Object newData) &#123;</span><br><span class="line">        //加写锁</span><br><span class="line">        writeLock.lock();</span><br><span class="line">        try &#123;</span><br><span class="line">            data = newData;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            writeLock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h2><p> 是一种<strong>硬件级别的原子操作指令</strong>，用来在多线程环境下实现<strong>无锁（Lock-Free）并发</strong>。  </p>
+<p> 它的思想很简单：<br>“当且仅当变量的值与我预期的一样时，才把它改成新值；否则不改。”  </p>
+<h3 id="CAS的执行策略"><a href="#CAS的执行策略" class="headerlink" title="CAS的执行策略"></a>CAS的执行策略</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760865143357-26f061a5-cb9c-4c8e-af9f-4b9d983d266a.png"></p>
+<p> 当 CAS 更新失败时，线程会自旋重试，但长期竞争会导致 CPU 占用过高。   需要注意，<strong>CAS 本身没有自旋次数限制或退避机制</strong>。 在 Java 中，<strong>synchronized</strong>（JVM 层）和 <strong>ReentrantLock</strong>（JUC 层） 都会在竞争较轻的场景下使用 <strong>CAS + 自旋机制</strong> 实现“轻量级锁”或“自旋锁”优化，并配合 <strong>自旋次数限制</strong> 与 <strong>退避策略</strong> 来防止无限自旋造成性能浪费。  </p>
+<ul>
+<li>自旋次数限制  有的场景中，自旋次数是有限的。   如果自旋超过阈值仍然失败，就会进入<strong>阻塞等待（park）</strong>。  </li>
+<li>退避策略   如果 CAS 一直失败，会<strong>随机休眠一小段时间</strong>再重试，   防止多个线程在同一时间同时抢占 CPU（减少竞争冲突）。</li>
+</ul>
+<h3 id="CAS的使用"><a href="#CAS的使用" class="headerlink" title="CAS的使用"></a>CAS的使用</h3><h4 id="用-Atomic-原子类（最常用、最安全）"><a href="#用-Atomic-原子类（最常用、最安全）" class="headerlink" title="用 Atomic 原子类（最常用、最安全）"></a>用 Atomic 原子类（最常用、最安全）</h4><ol>
+<li>整形增加</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line">AtomicInteger counter = new AtomicInteger(0);</span><br><span class="line"></span><br><span class="line">// 等价于：CAS(期望=old, 新值=old+1) 直到成功</span><br><span class="line">int newVal = counter.incrementAndGet();</span><br><span class="line"></span><br><span class="line">// 显式 CAS：compareAndSet(expected, update)</span><br><span class="line">boolean ok = counter.compareAndSet(10, 11);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>引用更新</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.atomic.AtomicReference;</span><br><span class="line"></span><br><span class="line">class User &#123; String name; int age; &#125;</span><br><span class="line"></span><br><span class="line">AtomicReference<span class="language-xml"><span class="tag">&lt;<span class="name">User</span>&gt;</span></span> ref = new AtomicReference&lt;&gt;(new User());</span><br><span class="line"></span><br><span class="line">User prev, next;</span><br><span class="line">do &#123;</span><br><span class="line"><span class="code">    prev = ref.get();</span></span><br><span class="line"><span class="code">    next = new User();</span></span><br><span class="line"><span class="code">    next.name = prev.name;</span></span><br><span class="line"><span class="code">    next.age  = prev.age + 1;</span></span><br><span class="line"><span class="code">&#125; while (!ref.compareAndSet(prev, next));  // CAS 自旋</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解决-ABA：加“版本号”（AtomicStampedReference）"><a href="#解决-ABA：加“版本号”（AtomicStampedReference）" class="headerlink" title="解决 ABA：加“版本号”（AtomicStampedReference）"></a>解决 ABA：加“版本号”（<code>AtomicStampedReference</code>）</h4><p>用版本号机制解决CAS的ABA问题</p>
+<h5 id="什么是ABA问题"><a href="#什么是ABA问题" class="headerlink" title="什么是ABA问题"></a>什么是ABA问题</h5><p> 在使用 CAS（Compare-And-Swap）时，只比较“值是否一样”，而不关心这个值是否<strong>被改过再改回</strong>。<br>举个例子：  </p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>操作线程</th>
+<th>变量值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>t1</td>
+<td>线程1 读取 A</td>
+<td>A</td>
+</tr>
+<tr>
+<td>t2</td>
+<td>线程2 把 A 改为 B</td>
+<td>B</td>
+</tr>
+<tr>
+<td>t3</td>
+<td>线程2 又把 B 改回 A</td>
+<td>A</td>
+</tr>
+<tr>
+<td>t4</td>
+<td>线程1 执行 CAS 认为 A 没变</td>
+<td>✅ 成功</td>
+</tr>
+</tbody></table>
+<p> 实际上数据被改过，但 CAS 看不出来，因为值又变回了 “A”。<br>这就可能造成逻辑错误 —— <strong>看似没变，实则被修改过</strong>。  </p>
+<h4 id="2-AtomicStampedReference-的原理"><a href="#2-AtomicStampedReference-的原理" class="headerlink" title="2.AtomicStampedReference 的原理"></a>2.<code>AtomicStampedReference</code> 的原理</h4><p><code>AtomicStampedReference</code> 在 CAS 的基础上<strong>引入一个版本号（stamp）</strong>。</p>
+<ul>
+<li>每次更新时，除了比较值 <code>value</code>，还要比较版本号 <code>stamp</code>；</li>
+<li>成功更新后，版本号自动 +1。</li>
+</ul>
+<p>因此即使值又变回来了，版本号也会不同，从而避免 ABA 问题。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import java.util.concurrent.atomic.AtomicStampedReference;</span><br><span class="line"></span><br><span class="line">AtomicStampedReference<span class="language-xml"><span class="tag">&lt;<span class="name">Integer</span>&gt;</span></span> ref = new AtomicStampedReference&lt;&gt;(100, 1);</span><br><span class="line"></span><br><span class="line">// 读取当前值与版本号</span><br><span class="line">int[] stampHolder = new int[1];</span><br><span class="line">int val = ref.get(stampHolder);</span><br><span class="line">int stamp = stampHolder[0];</span><br><span class="line"></span><br><span class="line">// CAS 更新：值和版本号都必须匹配</span><br><span class="line">boolean ok = ref.compareAndSet(val, 101, stamp, stamp + 1);</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
+<li>当前值是 <code>100</code>，版本号是 <code>1</code></li>
+<li>如果在此期间没有其他线程修改，则 <code>compareAndSet</code> 成功，将：<ul>
+<li>值改为 <code>101</code></li>
+<li>版本号改为 <code>2</code></li>
+</ul>
+</li>
+<li>如果其他线程在此期间修改了值或版本号，则更新失败。</li>
+</ol>
+<h2 id="Sychronized-的锁升级"><a href="#Sychronized-的锁升级" class="headerlink" title="Sychronized 的锁升级"></a>Sychronized 的锁升级</h2><p><font style="color:rgb(44, 62, 80);">具体的锁升级的过程是：</font><strong><font style="color:rgb(48, 79, 254);">无锁-&gt;偏向锁-&gt;轻量级锁-&gt;重量级锁</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
+<p><font style="color:rgb(44, 62, 80);"> 注意：锁</font><strong>只能升级，不会降级</strong><font style="color:rgb(44, 62, 80);">。  </font></p>
+<table>
+<thead>
+<tr>
+<th><font style="color:rgb(44, 62, 80);">锁状态</font></th>
+<th><font style="color:rgb(44, 62, 80);">特点</font></th>
+<th><font style="color:rgb(44, 62, 80);">适用场景</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>无锁（Unlocked）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">没有任何线程竞争</font></td>
+<td><font style="color:rgb(44, 62, 80);">单线程执行</font></td>
+</tr>
+<tr>
+<td><strong>偏向锁（Biased Lock）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">只被同一个线程使用</font></td>
+<td><font style="color:rgb(44, 62, 80);">几乎无竞争的场景</font></td>
+</tr>
+<tr>
+<td><strong>轻量级锁（Lightweight Lock）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">存在短暂竞争（线程交替执行）</font></td>
+<td><font style="color:rgb(44, 62, 80);">低并发</font></td>
+</tr>
+<tr>
+<td><strong>重量级锁（Heavyweight Lock）</strong></td>
+<td><font style="color:rgb(44, 62, 80);">多线程并发竞争激烈</font></td>
+<td><font style="color:rgb(44, 62, 80);">高并发</font></td>
+</tr>
+</tbody></table>
+<ol>
+<li>偏向锁</li>
+</ol>
+<p>第一次线程获得锁时：</p>
+<ul>
+<li>JVM 会在 <strong>对象头（Mark Word）</strong> 中记录当前线程的 ID；</li>
+<li>下次同一线程进入同步块时，只需判断线程 ID 是否匹配即可；</li>
+<li>不需要 CAS 操作，也不需要进入 Monitor；</li>
+<li>因此几乎 <strong>零成本加锁</strong>。</li>
+</ul>
+<ol start="2">
+<li>轻量级锁，当一个线程也尝试获取锁时</li>
+</ol>
+<ul>
+<li>会在当前线程的栈帧中创建一个锁记录（Lock Record）；</li>
+<li>通过 <strong>CAS</strong> 竞争锁；</li>
+<li>如果竞争成功，进入同步块；</li>
+<li>如果竞争失败（有人拿着锁），进入<strong>自旋</strong>（不断尝试获取）。</li>
+</ul>
+<ol start="3">
+<li>重量级锁，<font style="color:rgb(44, 62, 80);">当有两个以上的线程获取锁的时候轻量级锁就会升级为重量级锁，因为CAS如果没有成功的话始终都在自旋，进行while循环操作，这是非常消耗CPU的，但是在升级为重量级锁之后，线程会被操作系统调度然后挂起，这可以节约CPU资源。</font></li>
+</ol>
+<h2 id="JVM对Synchronized的优化"><a href="#JVM对Synchronized的优化" class="headerlink" title="JVM对Synchronized的优化"></a>JVM对Synchronized的优化</h2><p><font style="color:rgb(44, 62, 80);">synchronized 核心优化方案主要包含以下 4 个：</font></p>
+<p><strong><font style="color:rgb(48, 79, 254);">锁膨胀</font></strong><font style="color:rgb(44, 62, 80);">：synchronized 从无锁升级到偏向锁，再到轻量级锁，最后到重量级锁的过程，它叫做锁膨胀也叫做锁升级。</font></p>
+<p><strong><font style="color:rgb(48, 79, 254);">锁消除</font></strong><font style="color:rgb(44, 62, 80);">：指的是在某些情况下，JVM 虚拟机如果检测不到某段代码被共享和竞争的可能性，就会将这段代码所属的同步锁消除掉，从而到底提高程序性能的目的。</font></p>
+<p><strong><font style="color:rgb(48, 79, 254);">锁粗化</font></strong><font style="color:rgb(44, 62, 80);">：将多个连续的加锁、解锁操作连接在一起，扩展成一个范围更大的锁。</font></p>
+<p><strong><font style="color:rgb(48, 79, 254);">自适应自旋锁</font></strong><font style="color:rgb(44, 62, 80);">：指通过自身循环，尝试获取锁的一种方式，优点在于它避免一些线程的挂起和恢复操作，因为挂起线程和恢复线程都需要从用户态转入内核态，这个过程是比较慢的，所以通过自旋的方式可以一定程度上避免线程挂起和恢复所造成的性能开销。</font></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/JUC/JUC/ThreadLocal/" rel="prev" title="ThreadLocal">
+                  <i class="fa fa-angle-left"></i> ThreadLocal
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/JUC/%E9%94%81/JUC/%E9%94%81/CountDownLatch/" rel="next" title="CountDownLatch">
+                  CountDownLatch <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

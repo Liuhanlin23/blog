@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="_ rocketmq-spring-boot-starter 基于 RocketMQ 原生 Java 客户端进行封装，通过自动装配、YAML 配置绑定与 @RocketMQMessageListener 等注解，简化消息的发送、消费与事务处理。  _ 一. 引入依赖12345&lt;dependency&gt;     &lt;groupId&gt;org.apache.rocketmq&lt;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Springboot rocket 实战">
+<meta property="og:url" content="http://example.com/RocketMQ/RocketMQ/Springboot_rocket_%E5%AE%9E%E6%88%98/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="_ rocketmq-spring-boot-starter 基于 RocketMQ 原生 Java 客户端进行封装，通过自动装配、YAML 配置绑定与 @RocketMQMessageListener 等注解，简化消息的发送、消费与事务处理。  _ 一. 引入依赖12345&lt;dependency&gt;     &lt;groupId&gt;org.apache.rocketmq&lt;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T13:31:54.319Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.826Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/RocketMQ/RocketMQ/Springboot_rocket_%E5%AE%9E%E6%88%98/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/RocketMQ/RocketMQ/Springboot_rocket_%E5%AE%9E%E6%88%98/","path":"RocketMQ/RocketMQ/Springboot_rocket_实战/","title":"Springboot rocket 实战"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Springboot rocket 实战 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">1.</span> <span class="nav-text">一. 引入依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C-%E9%85%8D%E7%BD%AEapplication-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">二.配置application.yml配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF"><span class="nav-number">2.1.</span> <span class="nav-text">三.发送与接收消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rocketmq%E7%9A%84%E6%B6%88%E6%81%AF%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">rocketmq的消息类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rocketmq%E7%9A%84%E4%B8%89%E7%A7%8D%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.</span> <span class="nav-text">rocketmq的三种消息发送类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtags%E5%92%8Ckey"><span class="nav-number">2.4.</span> <span class="nav-text">什么是tags和key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rocketmq%E6%B6%88%E6%81%AF%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%EF%BC%8C%E6%AF%8F%E4%B8%80%E6%9D%A1message%E9%83%BD%E5%8C%85%E5%90%AB%E5%87%A0%E4%B8%AA%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="nav-number">2.4.1.</span> <span class="nav-text">rocketmq消息的基本结构，每一条message都包含几个常见属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tag%E6%A0%87%E7%AD%BE"><span class="nav-number">2.4.2.</span> <span class="nav-text">Tag标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#key"><span class="nav-number">2.4.3.</span> <span class="nav-text">key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90"><span class="nav-number">2.4.4.</span> <span class="nav-text">对比分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E6%B6%88%E6%81%AF"><span class="nav-number">2.5.</span> <span class="nav-text">普通消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%8F%91%E9%80%81"><span class="nav-number">2.5.1.</span> <span class="nav-text">同步发送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%8F%91%E9%80%81%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%AF%B9%E8%B1%A1%E9%83%BD%E5%8F%AF%EF%BC%89"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">基础发送（字符串&#x2F;对象都可）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%EF%BC%88%E5%8D%95%E4%BD%8D%EF%BC%9A%E6%AF%AB%E7%A7%92%EF%BC%89"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">带超时时间（单位：毫秒）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E5%B8%A6-Tag-%E7%9A%84%E6%B6%88%E6%81%AF"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">发送带 Tag 的消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E5%B8%A6-Key-%E7%9A%84%E6%B6%88%E6%81%AF%EF%BC%88%E6%96%B9%E4%BE%BF%E8%BF%BD%E8%B8%AA%EF%BC%89"><span class="nav-number">2.5.1.4.</span> <span class="nav-text">发送带 Key 的消息（方便追踪）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E5%8F%91%E9%80%81%EF%BC%88%E5%A4%9A%E6%9D%A1%E5%90%88%E5%B9%B6%E4%B8%80%E6%AC%A1%E5%8F%91%E9%80%81%EF%BC%89"><span class="nav-number">2.5.1.5.</span> <span class="nav-text">批量发送（多条合并一次发送）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%8F%91%E9%80%81"><span class="nav-number">2.5.1.6.</span> <span class="nav-text">异步发送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E5%8F%91%E5%B8%83"><span class="nav-number">2.5.1.7.</span> <span class="nav-text">单向发布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%91%E5%B8%83"><span class="nav-number">2.5.1.8.</span> <span class="nav-text">自定义发布</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%97%E6%B6%88%E6%81%AF%EF%BC%88%E6%B6%88%E8%B4%B9%E7%AB%AF%EF%BC%89"><span class="nav-number">2.5.2.</span> <span class="nav-text">接受消息（消费端）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E6%94%B6%E5%B8%A6-Tag-%E7%9A%84%E6%B6%88%E6%81%AF"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">接收带 Tag 的消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E6%94%B6%E5%AF%B9%E8%B1%A1%E6%B6%88%E6%81%AF"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">接收对象消息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82"><span class="nav-number">2.5.3.</span> <span class="nav-text">监听更多细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B6%88%E8%B4%B9%E8%80%85%E7%BB%84%E5%90%8D%EF%BC%9F"><span class="nav-number">2.5.4.</span> <span class="nav-text">什么是消费者组名？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%BC%8F%E5%8C%BA%E5%88%AB"><span class="nav-number">2.5.5.</span> <span class="nav-text">消费模式区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E6%B6%88%E6%81%AF"><span class="nav-number">2.6.</span> <span class="nav-text">顺序消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E5%9C%BA%E6%99%AF%E4%B8%8E%E7%89%B9%E6%80%A7"><span class="nav-number">2.6.1.</span> <span class="nav-text">✅ 场景与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sharding-key-%E5%92%8C-message-key"><span class="nav-number">2.6.2.</span> <span class="nav-text">sharding key 和 message key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%8F%91%E9%80%81%EF%BC%88%E5%90%8C%E6%AD%A5%EF%BC%89"><span class="nav-number">2.6.3.</span> <span class="nav-text">顺序发送（同步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E5%8F%91%E9%80%81%EF%BC%88%E5%BC%82%E6%AD%A5%EF%BC%89"><span class="nav-number">2.6.4.</span> <span class="nav-text">顺序发送（异步）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%B6%E6%97%B6%E6%B6%88%E6%81%AF"><span class="nav-number">2.7.</span> <span class="nav-text">延时消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E5%9C%BA%E6%99%AF%E4%B8%8E%E7%89%B9%E6%80%A7-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">✅ 场景与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%B6%E6%97%B6%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%EF%BC%88%E5%90%8C%E6%AD%A5%EF%BC%89"><span class="nav-number">2.7.2.</span> <span class="nav-text">延时消息发送（同步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E5%BB%B6%E6%97%B6%E6%B6%88%E6%81%AF"><span class="nav-number">2.7.3.</span> <span class="nav-text">异步延时消息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF"><span class="nav-number">2.8.</span> <span class="nav-text">事务消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E5%9C%BA%E6%99%AF%E4%B8%8E%E7%89%B9%E6%80%A7-2"><span class="nav-number">2.8.1.</span> <span class="nav-text">✅ 场景与特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF"><span class="nav-number">2.8.2.</span> <span class="nav-text">发送事务消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1%E6%89%A7%E8%A1%8C%E4%B8%8E%E5%9B%9E%E6%9F%A5"><span class="nav-number">2.8.3.</span> <span class="nav-text">本地事务执行与回查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%91%E5%90%AC%E5%99%A8%EF%BC%88%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91%EF%BC%89"><span class="nav-number">2.8.4.</span> <span class="nav-text">事务监听器（核心逻辑）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%97%E6%B6%88%E6%81%AF%EF%BC%8C%E6%B6%88%E8%B4%B9%E7%AB%AF%EF%BC%88%E5%92%8C%E6%99%AE%E9%80%9A%E6%B6%88%E6%81%AF%E4%B8%80%E6%A0%B7%EF%BC%89"><span class="nav-number">2.8.5.</span> <span class="nav-text">接受消息，消费端（和普通消息一样）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%8A%B6%E6%80%81%E6%9E%9A%E4%B8%BE"><span class="nav-number">2.8.6.</span> <span class="nav-text">事务状态枚举</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/RocketMQ/RocketMQ/Springboot_rocket_%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Springboot rocket 实战 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Springboot rocket 实战
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RocketMQ/" itemprop="url" rel="index"><span itemprop="name">RocketMQ</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>_ rocketmq-spring-boot-starter 基于 RocketMQ 原生 Java 客户端进行封装，通过自动装配、YAML 配置绑定与 @RocketMQMessageListener 等注解，简化消息的发送、消费与事务处理。  _</p>
+<h1 id="一-引入依赖"><a href="#一-引入依赖" class="headerlink" title="一. 引入依赖"></a>一. 引入依赖</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="code">     &lt;groupId&gt;org.apache.rocketmq&lt;/groupId&gt;</span></span><br><span class="line"><span class="code">     &lt;artifactId&gt;rocketmq-spring-boot-starter&lt;/artifactId&gt;</span></span><br><span class="line"><span class="code">     &lt;version&gt;2.3.0&lt;/version&gt;</span></span><br><span class="line"><span class="code">   &lt;/dependency&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="二-配置application-yml配置文件"><a href="#二-配置application-yml配置文件" class="headerlink" title="二.配置application.yml配置文件"></a>二.配置application.yml配置文件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># name-server ip + port</span><br><span class="line">  name-server: 127.0.0.1:9876</span><br><span class="line">  producer:</span><br><span class="line"># 生产者组名</span><br><span class="line">    group: demo-producer-group</span><br></pre></td></tr></table></figure>
+
+<h2 id="三-发送与接收消息"><a href="#三-发送与接收消息" class="headerlink" title="三.发送与接收消息"></a>三.发送与接收消息</h2><h2 id="rocketmq的消息类型"><a href="#rocketmq的消息类型" class="headerlink" title="rocketmq的消息类型"></a>rocketmq的消息类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>场景</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1. 普通消息（Normal Message）</strong></td>
+<td>最常见</td>
+<td>普通的异步通信，如订单创建通知</td>
+<td>不保证顺序，最灵活</td>
+</tr>
+<tr>
+<td><strong>2. 顺序消息（Ordered Message）</strong></td>
+<td>保证同一业务 Key 的顺序</td>
+<td>订单状态变更（下单→支付→发货）</td>
+<td>按 hashKey 有序</td>
+</tr>
+<tr>
+<td><strong>3. 延时消息（Delayed Message）</strong></td>
+<td>延迟消费</td>
+<td>支付超时取消订单、延迟短信通知</td>
+<td>RocketMQ 内置延迟等级</td>
+</tr>
+<tr>
+<td><strong>4. 事务消息（Transactional Message）</strong></td>
+<td>分布式事务</td>
+<td>下单成功→扣库存一致性</td>
+<td>支持回查机制，确保最终一致性</td>
+</tr>
+</tbody></table>
+<h2 id="rocketmq的三种消息发送类型"><a href="#rocketmq的三种消息发送类型" class="headerlink" title="rocketmq的三种消息发送类型"></a>rocketmq的三种消息发送类型</h2><table>
+<thead>
+<tr>
+<th>发送方式</th>
+<th>是否等待响应</th>
+<th>是否有回调</th>
+<th>可靠性</th>
+<th>性能</th>
+<th>典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>同步发送</strong></td>
+<td>✅ 等待 Broker 确认</td>
+<td>❌ 无回调</td>
+<td>✅ 最高</td>
+<td>🚀 中</td>
+<td>核心业务（如下单、支付）</td>
+</tr>
+<tr>
+<td><strong>异步发送</strong></td>
+<td>✅ 后台等待、回调通知</td>
+<td>✅ 有回调</td>
+<td>✅ 较高</td>
+<td>🚀🚀 较高</td>
+<td>异步通知、短信、推送</td>
+</tr>
+<tr>
+<td><strong>单向发送</strong></td>
+<td>❌ 不等待、不确认</td>
+<td>❌ 无回调</td>
+<td>❌ 最低</td>
+<td>🚀🚀🚀 最高</td>
+<td>日志上报、埋点统计</td>
+</tr>
+</tbody></table>
+<ol>
+<li>同步发送： 生产者发送消息后，会阻塞当前线程，等待 Broker 返回 <code>SendResult</code>（包含发送状态、消息 ID、落入队列等信息）。<br>只有当 Broker 确认消息已经成功写入队列，生产者才认为这条消息发送成功。  </li>
+<li>异步发送：生产者调用发送方法后立即返回，不会阻塞主线程。<br>RocketMQ 会在后台网络线程中等待 Broker 响应，并通过回调（<code>SendCallback</code>）通知结果：</li>
+</ol>
+<ul>
+<li><code>onSuccess(SendResult)</code>：发送成功；</li>
+<li><code>onException(Throwable)</code>：发送失败。</li>
+</ul>
+<ol start="3">
+<li>单向发送： 生产者只负责发送消息，不等待 Broker 响应，也没有回调或确认机制。<br>消息是否成功发送、是否写入队列，生产者完全不关心。</li>
+</ol>
+<h2 id="什么是tags和key"><a href="#什么是tags和key" class="headerlink" title="什么是tags和key"></a>什么是tags和key</h2><h3 id="rocketmq消息的基本结构，每一条message都包含几个常见属性"><a href="#rocketmq消息的基本结构，每一条message都包含几个常见属性" class="headerlink" title="rocketmq消息的基本结构，每一条message都包含几个常见属性"></a>rocketmq消息的基本结构，每一条message都包含几个常见属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Topic</code></td>
+<td>消息的主题，用来区分业务类型，比如“用户注册”、“订单支付”等。</td>
+</tr>
+<tr>
+<td><code>Tag</code></td>
+<td>主题下的子分类，用来进一步筛选消息。</td>
+</tr>
+<tr>
+<td><code>Key</code></td>
+<td>消息的唯一业务标识，用来定位和排查问题。</td>
+</tr>
+<tr>
+<td><code>Body</code></td>
+<td>真正的消息内容（字节数组）。</td>
+</tr>
+</tbody></table>
+<h3 id="Tag标签"><a href="#Tag标签" class="headerlink" title="Tag标签"></a>Tag标签</h3><p>   作用：在同一个 Topic 下再进行一次逻辑分类。  </p>
+<p> 比如：  </p>
+<p>Topic: OrderTopic</p>
+<p>Tag: CREATE、PAY、CANCEL</p>
+<br/>
+
+<p> 消费者可以通过订阅时指定 Tag：  </p>
+<p>consumer.subscribe(“OrderTopic”, “CREATE || PAY”);</p>
+<br/>
+
+<p>表示只接收订单创建和支付的消息，而取消类消息（<code>CANCEL</code>）会被过滤掉。</p>
+<p>✅ 过滤是在 <strong>Broker 端完成的</strong>，所以能减轻消费者的负担。</p>
+<p>👉 <strong>总结一句话：</strong></p>
+<p>Tag 是 Topic 下的“二级分类”，用来做<strong>消息过滤和隔离不同业务事件</strong>。</p>
+<h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p> 作用：给每条消息打上一个能唯一定位业务的标识。  </p>
+<p> 比如：  </p>
+<p>Message msg &#x3D; new Message(“OrderTopic”, “CREATE”, “orderId_12345”, body);</p>
+<br/>
+
+<p>常用于：</p>
+<ul>
+<li>排查某条消息是否成功发送；</li>
+<li>定位丢失、重复的消息；</li>
+<li>快速在控制台搜索。</li>
+</ul>
+<p>👉 <strong>总结一句话：</strong></p>
+<p>Key 是消息的“唯一业务索引”，方便<strong>排查与追踪消息</strong>。</p>
+<h3 id="对比分析"><a href="#对比分析" class="headerlink" title="对比分析"></a>对比分析</h3><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Tag</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>层级</td>
+<td>二级分类（附属于 Topic）</td>
+<td>唯一标识（针对单条消息）</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>消息过滤</td>
+<td>消息追踪、问题定位</td>
+</tr>
+<tr>
+<td>位置</td>
+<td>消息头属性</td>
+<td>消息头属性</td>
+</tr>
+<tr>
+<td>消费过滤</td>
+<td>支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>示例</td>
+<td>“PAY”、”CANCEL”</td>
+<td>“orderId_12345”</td>
+</tr>
+</tbody></table>
+<h2 id="普通消息"><a href="#普通消息" class="headerlink" title="普通消息"></a>普通消息</h2><h3 id="同步发送"><a href="#同步发送" class="headerlink" title="同步发送"></a>同步发送</h3><p> ✅ 最常用、最可靠 —— 等待 Broker 返回确认结果。  </p>
+<h4 id="基础发送（字符串-对象都可）"><a href="#基础发送（字符串-对象都可）" class="headerlink" title="基础发送（字符串&#x2F;对象都可）"></a>基础发送（字符串&#x2F;对象都可）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SendResult result = rocketMQTemplate.syncSend(&quot;test-topic&quot;, &quot;Hello RocketMQ!&quot;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="带超时时间（单位：毫秒）"><a href="#带超时时间（单位：毫秒）" class="headerlink" title="带超时时间（单位：毫秒）"></a>带超时时间（单位：毫秒）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SendResult result = rocketMQTemplate.syncSend(&quot;test-topic&quot;, &quot;Hello RocketMQ!&quot;, 3000);</span><br></pre></td></tr></table></figure>
+
+<h4 id="发送带-Tag-的消息"><a href="#发送带-Tag-的消息" class="headerlink" title="发送带 Tag 的消息"></a>发送带 Tag 的消息</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rocketMQTemplate.syncSend(&quot;test-topic:TagA&quot;, &quot;Hello with TagA&quot;);</span><br></pre></td></tr></table></figure>
+
+<p><code>Topic:Tag</code> 是 RocketMQ 的规范写法，消费者可以按 Tag 过滤。  </p>
+<h4 id="发送带-Key-的消息（方便追踪）"><a href="#发送带-Key-的消息（方便追踪）" class="headerlink" title="发送带 Key 的消息（方便追踪）"></a>发送带 Key 的消息（方便追踪）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;带Key的消息&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;orderId:1001&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">SendResult result = rocketMQTemplate.syncSend(&quot;test-topic&quot;, msg);</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量发送（多条合并一次发送）"><a href="#批量发送（多条合并一次发送）" class="headerlink" title="批量发送（多条合并一次发送）"></a>批量发送（多条合并一次发送）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Message&lt;?&gt;&gt; msgs = Arrays.asList(</span><br><span class="line">    MessageBuilder.withPayload(&quot;msg-1&quot;).build(),</span><br><span class="line">    MessageBuilder.withPayload(&quot;msg-2&quot;).build()</span><br><span class="line">);</span><br><span class="line">SendResult result = rocketMQTemplate.syncSend(&quot;test-topic&quot;, msgs);</span><br></pre></td></tr></table></figure>
+
+<h4 id="异步发送"><a href="#异步发送" class="headerlink" title="异步发送"></a>异步发送</h4><p> ✅ 不阻塞主线程，适合日志、埋点、通知类业务。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">rocketMQTemplate.asyncSend(&quot;test-topic&quot;, &quot;Async Message&quot;, new SendCallback() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onSuccess(SendResult sendResult) &#123;</span><br><span class="line">        System.out.println(&quot;✅ 异步发送成功：&quot; + sendResult.getMsgId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onException(Throwable throwable) &#123;</span><br><span class="line">        System.err.println(&quot;❌ 异步发送失败：&quot; + throwable.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p> 👉 带 Tag + Key 的异步发送  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;Async with Tag &amp; Key&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;userId:2025&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">rocketMQTemplate.asyncSend(&quot;test-topic:TagB&quot;, msg, new SendCallback() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onSuccess(SendResult sendResult) &#123;</span><br><span class="line">        System.out.println(&quot;异步成功: &quot; + sendResult);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void onException(Throwable e) &#123;</span><br><span class="line">        System.err.println(&quot;异步失败: &quot; + e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="单向发布"><a href="#单向发布" class="headerlink" title="单向发布"></a>单向发布</h4><p> ✅ 不等待结果，性能最高，可靠性最低；用于 <strong>日志上报 &#x2F; 埋点统计</strong>。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rocketMQTemplate.sendOneWay(&quot;test-topic&quot;, &quot;OneWay message&quot;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义发布"><a href="#自定义发布" class="headerlink" title="自定义发布"></a>自定义发布</h4><p> 可自定义 header 在消费端获取。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;带自定义header的消息&quot;)</span><br><span class="line">        .setHeader(&quot;X-Source&quot;, &quot;OrderService&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;key-001&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">rocketMQTemplate.syncSend(&quot;test-topic&quot;, msg);</span><br></pre></td></tr></table></figure>
+
+<p>消费者端可以通过 <code>message.getHeaders().get(&quot;X-Source&quot;)</code> 获取。</p>
+<h3 id="接受消息（消费端）"><a href="#接受消息（消费端）" class="headerlink" title="接受消息（消费端）"></a>接受消息（消费端）</h3><p> RocketMQ 消费者通过 <strong>监听 Topic</strong> 来接收消息。Spring Boot 中通常使用注解：<code>@RocketMQMessageListener</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Component</span><br><span class="line">@RocketMQMessageListener(</span><br><span class="line">    topic = &quot;test-topic&quot;,               // 要监听的主题</span><br><span class="line">    consumerGroup = &quot;test-consumer&quot;     // 消费者组名（如果两个消费者使用不同的消费者组名，即使它们监听的是同一个 Topic，</span><br><span class="line">那么它们也会各自独立地接收到所有消息，互不影响。）</span><br><span class="line">)</span><br><span class="line">public class SimpleConsumer implements RocketMQListener&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(String message) &#123;</span><br><span class="line">        System.out.println(&quot;✅ 收到消息：&quot; + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>RocketMQListener&lt;T&gt;</code> 的泛型 <code>T</code> 决定了消息体反序列化成什么类型，一般是 <code>String</code> 或 <code>自定义对象</code>。  </p>
+<h4 id="接收带-Tag-的消息"><a href="#接收带-Tag-的消息" class="headerlink" title="接收带 Tag 的消息"></a>接收带 Tag 的消息</h4><p> 如果生产者发送时用了 Tag（如 <code>test-topic:TagA</code>），消费者可以在注解中指定过滤：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@RocketMQMessageListener(</span><br><span class="line">    topic = &quot;test-topic&quot;,</span><br><span class="line">    consumerGroup = &quot;tagA-consumer&quot;,</span><br><span class="line">    selectorExpression = &quot;TagA&quot; // 只接收TagA的消息</span><br><span class="line">)</span><br><span class="line">public class TagAConsumer implements RocketMQListener&lt;String&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(String msg) &#123;</span><br><span class="line">        System.out.println(&quot;收到TagA消息：&quot; + msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 支持表达式过滤：<code>&quot;TagA || TagB&quot;</code>RocketMQ 会在 Broker 端过滤，减少网络传输。  </p>
+<h4 id="接收对象消息"><a href="#接收对象消息" class="headerlink" title="接收对象消息"></a>接收对象消息</h4><p> 如果发送时用了对象（比如 <code>User</code>），接收端可以直接反序列化：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">public class User &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@RocketMQMessageListener(topic = &quot;user-topic&quot;, consumerGroup = &quot;user-consumer&quot;)</span><br><span class="line">public class UserConsumer implements RocketMQListener&lt;User&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(User user) &#123;</span><br><span class="line">        System.out.println(&quot;收到User消息：&quot; + user.getName() + &quot; - &quot; + user.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听更多细节"><a href="#监听更多细节" class="headerlink" title="监听更多细节"></a>监听更多细节</h3><table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>topic</code></td>
+<td>主题名</td>
+<td><code>&quot;order-topic&quot;</code></td>
+</tr>
+<tr>
+<td><code>consumerGroup</code></td>
+<td>消费者组名（同组共享消费）</td>
+<td><code>&quot;order-group&quot;</code></td>
+</tr>
+<tr>
+<td><code>selectorExpression</code></td>
+<td>Tag 过滤</td>
+<td>&#96;”TagA</td>
+</tr>
+<tr>
+<td><code>consumeMode</code></td>
+<td>消费模式（并发 &#x2F; 顺序）</td>
+<td><code>ConsumeMode.CONCURRENTLY</code></td>
+</tr>
+<tr>
+<td><code>messageModel</code></td>
+<td>集群&#x2F;广播模式</td>
+<td><code>MessageModel.CLUSTERING</code><br/> or <code>BROADCASTING</code></td>
+</tr>
+</tbody></table>
+<h3 id="什么是消费者组名？"><a href="#什么是消费者组名？" class="headerlink" title="什么是消费者组名？"></a>什么是消费者组名？</h3><p><strong>定义：</strong><br>消费者组是 <strong>一组消费相同 Topic、具有相同消费逻辑的消费者实例</strong> 的集合。RocketMQ 以组为单位进行消息分配和消费进度管理。</p>
+<table>
+<thead>
+<tr>
+<th>组关系 \ 消费模式</th>
+<th><strong>集群模式（CLUSTERING，默认）</strong></th>
+<th><strong>广播模式（BROADCASTING）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>同一组名</strong></td>
+<td><strong>组内分摊</strong>：每条消息只被组内<strong>一个实例</strong>消费一次（负载均衡）。</td>
+<td><strong>组内全员都收</strong>：组内<strong>每个实例</strong>都会收到<strong>全部消息</strong>。</td>
+</tr>
+<tr>
+<td><strong>不同组名</strong></td>
+<td><strong>各组独立分摊</strong>：每个组都会各自收到<strong>全量消息的一份</strong>，并在组内再做负载均衡。</td>
+<td><strong>各组全员都收</strong>：每个组、组内每个实例，都会收到<strong>全部消息</strong>（等于多份广播）。</td>
+</tr>
+</tbody></table>
+<p>举例说明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// A组：订单系统</span><br><span class="line">@RocketMQMessageListener(topic = &quot;order-topic&quot;, consumerGroup = &quot;order-group&quot;)</span><br><span class="line"></span><br><span class="line">// B组：积分系统</span><br><span class="line">@RocketMQMessageListener(topic = &quot;order-topic&quot;, consumerGroup = &quot;point-group&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>同一个 Topic（<code>order-topic</code>）：</p>
+<ul>
+<li><code>order-group</code> 负责更新订单状态</li>
+<li><code>point-group</code> 负责加积分</li>
+</ul>
+<p>✅ 两个组互不影响，都能各自收到所有订单消息。</p>
+<h3 id="消费模式区别"><a href="#消费模式区别" class="headerlink" title="消费模式区别"></a>消费模式区别</h3><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>特点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>集群模式（默认）</strong></td>
+<td>多个消费者分摊消息</td>
+<td>普通消息处理（并发高）</td>
+</tr>
+<tr>
+<td><strong>广播模式</strong></td>
+<td>每个消费者都收到同样的消息</td>
+<td>系统配置同步、缓存更新等</td>
+</tr>
+</tbody></table>
+<h2 id="顺序消息"><a href="#顺序消息" class="headerlink" title="顺序消息"></a>顺序消息</h2><h3 id="✅-场景与特性"><a href="#✅-场景与特性" class="headerlink" title="✅ 场景与特性"></a>✅ 场景与特性</h3><ul>
+<li><strong>作用</strong>：保证同一业务标识（如同一订单）下的消息严格按顺序发送与消费。</li>
+<li><strong>原理</strong>：将相同业务 Key 的消息发送到同一个队列（MessageQueue）。</li>
+<li><strong>典型场景</strong>：订单状态流转（创建 → 支付 → 发货 → 收货）、交易流水等。</li>
+</ul>
+<h3 id="sharding-key-和-message-key"><a href="#sharding-key-和-message-key" class="headerlink" title="sharding key 和 message key"></a><code>sharding key</code> 和 <code>message key</code></h3><table>
+<thead>
+<tr>
+<th>概念</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**message key**</code></td>
+<td>消息的业务唯一标识，用来追踪、排查。</td>
+<td><code>orderId_1001</code></td>
+</tr>
+<tr>
+<td><code>**sharding key**</code></td>
+<td>消息<strong>分区路由依据</strong>，决定消息进哪个队列。</td>
+<td><code>orderId_1001</code></td>
+</tr>
+</tbody></table>
+<p>区别解析</p>
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>message key</th>
+<th>sharding key</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用层面</td>
+<td>业务追踪</td>
+<td>顺序投递</td>
+</tr>
+<tr>
+<td>设置方式</td>
+<td>通过 <code>RocketMQHeaders.KEYS</code><br/> 设置</td>
+<td>作为 <code>syncSendOrderly()</code><br/> 的第三个参数传入</td>
+</tr>
+<tr>
+<td>使用者</td>
+<td>运维 &#x2F; 开发查消息用</td>
+<td>Broker 用于计算队列索引</td>
+</tr>
+<tr>
+<td>是否必须</td>
+<td>否（建议加）</td>
+<td>是（顺序消息必须要）</td>
+</tr>
+<tr>
+<td>示例</td>
+<td><code>&quot;orderId:1001&quot;</code></td>
+<td><code>&quot;orderId_1001&quot;</code></td>
+</tr>
+</tbody></table>
+<p>举例说明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 顺序消息发送</span><br><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;订单创建&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;orderId:1001&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">rocketMQTemplate.syncSendOrderly(&quot;order-topic&quot;, msg, &quot;orderId_1001&quot;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>KEYS</code> → 用于日志追踪，比如你查日志时可用 <code>mqadmin queryMsgByKey -k orderId:1001</code>。</li>
+<li><code>sharding key</code> → 用于<strong>决定消息进入哪个队列</strong>，Broker 会通过它计算哈希，让相同 key 的消息进入同一个队列，从而保证顺序。</li>
+</ul>
+<h3 id="顺序发送（同步）"><a href="#顺序发送（同步）" class="headerlink" title="顺序发送（同步）"></a>顺序发送（同步）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 发送顺序消息（同步）</span><br><span class="line">rocketMQTemplate.syncSendOrderly(</span><br><span class="line">    &quot;order-topic&quot;,       // Topic</span><br><span class="line">    &quot;创建订单消息&quot;,        // 消息体</span><br><span class="line">    &quot;orderId_1001&quot;       // Sharding Key（分片键）</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="顺序发送（异步）"><a href="#顺序发送（异步）" class="headerlink" title="顺序发送（异步）"></a>顺序发送（异步）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">rocketMQTemplate.asyncSendOrderly(</span><br><span class="line">    &quot;order-topic&quot;,</span><br><span class="line">    &quot;支付完成消息&quot;,</span><br><span class="line">    &quot;orderId_1001&quot;,     // Sharding Key</span><br><span class="line">    new SendCallback() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onSuccess(SendResult sendResult) &#123;</span><br><span class="line">            System.out.println(&quot;✅ 异步顺序消息发送成功：&quot; + sendResult.getMsgId());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void onException(Throwable e) &#123;</span><br><span class="line">            System.err.println(&quot;❌ 异步顺序消息发送失败：&quot; + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="延时消息"><a href="#延时消息" class="headerlink" title="延时消息"></a>延时消息</h2><h3 id="✅-场景与特性-1"><a href="#✅-场景与特性-1" class="headerlink" title="✅ 场景与特性"></a>✅ 场景与特性</h3><ul>
+<li><strong>作用</strong>：让消息在发送后延迟一段时间才被消费者看到。</li>
+<li><strong>典型场景</strong>：<ul>
+<li>订单超时未支付 → 自动取消</li>
+<li>会员即将到期 → 提前提醒</li>
+<li>支付结果回调 → 延时补偿</li>
+</ul>
+</li>
+</ul>
+<p>💡 延时消息在 Broker 端保存一段时间，到期后再投递给真正的 Topic。</p>
+<h3 id="延时消息发送（同步）"><a href="#延时消息发送（同步）" class="headerlink" title="延时消息发送（同步）"></a>延时消息发送（同步）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 发送延时消息</span><br><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;延时消息：30秒后执行&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;orderId:1001&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">// 延时等级设置（1~18）</span><br><span class="line">SendResult result = rocketMQTemplate.syncSend(</span><br><span class="line">    &quot;delay-topic&quot;, msg, 3000, 3 // 第4个参数是延时等级 level=3</span><br><span class="line">);</span><br><span class="line">System.out.println(&quot;✅ 延时消息发送成功：&quot; + result.getMsgId());</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>延时时间</th>
+<th>等级</th>
+<th>延时时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1s</td>
+<td>10</td>
+<td>10m</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5s</td>
+<td>11</td>
+<td>20m</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10s</td>
+<td>12</td>
+<td>30m</td>
+</tr>
+<tr>
+<td>4</td>
+<td>30s</td>
+<td>13</td>
+<td>1h</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1m</td>
+<td>14</td>
+<td>2h</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2m</td>
+<td>15</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3m</td>
+<td>16</td>
+<td>4h</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4m</td>
+<td>17</td>
+<td>5h</td>
+</tr>
+<tr>
+<td>9</td>
+<td>5m</td>
+<td>18</td>
+<td>6h</td>
+</tr>
+</tbody></table>
+<p> ⚙️ 可以通过 <code>broker.conf</code> 配置项 <code>messageDelayLevel</code> 自定义延时等级。  </p>
+<p><strong>RocketMQ 默认的延时机制是“等级制（Level-Based）”的</strong>，所以如果你想使用非内置的延迟时间（比如 45 分钟、7 秒、2 天），<strong>必须在 Broker 端配置自定义延时等级。</strong></p>
+<h3 id="异步延时消息"><a href="#异步延时消息" class="headerlink" title="异步延时消息"></a>异步延时消息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;异步延时消息&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;task:2025&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">rocketMQTemplate.asyncSend(&quot;delay-topic&quot;, msg, new SendCallback() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onSuccess(SendResult sendResult) &#123;</span><br><span class="line">        System.out.println(&quot;✅ 异步延时发送成功：&quot; + sendResult.getMsgId());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onException(Throwable e) &#123;</span><br><span class="line">        System.err.println(&quot;❌ 异步延时发送失败：&quot; + e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, 5000, 5); // 超时5s，延时等级5（1分钟）</span><br></pre></td></tr></table></figure>
+
+<h2 id="事务消息"><a href="#事务消息" class="headerlink" title="事务消息"></a>事务消息</h2><h3 id="✅-场景与特性-2"><a href="#✅-场景与特性-2" class="headerlink" title="✅ 场景与特性"></a>✅ 场景与特性</h3><ul>
+<li><strong>作用</strong>：保证消息与本地事务的最终一致性。</li>
+<li><strong>典型场景</strong>：<ul>
+<li>下单成功 → 扣减库存</li>
+<li>支付完成 → 更新订单状态</li>
+<li>创建订单 → 发送积分奖励</li>
+</ul>
+</li>
+</ul>
+<p>💡 核心思想：<strong>本地事务 + 消息发送，要么都成功，要么都失败。</strong></p>
+<h3 id="发送事务消息"><a href="#发送事务消息" class="headerlink" title="发送事务消息"></a>发送事务消息</h3><p> 事务消息使用专门的生产者：<code>TransactionMQProducer</code>或在 SpringBoot 场景下使用：<code>rocketMQTemplate.sendMessageInTransaction()</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 发送事务消息</span><br><span class="line">Message&lt;String&gt; msg = MessageBuilder.withPayload(&quot;事务消息：创建订单&quot;)</span><br><span class="line">        .setHeader(RocketMQHeaders.KEYS, &quot;orderId:1001&quot;)</span><br><span class="line">        .build();</span><br><span class="line"></span><br><span class="line">// 第三个参数 arg 会传入本地事务执行方法中</span><br><span class="line">TransactionSendResult result = rocketMQTemplate.sendMessageInTransaction(</span><br><span class="line">        &quot;tx-producer-group&quot;,</span><br><span class="line">        &quot;tx-topic&quot;,</span><br><span class="line">        msg,</span><br><span class="line">        &quot;arg-info&quot;</span><br><span class="line">);</span><br><span class="line">System.out.println(&quot;✅ 事务消息发送结果：&quot; + result.getSendStatus());</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地事务执行与回查"><a href="#本地事务执行与回查" class="headerlink" title="本地事务执行与回查"></a>本地事务执行与回查</h3><p> 事务消息分为 <strong>三步走</strong> 👇  </p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>① 半消息（Half Message）</strong></td>
+<td>先发送到 Broker，但消费者暂时不可见。</td>
+</tr>
+<tr>
+<td><strong>② 执行本地事务</strong></td>
+<td>在生产者本地执行业务逻辑（如扣款、落库）。</td>
+</tr>
+<tr>
+<td><strong>③ Broker 回查</strong></td>
+<td>如果生产者未明确提交或回滚，Broker 会定时回查事务状态。</td>
+</tr>
+</tbody></table>
+<h3 id="事务监听器（核心逻辑）"><a href="#事务监听器（核心逻辑）" class="headerlink" title="事务监听器（核心逻辑）"></a>事务监听器（核心逻辑）</h3><p> 实现 <code>RocketMQLocalTransactionListener</code> 接口：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@RocketMQTransactionListener(txProducerGroup = &quot;tx-producer-group&quot;)</span><br><span class="line">public class OrderTransactionListener implements RocketMQLocalTransactionListener &#123;</span><br><span class="line"></span><br><span class="line">    // Step 2: 执行本地事务</span><br><span class="line">    @Override</span><br><span class="line">    public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            System.out.println(&quot;执行本地事务，arg=&quot; + arg);</span><br><span class="line">            // TODO: 这里写你的业务逻辑，比如订单入库、扣减库存等</span><br><span class="line">            return RocketMQLocalTransactionState.COMMIT; // 提交消息</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            return RocketMQLocalTransactionState.ROLLBACK; // 回滚消息</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Step 3: Broker 回查事务状态</span><br><span class="line">    @Override</span><br><span class="line">    public RocketMQLocalTransactionState checkLocalTransaction(Message msg) &#123;</span><br><span class="line">        System.out.println(&quot;Broker 正在回查事务状态...&quot;);</span><br><span class="line">        // 根据业务表状态判断</span><br><span class="line">        boolean success = true; // TODO 查询数据库或缓存状态</span><br><span class="line">        return success ? RocketMQLocalTransactionState.COMMIT : RocketMQLocalTransactionState.ROLLBACK;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="接受消息，消费端（和普通消息一样）"><a href="#接受消息，消费端（和普通消息一样）" class="headerlink" title="接受消息，消费端（和普通消息一样）"></a>接受消息，消费端（和普通消息一样）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@RocketMQMessageListener(topic = &quot;tx-topic&quot;, consumerGroup = &quot;tx-consumer-group&quot;)</span><br><span class="line">public class TxConsumer implements RocketMQListener&lt;String&gt; &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onMessage(String message) &#123;</span><br><span class="line">        System.out.println(&quot;✅ 收到事务消息：&quot; + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 🚩 消费者只会接收到事务<strong>最终提交成功</strong>的消息。  </p>
+<h3 id="事务状态枚举"><a href="#事务状态枚举" class="headerlink" title="事务状态枚举"></a>事务状态枚举</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Redisson/Redisson/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/" rel="prev" title="分布式锁">
+                  <i class="fa fa-angle-left"></i> 分布式锁
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/RocketMQ/RocketMQ/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF/" rel="next" title="事务消息">
+                  事务消息 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

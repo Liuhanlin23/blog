@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="JAVA中有四种引用类型，分别是强引用，软应用，弱引用，虚引用 一、强引用（Strong Reference） 定义：最常见的引用，使用 new 创建。 特性：只要有强引用存在，对象就不会被回收；即使内存不足，也只会抛出 OutOfMemoryError。  1String strongRef &#x3D; new String(&quot;abc&quot;);   二、软引用（Soft Referenc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四大引用">
+<meta property="og:url" content="http://example.com/Java/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="JAVA中有四种引用类型，分别是强引用，软应用，弱引用，虚引用 一、强引用（Strong Reference） 定义：最常见的引用，使用 new 创建。 特性：只要有强引用存在，对象就不会被回收；即使内存不足，也只会抛出 OutOfMemoryError。  1String strongRef &#x3D; new String(&quot;abc&quot;);   二、软引用（Soft Referenc">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T13:35:17.865Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.594Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/Java/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/Java/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/","path":"Java/Java/四大引用/","title":"四大引用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>四大引用 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BC%BA%E5%BC%95%E7%94%A8%EF%BC%88Strong-Reference%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">一、强引用（Strong Reference）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%AF%E5%BC%95%E7%94%A8%EF%BC%88Soft-Reference%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">二、软引用（Soft Reference）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BC%B1%E5%BC%95%E7%94%A8%EF%BC%88Weak-Reference%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">三、弱引用（Weak Reference）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">四.虚引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E9%98%9F%E5%88%97%EF%BC%88ReferenceQueue%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">引用队列（ReferenceQueue）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E8%99%9A%E5%BC%95%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">什么时虚引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%99%9A%E5%BC%95%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">为什么需要虚引用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Java/Java/%E5%9B%9B%E5%A4%A7%E5%BC%95%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="四大引用 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          四大引用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>JAVA中有四种引用类型，分别是强引用，软应用，弱引用，虚引用</p>
+<h1 id="一、强引用（Strong-Reference）"><a href="#一、强引用（Strong-Reference）" class="headerlink" title="一、强引用（Strong Reference）"></a>一、强引用（Strong Reference）</h1><ul>
+<li><strong>定义</strong>：最常见的引用，使用 <code>new</code> 创建。</li>
+<li><strong>特性</strong>：只要有强引用存在，对象就<strong>不会被回收</strong>；即使内存不足，也只会抛出 <code>OutOfMemoryError</code>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String strongRef = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="二、软引用（Soft-Reference）"><a href="#二、软引用（Soft-Reference）" class="headerlink" title="二、软引用（Soft Reference）"></a>二、软引用（Soft Reference）</h1><ul>
+<li><strong>定义</strong>：当内存<strong>不足</strong>时，GC 会回收软引用对象。</li>
+<li><strong>用途</strong>：常用于实现<strong>缓存</strong>。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;abc&quot;);</span><br><span class="line">SoftReference&lt;String&gt; softRef = new SoftReference&lt;&gt;(str);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="三、弱引用（Weak-Reference）"><a href="#三、弱引用（Weak-Reference）" class="headerlink" title="三、弱引用（Weak Reference）"></a>三、弱引用（Weak Reference）</h1><ul>
+<li><strong>定义</strong>：只要发生 GC，就会回收对象（<strong>无论内存是否足够</strong>）。</li>
+<li><strong>用途</strong>：常用于<strong>ThreadLocal、WeakHashMap</strong> 等。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str = new String(&quot;abc&quot;);</span><br><span class="line">WeakReference&lt;String&gt; weakRef = new WeakReference&lt;&gt;(str);</span><br><span class="line">str = null; // 解除强引用</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-虚引用"><a href="#四-虚引用" class="headerlink" title="四.虚引用"></a>四.虚引用</h1><h2 id="引用队列（ReferenceQueue）"><a href="#引用队列（ReferenceQueue）" class="headerlink" title="引用队列（ReferenceQueue）"></a>引用队列（<strong>ReferenceQueue）</strong></h2><p> 在理解虚引用前，先要了解 <strong>引用队列（ReferenceQueue）</strong>。<br>当某个引用（软、弱、虚）所指向的对象被判定可回收时，JVM 会将“<strong>引用对象本身</strong>”（而非目标对象）加入该队列。<br>不同的是，<strong>软引用和弱引用在对象被标记为可回收时入队</strong>，而<strong>虚引用则在对象真正被回收后才入队</strong>。  </p>
+<h2 id="什么时虚引用"><a href="#什么时虚引用" class="headerlink" title="什么时虚引用"></a>什么时虚引用</h2><p><strong>虚引用（PhantomReference）</strong> 是 Java 提供的一种<strong>最弱的引用类型</strong>。<br>它的最大特点是：</p>
+<ul>
+<li><strong>不能通过 <strong><code>**get()**</code></strong> 访问对象（get访问返回值总为null）</strong></li>
+<li><strong>只用来感知对象被真正回收的时机</strong></li>
+</ul>
+<h2 id="为什么需要虚引用"><a href="#为什么需要虚引用" class="headerlink" title="为什么需要虚引用"></a>为什么需要虚引用</h2><p>我们知道：</p>
+<ul>
+<li>软引用：用于缓存，内存不足时清理；</li>
+<li>弱引用：用于弱依赖对象，GC 一来就清理；</li>
+<li>但这两种引用入队太早（对象还没真正销毁）。</li>
+</ul>
+<p>有些资源（比如：文件句柄、堆外内存、Socket 连接）只有在对象<strong>彻底销毁时</strong>才安全释放。<br>这时候就要用虚引用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Java/Java/%E5%8F%8D%E5%B0%84/" rel="prev" title="反射">
+                  <i class="fa fa-angle-left"></i> 反射
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Java/Java/%E7%BA%BF%E7%A8%8B%E6%B1%A0ThreadPoolExecutor/" rel="next" title="线程池ThreadPoolExecutor">
+                  线程池ThreadPoolExecutor <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

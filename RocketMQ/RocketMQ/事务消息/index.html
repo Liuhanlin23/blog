@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="一.核心原理发送半消息（Half Message）生产者先把消息发到 Broker，但这条消息对消费者不可见。   执行本地事务 生产者在自己的业务库里执行事务（如创建订单、扣库存）。 提交&#x2F;回滚事务状态 本地事务成功 → 通知 Broker Commit，半消息变成可见的“正常消息”；   本地事务失败 → 通知 Broker Rollback，半消息被丢弃； 生产者没回（崩溃&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事务消息">
+<meta property="og:url" content="http://example.com/RocketMQ/RocketMQ/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="一.核心原理发送半消息（Half Message）生产者先把消息发到 Broker，但这条消息对消费者不可见。   执行本地事务 生产者在自己的业务库里执行事务（如创建订单、扣库存）。 提交&#x2F;回滚事务状态 本地事务成功 → 通知 Broker Commit，半消息变成可见的“正常消息”；   本地事务失败 → 通知 Broker Rollback，半消息被丢弃； 生产者没回（崩溃&amp;#x2">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T13:31:54.353Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.839Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/RocketMQ/RocketMQ/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/RocketMQ/RocketMQ/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF/","path":"RocketMQ/RocketMQ/事务消息/","title":"事务消息"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>事务消息 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">一.核心原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E5%8D%8A%E6%B6%88%E6%81%AF%EF%BC%88Half-Message%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">发送半消息（Half Message）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E4%BA%8B%E5%8A%A1"><span class="nav-number">1.2.</span> <span class="nav-text">执行本地事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4-%E5%9B%9E%E6%BB%9A%E4%BA%8B%E5%8A%A1%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">提交&#x2F;回滚事务状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BA%8B%E5%8A%A1%E5%9B%9E%E6%9F%A5"><span class="nav-number">1.4.</span> <span class="nav-text">为什么需要事务回查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rocketmq-%E7%9A%84%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">1.5.</span> <span class="nav-text">如何理解rocketmq 的最终一致性？什么是强一致性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#springboot-%E5%8F%91%E9%80%81%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF"><span class="nav-number">2.</span> <span class="nav-text">springboot 发送事务消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%97%B6%E9%97%B4%E7%9B%91%E5%90%AC%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">编写时间监听器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">发送事务消息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3rocketmq-%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%9B%91%E5%90%AC%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">如何理解rocketmq 的事务监听器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#executeLocalTransaction-%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.1.</span> <span class="nav-text">executeLocalTransaction 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#checkLocalTransaction-Message-msg"><span class="nav-number">2.3.2.</span> <span class="nav-text">checkLocalTransaction(Message msg)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RocketMQTransactionListener-txProducerGroup-%E2%80%9Ctx-producer-group%E2%80%9D-%E4%B8%AD%E7%9A%84txProducerGroup%E4%BA%8B%E5%8A%A1%E7%94%9F%E4%BA%A7%E8%80%85%E7%BB%84%E5%92%8Capplication-yml%E7%94%9F%E4%BA%A7%E8%80%85%E7%BB%84%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.</span> <span class="nav-text">@RocketMQTransactionListener(txProducerGroup &#x3D; “tx_producer_group”)中的txProducerGroup事务生产者组和application.yml生产者组有什么区别</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/RocketMQ/RocketMQ/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="事务消息 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          事务消息
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/RocketMQ/" itemprop="url" rel="index"><span itemprop="name">RocketMQ</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="一-核心原理"><a href="#一-核心原理" class="headerlink" title="一.核心原理"></a>一.核心原理</h1><h3 id="发送半消息（Half-Message）"><a href="#发送半消息（Half-Message）" class="headerlink" title="发送半消息（Half Message）"></a>发送半消息（Half Message）</h3><p>生产者先把消息发到 Broker，但这条消息对消费者<strong>不可见</strong>。  </p>
+<h3 id="执行本地事务"><a href="#执行本地事务" class="headerlink" title="执行本地事务"></a>执行本地事务</h3><p> 生产者在自己的业务库里执行事务（如创建订单、扣库存）。</p>
+<h3 id="提交-回滚事务状态"><a href="#提交-回滚事务状态" class="headerlink" title="提交&#x2F;回滚事务状态"></a>提交&#x2F;回滚事务状态</h3><ul>
+<li>本地事务成功 → 通知 Broker Commit，半消息变成可见的“正常消息”；  </li>
+<li>本地事务失败 → 通知 Broker <strong>Rollback</strong>，半消息被丢弃；</li>
+<li>生产者没回（崩溃&#x2F;网络抖动） → Broker 触发<strong>事务回查</strong>，回调生产者问结果到底成没成，然后再决定 Commit&#x2F;Rollback。</li>
+</ul>
+<h2 id="为什么需要事务回查"><a href="#为什么需要事务回查" class="headerlink" title="为什么需要事务回查"></a>为什么需要事务回查</h2><p>假设你在执行这三步：</p>
+<p>1️⃣ <strong>发送半消息成功</strong>（消息进入 Broker，但消费者还看不见）<br>2️⃣ <strong>执行本地事务</strong>（比如创建订单 + 扣库存）<br>3️⃣ <strong>告诉 Broker：事务成功（Commit）或失败（Rollback）</strong></p>
+<p>如果程序在第 2.5 步崩溃了（执行完事务但还没来得及告诉 Broker），<br>那 Broker 就不知道该怎么处理这条半消息了：这条消息到底该提交给消费者？还是回滚掉？</p>
+<p>为了避免这种“悬空”的状态，Broker 会定期去<strong>询问生产者</strong>：</p>
+<p>“喂，你之前发的那条事务消息，到底事务成功没？”</p>
+<p>这个询问动作就是 <strong>事务回查（Transaction Check）</strong>。</p>
+<h2 id="如何理解rocketmq-的最终一致性？什么是强一致性"><a href="#如何理解rocketmq-的最终一致性？什么是强一致性" class="headerlink" title="如何理解rocketmq 的最终一致性？什么是强一致性"></a>如何理解rocketmq 的最终一致性？什么是强一致性</h2><ul>
+<li><strong>强一致性（Strong Consistency）</strong><br>各个系统（比如数据库和消息系统）必须在任意时刻看到<strong>相同的数据结果</strong>。<br>👉 例如：下单成功 → 立刻能查到订单、能看到消息、库存同步减少。<br>缺点：跨系统事务太重，性能低、耦合高。</li>
+<li><strong>最终一致性（Eventual Consistency）</strong><br>各个系统的状态允许在<strong>短时间内不一致</strong>，<br>但经过<strong>自动恢复或补偿</strong>后，<strong>最终会达到一致状态</strong>。<br>👉 比如：你下单成功后，几秒后库存才扣减完，但最终数据是对的。</li>
+</ul>
+<p> RocketMQ 的事务消息机制实现的正是后者。  </p>
+<h1 id="springboot-发送事务消息"><a href="#springboot-发送事务消息" class="headerlink" title="springboot 发送事务消息"></a>springboot 发送事务消息</h1><h3 id="编写时间监听器"><a href="#编写时间监听器" class="headerlink" title="编写时间监听器"></a>编写时间监听器</h3><p>这个监听器负责<strong>执行本地事务逻辑</strong>和<strong>事务回查</strong>。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;</span><br><span class="line">import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;</span><br><span class="line">import org.apache.rocketmq.spring.support.RocketMQLocalTransactionState;</span><br><span class="line">import org.springframework.messaging.Message;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@RocketMQTransactionListener(txProducerGroup = &quot;tx_producer_group&quot;)//事务生产者组</span><br><span class="line">public class OrderTxListener implements RocketMQLocalTransactionListener &#123;</span><br><span class="line"></span><br><span class="line">    // 发送半消息后，执行本地事务</span><br><span class="line">    @Override</span><br><span class="line">    public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) &#123;</span><br><span class="line">        String orderId = (String) msg.getHeaders().get(&quot;orderId&quot;);</span><br><span class="line">        try &#123;</span><br><span class="line">            boolean ok = doLocalTx(orderId);</span><br><span class="line">            return ok ? RocketMQLocalTransactionState.COMMIT</span><br><span class="line">                      : RocketMQLocalTransactionState.ROLLBACK;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            return RocketMQLocalTransactionState.UNKNOWN;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Broker 回查</span><br><span class="line">    @Override</span><br><span class="line">    public RocketMQLocalTransactionState checkLocalTransaction(Message msg) &#123;</span><br><span class="line">        String orderId = (String) msg.getHeaders().get(&quot;orderId&quot;);</span><br><span class="line">        TxStatus status = queryTxStatus(orderId);</span><br><span class="line">        switch (status) &#123;</span><br><span class="line">            case COMMIT:   return RocketMQLocalTransactionState.COMMIT;</span><br><span class="line">            case ROLLBACK: return RocketMQLocalTransactionState.ROLLBACK;</span><br><span class="line">            default:       return RocketMQLocalTransactionState.UNKNOWN;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private boolean doLocalTx(String orderId) &#123; /* 事务落库 + 记录事件表 */ return true; &#125;</span><br><span class="line">    private TxStatus queryTxStatus(String orderId) &#123; return TxStatus.COMMIT; &#125;</span><br><span class="line">    enum TxStatus &#123; COMMIT, ROLLBACK, UNKNOWN &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="发送事务消息"><a href="#发送事务消息" class="headerlink" title="发送事务消息"></a>发送事务消息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderService &#123;</span><br><span class="line"></span><br><span class="line">    @Resource</span><br><span class="line">    private RocketMQTemplate rocketMQTemplate;</span><br><span class="line"></span><br><span class="line">    public void createOrder(String orderId) &#123;</span><br><span class="line">        // 封装消息体</span><br><span class="line">        Message&lt;String&gt; message = MessageBuilder.withPayload(&quot;order:&quot; + orderId)</span><br><span class="line">                .setHeader(&quot;orderId&quot;, orderId)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        // 发送事务消息（绑定监听器 txProducerGroup）</span><br><span class="line">        rocketMQTemplate.sendMessageInTransaction(&quot;tx_producer_group&quot;,</span><br><span class="line">                &quot;order-topic&quot;,</span><br><span class="line">                message,</span><br><span class="line">                null); // 这个arg会传给executeLocalTransaction</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="如何理解rocketmq-的事务监听器"><a href="#如何理解rocketmq-的事务监听器" class="headerlink" title="如何理解rocketmq 的事务监听器"></a>如何理解rocketmq 的事务监听器</h2><p> 当你使用 <code>RocketMQTemplate.sendMessageInTransaction(...)</code> 发送事务消息时，<br>RocketMQ 会自动触发这个监听器中定义的两个回调方法：  </p>
+<table>
+<thead>
+<tr>
+<th>回调方法</th>
+<th>触发时机</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>executeLocalTransaction()</code></td>
+<td>发送半消息成功后立即调用</td>
+<td>执行<strong>本地事务逻辑</strong>（比如创建订单、扣库存）</td>
+</tr>
+<tr>
+<td><code>checkLocalTransaction()</code></td>
+<td>Broker 发起<strong>事务回查</strong>时调用</td>
+<td>MQ 不确定事务结果时，用来<strong>补查事务状态</strong></td>
+</tr>
+</tbody></table>
+<h3 id="executeLocalTransaction-方法"><a href="#executeLocalTransaction-方法" class="headerlink" title="executeLocalTransaction 方法"></a>executeLocalTransaction 方法</h3><p><code>executeLocalTransaction(Message msg, Object arg)</code></p>
+<ul>
+<li>在<strong>发送半消息成功后</strong>执行；</li>
+<li>你在这里写自己的 <strong>本地业务逻辑</strong>（比如订单入库）；</li>
+<li>执行完后，返回事务状态：<ul>
+<li><code>COMMIT</code> → 通知 Broker 投递消息；</li>
+<li><code>ROLLBACK</code> → 通知 Broker 丢弃消息；</li>
+<li><code>UNKNOWN</code> → 暂时不确定（Broker 会稍后回查）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="checkLocalTransaction-Message-msg"><a href="#checkLocalTransaction-Message-msg" class="headerlink" title="checkLocalTransaction(Message msg)"></a>checkLocalTransaction(Message msg)</h3><ul>
+<li>当 Broker 没有收到生产者的事务确认（比如生产者崩溃）时，会<strong>触发回查</strong>；</li>
+<li>这个方法会被 Broker 调用，问：“那条消息的事务到底成功没？”；</li>
+<li>生产者要自己查数据库的事务表或业务表，返回状态。</li>
+</ul>
+<h2 id="RocketMQTransactionListener-txProducerGroup-“tx-producer-group”-中的txProducerGroup事务生产者组和application-yml生产者组有什么区别"><a href="#RocketMQTransactionListener-txProducerGroup-“tx-producer-group”-中的txProducerGroup事务生产者组和application-yml生产者组有什么区别" class="headerlink" title="@RocketMQTransactionListener(txProducerGroup &#x3D; “tx_producer_group”)中的txProducerGroup事务生产者组和application.yml生产者组有什么区别"></a>@RocketMQTransactionListener(txProducerGroup &#x3D; “tx_producer_group”)中的txProducerGroup事务生产者组和application.yml生产者组有什么区别</h2><ol>
+<li>在application.yml中配置的是普通生产者组</li>
+</ol>
+<p>rocketmq:</p>
+<p>  name-server: 127.0.0.1:9876</p>
+<p>  producer:</p>
+<pre><code>group: normal_producer_group
+</code></pre>
+<br/>
+
+<ul>
+<li>用于 <strong>普通消息</strong>（<code>send()</code>、<code>syncSend()</code> 等）</li>
+<li><code>RocketMQTemplate</code> 默认使用这个组</li>
+</ul>
+<ol start="2">
+<li>在监听器上通过注解指定的是事务生产者组</li>
+</ol>
+<p>@RocketMQTransactionListener(txProducerGroup &#x3D; “order_tx_group”)</p>
+<br/>
+
+<ul>
+<li><p>用于 <strong>事务消息</strong>（<code>sendMessageInTransaction()</code>）</p>
+</li>
+<li><p>必须与发送时指定的组名一致：</p>
+</li>
+<li><p>rocketMQTemplate.sendMessageInTransaction(“order_tx_group”, “order-topic”, msg, null);</p>
+</li>
+</ul>
+<br/>
+
+<p>这个组名是：</p>
+<ul>
+<li>Broker 回查事务状态时的依据；</li>
+<li>Spring Boot 绑定监听器与 Producer 的关键标识。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>定义位置</th>
+<th>用途</th>
+<th>是否与事务相关</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rocketmq.producer.group</code></td>
+<td>application.yml</td>
+<td>普通消息生产者组</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>txProducerGroup</code></td>
+<td>@RocketMQTransactionListener</td>
+<td>事务消息生产者组</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>关系</td>
+<td>相互独立</td>
+<td>互不影响</td>
+<td>—</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/RocketMQ/RocketMQ/Springboot_rocket_%E5%AE%9E%E6%88%98/" rel="prev" title="Springboot rocket 实战">
+                  <i class="fa fa-angle-left"></i> Springboot rocket 实战
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/RocketMQ/RocketMQ/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" rel="next" title="基本概念">
+                  基本概念 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

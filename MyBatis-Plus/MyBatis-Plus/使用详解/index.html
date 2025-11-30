@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="定义实体类使用mybatis-plus首先需要有一个实体类映射数据库的字段 12345678@Data@TableName(&quot;user&quot;)public class UserDo &#123; @TableId(type &#x3D; IdType.AUTO)private Long id; private String name; private Integer age; private">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用详解">
+<meta property="og:url" content="http://example.com/MyBatis-Plus/MyBatis-Plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="定义实体类使用mybatis-plus首先需要有一个实体类映射数据库的字段 12345678@Data@TableName(&quot;user&quot;)public class UserDo &#123; @TableId(type &#x3D; IdType.AUTO)private Long id; private String name; private Integer age; private">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122515256-f4ddaebb-b154-4d63-83dc-8c4cbac1ff87.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122825305-c1f6ca54-bab1-4843-bde5-57b6e785585a.png">
+<meta property="article:published_time" content="2025-11-25T13:31:53.893Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:26.708Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122515256-f4ddaebb-b154-4d63-83dc-8c4cbac1ff87.png">
+
+
+<link rel="canonical" href="http://example.com/MyBatis-Plus/MyBatis-Plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/MyBatis-Plus/MyBatis-Plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/","path":"MyBatis-Plus/MyBatis-Plus/使用详解/","title":"使用详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用详解 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%AE%9E%E4%BD%93%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">定义实体类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mapper-%E6%8E%A5%E5%8F%A3%E7%9A%84%E7%BC%96%E5%86%99"><span class="nav-number">2.</span> <span class="nav-text">Mapper 接口的编写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service-%E5%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">Service 层的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF-ServiceImpl%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">继承 ServiceImpl（推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8baseMapper%EF%BC%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">为什么可以直接调用baseMapper？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%B3%A8%E5%85%A5Mapper%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">直接注入Mapper（不推荐）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/MyBatis-Plus/MyBatis-Plus/%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用详解 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MyBatis-Plus/" itemprop="url" rel="index"><span itemprop="name">MyBatis-Plus</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="定义实体类"><a href="#定义实体类" class="headerlink" title="定义实体类"></a>定义实体类</h2><p>使用mybatis-plus首先需要有一个实体类映射数据库的字段</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Data@TableName(&quot;user&quot;)</span><br><span class="line">public class UserDo &#123; </span><br><span class="line">@TableId(type = IdType.AUTO)</span><br><span class="line">private Long id;</span><br><span class="line"> private String name;</span><br><span class="line"> private Integer age;</span><br><span class="line"> private String email;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>实体中的常用注解</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>@TableName(“user”)</strong></td>
+<td>指定实体类对应的数据库表名。通常用于当实体类名与表名不一致时显式映射。</td>
+<td><code>@TableName(&quot;user&quot;)</code></td>
+</tr>
+<tr>
+<td><strong>@TableId(value &#x3D; “id”, type &#x3D; IdType.AUTO)</strong></td>
+<td>指定主键字段名称及主键生成策略。常用策略： • <code>AUTO</code><br/> 数据库自增 • <code>ASSIGN_ID</code><br/> 雪花算法生成ID • <code>ASSIGN_UUID</code><br/> 自动生成UUID • <code>INPUT</code><br/> 手动输入主键</td>
+<td><code>@TableId(value = &quot;id&quot;, type = IdType.ASSIGN_ID)</code></td>
+</tr>
+<tr>
+<td><strong>@TableField(“user_name”)</strong></td>
+<td>指定实体字段对应的数据库表字段名。用于实体属性名与表字段名不一致时。支持 <code>exist = false</code><br/> 参数表示此字段不是数据库字段。</td>
+<td><code>@TableField(&quot;user_name&quot;) private String name;</code><br/><code>@TableField(exist = false) private String tempData;</code></td>
+</tr>
+</tbody></table>
+<h2 id="Mapper-接口的编写"><a href="#Mapper-接口的编写" class="headerlink" title="Mapper 接口的编写"></a>Mapper 接口的编写</h2><p><font style="color:rgb(33, 37, 41);">Mapper 接口是 MyBatis Plus 提供的基础 CRUD 接口，继承 </font><code>&lt;font style=&quot;color:rgb(214, 51, 132);&quot;&gt;BaseMapper&lt;/font&gt;</code><font style="color:rgb(33, 37, 41);"> 就可以拥有常用的 CRUD 功能，无需额外编写 SQL。</font></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Mapper</span><br><span class="line">public interface UserMapper extends BaseMapper<span class="language-xml"><span class="tag">&lt;<span class="name">UserDo</span>&gt;</span></span>  </span><br><span class="line">&#123;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>_ BaseMapper 的泛型类型参数表示该 Mapper 所操作的数据实体类。  _</p>
+<p>__</p>
+<h2 id="Service-层的实现"><a href="#Service-层的实现" class="headerlink" title="Service 层的实现"></a><font style="color:rgb(33, 37, 41);">Service 层的实现</font></h2><h3 id="继承-ServiceImpl（推荐）"><a href="#继承-ServiceImpl（推荐）" class="headerlink" title="继承 ServiceImpl（推荐）"></a>继承 ServiceImpl（推荐）</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl extends ServiceImpl<span class="language-xml">&lt;UserMapper, UserDo&gt;</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>ServiceImpl&lt;M, T&gt;</code> 是一个 <strong>带两个泛型参数的通用父类</strong>，</p>
+<ul>
+<li>第一个是 <strong>Mapper 类型</strong></li>
+<li>第二个是 <strong>实体类类型（对应数据库表）</strong></li>
+</ul>
+<p> 通过继承 <code>ServiceImpl</code>，Service 层无需手动注入 Mapper，即可直接使用内置的 <code>baseMapper</code> 对象调用对应的数据库操作方法。  </p>
+<h4 id="为什么可以直接调用baseMapper？"><a href="#为什么可以直接调用baseMapper？" class="headerlink" title="为什么可以直接调用baseMapper？"></a>为什么可以直接调用baseMapper？</h4><p> 因为 <code>ServiceImpl</code> 内部已经封装并自动注入了对应的 Mapper 实例，<br>子类继承后即可直接使用该属性完成数据访问，无需再次注入。  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122515256-f4ddaebb-b154-4d63-83dc-8c4cbac1ff87.png"></p>
+<h3 id="直接注入Mapper（不推荐）"><a href="#直接注入Mapper（不推荐）" class="headerlink" title="直接注入Mapper（不推荐）"></a>直接注入Mapper（不推荐）</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class UserServiceImpl &#123;</span><br><span class="line"><span class="code">    @Autowired</span></span><br><span class="line"><span class="code">    private UserMapper userMapper;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> 在 MyBatis-Plus 中  直接注入Mapper, 只能调用 <code>BaseMapper</code> 提供的一些基础方法，例如：  </p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761122825305-c1f6ca54-bab1-4843-bde5-57b6e785585a.png"></p>
+<p> 这些方法虽然简单直接，但<strong>无法充分发挥 MyBatis-Plus 的优势</strong>，<br>例如自动分页、链式查询、逻辑删除、通用 Wrapper 条件构造等高级功能。  </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/JWT/JWT/JWT_%E7%99%BB%E9%99%86%E8%AF%A6%E8%A7%A3/" rel="prev" title="JWT 登陆详解">
+                  <i class="fa fa-angle-left"></i> JWT 登陆详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/RabbitMQ/RabbitMQ/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" rel="next" title="基础概念">
+                  基础概念 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

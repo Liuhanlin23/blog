@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="什么是工厂模式工厂模式就是将创建对象的过程封装起来，让使用者只关心对象的使用而不关心它是如何被创建的 简单示例🌰 场景：我要做一个“发消息”的程序 有两种消息类型：Email 和 SMS。  1️⃣ 定义消息接口（共同规范）   123interface Message &#123;    void send(String content);&#125;   2️⃣ 两种消息的实现类   123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂模式">
+<meta property="og:url" content="http://example.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="刘翰霖">
+<meta property="og:description" content="什么是工厂模式工厂模式就是将创建对象的过程封装起来，让使用者只关心对象的使用而不关心它是如何被创建的 简单示例🌰 场景：我要做一个“发消息”的程序 有两种消息类型：Email 和 SMS。  1️⃣ 定义消息接口（共同规范）   123interface Message &#123;    void send(String content);&#125;   2️⃣ 两种消息的实现类   123">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T13:31:55.209Z">
+<meta property="article:modified_time" content="2025-11-25T13:40:27.121Z">
+<meta property="article:author" content="刘翰霖">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/","path":"设计模式/设计模式/工厂模式/","title":"工厂模式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>工厂模式 | 刘翰霖</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<meta name="referrer" content="no-referrer">
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">刘翰霖</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">什么是工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">简单示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">工厂模式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82"><span class="nav-number">2.1.</span> <span class="nav-text">简单工厂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">工厂方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82"><span class="nav-number">2.3.</span> <span class="nav-text">抽象工厂</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%92%8C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.3.1.</span> <span class="nav-text">工厂方法和抽象工厂的主要区别是什么？</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">刘翰霖</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="工厂模式 | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工厂模式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="什么是工厂模式"><a href="#什么是工厂模式" class="headerlink" title="什么是工厂模式"></a>什么是工厂模式</h1><p>工厂模式就是将创建对象的过程封装起来，让使用者只关心对象的使用而不关心它是如何被创建的</p>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><p>🌰 场景：我要做一个“发消息”的程序</p>
+<p>有两种消息类型：<strong>Email</strong> 和 <strong>SMS</strong>。</p>
+<p> 1️⃣ 定义消息接口（共同规范）  </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface Message &#123;</span><br><span class="line"><span class="code">    void send(String content);</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> 2️⃣ 两种消息的实现类  </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class EmailMessage implements Message &#123;</span><br><span class="line"><span class="code">    public void send(String content) &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;发送邮件: &quot; + content);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class SmsMessage implements Message &#123;</span><br><span class="line"><span class="code">    public void send(String content) &#123;</span></span><br><span class="line"><span class="code">        System.out.println(&quot;发送短信: &quot; + content);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> 3️⃣ 工厂类（封装创建逻辑）  </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class MessageFactory &#123;</span><br><span class="line"><span class="code">    public static Message createMessage(String type) &#123;</span></span><br><span class="line"><span class="code">        if (&quot;email&quot;.equalsIgnoreCase(type)) &#123;</span></span><br><span class="line"><span class="code">            return new EmailMessage();</span></span><br><span class="line"><span class="code">        &#125; else if (&quot;sms&quot;.equalsIgnoreCase(type)) &#123;</span></span><br><span class="line"><span class="code">            return new SmsMessage();</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">        throw new IllegalArgumentException(&quot;未知消息类型：&quot; + type);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p> 4️⃣ 使用工厂创建对象  </p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Main &#123;</span><br><span class="line"><span class="code">    public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="code">        Message msg = MessageFactory.createMessage(&quot;email&quot;); // 工厂负责创建</span></span><br><span class="line"><span class="code">        msg.send(&quot;你好，欢迎使用 Echogle！&quot;); // 我只管用</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>👉</strong>** 总结一句话：**<br>你不需要 <code>new EmailMessage()</code>，工厂帮你决定创建哪一个，这样以后要扩展新类型（比如微信消息）就只需改工厂，不影响使用方。  </p>
+<h1 id="工厂模式分类"><a href="#工厂模式分类" class="headerlink" title="工厂模式分类"></a>工厂模式分类</h1><table>
+<thead>
+<tr>
+<th>模式类型</th>
+<th>核心思想</th>
+<th>结构特点</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>简单工厂（Simple Factory）</strong></td>
+<td>由一个工厂类集中创建所有产品</td>
+<td>一个工厂类 + 多个产品类</td>
+<td>简单易用，统一创建入口</td>
+<td>新增产品需修改工厂代码，不符合开闭原则</td>
+<td>产品种类少、变化不频繁</td>
+</tr>
+<tr>
+<td><strong>工厂方法（Factory Method）</strong></td>
+<td>每个产品由各自的工厂类创建</td>
+<td>抽象工厂接口 + 多个具体工厂 + 多个产品类</td>
+<td>新增产品无需修改原代码，扩展性好</td>
+<td>类数量多、结构更复杂</td>
+<td>产品类型多、创建逻辑复杂</td>
+</tr>
+<tr>
+<td><strong>抽象工厂（Abstract Factory）</strong></td>
+<td>生产一组相关或依赖的产品族</td>
+<td>抽象工厂接口 + 多个具体工厂 + 多个产品族</td>
+<td>可一次创建多个配套产品，保持一致性</td>
+<td>难以扩展新产品族（需改接口）</td>
+<td>需要创建多个“配套产品”的系统（如主题样式、品牌设备）</td>
+</tr>
+</tbody></table>
+<h2 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h2><p><strong>核心思想：</strong><br>用一个「工厂类」统一负责创建所有对象。  </p>
+<p>客户端 → 简单工厂 → 产品对象</p>
+<br/>
+
+
+
+<p>示例</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class TicketFactory &#123;</span><br><span class="line"><span class="code">    public static Ticket create(String type) &#123;</span></span><br><span class="line"><span class="code">        if (&quot;vip&quot;.equalsIgnoreCase(type)) return new VIPTicket();</span></span><br><span class="line"><span class="code">        if (&quot;normal&quot;.equalsIgnoreCase(type)) return new NormalTicket();</span></span><br><span class="line"><span class="code">        throw new IllegalArgumentException(&quot;未知类型&quot;);</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ <strong>优点：</strong> 创建逻辑集中、使用简单<br>⚠️ <strong>缺点：</strong> 新增产品要改工厂类 → 不符合开闭原则</p>
+<p>适合：小项目、产品种类不多的场景</p>
+<h2 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h2><p><strong>核心思想：</strong><br>每种产品一个对应的工厂，让子类决定创建哪种对象。<br>也就是说——“创建”这件事不再由一个大工厂决定，而是<strong>交给不同的小工厂</strong>。  </p>
+<p>客户端 → 抽象工厂接口 → 各具体工厂 → 具体产品</p>
+<br/>
+
+<p>示例</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">interface TicketFactory &#123;</span><br><span class="line"><span class="code">    Ticket createTicket();</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class VIPTicketFactory implements TicketFactory &#123;</span><br><span class="line"><span class="code">    public Ticket createTicket() &#123;</span></span><br><span class="line"><span class="code">        return new VIPTicket();</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">class NormalTicketFactory implements TicketFactory &#123;</span><br><span class="line"><span class="code">    public Ticket createTicket() &#123;</span></span><br><span class="line"><span class="code">        return new NormalTicket();</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">//使用</span></span><br><span class="line"><span class="code">TicketFactory factory = new VIPTicketFactory();</span></span><br><span class="line"><span class="code">Ticket ticket = factory.createTicket();</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ <strong>优点：</strong> 新增产品只需新增工厂类，不改旧代码（符合开闭原则）<br>⚠️ <strong>缺点：</strong> 类变多了（一个产品对应一个工厂）</p>
+<p>适合：产品类型多、变化频繁的中大型项目</p>
+<h2 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h2><p>核心思想：<br>生产一族相关的产品（不仅仅是一种）。<br>比如同时生产 “华为手机 + 华为耳机”，或 “苹果手机 + 苹果耳机”。  </p>
+<p>客户端 → 抽象工厂接口 → 具体工厂A &#x2F; 具体工厂B → 多个产品族</p>
+<br/>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 产品族1：手机</span><br><span class="line">interface Phone &#123; void call(); &#125;</span><br><span class="line"></span><br><span class="line">// 产品族2：耳机</span><br><span class="line">interface Earphone &#123; void listen(); &#125;</span><br><span class="line"></span><br><span class="line">// 抽象工厂</span><br><span class="line">interface DeviceFactory &#123;</span><br><span class="line"><span class="code">    Phone createPhone();</span></span><br><span class="line"><span class="code">    Earphone createEarphone();</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">// 华为工厂</span><br><span class="line">class HuaweiFactory implements DeviceFactory &#123;</span><br><span class="line"><span class="code">    public Phone createPhone() &#123; return new HuaweiPhone(); &#125;</span></span><br><span class="line"><span class="code">    public Earphone createEarphone() &#123; return new HuaweiEarphone(); &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">// 苹果工厂</span><br><span class="line">class AppleFactory implements DeviceFactory &#123;</span><br><span class="line"><span class="code">    public Phone createPhone() &#123; return new iPhone(); &#125;</span></span><br><span class="line"><span class="code">    public Earphone createEarphone() &#123; return new AirPods(); &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>✅ <strong>优点：</strong> 一次创建多个“配套产品”，保持风格一致<br>⚠️ <strong>缺点：</strong> 扩展新产品族（比如“手表”）需要修改所有工厂接口</p>
+<p>适合：需要生产多个关联对象的复杂系统（如 UI 主题、品牌设备）</p>
+<h3 id="工厂方法和抽象工厂的主要区别是什么？"><a href="#工厂方法和抽象工厂的主要区别是什么？" class="headerlink" title="工厂方法和抽象工厂的主要区别是什么？"></a>工厂方法和抽象工厂的主要区别是什么？</h3><p> 工厂方法是“一个工厂生产一种产品”；抽象工厂是“一个工厂生产一整套相关产品”。  </p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" rel="prev" title="单例模式">
+                  <i class="fa fa-angle-left"></i> 单例模式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/JUC/JUC/%E7%BA%BF%E7%A8%8B/" rel="next" title="线程">
+                  线程 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">刘翰霖</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
