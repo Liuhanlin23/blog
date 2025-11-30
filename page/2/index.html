@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,88 +160,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">linux 网络常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>ss 是一个查看网络连接、端口占用、路由表、网络状态的命令行工具。  它比netstat 更高效</p>
-<ol>
-<li>ss -tunlp</li>
-</ol>
-<p>含义</p>
-<ul>
-<li><code>t</code> &#x3D; TCP</li>
-<li><code>u</code> &#x3D; UDP</li>
-<li><code>n</code> &#x3D; <strong>不要把 IP&#x2F;端口 解析成域名&#x2F;服务名</strong>，直接用数字显示  不加 <code>-n</code> 时：可能把 <code>80</code> 显示成 <code>http</code></li>
-<li><code>l</code> &#x3D;  只显示处于 <strong>监听状态</strong> 的 socket  </li>
-<li><code>a</code> &#x3D; 显示所有socekt 状态（包括监听状态和非监听状态）</li>
-<li><code>p</code> &#x3D; 显示进程名和 PID</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1386,6 +1304,137 @@ Object postProcessAfterInitialization(Object bean, String beanName) throws Beans
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public void a() &#123;</span><br><span class="line"><span class="code">    System.out.println(&quot;a()&quot;);</span></span><br><span class="line"><span class="code">    ((OrderService) AopContext.currentProxy()).b();</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="内部实现"><a href="#内部实现" class="headerlink" title="内部实现"></a>内部实现</h3><p>AopContext.currentProxy() 本质上就是从当前线程的 ThreadLocal 中读取“当前正在执行的代理对象”。<br>Spring 会在进入代理方法时将该代理写入 ThreadLocal，方法执行完再恢复，因此不同线程互不影响。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">基本配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/SpringBootDataRedis/" itemprop="url" rel="index"><span itemprop="name">SpringBootDataRedis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一-引入依赖"><a href="#一-引入依赖" class="headerlink" title="一. 引入依赖"></a>一. 引入依赖</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-基础配置"><a href="#二-基础配置" class="headerlink" title="二.基础配置"></a>二.基础配置</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    redis:</span><br><span class="line">      host: localhost</span><br><span class="line">      port: <span class="number">6379</span></span><br><span class="line">      # password: your_password</span><br><span class="line">      lettuce:</span><br><span class="line">        pool:</span><br><span class="line">          max-active: <span class="number">16</span></span><br><span class="line">          max-idle: <span class="number">8</span></span><br><span class="line">          min-idle: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="三-选择-api"><a href="#三-选择-api" class="headerlink" title="三.选择 api"></a>三.选择 api</h1><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th><strong>StringRedisTemplate</strong></th>
+<th><strong>RedisTemplate&lt;K, V&gt;</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>泛型类型</strong></td>
+<td>固定为 <code>&lt;String, String&gt;</code></td>
+<td>可自定义，如 <code>&lt;String, Object&gt;</code></td>
+</tr>
+<tr>
+<td><strong>默认序列化器</strong></td>
+<td><code>StringRedisSerializer</code><br/>（字符串序列化）</td>
+<td><code>JdkSerializationRedisSerializer</code><br/>（二进制序列化）</td>
+</tr>
+<tr>
+<td><strong>是否需要自定义序列化</strong></td>
+<td>否</td>
+<td>通常需要配置 JSON 序列化器</td>
+</tr>
+<tr>
+<td><strong>是否可直接存对象（类）</strong></td>
+<td>❌ 否（需手动转 JSON）</td>
+<td>✅ 是（推荐使用 JSON 序列化）</td>
+</tr>
+<tr>
+<td><strong>是否支持 Redis 五大结构（String、List、Hash、Set、ZSet）</strong></td>
+<td>✅ 支持（仅限字符串类型）</td>
+<td>✅ 支持（支持任意类型）</td>
+</tr>
+<tr>
+<td><strong>数据可读性（在 Redis CLI 中查看）</strong></td>
+<td>✅ 明文（UTF-8 可读）</td>
+<td>⚠️ 默认不可读（JDK 序列化后为二进制）</td>
+</tr>
+<tr>
+<td><strong>使用复杂度</strong></td>
+<td>简单（开箱即用）</td>
+<td>稍复杂（需配置序列化器）</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>存字符串：验证码、token、计数器、状态标志等</td>
+<td>存复杂对象：用户信息、缓存实体、JSON 数据等</td>
+</tr>
+<tr>
+<td><strong>推荐程度</strong></td>
+<td>⭐⭐⭐（简单字符串场景）</td>
+<td>⭐⭐⭐⭐（通用复杂场景）</td>
+</tr>
+</tbody></table>
 
       
     </div>

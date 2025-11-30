@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,172 +160,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/WebSocket/ws_Springboot%E5%AE%9E%E6%88%98%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/WebSocket/ws_Springboot%E5%AE%9E%E6%88%98%EF%BC%88%E5%BA%9F%E5%BC%83%EF%BC%89/" class="post-title-link" itemprop="url">ws Springboot实战（废弃）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%BB%9C/WebSocket/" itemprop="url" rel="index"><span itemprop="name">WebSocket</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="项目配置与依赖"><a href="#项目配置与依赖" class="headerlink" title="项目配置与依赖"></a>项目配置与依赖</h1><ol>
-<li>首先在pom.xml中添加必要依赖</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span></span><br><span class="line">  &lt;!-- WebSocket支持 --&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="code">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span></span><br><span class="line"><span class="code">    &lt;artifactId&gt;spring-boot-starter-websocket&lt;/artifactId&gt;</span></span><br><span class="line"><span class="code">  &lt;/dependency&gt;</span></span><br><span class="line"><span class="code">&lt;/dependencies&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>2.Websocket配置类</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761210708627-5144837d-e12e-4ee6-841f-9fb9f5ed479b.png"></p>
-<p><code>ServerEndpointExporter</code> 的作用是：<br><strong>让 Spring Boot 自动识别并注册所有用 <strong><code>**@ServerEndpoint**</code></strong> 注解的类，让它们成为真正的 WebSocket 服务端。</strong></p>
-<h1 id="WebSocket-服务端实现"><a href="#WebSocket-服务端实现" class="headerlink" title="WebSocket 服务端实现"></a>WebSocket 服务端实现</h1><h2 id="消息的实体类"><a href="#消息的实体类" class="headerlink" title="消息的实体类"></a>消息的实体类</h2><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1761211199057-9f17b0b5-f9ff-4073-85eb-40eb6788955f.png"></p>
-<p> WebSocket 的底层只能发“<strong>字符串或二进制</strong>”，我们需要一个统一的格式（比如 JSON）来让前后端都能理解消息的内容。  </p>
-<h2 id="WebSocket-服务核心类"><a href="#WebSocket-服务核心类" class="headerlink" title="WebSocket 服务核心类"></a>WebSocket 服务核心类</h2><p>两种实现方式：</p>
-<ul>
-<li>JSR-356 是官方标准，轻量快速。</li>
-<li>Spring WebSocket 是 Spring 封装版，更易扩展与集成。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>对比项</th>
-<th><strong>JSR-356</strong></th>
-<th><strong>Spring WebSocket</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>定义来源</strong></td>
-<td>Java 官方标准（Java EE 规范）</td>
-<td>Spring 自行封装的实现</td>
-</tr>
-<tr>
-<td><strong>包路径</strong></td>
-<td><code>javax.websocket.*</code></td>
-<td><code>org.springframework.web.socket.*</code></td>
-</tr>
-<tr>
-<td><strong>端点声明方式</strong></td>
-<td>使用注解 <code>@ServerEndpoint</code></td>
-<td>使用配置类注册 <code>WebSocketHandler</code></td>
-</tr>
-<tr>
-<td><strong>生命周期注解</strong></td>
-<td><code>@OnOpen</code><br/>、<code>@OnMessage</code><br/>、<code>@OnClose</code><br/>、<code>@OnError</code></td>
-<td>方法覆写：<code>afterConnectionEstablished()</code><br/>、<code>handleTextMessage()</code><br/> 等</td>
-</tr>
-<tr>
-<td><strong>依赖注入</strong></td>
-<td>不能直接注入 Spring Bean（需工具类）</td>
-<td>可直接注入任何 Spring Bean（Service、Mapper 等）</td>
-</tr>
-<tr>
-<td><strong>注册机制</strong></td>
-<td>需在内嵌容器中配置 <code>ServerEndpointExporter</code></td>
-<td>使用 <code>@EnableWebSocket</code><br/> + <code>WebSocketConfigurer</code></td>
-</tr>
-<tr>
-<td><strong>扩展能力</strong></td>
-<td>轻量、靠自己实现鉴权&#x2F;路由</td>
-<td>可用拦截器、整合 Security、STOMP、消息代理等</td>
-</tr>
-<tr>
-<td><strong>适用场景</strong></td>
-<td>简单推送、语音转写、轻量聊天</td>
-<td>企业级消息、聊天室、通知系统</td>
-</tr>
-<tr>
-<td><strong>优点</strong></td>
-<td>标准统一、实现简单</td>
-<td>与 Spring 高度整合、扩展强</td>
-</tr>
-<tr>
-<td><strong>缺点</strong></td>
-<td>与 Spring 集成弱、配置麻烦</td>
-<td>稍复杂、抽象层更多</td>
-</tr>
-</tbody></table>
-<h3 id="JSR-356"><a href="#JSR-356" class="headerlink" title="JSR-356"></a>JSR-356</h3><h4 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h4><ul>
-<li><code>@ServerEndpoint(value = &quot;/ws/chat/{userId}&quot;, decoders = {...}, encoders = {...}, configurator = ...)</code></li>
-<li>声明一个 WebSocket 端点；<strong>value</strong> 是 URL；可带 <code>{}</code> 路径参数。</li>
-<li><strong>encoders&#x2F;decoders</strong>：对象与文本&#x2F;二进制的转换（实现 <code>Encoder</code> &#x2F; <code>Decoder</code> 接口）。</li>
-<li><strong>configurator</strong>：自定义握手、Header 读取、与 Spring 注入打通等高级定制。</li>
-<li><code>@OnOpen</code></li>
-<li>连接建立时回调。常见签名：<code>onOpen(Session s, EndpointConfig c, @PathParam String id)</code>。</li>
-<li>典型用途：鉴权、登记在线用户。</li>
-<li><code>@OnMessage</code></li>
-<li>收到消息时回调。可重载文本版 <code>onMessage(String, Session)</code>、二进制版 <code>onMessage(ByteBuffer, Session)</code>，或 <code>onMessage(PongMessage, Session)</code>。</li>
-<li>可加 <code>@PathParam</code> 取路径参数。</li>
-<li><code>@OnClose</code></li>
-<li>连接关闭时回调。可拿到 <code>CloseReason</code> 做清理。</li>
-<li><code>@OnError</code></li>
-<li>端点抛异常时回调。可记录日志&#x2F;熔断统计。</li>
-<li><code>@PathParam(&quot;xxx&quot;)</code></li>
-<li>绑定 <code>@ServerEndpoint</code> 路径里的 <code>{xxx}</code> 到方法参数。</li>
-</ul>
-<h3 id="springboot-websocket"><a href="#springboot-websocket" class="headerlink" title="springboot websocket"></a>springboot websocket</h3><p>springboot web</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1938,6 +1772,88 @@
 <li><strong>SSE（Server-Sent Events）是单向通信</strong> —— 服务器可以主动向客户端推送消息，适合服务器主动推送消息但客户端不需要回传的场景（例如AI回复流式输出）</li>
 <li><strong>WebSocket 是双向通信</strong> —— 客户端和服务器都能主动发送消息。 适合双向实时通信的场景比如语音通话</li>
 </ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/%E7%BD%91%E7%BB%9C/linux_%E7%BD%91%E7%BB%9C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">linux 网络常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ss 是一个查看网络连接、端口占用、路由表、网络状态的命令行工具。  它比netstat 更高效</p>
+<ol>
+<li>ss -tunlp</li>
+</ol>
+<p>含义</p>
+<ul>
+<li><code>t</code> &#x3D; TCP</li>
+<li><code>u</code> &#x3D; UDP</li>
+<li><code>n</code> &#x3D; <strong>不要把 IP&#x2F;端口 解析成域名&#x2F;服务名</strong>，直接用数字显示  不加 <code>-n</code> 时：可能把 <code>80</code> 显示成 <code>http</code></li>
+<li><code>l</code> &#x3D;  只显示处于 <strong>监听状态</strong> 的 socket  </li>
+<li><code>a</code> &#x3D; 显示所有socekt 状态（包括监听状态和非监听状态）</li>
+<li><code>p</code> &#x3D; 显示进程名和 PID</li>
+</ul>
 
       
     </div>

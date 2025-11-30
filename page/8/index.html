@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,96 +160,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Java/Stream/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/Java/Stream/" class="post-title-link" itemprop="url">Stream</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么是Stream"><a href="#什么是Stream" class="headerlink" title="什么是Stream"></a>什么是Stream</h1><p>Stream 就像一条流水线，你把数据放进去，然后经过各种加步骤（filter&#x2F;map）,最后输出结果(forEach&#x2F;collect)</p>
-<h1 id="Stream的三个核心点"><a href="#Stream的三个核心点" class="headerlink" title="Stream的三个核心点"></a>Stream的三个核心点</h1><ol>
-<li>不会修改原集合,stream是”读取”,不是”改写”</li>
-<li>一步一步串起来执行（像流水线）</li>
-<li>最终必须有一个“终止操作”才能真正执行，没有终止操作，流水线不会运作</li>
-</ol>
-<h1 id="如何创建Stream"><a href="#如何创建Stream" class="headerlink" title="如何创建Stream"></a>如何创建Stream</h1><ol>
-<li>从集合创建（最常用）</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List<span class="language-xml"><span class="tag">&lt;<span class="name">Integer</span>&gt;</span></span> list = List.of(1, 2, 3);</span><br><span class="line">Stream<span class="language-xml"><span class="tag">&lt;<span class="name">Integer</span>&gt;</span></span> stream = list.stream();</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>从数组创建</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int[] arr = &#123;1, 2, 3&#125;;</span><br><span class="line">IntStream stream = Arrays.stream(arr);</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>直接创建（开发里不太常用）</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stream<span class="language-xml"><span class="tag">&lt;<span class="name">String</span>&gt;</span></span> stream = Stream.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="数据加工"><a href="#数据加工" class="headerlink" title="数据加工"></a>数据加工</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1484,6 +1394,122 @@ default -&gt; &quot;Other&quot;;
 <li>如果线程是 <strong>长生命周期</strong>（如线程池中的线程），这些“孤儿 entry”会一直占住内存，造成泄露直至 OOM。</li>
 </ul>
 <h1 id="二-如何避免ThreadLocal的内存泄露"><a href="#二-如何避免ThreadLocal的内存泄露" class="headerlink" title="二.如何避免ThreadLocal的内存泄露"></a>二.如何避免ThreadLocal的内存泄露</h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/JUC/synchronized%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/JUC/synchronized%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">synchronized详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JUC/" itemprop="url" rel="index"><span itemprop="name">JUC</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>synchronized</code> 是 Java 中的一个关键字，用于实现线程同步，确保同一时间内只有一个线程可以访问某段代码，同时synchronized是可重入锁。</p>
+<h1 id="Sychronized的使用方法"><a href="#Sychronized的使用方法" class="headerlink" title="Sychronized的使用方法"></a>Sychronized的使用方法</h1><h2 id="修饰实例方法（对象锁）"><a href="#修饰实例方法（对象锁）" class="headerlink" title="修饰实例方法（对象锁）"></a>修饰实例方法（对象锁）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void method()&#123;</span><br><span class="line">// 方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:rgb(37, 41, 51);">这种方式锁住的是</font><strong><font style="color:rgb(37, 41, 51);">当前实例对象</font></strong><font style="color:rgb(37, 41, 51);">(this)，同一个实例的多个同步方法会互斥，不同实例的同步方法不会相互干扰。</font></p>
+<h2 id="修饰静态方法（类锁）"><a href="#修饰静态方法（类锁）" class="headerlink" title="修饰静态方法（类锁）"></a><font style="color:rgb(37, 41, 51);">修饰静态方法（类锁）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public static sychronized void method() &#123;</span><br><span class="line">//方法体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:rgb(37, 41, 51);">这种方式锁住的是</font><strong><font style="color:rgb(37, 41, 51);">类对象</font></strong><font style="color:rgb(37, 41, 51);">(Class对象)，所有实例共享同一把锁，即使不同实例调用静态同步方法也会互斥。</font></p>
+<h2 id="同步代码块（指定锁对象）"><a href="#同步代码块（指定锁对象）" class="headerlink" title=" 同步代码块（指定锁对象）"></a><font style="color:rgb(37, 41, 51);"> 同步代码块（指定锁对象）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class TicketService &#123;</span><br><span class="line">    private int tickets;</span><br><span class="line">    private final Object lock = new Object();</span><br><span class="line"></span><br><span class="line">    public void sellTicket() &#123;</span><br><span class="line">        synchronized(lock) &#123;</span><br><span class="line">            if(tickets &gt; 0) &#123;</span><br><span class="line">                tickets--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意这种方式锁住的是lock 这个Object 对象实例而不是Object 这个类对象</p>
+<h2 id="同步静态代码块（类锁）"><a href="#同步静态代码块（类锁）" class="headerlink" title="同步静态代码块（类锁）"></a><font style="color:rgb(37, 41, 51);">同步静态代码块（类锁）</font></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public void sellTicket()&#123;</span><br><span class="line">synchronized (ClassName.class) &#123;</span><br><span class="line">// 代码块</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种方式锁住的就是ClassName这个类对象了</p>
+<h1 id="如何理解锁住类对象和锁住对象实例"><a href="#如何理解锁住类对象和锁住对象实例" class="headerlink" title="如何理解锁住类对象和锁住对象实例"></a>如何理解锁住类对象和锁住对象实例</h1><p> 一定不要认为锁住类对象之后就锁住了所有实例，因为<strong>静态同步方法锁住的是类本身（</strong><code>**Test.class**</code><strong>），而实例同步方法锁住的是某个具体的对象实例</strong>，它们锁定的是不同的资源，因此不会互相干扰。  </p>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Test&#123;</span><br><span class="line">    public static synchronized void lock()&#123;</span><br><span class="line">        try&#123;</span><br><span class="line">            sleep(100000);</span><br><span class="line">        &#125;</span><br><span class="line">        catch(InterruptedException e)&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public synchronized void print()&#123;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            System.out.println(&quot;111&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line">            Test test = new Test();</span><br><span class="line">          Thread t1 = new Thread(Test::lock);</span><br><span class="line">          Thread t2=new Thread(test::print);</span><br><span class="line">          t1.start();</span><br><span class="line">          t2.start();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码中虽然t1线程sleep 没有释放Test类锁，但是t2线程依然可以正常打印,因为t2线程申请的呃锁是实例锁，实例锁和类对象锁是两种不同的锁！</p>
+<h1 id="synchronized锁升级"><a href="#synchronized锁升级" class="headerlink" title="synchronized锁升级"></a>synchronized锁升级</h1><h2 id="synchronized-锁的四种状态"><a href="#synchronized-锁的四种状态" class="headerlink" title="synchronized 锁的四种状态"></a>synchronized 锁的四种状态</h2><p><em>注意synchronized 的锁只会升级不会降级</em></p>
+<h3 id="无锁状态（No-Lock）："><a href="#无锁状态（No-Lock）：" class="headerlink" title="无锁状态（No Lock）："></a><strong>无锁状态（No Lock）</strong>：</h3><ul>
+<li><strong>说明</strong>：对象在没有任何线程竞争的情况下处于无锁状态。此时，任何线程都能轻松访问该对象的方法或代码块。</li>
+<li><strong>何时发生</strong>：当没有线程访问或竞争锁时，锁处于无锁状态。</li>
+</ul>
+<h3 id="偏向锁（Biased-Locking）："><a href="#偏向锁（Biased-Locking）：" class="headerlink" title="偏向锁（Biased Locking）："></a><strong>偏向锁（Biased Locking）</strong>：</h3><ul>
+<li><strong>说明</strong>：当对象的锁长时间没有被其他线程竞争时，JVM 会启用偏向锁。偏向锁会将锁附加到第一个获得锁的线程上，减少锁的获取和释放操作，避免不必要的竞争。</li>
+<li><strong>何时发生</strong>：当对象只有一个线程访问时，JVM 会为该对象启用偏向锁，锁会”偏向”于第一个获取锁的线程。</li>
+<li><strong>升级条件</strong>：当其他线程竞争该锁时，偏向锁会升级为轻量级锁。</li>
+</ul>
+<h3 id="轻量级锁（Lightweight-Locking）："><a href="#轻量级锁（Lightweight-Locking）：" class="headerlink" title="轻量级锁（Lightweight Locking）："></a><strong>轻量级锁（Lightweight Locking）</strong>：</h3><ul>
+<li><strong>说明</strong>：当有多个线程竞争锁时，JVM 会启用轻量级锁。轻量级锁使用 <strong>CAS（Compare-And-Swap）</strong> 技术，通过在对象头中记录锁的状态来减少锁的开销，避免线程阻塞。</li>
+<li><strong>何时发生</strong>：当锁发生竞争时，JVM 会通过 CAS 尝试轻量级锁。如果竞争不激烈且 CAS 成功，线程可以直接获得锁。</li>
+<li><strong>升级条件</strong>：如果 CAS 操作失败或竞争非常激烈，轻量级锁会升级为重量级锁。</li>
+</ul>
+<h3 id="重量级锁（Heavyweight-Locking）："><a href="#重量级锁（Heavyweight-Locking）：" class="headerlink" title="重量级锁（Heavyweight Locking）："></a>重量级锁（Heavyweight Locking）：</h3><ul>
+<li><strong>说明</strong>：当线程竞争激烈且无法通过轻量级锁解决时，JVM 会使用重量级锁。重量级锁通过操作系统的互斥量（mutex）来管理锁，这会导致线程阻塞和上下文切换，性能较差。</li>
+<li><strong>何时发生</strong>：当多个线程竞争同一把锁，并且轻量级锁无法解决竞争时，JVM 会升级为重量级锁。</li>
+<li><strong>升级条件</strong>：轻量级锁竞争失败时，JVM 会使用操作系统的互斥量（mutex）进行锁的管理。</li>
+</ul>
+<h2 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h2><h3 id="偏向锁的工作原理"><a href="#偏向锁的工作原理" class="headerlink" title="偏向锁的工作原理"></a>偏向锁的工作原理</h3><ul>
+<li>当一个线程第一次获得对象的锁时，JVM 会将该对象的锁状态设置为 <strong>偏向锁</strong>，并记录下获得锁的线程 ID。</li>
+<li>之后，如果相同的线程再次访问该对象，不需要重新获取锁，<strong>JVM 会直接认为这个线程已经持有锁</strong>，因此锁的获取和释放都没有任何开销。</li>
+<li><strong>锁的释放</strong>：当线程退出同步代码块时，锁会被释放，但锁的状态仍然保持为偏向锁，直到有另一个线程竞争锁。</li>
+</ul>
+<h3 id="何时使用偏向锁"><a href="#何时使用偏向锁" class="headerlink" title="何时使用偏向锁"></a>何时使用偏向锁</h3><p> 偏向锁适用于 <strong>没有竞争</strong> 的情况，即在大部分时间里，只有一个线程访问该对象。当一个线程获取锁后，偏向锁会继续偏向这个线程，避免每次都要进行加锁的性能开销。  </p>
+<h3 id="无锁-偏向锁的升级过程"><a href="#无锁-偏向锁的升级过程" class="headerlink" title="无锁-&gt;偏向锁的升级过程"></a>无锁-&gt;偏向锁的升级过程</h3><p> 当第一个线程访问同步代码时（也就是synchronized 修饰的代码块），它会 <strong>尝试获取对象的锁</strong>。此时，JVM 会将对象的锁从无锁状态切换为 <strong>偏向锁</strong>，并将锁标记为偏向于当前线程。锁的状态会保存当前线程的 ID。  </p>
+<h2 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h2><h3 id="轻量级锁的工作原理"><a href="#轻量级锁的工作原理" class="headerlink" title="轻量级锁的工作原理"></a>轻量级锁的工作原理</h3><p><strong>CAS 操作</strong>：轻量级锁通过 <strong>CAS（Compare-And-Swap）</strong> 技术来实现加锁。它尝试通过原子操作直接改变对象头的锁标志位。  </p>
+<p><strong>竞争时</strong>：当有多个线程竞争锁时，JVM 会让线程通过 <strong>自旋</strong>（不断尝试）来获取锁，直到成功为止。  </p>
+
       
     </div>
 

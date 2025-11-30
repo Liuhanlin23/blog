@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,137 +160,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/Redis/SpringBootDataRedis/%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">基本配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Redis/SpringBootDataRedis/" itemprop="url" rel="index"><span itemprop="name">SpringBootDataRedis</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一-引入依赖"><a href="#一-引入依赖" class="headerlink" title="一. 引入依赖"></a>一. 引入依赖</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="二-基础配置"><a href="#二-基础配置" class="headerlink" title="二.基础配置"></a>二.基础配置</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    redis:</span><br><span class="line">      host: localhost</span><br><span class="line">      port: <span class="number">6379</span></span><br><span class="line">      # password: your_password</span><br><span class="line">      lettuce:</span><br><span class="line">        pool:</span><br><span class="line">          max-active: <span class="number">16</span></span><br><span class="line">          max-idle: <span class="number">8</span></span><br><span class="line">          min-idle: <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="三-选择-api"><a href="#三-选择-api" class="headerlink" title="三.选择 api"></a>三.选择 api</h1><table>
-<thead>
-<tr>
-<th>对比项</th>
-<th><strong>StringRedisTemplate</strong></th>
-<th><strong>RedisTemplate&lt;K, V&gt;</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>泛型类型</strong></td>
-<td>固定为 <code>&lt;String, String&gt;</code></td>
-<td>可自定义，如 <code>&lt;String, Object&gt;</code></td>
-</tr>
-<tr>
-<td><strong>默认序列化器</strong></td>
-<td><code>StringRedisSerializer</code><br/>（字符串序列化）</td>
-<td><code>JdkSerializationRedisSerializer</code><br/>（二进制序列化）</td>
-</tr>
-<tr>
-<td><strong>是否需要自定义序列化</strong></td>
-<td>否</td>
-<td>通常需要配置 JSON 序列化器</td>
-</tr>
-<tr>
-<td><strong>是否可直接存对象（类）</strong></td>
-<td>❌ 否（需手动转 JSON）</td>
-<td>✅ 是（推荐使用 JSON 序列化）</td>
-</tr>
-<tr>
-<td><strong>是否支持 Redis 五大结构（String、List、Hash、Set、ZSet）</strong></td>
-<td>✅ 支持（仅限字符串类型）</td>
-<td>✅ 支持（支持任意类型）</td>
-</tr>
-<tr>
-<td><strong>数据可读性（在 Redis CLI 中查看）</strong></td>
-<td>✅ 明文（UTF-8 可读）</td>
-<td>⚠️ 默认不可读（JDK 序列化后为二进制）</td>
-</tr>
-<tr>
-<td><strong>使用复杂度</strong></td>
-<td>简单（开箱即用）</td>
-<td>稍复杂（需配置序列化器）</td>
-</tr>
-<tr>
-<td><strong>适用场景</strong></td>
-<td>存字符串：验证码、token、计数器、状态标志等</td>
-<td>存复杂对象：用户信息、缓存实体、JSON 数据等</td>
-</tr>
-<tr>
-<td><strong>推荐程度</strong></td>
-<td>⭐⭐⭐（简单字符串场景）</td>
-<td>⭐⭐⭐⭐（通用复杂场景）</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -1910,6 +1779,112 @@
 </ul>
 <h4 id="查看redis-内存淘汰策略"><a href="#查看redis-内存淘汰策略" class="headerlink" title="查看redis 内存淘汰策略"></a>查看redis 内存淘汰策略</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760853787301-0a89c43b-9783-4704-bb3a-a91fd2ba0431.png"></p>
 <h4 id="修改redis-内存淘汰策略"><a href="#修改redis-内存淘汰策略" class="headerlink" title="修改redis 内存淘汰策略"></a>修改redis 内存淘汰策略</h4><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760853796862-384ae849-2bff-41fc-8b21-c4397939ca58.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/Redis/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/Redis/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7/" class="post-title-link" itemprop="url">数据库和缓存如何保证一致性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>_ 数据库与缓存的强一致性其实是一个伪命题。既然引入缓存是为了提高系统的并发性能，就必须接受两者之间__<strong>可能存在短暂不一致</strong><strong>的事实。<br>因此，我们的目标不是追求完全一致，而是</strong><strong>尽可能保证最终一致性</strong><strong>。<br>在当前实践中，最稳妥、通用的做法是：</strong><strong>先更新数据库，再删除缓存（Cache-Aside 模式）</strong>__，这样可以最大程度地降低数据不一致的风险。  _</p>
+<h2 id="先更新数据库还是先更新缓存"><a href="#先更新数据库还是先更新缓存" class="headerlink" title="先更新数据库还是先更新缓存"></a>先更新数据库还是先更新缓存</h2><p> 当执行写操作时，无论是<strong>先更新数据库再更新缓存</strong>，还是<strong>先更新缓存再更新数据库</strong>，都可能导致<strong>数据库与缓存数据不一致</strong>的问题。  </p>
+<h3 id="先更新数据库，再更新缓存"><a href="#先更新数据库，再更新缓存" class="headerlink" title="先更新数据库，再更新缓存"></a>先更新数据库，再更新缓存</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760857257593-45414a73-5251-4100-ae53-01c13ed45062.png"></p>
+<p>举个例子，比如有A,B两个请求同时更新同一条数据，则可能出现这样的顺序</p>
+<p>A 请求先将数据库的数据更新为 1，然后在更新缓存前，请求 B 将数据库的数据更新为 2，紧接着也把缓存更新为 2，然后 A 请求更新缓存为 1。</p>
+<p>此时，数据库中的数据是 2，而缓存中的数据却是 1，<strong>出现了缓存和数据库中的数据不一致的现象。</strong></p>
+<h3 id="先更新缓存再更新数据库"><a href="#先更新缓存再更新数据库" class="headerlink" title="先更新缓存再更新数据库"></a>先更新缓存再更新数据库</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760857381327-125861e6-888d-4faf-b492-47d0122254cb.png">A 请求先将缓存的数据更新为 1，然后在更新数据库前，B 请求来了，将缓存的数据更新为 2，紧接着把数据库更新为 2，然后 A 请求将数据库的数据更新为 1。</p>
+<p>此时，数据库中的数据是 1，而缓存中的数据却是 2，<strong>出现了缓存和数据库中的数据不一致的现象。</strong></p>
+<p>所以，<strong>无论是「先更新数据库，再更新缓存」，还是「先更新缓存，再更新数据库」</strong>，这两个方案都存在并发问题，当两个请求并发更新同一条数据的时候，可能会出现缓存和数据库中的数据不一致的现象。</p>
+<h2 id="删除缓存"><a href="#删除缓存" class="headerlink" title="删除缓存"></a>删除缓存</h2><p><strong>最好的方式还是先更新数据库再删除缓存</strong></p>
+<h3 id="先更新数据库再删除缓存"><a href="#先更新数据库再删除缓存" class="headerlink" title="先更新数据库再删除缓存"></a>先更新数据库再删除缓存</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858210694-457dfc38-b9eb-4a05-8643-25787beaea1c.png"></p>
+<p><font style="color:rgb(44, 62, 80);">假如某个用户数据在缓存中不存在，请求 A 读取数据时从数据库中查询到年龄为 20，在未写入缓存中时另一个请求 B 更新数据。它更新数据库中的年龄为 21，并且清空缓存。这时请求 A 把从数据库中读到的年龄为 20 的数据写入到缓存中。最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库数据不一致。</font><strong><font style="color:rgb(48, 79, 254);">但是在实际中，这个问题出现的概率并不高</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
+<p><strong><font style="color:rgb(48, 79, 254);">因为缓存的写入通常要远远快于数据库的写入</font></strong><font style="color:rgb(44, 62, 80);">，所以在实际中很难出现请求 B 已经更新了数据库并且删除了缓存，请求 A 才更新完缓存的情况。</font></p>
+<p><font style="color:rgb(44, 62, 80);">而一旦请求 A 早于请求 B 删除缓存之前更新了缓存，那么接下来的请求就会因为缓存不命中而从数据库中重新读取数据，所以不会出现这种不一致的情况。</font></p>
+<p><font style="color:rgb(44, 62, 80);">所以，</font><strong><font style="color:rgb(48, 79, 254);">「先更新数据库 + 再删除缓存」的方案，是可以很大程度保证数据一致性的</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
+<p><font style="color:rgb(44, 62, 80);">并且实际中我们也会为缓存加上过期时间，如果出现数据库和缓存不一致，也是再这个时间呢，最终还是可以实现一致性</font></p>
+<h4 id="如何应对缓存删除失败"><a href="#如何应对缓存删除失败" class="headerlink" title="如何应对缓存删除失败"></a><font style="color:rgb(44, 62, 80);">如何应对缓存删除失败</font></h4><p>假设我么再更新完数据库后删除缓存失败了，导致缓存还是旧值，不又会出现缓存数据不一致么？所以针对这个问题有两个解决方案</p>
+<h5 id="1-消息队列重试机制"><a href="#1-消息队列重试机制" class="headerlink" title="1.消息队列重试机制"></a>1.消息队列重试机制</h5><p><font style="color:rgb(44, 62, 80);">我们可以引入</font><strong><font style="color:rgb(48, 79, 254);">消息队列</font></strong><font style="color:rgb(44, 62, 80);">，将第二个操作（删除缓存）要操作的数据加入到消息队列，由消费者来操作数据。保证并发能力的同时又一定程度的避免缓存删除失败出现的缓存数据不一致</font></p>
+<ul>
+<li><font style="color:rgb(44, 62, 80);">如果应用</font><strong><font style="color:rgb(48, 79, 254);">删除缓存失败</font></strong><font style="color:rgb(44, 62, 80);">，可以从消息队列中重新读取数据，然后再次删除缓存，这个就是</font><strong><font style="color:rgb(48, 79, 254);">重试机制</font></strong><font style="color:rgb(44, 62, 80);">。当然，如果重试超过的一定次数，还是没有成功，我们就需要向业务层发送报错信息了。</font></li>
+<li><font style="color:rgb(44, 62, 80);">如果</font><strong><font style="color:rgb(48, 79, 254);">删除缓存成功</font></strong><font style="color:rgb(44, 62, 80);">，就要把数据从消息队列中移除，避免重复操作，否则就继续重试。</font></li>
+</ul>
+<p>缺点：<font style="color:rgb(44, 62, 80);">对代码入侵性比较强，因为需要改造原本业务的代码。</font></p>
+<h5 id="订阅mysql-binlog，再操作删除"><a href="#订阅mysql-binlog，再操作删除" class="headerlink" title="订阅mysql binlog，再操作删除"></a>订阅mysql binlog，再操作删除</h5><p><font style="color:rgb(44, 62, 80);">「</font><strong><font style="color:rgb(48, 79, 254);">先更新数据库，再删缓存</font></strong><font style="color:rgb(44, 62, 80);">」的策略的第一步是更新数据库，那么更新数据库成功，就会产生一条变更日志，记录在 binlog 里。于是我们就可以通过订阅 binlog 日志，拿到具体要操作的数据，然后再执行缓存删除，阿里巴巴开源的 Canal 中间件就是基于这个实现的。</font></p>
+<h3 id="先删除缓存，再更新数据库"><a href="#先删除缓存，再更新数据库" class="headerlink" title="先删除缓存，再更新数据库"></a><font style="color:rgb(44, 62, 80);">先删除缓存，再更新数据库</font></h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858396753-dfbe5a38-281c-45fc-bf86-d07ff31fe8ea.png"></p>
+<p>再来看看先删除缓存，再更新数据库</p>
+<p><font style="color:rgb(44, 62, 80);">假设某个用户的年龄是 20，请求 A 要更新用户年龄为 21，所以它会删除缓存中的内容。这时，另一个请求 B 要读取这个用户的年龄，它查询缓存发现未命中后，会从数据库中读取到年龄为 20，并且写入到缓存中，然后请求 A 继续更改数据库，将用户的年龄更新为 21。</font></p>
+<p><font style="color:rgb(44, 62, 80);">最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库的数据不一致。</font></p>
+<p><font style="color:rgb(44, 62, 80);">可以看到，</font><strong><font style="color:rgb(48, 79, 254);">先删除缓存，再更新数据库，在「读 + 写」并发的时候，还是会出现缓存和数据库的数据不一致的问题</font></strong><font style="color:rgb(44, 62, 80);">。</font></p>
+<h4 id="延迟双删"><a href="#延迟双删" class="headerlink" title="延迟双删"></a><font style="color:rgb(44, 62, 80);">延迟双删</font></h4><p><em>这个方案是有待商榷的，知识网上有这样的言论，在实际开发中可以忽略这个方案</em></p>
+<p><font style="color:rgb(44, 62, 80);">针对「先删除缓存，再更新数据库」方案在「读 + 写」并发请求而造成缓存不一致的解决办法是「</font><strong><font style="color:rgb(48, 79, 254);">延迟双删</font></strong><font style="color:rgb(44, 62, 80);">」。</font></p>
+<p><font style="color:rgb(44, 62, 80);">延迟双删实现的伪代码如下：</font></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760858663392-a7a0e5d3-72b5-4955-b3d6-a1ffa7830af4.png"></p>
+<p><font style="color:rgb(44, 62, 80);">加了个睡眠时间，主要是为了确保请求 A 在睡眠的时候，请求 B 能够在这这一段时间完成「从数据库读取数据，再把缺失的缓存写入缓存」的操作，然后请求 A 睡眠完，再删除缓存。</font></p>
+<p><font style="color:rgb(44, 62, 80);">所以，请求 A 的睡眠时间就需要大于请求 B 「从数据库读取数据 + 写入缓存」的时间。</font></p>
+<p><font style="color:rgb(44, 62, 80);">但是这个睡眠时间就很难设定，设定太大了会导致并发能力下降，太小了就又会容易出现数据库缓存不一致问题，所以还是建议采用像更新数据库，再删除缓存的方案</font></p>
+<p><font style="color:rgb(44, 62, 80);"></font></p>
 
       
     </div>

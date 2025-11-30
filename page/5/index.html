@@ -137,7 +137,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">103</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -160,108 +160,6 @@
     </div>
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%8E%E7%A3%81%E7%9B%98%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3mysql_%E7%B4%A2%E5%BC%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="刘翰霖">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 刘翰霖">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/25/MySQL/%E7%B4%A2%E5%BC%95/%E4%BB%8E%E7%A3%81%E7%9B%98%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3mysql_%E7%B4%A2%E5%BC%95/" class="post-title-link" itemprop="url">从磁盘角度理解mysql 索引</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/MySQL/%E7%B4%A2%E5%BC%95/" itemprop="url" rel="index"><span itemprop="name">索引</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777445096-2722feb3-a908-442b-8dea-dcf575adf14a.png"></p>
-<h3 id="一、磁盘与-I-O-的基础概念"><a href="#一、磁盘与-I-O-的基础概念" class="headerlink" title="一、磁盘与 I&#x2F;O 的基础概念"></a>一、磁盘与 I&#x2F;O 的基础概念</h3><p>磁盘的最小读写单元是 <strong>扇区（Sector）</strong>，通常大小为 <strong>512 字节</strong>。<br>操作系统以 <strong>页（Page）</strong> 为单位读写数据（MySQL 默认页大小为 16KB）。</p>
-<p>为了方便理解，这里以扇区为例模拟磁盘读写。</p>
-<h3 id="二、没有索引时：全表扫描"><a href="#二、没有索引时：全表扫描" class="headerlink" title="二、没有索引时：全表扫描"></a>二、没有索引时：全表扫描</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777482567-fd59e418-8aa8-47d8-afcd-76d5f87e0138.png"></p>
-<p>假设：</p>
-<ul>
-<li>每行数据大小为 <strong>128 字节</strong>；</li>
-<li>一张表有 <strong>800 行数据</strong>；</li>
-<li>磁盘每个扇区大小为 <strong>512 字节</strong>。</li>
-</ul>
-<p> 总数据量为：  800 × 128 &#x3D; 102,400 字节</p>
-<p>每个扇区能存放：512 ÷ 128 &#x3D; 4 行数据</p>
-<p> 因此需要：  800 ÷ 4 &#x3D; 200 个扇区</p>
-<p> 如果没有索引，MySQL 查询时必须扫描全部 200 个扇区，也就是 <strong>200 次磁盘 I&#x2F;O</strong>。  </p>
-<h3 id="三、引入索引：减少磁盘-I-O"><a href="#三、引入索引：减少磁盘-I-O" class="headerlink" title="三、引入索引：减少磁盘 I&#x2F;O"></a>三、引入索引：减少磁盘 I&#x2F;O</h3><p>键值（key） → 数据所在磁盘页的地址（pointer）</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760777621855-077c911f-e2eb-416a-979c-0f0881d0654b.png"></p>
-<p>所以此时就就将200次磁盘io变为了现在索引中查找100*128&#x2F;512 在索引中找的的数据进行查找</p>
-<p>同样的我们可以在进行二级索引,三级索引…减少磁盘io</p>
-<h3 id="四、多级索引：B-Tree-结构的出现"><a href="#四、多级索引：B-Tree-结构的出现" class="headerlink" title="四、多级索引：B+Tree 结构的出现"></a>四、多级索引：B+Tree 结构的出现</h3><p>当索引记录本身也很大时（例如几百万条），<br>我们还可以在索引上再建索引 —— 即 <strong>多级索引</strong>。<br>这就形成了 MySQL 的 <strong>B+Tree 索引结构</strong>。</p>
-<p>每一层索引都存储下一层节点的磁盘地址。<br>通过分层目录结构，MySQL 可以在 3～4 次磁盘 I&#x2F;O 内定位到目标数据</p>
-<h3 id="五、B-Tree-查找过程示例"><a href="#五、B-Tree-查找过程示例" class="headerlink" title="五、B+Tree 查找过程示例"></a>五、B+Tree 查找过程示例</h3><p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760778577127-29a8bdf3-5ed7-4c0a-9de7-38c69ab412b9.png"></p>
-<h3 id="查找步骤："><a href="#查找步骤：" class="headerlink" title="查找步骤："></a>查找步骤：</h3><ol>
-<li>在根节点中找到 <code>33 &lt; 37 &lt; 65</code>，进入对应的下层节点；</li>
-<li>在第二层节点中锁定包含 37 的区间；</li>
-<li>到叶子节点中精确查找 <code>id=37</code>；</li>
-<li>如果是 <strong>聚簇索引</strong>，叶子节点直接存放数据；<br>如果是 <strong>二级索引</strong>，叶子节点存放主键值，再回表查找数据。</li>
-</ol>
-<p>🔹 访问树的每一层都需要一次磁盘 I&#x2F;O；<br>通常 B+Tree 高度为 3～4 层，<br>所以 MySQL 只需 3～4 次 I&#x2F;O 就能定位到任意记录。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2025/png/50543647/1760778600374-90c4805d-457c-470d-98c7-5f998a1856ef.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -2050,6 +1948,102 @@ FROM employees
 <li>可以通过 <code>**PARTITION BY**</code> 分组，并使用 <code>**ORDER BY**</code> 进行排序。</li>
 <li>它广泛应用于分页查询、去重、排序等场景。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/25/MySQL/%E8%BF%9E%E6%8E%A5%E6%B1%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="刘翰霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 刘翰霖">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/25/MySQL/%E8%BF%9E%E6%8E%A5%E6%B1%A0/" class="post-title-link" itemprop="url">连接池</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li>在springboot+mybatis 场景中，默认连接池是HikariCP（spring boot 默认DataSource），Mybatis 只是复用它</li>
+<li>连接池的优点</li>
+</ol>
+<ul>
+<li>** 复用连接，降低开销**：避免频繁 <code>TCP/TLS 握手 + 认证</code>，显著降低延迟。  </li>
+<li><strong>吞吐更稳</strong>：提前或按需维护一组可用连接，减少高峰期建连抖动。  </li>
+<li><strong>超时与容错统一</strong>：连接获取超时、校验超时、泄漏检测等集中可配，运维友好。</li>
+</ul>
+<h2 id="Mysql-的连接超时机制"><a href="#Mysql-的连接超时机制" class="headerlink" title="Mysql 的连接超时机制"></a>Mysql 的连接超时机制</h2><ul>
+<li><font style="color:rgb(44, 62, 80);">MySQL 定义了空闲连接的最大空闲时长,由 wait_timeout 参数控制,默认八小时,如果空闲连接超过了这个时间,连接器就会自动将它断开</font></li>
+<li><font style="color:rgb(44, 62, 80);">一个处于空闲状态的连接被服务端主动断开后，这个客户端并不会马上知道，等到客户端在发起下一个请求的时候，才会收到这样的报错“ERROR 2013 (HY000): Lost connection to MySQL server during query”。</font></li>
+</ul>
+<p>同时也要注意的是对于springboot 的默认连接池，如果在执行sql 的时候发现连接已经被sql 连接器中断，那么就会导致这个sql 执行报错<strong>不会重新连接</strong></p>
+<p><strong>如何解决这个问题</strong></p>
+<ol>
+<li>可以在连接池中设置先探活,死了就丢掉重新连接</li>
+<li>在MySql 中断连接之前,连接池主动下线旧连接</li>
+</ol>
+<p>注: 关于连接池主动下线旧连接会导致连接越来越少么?</p>
+<pre><code>	不会 连接池内配置了一个最大 ，最小连接数量,维护了一个区间
+</code></pre>
+<h2 id="MySQL-缓存机制"><a href="#MySQL-缓存机制" class="headerlink" title="MySQL 缓存机制"></a>MySQL 缓存机制</h2><p>在MySQL 中 有两种缓存，一种是server 层的缓存，一种是存储引擎层的缓存Buffer Pool</p>
+<ol>
+<li>server 层的缓存: MySQL 收到SQL语句后会解析是不是查询,如果是查询就先去查询缓存，查询缓存是以key-value 形式保存在内存中的，key 保存的是查询语句,value 是结果集,但是这个server 层的缓存很鸡肋,因为如果只要有一个表的数据更新了,那么这个表的所有缓存都会被删掉，所以MySQL 8.0之后删除了server 层缓存,之前的版本可以通过配置关掉</li>
+<li>buffer pool 缓存： 缓存的是<strong>数据页&#x2F;索引页</strong>（物理页），用来减少磁盘 I&#x2F;O。</li>
+</ol>
 
       
     </div>
